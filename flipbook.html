@@ -79,7 +79,7 @@
         /* Top Brand Header */
         .brand-header {
             text-align: center;
-            margin-bottom: 14px;
+            margin-bottom: 12px;
             color: #E6E1DA;
             animation: fadeIn 0.8s ease-out;
         }
@@ -97,6 +97,34 @@
             letter-spacing: 2.5px;
             text-transform: uppercase;
             color: #A39D94;
+        }
+
+        /* Quick Action Bar Under Header */
+        .top-action-bar {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+        .top-btn-pill {
+            background: rgba(30, 27, 24, 0.85);
+            border: 1px solid rgba(197, 160, 89, 0.4);
+            color: var(--accent-gold-light);
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 0.74rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            text-decoration: none;
+        }
+        .top-btn-pill:hover {
+            background: var(--accent-gold);
+            color: #1E1B18;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(197, 160, 89, 0.35);
         }
 
         /* 3D Flipbook Wrapper */
@@ -736,11 +764,11 @@
             border-radius: 40px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
             border: 1px solid rgba(197, 160, 89, 0.35);
             box-shadow: 0 10px 30px rgba(0,0,0,0.65);
             z-index: 1000;
-            max-width: calc(100vw - 20px);
+            max-width: calc(100vw - 16px);
         }
         .nav-btn {
             background: transparent;
@@ -768,6 +796,20 @@
             color: #1E1B18;
             font-weight: 600;
         }
+        .nav-btn.btn-booklet {
+            background: linear-gradient(135deg, #DFC48A 0%, #C5A059 100%);
+            color: #181614;
+            border-radius: 20px;
+            width: auto;
+            padding: 0 12px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            gap: 6px;
+        }
+        .nav-btn.btn-booklet:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(197, 160, 89, 0.6);
+        }
         .nav-page-indicator {
             color: var(--accent-gold-light);
             font-family: var(--font-serif);
@@ -775,7 +817,7 @@
             font-weight: 600;
             letter-spacing: 1.5px;
             padding: 0 6px;
-            min-width: 72px;
+            min-width: 68px;
             text-align: center;
             flex-shrink: 0;
         }
@@ -882,7 +924,7 @@
             border: 1px solid rgba(197, 160, 89, 0.4);
             border-radius: 12px;
             padding: 26px 22px;
-            max-width: 460px;
+            max-width: 480px;
             width: 100%;
             box-shadow: 0 20px 50px rgba(0,0,0,0.9);
             text-align: center;
@@ -898,7 +940,7 @@
         .export-modal-box p {
             font-size: 0.8rem;
             color: #BBB4A8;
-            margin-bottom: 18px;
+            margin-bottom: 16px;
             line-height: 1.45;
         }
         .export-options-grid {
@@ -909,7 +951,7 @@
         .export-opt-btn {
             background: rgba(255,255,255,0.06);
             border: 1px solid rgba(197, 160, 89, 0.25);
-            padding: 12px 16px;
+            padding: 12px 14px;
             border-radius: 8px;
             color: #FFF;
             text-decoration: none;
@@ -929,8 +971,16 @@
         .export-opt-btn:hover i {
             color: #1E1B18;
         }
+        .export-opt-btn.highlight-opt {
+            background: rgba(197, 160, 89, 0.15);
+            border: 1px solid var(--accent-gold);
+        }
+        .export-opt-btn.highlight-opt:hover {
+            background: var(--accent-gold);
+            color: #1E1B18;
+        }
         .export-opt-btn i {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             color: var(--accent-gold);
             width: 28px;
             text-align: center;
@@ -938,7 +988,7 @@
         }
         .export-opt-btn strong {
             display: block;
-            font-size: 0.88rem;
+            font-size: 0.86rem;
             margin-bottom: 2px;
         }
         .export-opt-btn span {
@@ -960,7 +1010,86 @@
             color: #FFF;
         }
 
-        /* Sound notification toast */
+        /* BOOKLET PREVIEW MODAL */
+        .booklet-preview-modal-box {
+            max-width: 820px;
+            width: 95%;
+            max-height: 90vh;
+            overflow-y: auto;
+            padding: 24px;
+        }
+        .booklet-sheets-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+            margin: 16px 0;
+            text-align: left;
+        }
+        .booklet-sheet-card {
+            background: #141210;
+            border: 1px solid rgba(197, 160, 89, 0.3);
+            border-radius: 8px;
+            padding: 12px 14px;
+        }
+        .booklet-sheet-header {
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--accent-gold-light);
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .booklet-sides-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+        .booklet-side-box {
+            background: rgba(255,255,255,0.04);
+            border: 1px dashed rgba(197, 160, 89, 0.3);
+            border-radius: 6px;
+            padding: 8px;
+            text-align: center;
+        }
+        .booklet-side-title {
+            font-size: 0.7rem;
+            color: #AAA;
+            margin-bottom: 6px;
+            font-weight: 600;
+        }
+        .booklet-page-pair {
+            display: flex;
+            gap: 4px;
+            height: 55px;
+        }
+        .booklet-mini-page {
+            flex: 1;
+            background: var(--bg-cream);
+            color: #222;
+            border-radius: 4px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.68rem;
+            font-weight: 700;
+            border: 1px solid rgba(0,0,0,0.1);
+        }
+        .booklet-mini-page.cover-mini {
+            background: #242220;
+            color: var(--accent-gold);
+        }
+        .booklet-mini-page span {
+            font-size: 0.58rem;
+            font-weight: normal;
+            color: #777;
+        }
+        .booklet-mini-page.cover-mini span {
+            color: #BBB;
+        }
+
+        /* Toast Message */
         .toast-msg {
             position: fixed;
             top: 18px;
@@ -994,19 +1123,26 @@
         /* Responsive scaling */
         @media (max-width: 768px) {
             body { padding: 8px 6px 76px; }
-            .brand-header { margin-bottom: 8px; }
+            .brand-header { margin-bottom: 6px; }
             .brand-header h1 { font-size: 1.25rem; letter-spacing: 4px; }
             .brand-header p { font-size: 0.68rem; letter-spacing: 1.5px; }
             .page-content { padding: 22px 18px 18px; }
-            .bottom-nav-bar { padding: 5px 10px; gap: 5px; bottom: 12px; }
-            .nav-btn { width: 32px; height: 32px; font-size: 0.85rem; }
-            .nav-page-indicator { font-size: 0.78rem; min-width: 60px; padding: 0 4px; }
+            .bottom-nav-bar { padding: 5px 8px; gap: 4px; bottom: 10px; }
+            .nav-btn { width: 30px; height: 30px; font-size: 0.8rem; }
+            .nav-btn.btn-booklet { padding: 0 9px; font-size: 0.72rem; }
+            .nav-page-indicator { font-size: 0.76rem; min-width: 56px; padding: 0 2px; }
             .cover-title { font-size: 1.85rem; }
             .cover-gold-badge { width: 60px; height: 60px; font-size: 1.5rem; margin-bottom: 14px; }
             .cover-script { font-size: 1.7rem; }
             .welcome-photo { height: 180px; }
             .exp-grid-flip { grid-template-columns: repeat(2, 1fr); gap: 6px; }
             .exp-card-flip img { height: 68px; }
+            .booklet-sides-row { grid-template-columns: 1fr; }
+        }
+
+        /* ================= BOOKLET PRINT CONTAINER ================= */
+        .booklet-print-container {
+            display: none;
         }
 
         /* ================= PRINT & PDF EXPORT STYLES ================= */
@@ -1029,16 +1165,79 @@
                 overflow: visible !important;
                 display: block !important;
             }
-            .brand-header, .bottom-nav-bar, .thumbnail-drawer, .export-modal-overlay, .toast-msg, .book-shadow-decor, .cover-hint {
+
+            /* HIDE STANDARD UI */
+            .brand-header, .top-action-bar, .bottom-nav-bar, .thumbnail-drawer, .export-modal-overlay, .toast-msg, .book-shadow-decor, .cover-hint {
                 display: none !important;
             }
-            .stage-container,
-            .flipbook-viewport,
-            .flipbook-container,
-            .stf__parent,
-            .stf__wrapper,
-            .stf__block,
-            .stf__item {
+
+            /* ================= MODE 1: BOOKLET IMPOSITION PRINT ================= */
+            body.print-mode-booklet .stage-container {
+                display: none !important;
+            }
+            body.print-mode-booklet .booklet-print-container {
+                display: block !important;
+                width: 100% !important;
+                height: auto !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+            body.print-mode-booklet .booklet-sheet {
+                width: 100vw !important;
+                height: 100vh !important;
+                max-height: 100vh !important;
+                display: flex !important;
+                flex-direction: row !important;
+                page-break-after: always !important;
+                break-after: page !important;
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+                box-sizing: border-box !important;
+                padding: 0 !important;
+                margin: 0 !important;
+                background-color: #F7F5F0 !important;
+                position: relative !important;
+            }
+            body.print-mode-booklet .booklet-half {
+                width: 50% !important;
+                height: 100% !important;
+                box-sizing: border-box !important;
+                overflow: hidden !important;
+                display: flex !important;
+                flex-direction: column !important;
+                position: relative !important;
+            }
+            body.print-mode-booklet .booklet-fold-line {
+                position: absolute !important;
+                top: 0 !important;
+                bottom: 0 !important;
+                left: 50% !important;
+                width: 1px !important;
+                border-right: 1px dashed rgba(0,0,0,0.12) !important;
+                z-index: 10 !important;
+            }
+            body.print-mode-booklet .booklet-half .page {
+                width: 100% !important;
+                height: 100% !important;
+                box-shadow: none !important;
+                border: none !important;
+                padding: 28px 36px 20px !important;
+                display: flex !important;
+                flex-direction: column !important;
+                justify-content: space-between !important;
+            }
+            body.print-mode-booklet .booklet-half .page-cover {
+                padding: 35px 25px !important;
+            }
+
+            /* ================= MODE 2: STANDARD 12 PAGES PRINT ================= */
+            body:not(.print-mode-booklet) .stage-container,
+            body:not(.print-mode-booklet) .flipbook-viewport,
+            body:not(.print-mode-booklet) .flipbook-container,
+            body:not(.print-mode-booklet) .stf__parent,
+            body:not(.print-mode-booklet) .stf__wrapper,
+            body:not(.print-mode-booklet) .stf__block,
+            body:not(.print-mode-booklet) .stf__item {
                 position: static !important;
                 display: block !important;
                 width: 100% !important;
@@ -1056,7 +1255,7 @@
                 padding: 0 !important;
                 border: none !important;
             }
-            .page {
+            body:not(.print-mode-booklet) .page {
                 position: relative !important;
                 display: flex !important;
                 flex-direction: column !important;
@@ -1076,7 +1275,7 @@
                 border: none !important;
                 overflow: hidden !important;
             }
-            .page-cover {
+            body:not(.print-mode-booklet) .page-cover {
                 background: #181614 !important;
                 color: #FFFFFF !important;
                 padding: 40px !important;
@@ -1085,97 +1284,6 @@
                 justify-content: center !important;
                 align-items: center !important;
                 text-align: center !important;
-            }
-            .cover-inner {
-                margin: auto !important;
-                display: flex !important;
-                flex-direction: column !important;
-                align-items: center !important;
-                justify-content: center !important;
-                text-align: center !important;
-            }
-            .cover-gold-badge {
-                margin: 0 auto 20px auto !important;
-                background: rgba(30, 27, 24, 0.8) !important;
-            }
-            .cover-title { color: #DFC48A !important; }
-            .cover-subtitle { color: #BBB4A8 !important; }
-            .cover-script { color: #E2DBD0 !important; }
-            .cover-location {
-                color: #A39D94 !important;
-                border-top: 1px solid rgba(197, 160, 89, 0.4) !important;
-                margin: 30px auto 0 auto !important;
-            }
-            .page-content {
-                height: 100% !important;
-                padding: 0 !important;
-                display: flex !important;
-                flex-direction: column !important;
-                justify-content: space-between !important;
-            }
-            .page-body-center {
-                flex: 1 !important;
-                display: flex !important;
-                flex-direction: column !important;
-                justify-content: center !important;
-                margin: auto 0 !important;
-                width: 100% !important;
-            }
-            .welcome-photo {
-                height: 250px !important;
-                width: 100% !important;
-                object-fit: cover !important;
-                border-radius: 6px !important;
-            }
-            .wifi-luxury-box {
-                background: #242220 !important;
-                color: #FFF !important;
-                padding: 24px !important;
-            }
-            .room-mini-list {
-                display: flex !important;
-                flex-direction: column !important;
-                gap: 12px !important;
-            }
-            .room-mini-item {
-                display: flex !important;
-                flex-direction: row !important;
-                background: #FFF !important;
-                padding: 10px 14px !important;
-            }
-            .room-mini-img {
-                width: 130px !important;
-                height: 90px !important;
-            }
-            .amenity-grid-luxury {
-                display: grid !important;
-                grid-template-columns: 1fr 1fr !important;
-                gap: 12px !important;
-            }
-            .bbq-card-vertical {
-                background: #242220 !important;
-                color: #FFF !important;
-            }
-            .bbq-card-vertical img {
-                height: 160px !important;
-            }
-            .exp-grid-flip {
-                display: grid !important;
-                grid-template-columns: repeat(4, 1fr) !important;
-                gap: 10px !important;
-            }
-            .exp-card-flip img {
-                height: 85px !important;
-            }
-            .daytrip-card-vertical img {
-                height: 200px !important;
-            }
-            .flip-list li {
-                background: #FFF !important;
-            }
-            .page-footer {
-                margin-top: 10px !important;
-                padding-top: 8px !important;
             }
         }
     </style>
@@ -1189,6 +1297,13 @@
     <div class="brand-header">
         <h1>GAJO'S HOUSE</h1>
         <p>3D Interactive Catalogue &bull; Hoài Nhơn, Bình Định</p>
+    </div>
+
+    <!-- Top Action Buttons -->
+    <div class="top-action-bar">
+        <button class="top-btn-pill" onclick="openBookletModal()"><i class="fa-solid fa-book-open"></i> In Booklet 2 Mặt (1-12, 2-11...)</button>
+        <a href="https://zalo.me/0902286300" target="_blank" class="top-btn-pill"><i class="fa-solid fa-comments"></i> Đặt Phòng Zalo</a>
+        <a href="tel:0902286300" class="top-btn-pill"><i class="fa-solid fa-phone"></i> 0902 286 300</a>
     </div>
 
     <!-- 3D Flipbook Viewport -->
@@ -1754,63 +1869,161 @@
     <div class="nav-page-indicator" id="pageIndicator">01 / 12</div>
     <button class="nav-btn" id="nextBtn" title="Trang sau (Phím Mũi tên Phải)"><i class="fa-solid fa-chevron-right"></i></button>
     <div class="divider-vert"></div>
+    <!-- Nút In / Tải Booklet A4 2 Mặt -->
+    <button class="nav-btn btn-booklet" id="bookletQuickBtn" title="In / Tải Booklet A4 2 Mặt (1-12, 2-11...)"><i class="fa-solid fa-book-open"></i> In Booklet</button>
     <button class="nav-btn" id="thumbToggleBtn" title="Xem tất cả trang"><i class="fa-solid fa-table-cells-large"></i></button>
     <button class="nav-btn" id="soundToggleBtn" title="Bật/Tắt âm thanh lật sách"><i class="fa-solid fa-volume-high"></i></button>
     <button class="nav-btn" id="fullscreenBtn" title="Toàn màn hình"><i class="fa-solid fa-expand"></i></button>
-    <a href="https://zalo.me/0902286300" target="_blank" class="nav-btn" title="Liên hệ Zalo đặt phòng"><i class="fa-solid fa-comments"></i></a>
-    <a href="tel:0902286300" class="nav-btn" title="Gọi Hotline lễ tân"><i class="fa-solid fa-phone"></i></a>
     <div class="divider-vert"></div>
-    <!-- Nút Download / In ấn / Chia sẻ -->
+    <!-- Nút Menu Xuất Bản & Tải Về -->
     <button class="nav-btn btn-highlight" id="exportBtn" title="Tải về, In ấn &amp; Chia sẻ"><i class="fa-solid fa-cloud-arrow-down"></i></button>
 </div>
 
-<!-- EXPORT & DOWNLOAD MODAL DIALOG -->
+<!-- EXPORT & DOWNLOAD MAIN MODAL DIALOG -->
 <div class="export-modal-overlay" id="exportModal">
     <div class="export-modal-box">
         <button class="modal-close-btn" id="closeExportModal">&times;</button>
-        <i class="fa-solid fa-circle-check" style="font-size:2.2rem; color:var(--accent-gold); margin-bottom:10px; display:inline-block;"></i>
-        <h3>TIỆN ÍCH &amp; XUẤT BẢN</h3>
-        <p>Chọn thao tác bạn muốn thực hiện cho Catalogue GAJO's HOUSE:</p>
+        <i class="fa-solid fa-book-bookmark" style="font-size:2.2rem; color:var(--accent-gold); margin-bottom:8px; display:inline-block;"></i>
+        <h3>TẢI VỀ &amp; IN ẤN CATALOGUE</h3>
+        <p>Chọn phương thức xuất bản phù hợp với nhu cầu của bạn:</p>
 
         <div class="export-options-grid">
-            <!-- Option 1: In trực tiếp / Xuất PDF -->
-            <div class="export-opt-btn" onclick="triggerPrintPDF()">
-                <i class="fa-solid fa-file-pdf"></i>
+            <!-- Option 1: In Booklet Gấp Đôi 2 Mặt (Saddle Stitch Imposition) -->
+            <div class="export-opt-btn highlight-opt" onclick="openBookletModal()">
+                <i class="fa-solid fa-book-open"></i>
                 <div>
-                    <strong>In / Xuất File PDF Sắc Nét (A4 Khổ Ngang)</strong>
-                    <span>Tự động căn chỉnh 12 trang chuẩn in catalogue cao cấp</span>
+                    <strong>In / Xuất Bản Booklet A4 2 Mặt (1-12, 2-11...)</strong>
+                    <span>Chuẩn 3 tờ A4 in 2 mặt &bull; Gấp đôi ở giữa thành cuốn sách A5 hoàn hảo</span>
                 </div>
             </div>
 
-            <!-- Option 2: Sao chép link chia sẻ -->
+            <!-- Option 2: In Trang Đơn Liên Tục -->
+            <div class="export-opt-btn" onclick="triggerPrintStandardPDF()">
+                <i class="fa-solid fa-file-pdf"></i>
+                <div>
+                    <strong>In / Xuất PDF 12 Trang Đơn Liên Tục (A4 Landscape)</strong>
+                    <span>Tự động căn chỉnh từng trang riêng biệt sắc nét cao</span>
+                </div>
+            </div>
+
+            <!-- Option 3: Sao chép link chia sẻ -->
             <div class="export-opt-btn" onclick="copyShareLink()">
                 <i class="fa-solid fa-share-nodes"></i>
                 <div>
-                    <strong>Sao Chép Link 3D Flipbook Gửi Khách</strong>
-                    <span>Chia sẻ nhanh qua Zalo, Facebook, SMS cho bạn bè</span>
+                    <strong>Sao Chép Link 3D Flipbook Gửi Khách Hàng</strong>
+                    <span>Chia sẻ nhanh qua Zalo, Facebook, SMS cho khách xem online</span>
                 </div>
             </div>
 
-            <!-- Option 3: Đặt phòng Zalo -->
+            <!-- Option 4: Đặt phòng Zalo -->
             <a href="https://zalo.me/0902286300" target="_blank" class="export-opt-btn">
                 <i class="fa-solid fa-comments"></i>
                 <div>
                     <strong>Liên Hệ Zalo Đặt Phòng Nhanh (0902 286 300)</strong>
-                    <span>Tư vấn phòng 24/7 &amp; nhận ưu đãi tốt nhất</span>
-                </div>
-            </a>
-
-            <!-- Option 4: Mở Google Maps chỉ đường -->
-            <a href="https://maps.app.goo.gl/jAWENgZvarDbmG7f6" target="_blank" class="export-opt-btn">
-                <i class="fa-solid fa-map-location-dot"></i>
-                <div>
-                    <strong>Chỉ Đường Đến Homestay Trên Google Maps</strong>
-                    <span>Định vị chính xác vị trí Hẻm 23 Phan Trọng Tuệ</span>
+                    <span>Tư vấn đặt phòng 24/7 &amp; hỗ trợ lưu trú chu đáo</span>
                 </div>
             </a>
         </div>
     </div>
 </div>
+
+<!-- BOOKLET PREVIEW & PRINT MODAL DIALOG -->
+<div class="export-modal-overlay" id="bookletModal">
+    <div class="export-modal-box booklet-preview-modal-box">
+        <button class="modal-close-btn" id="closeBookletModal">&times;</button>
+        <i class="fa-solid fa-print" style="font-size:2.2rem; color:var(--accent-gold); margin-bottom:6px; display:inline-block;"></i>
+        <h3>BẢN IN BOOKLET GẤP ĐÔI (3 TỜ A4 - 2 MẶT)</h3>
+        <p style="margin-bottom:10px;">
+            Mỗi tờ A4 in 2 mặt (4 trang). Khi in chọn <strong>"In 2 mặt / Lật cạnh ngắn (Flip on short edge)"</strong> rồi xếp chồng và gấp đôi ở giữa để tạo thành cuốn catalogue A5 12 trang hoàn chỉnh:
+        </p>
+
+        <div class="booklet-sheets-grid">
+            <!-- SHEET 1 -->
+            <div class="booklet-sheet-card">
+                <div class="booklet-sheet-header">
+                    <span><i class="fa-regular fa-file"></i> TỜ 1 (Bìa ngoài &amp; Lời ngỏ)</span>
+                    <span style="color:var(--accent-gold); font-size:0.7rem;">Mặt 1: [12 | 1] &bull; Mặt 2: [2 | 11]</span>
+                </div>
+                <div class="booklet-sides-row">
+                    <div class="booklet-side-box">
+                        <div class="booklet-side-title">MẶT TRƯỚC (Mặt ngoài)</div>
+                        <div class="booklet-page-pair">
+                            <div class="booklet-mini-page cover-mini">12<span>Bìa Sau</span></div>
+                            <div class="booklet-mini-page cover-mini">01<span>Bìa Trước</span></div>
+                        </div>
+                    </div>
+                    <div class="booklet-side-box">
+                        <div class="booklet-side-title">MẶT SAU (Mặt trong)</div>
+                        <div class="booklet-page-pair">
+                            <div class="booklet-mini-page">02<span>Lời Ngỏ</span></div>
+                            <div class="booklet-mini-page">11<span>Cảm Ơn &amp; QR</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SHEET 2 -->
+            <div class="booklet-sheet-card">
+                <div class="booklet-sheet-header">
+                    <span><i class="fa-regular fa-file"></i> TỜ 2 (Thông tin phòng &amp; Mẹo hay)</span>
+                    <span style="color:var(--accent-gold); font-size:0.7rem;">Mặt 1: [10 | 3] &bull; Mặt 2: [4 | 9]</span>
+                </div>
+                <div class="booklet-sides-row">
+                    <div class="booklet-side-box">
+                        <div class="booklet-side-title">MẶT TRƯỚC</div>
+                        <div class="booklet-page-pair">
+                            <div class="booklet-mini-page">10<span>Checklist</span></div>
+                            <div class="booklet-mini-page">03<span>Stay &amp; WiFi</span></div>
+                        </div>
+                    </div>
+                    <div class="booklet-side-box">
+                        <div class="booklet-side-title">MẶT SAU</div>
+                        <div class="booklet-page-pair">
+                            <div class="booklet-mini-page">04<span>Phòng Nghỉ</span></div>
+                            <div class="booklet-mini-page">09<span>Mẹo Hay</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SHEET 3 -->
+            <div class="booklet-sheet-card">
+                <div class="booklet-sheet-header">
+                    <span><i class="fa-regular fa-file"></i> TỜ 3 (Tiện nghi &amp; Trải nghiệm giữa sách)</span>
+                    <span style="color:var(--accent-gold); font-size:0.7rem;">Mặt 1: [8 | 5] &bull; Mặt 2: [6 | 7]</span>
+                </div>
+                <div class="booklet-sides-row">
+                    <div class="booklet-side-box">
+                        <div class="booklet-side-title">MẶT TRƯỚC</div>
+                        <div class="booklet-page-pair">
+                            <div class="booklet-mini-page">08<span>Daytrip Đèo</span></div>
+                            <div class="booklet-mini-page">05<span>Tiện Nghi</span></div>
+                        </div>
+                    </div>
+                    <div class="booklet-side-box">
+                        <div class="booklet-side-title">MẶT SAU (Gấp giữa)</div>
+                        <div class="booklet-page-pair">
+                            <div class="booklet-mini-page">06<span>Nhà Gạo</span></div>
+                            <div class="booklet-mini-page">07<span>8 Điểm Đến</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:14px;">
+            <button class="top-btn-pill" style="background:var(--accent-gold); color:#1E1B18; font-weight:700; padding:10px 20px; font-size:0.86rem;" onclick="triggerPrintBookletPDF()">
+                <i class="fa-solid fa-print"></i> In / Xuất PDF Booklet Ngay (3 Tờ A4)
+            </button>
+            <button class="top-btn-pill" style="padding:10px 18px; font-size:0.86rem;" onclick="triggerPrintStandardPDF()">
+                <i class="fa-solid fa-file-pdf"></i> In Bản Trang Đơn (12 Trang)
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- BOOKLET PRINT DOM CONTAINER (AUTOMATICALLY GENERATED ON PRINT) -->
+<div class="booklet-print-container" id="bookletPrintContainer"></div>
 
 <script>
     let pageFlip = null;
@@ -1863,7 +2076,7 @@
         const toast = document.getElementById('toast');
         toast.innerText = msg;
         toast.classList.add('show');
-        setTimeout(() => toast.classList.remove('show'), 2200);
+        setTimeout(() => toast.classList.remove('show'), 2400);
     }
 
     function copyText(text, successMsg) {
@@ -1900,12 +2113,92 @@
         copyText(window.location.href, "Đã sao chép link Catalogue GAJO's HOUSE!");
     }
 
-    function triggerPrintPDF() {
+    // Modal Control Functions
+    function openBookletModal() {
         document.getElementById('exportModal').classList.remove('active');
+        document.getElementById('bookletModal').classList.add('active');
+    }
+
+    function closeAllModals() {
+        document.getElementById('exportModal').classList.remove('active');
+        document.getElementById('bookletModal').classList.remove('active');
+    }
+
+    // BUILD BOOKLET DOM FOR PRINTING 3 SHEETS (6 SIDES: 12|1, 2|11, 10|3, 4|9, 8|5, 6|7)
+    function buildBookletDOM() {
+        const pages = document.querySelectorAll('#flipbook .page');
+        if (pages.length < 12) return;
+
+        const container = document.getElementById('bookletPrintContainer');
+        container.innerHTML = '';
+
+        // Pairs of [LeftPage, RightPage]
+        const pairs = [
+            [12, 1],  // Sheet 1 Front
+            [2, 11],  // Sheet 1 Back
+            [10, 3],  // Sheet 2 Front
+            [4, 9],   // Sheet 2 Back
+            [8, 5],   // Sheet 3 Front
+            [6, 7]    // Sheet 3 Back
+        ];
+
+        pairs.forEach((pair) => {
+            const sheetEl = document.createElement('div');
+            sheetEl.className = 'booklet-sheet';
+
+            // Left Half
+            const leftHalf = document.createElement('div');
+            leftHalf.className = 'booklet-half booklet-left';
+            const leftClone = pages[pair[0] - 1].cloneNode(true);
+            leftHalf.appendChild(leftClone);
+
+            // Fold guide line
+            const foldLine = document.createElement('div');
+            foldLine.className = 'booklet-fold-line';
+
+            // Right Half
+            const rightHalf = document.createElement('div');
+            rightHalf.className = 'booklet-half booklet-right';
+            const rightClone = pages[pair[1] - 1].cloneNode(true);
+            rightHalf.appendChild(rightClone);
+
+            sheetEl.appendChild(leftHalf);
+            sheetEl.appendChild(foldLine);
+            sheetEl.appendChild(rightHalf);
+
+            container.appendChild(sheetEl);
+        });
+    }
+
+    // TRIGGER PRINT BOOKLET (3 SHEETS / 6 SIDES)
+    function triggerPrintBookletPDF() {
+        buildBookletDOM();
+        document.body.classList.add('print-mode-booklet');
+        closeAllModals();
+
+        showToast("Đang chuẩn bị bản in Booklet 2 mặt (3 tờ A4)...");
+        setTimeout(() => {
+            window.print();
+            setTimeout(() => {
+                document.body.classList.remove('print-mode-booklet');
+            }, 1000);
+        }, 350);
+    }
+
+    // TRIGGER PRINT STANDARD 12 PAGES
+    function triggerPrintStandardPDF() {
+        document.body.classList.remove('print-mode-booklet');
+        closeAllModals();
+
+        showToast("Đang chuẩn bị bản in 12 trang đơn...");
         setTimeout(() => {
             window.print();
         }, 300);
     }
+
+    window.addEventListener('afterprint', () => {
+        document.body.classList.remove('print-mode-booklet');
+    });
 
     function getOptimalBookDimensions() {
         const isMobile = window.innerWidth <= 768;
@@ -1947,8 +2240,11 @@
         const soundToggleBtn = document.getElementById('soundToggleBtn');
         const fullscreenBtn = document.getElementById('fullscreenBtn');
         const exportBtn = document.getElementById('exportBtn');
+        const bookletQuickBtn = document.getElementById('bookletQuickBtn');
         const exportModal = document.getElementById('exportModal');
+        const bookletModal = document.getElementById('bookletModal');
         const closeExportModal = document.getElementById('closeExportModal');
+        const closeBookletModal = document.getElementById('closeBookletModal');
         const thumbItems = document.querySelectorAll('.thumb-item');
 
         const dims = getOptimalBookDimensions();
@@ -2017,15 +2313,24 @@
             }
         });
 
-        // Export Modal Events
+        // Export & Booklet Modal Events
         exportBtn.addEventListener('click', () => {
             exportModal.classList.add('active');
+        });
+        bookletQuickBtn.addEventListener('click', () => {
+            bookletModal.classList.add('active');
         });
         closeExportModal.addEventListener('click', () => {
             exportModal.classList.remove('active');
         });
+        closeBookletModal.addEventListener('click', () => {
+            bookletModal.classList.remove('active');
+        });
         exportModal.addEventListener('click', (e) => {
             if (e.target === exportModal) exportModal.classList.remove('active');
+        });
+        bookletModal.addEventListener('click', (e) => {
+            if (e.target === bookletModal) bookletModal.classList.remove('active');
         });
 
         // Toggle Sound
