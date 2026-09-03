@@ -2,10 +2,11 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>GAJO'S HOUSE - 3D Flipbook Catalogue</title>
     <meta name="description" content="Khám phá không gian lưu trú boutique phong cách Japandi và cẩm nang du lịch Hoài Nhơn, Bình Định cùng GAJO's HOUSE.">
     <meta name="theme-color" content="#181614">
+    <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta property="og:title" content="GAJO'S HOUSE - 3D Flipbook Catalogue">
@@ -39,7 +40,7 @@
             --accent-gold-light: #DFC48A;
             --accent-sage: #5F7D70;
             --font-serif: 'Playfair Display', Georgia, serif;
-            --font-sans: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-sans: 'Montserrat', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             --font-script: 'Dancing Script', cursive;
             --font-display: 'Cinzel', serif;
         }
@@ -49,20 +50,29 @@
             padding: 0;
             box-sizing: border-box;
             -webkit-font-smoothing: antialiased;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html, body {
+            width: 100%;
+            min-height: 100vh;
+            min-height: 100dvh;
+            -webkit-text-size-adjust: 100%;
+            overscroll-behavior-y: none;
         }
 
         body {
             font-family: var(--font-sans);
             color: var(--text-dark);
             background: radial-gradient(circle at center, #262422 0%, #11100F 100%);
-            min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             overflow-x: hidden;
-            padding: 12px 10px 88px;
+            padding: 8px 6px calc(76px + env(safe-area-inset-bottom, 0px));
             user-select: none;
+            touch-action: pan-y;
         }
 
         /* Ambient Room Lighting and Stage */
@@ -79,22 +89,22 @@
         /* Top Brand Header */
         .brand-header {
             text-align: center;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
             color: #E6E1DA;
             animation: fadeIn 0.8s ease-out;
         }
         .brand-header h1 {
             font-family: var(--font-display);
-            font-size: clamp(1.3rem, 2.4vw, 2.1rem);
-            letter-spacing: 5px;
+            font-size: clamp(1.2rem, 2.3vw, 2rem);
+            letter-spacing: 4px;
             color: var(--accent-gold-light);
             text-transform: uppercase;
-            margin-bottom: 3px;
+            margin-bottom: 2px;
             text-shadow: 0 2px 10px rgba(0,0,0,0.6);
         }
         .brand-header p {
-            font-size: 0.76rem;
-            letter-spacing: 2.5px;
+            font-size: 0.72rem;
+            letter-spacing: 2px;
             text-transform: uppercase;
             color: #A39D94;
         }
@@ -102,29 +112,30 @@
         /* Quick Action Bar Under Header */
         .top-action-bar {
             display: flex;
-            gap: 8px;
+            gap: 6px;
             justify-content: center;
-            margin-bottom: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 8px;
         }
         .top-btn-pill {
             background: rgba(30, 27, 24, 0.85);
             border: 1px solid rgba(197, 160, 89, 0.4);
             color: var(--accent-gold-light);
-            padding: 5px 14px;
+            padding: 4px 12px;
             border-radius: 20px;
-            font-size: 0.74rem;
+            font-size: 0.72rem;
             display: inline-flex;
             align-items: center;
-            gap: 6px;
+            gap: 5px;
             cursor: pointer;
             transition: all 0.25s ease;
             text-decoration: none;
+            touch-action: manipulation;
         }
-        .top-btn-pill:hover {
+        .top-btn-pill:active, .top-btn-pill:hover {
             background: var(--accent-gold);
             color: #1E1B18;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(197, 160, 89, 0.35);
+            transform: scale(0.98);
         }
 
         /* 3D Flipbook Wrapper */
@@ -139,9 +150,10 @@
 
         .flipbook-container {
             position: relative;
-            box-shadow: 0 30px 70px rgba(0,0,0,0.85), 0 10px 25px rgba(0,0,0,0.6);
+            box-shadow: 0 25px 65px rgba(0,0,0,0.85), 0 8px 20px rgba(0,0,0,0.6);
             border-radius: 6px;
             background: transparent;
+            touch-action: pan-y;
         }
 
         /* Spine realistic depth & shading */
@@ -152,7 +164,7 @@
             transform: translate(-50%, -50%);
             width: 102%;
             height: 102%;
-            box-shadow: 0 35px 85px rgba(0,0,0,0.95);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.95);
             pointer-events: none;
             border-radius: 8px;
             z-index: 0;
@@ -191,7 +203,7 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 35px 25px;
+            padding: 30px 20px;
             border: 1px solid #38342E;
             box-sizing: border-box;
             position: relative;
@@ -199,20 +211,20 @@
         .page-cover::before {
             content: '';
             position: absolute;
-            top: 14px;
-            left: 14px;
-            right: 14px;
-            bottom: 14px;
+            top: 12px;
+            left: 12px;
+            right: 12px;
+            bottom: 12px;
             border: 1px solid rgba(197, 160, 89, 0.45);
             pointer-events: none;
         }
         .page-cover::after {
             content: '';
             position: absolute;
-            top: 18px;
-            left: 18px;
-            right: 18px;
-            bottom: 18px;
+            top: 16px;
+            left: 16px;
+            right: 16px;
+            bottom: 16px;
             border: 1px dashed rgba(197, 160, 89, 0.25);
             pointer-events: none;
         }
@@ -230,59 +242,59 @@
         }
 
         .cover-gold-badge {
-            width: 75px;
-            height: 75px;
+            width: 68px;
+            height: 68px;
             border: 2px solid var(--accent-gold);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 20px auto;
+            margin: 0 auto 16px auto;
             color: var(--accent-gold);
-            font-size: 1.9rem;
+            font-size: 1.8rem;
             box-shadow: 0 0 25px rgba(197, 160, 89, 0.35);
             background: rgba(30, 27, 24, 0.6);
         }
         .cover-title {
             font-family: var(--font-display);
-            font-size: clamp(2rem, 3.4vw, 2.7rem);
-            letter-spacing: 7px;
+            font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+            letter-spacing: 6px;
             color: var(--accent-gold-light);
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             line-height: 1.2;
             text-align: center;
             text-shadow: 0 2px 8px rgba(0,0,0,0.5);
         }
         .cover-subtitle {
-            font-size: 0.82rem;
-            letter-spacing: 3.5px;
+            font-size: 0.78rem;
+            letter-spacing: 3px;
             text-transform: uppercase;
             color: #BBB4A8;
-            margin-bottom: 18px;
+            margin-bottom: 14px;
             text-align: center;
         }
         .cover-script {
             font-family: var(--font-script);
-            font-size: 2.1rem;
+            font-size: 1.95rem;
             color: #E2DBD0;
-            margin-top: 8px;
+            margin-top: 6px;
             text-align: center;
         }
         .cover-location {
-            margin-top: 32px;
-            font-size: 0.75rem;
-            letter-spacing: 2.4px;
+            margin-top: 26px;
+            font-size: 0.72rem;
+            letter-spacing: 2px;
             text-transform: uppercase;
             color: #A39D94;
             border-top: 1px solid rgba(197, 160, 89, 0.35);
-            padding-top: 14px;
+            padding-top: 12px;
             width: 82%;
             margin-left: auto;
             margin-right: auto;
             text-align: center;
         }
         .cover-hint {
-            margin-top: 14px;
+            margin-top: 12px;
             font-size: 0.68rem;
             letter-spacing: 1px;
             color: var(--accent-gold);
@@ -297,7 +309,7 @@
 
         /* INNER PAGE TYPOGRAPHY & BALANCED CENTER LAYOUT */
         .page-content {
-            padding: 32px 30px 24px;
+            padding: 26px 24px 20px;
             height: 100%;
             display: flex;
             flex-direction: column;
@@ -314,42 +326,42 @@
         }
         .page-header {
             text-align: center;
-            margin-bottom: 14px;
+            margin-bottom: 10px;
         }
         .page-eyebrow {
-            font-size: 0.7rem;
-            letter-spacing: 2.5px;
+            font-size: 0.68rem;
+            letter-spacing: 2.2px;
             text-transform: uppercase;
             color: var(--accent-gold);
             font-weight: 600;
-            margin-bottom: 4px;
+            margin-bottom: 3px;
         }
         .page-title {
             font-family: var(--font-serif);
-            font-size: clamp(1.5rem, 2.2vw, 1.95rem);
+            font-size: clamp(1.35rem, 2.1vw, 1.85rem);
             color: var(--text-dark);
             line-height: 1.25;
-            margin-bottom: 4px;
+            margin-bottom: 3px;
         }
         .page-desc {
-            font-size: 0.8rem;
+            font-size: 0.78rem;
             color: var(--text-muted);
-            line-height: 1.45;
+            line-height: 1.4;
         }
         .page-footer {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-size: 0.72rem;
+            font-size: 0.7rem;
             color: #9C968D;
             border-top: 1px solid rgba(0,0,0,0.07);
-            padding-top: 10px;
-            margin-top: 12px;
+            padding-top: 8px;
+            margin-top: 8px;
         }
         .page-number {
             font-family: var(--font-serif);
             font-weight: 700;
-            font-size: 0.85rem;
+            font-size: 0.82rem;
             color: var(--accent-gold);
         }
 
@@ -357,23 +369,24 @@
         .welcome-quote-box {
             background: rgba(255,255,255,0.9);
             border-left: 4px solid var(--accent-gold);
-            padding: 14px 18px;
+            padding: 12px 14px;
             border-radius: 0 6px 6px 0;
-            margin: 10px 0;
+            margin: 8px 0;
             font-style: italic;
-            font-size: 0.84rem;
+            font-size: 0.8rem;
             color: #4A4845;
-            line-height: 1.6;
+            line-height: 1.55;
             box-shadow: 0 2px 8px rgba(0,0,0,0.03);
         }
         .welcome-photo {
             width: 100%;
-            height: 220px;
+            height: 195px;
+            max-height: 28vh;
             object-fit: cover;
             border-radius: 6px;
-            box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+            box-shadow: 0 5px 16px rgba(0,0,0,0.08);
             border: 1px solid rgba(0,0,0,0.06);
-            margin-top: 10px;
+            margin-top: 8px;
             display: block;
         }
 
@@ -381,25 +394,25 @@
         .schedule-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            margin: 10px 0 14px;
+            gap: 10px;
+            margin: 8px 0 12px;
         }
         .schedule-card {
             background: var(--bg-white);
-            padding: 14px 12px;
+            padding: 12px 10px;
             border-radius: 6px;
             border: 1px solid rgba(0,0,0,0.07);
             text-align: center;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.03);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
         }
         .schedule-card h4 {
             font-family: var(--font-serif);
-            font-size: 1rem;
+            font-size: 0.92rem;
             color: var(--accent-gold);
-            margin-bottom: 4px;
+            margin-bottom: 2px;
         }
         .schedule-card .time {
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             font-weight: 700;
             color: var(--text-dark);
             margin-bottom: 2px;
@@ -407,16 +420,16 @@
         .wifi-luxury-box {
             background: var(--bg-dark);
             color: #FFF;
-            padding: 20px 18px;
+            padding: 16px 14px;
             border-radius: 8px;
             text-align: center;
             border: 1px solid rgba(197, 160, 89, 0.35);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+            box-shadow: 0 5px 18px rgba(0,0,0,0.15);
         }
         .wifi-luxury-box i.wifi-icon-main {
-            font-size: 2.3rem;
+            font-size: 2rem;
             color: var(--accent-gold);
-            margin-bottom: 6px;
+            margin-bottom: 4px;
             display: inline-block;
         }
         .wifi-row {
@@ -424,21 +437,21 @@
             justify-content: space-between;
             align-items: center;
             background: rgba(255,255,255,0.08);
-            padding: 9px 14px;
+            padding: 8px 12px;
             border-radius: 5px;
-            margin-top: 8px;
-            font-size: 0.84rem;
+            margin-top: 6px;
+            font-size: 0.8rem;
             transition: background 0.2s ease;
         }
         .wifi-row.clickable {
             cursor: pointer;
         }
-        .wifi-row.clickable:hover {
-            background: rgba(197, 160, 89, 0.2);
+        .wifi-row.clickable:active {
+            background: rgba(197, 160, 89, 0.3);
         }
         .wifi-row strong {
             color: var(--accent-gold-light);
-            font-size: 0.95rem;
+            font-size: 0.92rem;
             letter-spacing: 0.5px;
         }
 
@@ -446,22 +459,22 @@
         .room-mini-list {
             display: flex;
             flex-direction: column;
-            gap: 10px;
-            margin: 8px 0;
+            gap: 8px;
+            margin: 6px 0;
         }
         .room-mini-item {
             display: flex;
-            gap: 12px;
+            gap: 10px;
             background: var(--bg-white);
-            padding: 8px 10px;
+            padding: 7px 9px;
             border-radius: 6px;
             border: 1px solid rgba(0,0,0,0.06);
-            box-shadow: 0 3px 8px rgba(0,0,0,0.03);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.03);
             align-items: center;
         }
         .room-mini-img {
-            width: 110px;
-            height: 78px;
+            width: 95px;
+            height: 70px;
             border-radius: 4px;
             object-fit: cover;
             flex-shrink: 0;
@@ -473,22 +486,22 @@
             flex: 1;
         }
         .room-mini-tag {
-            font-size: 0.65rem;
+            font-size: 0.62rem;
             color: var(--accent-gold);
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.6px;
+            letter-spacing: 0.5px;
         }
         .room-mini-info h4 {
-            font-size: 0.94rem;
+            font-size: 0.88rem;
             color: var(--text-dark);
-            margin: 1px 0 2px;
+            margin: 1px 0;
             font-family: var(--font-serif);
         }
         .room-mini-info p {
-            font-size: 0.72rem;
+            font-size: 0.68rem;
             color: #666;
-            line-height: 1.35;
+            line-height: 1.3;
             margin: 0;
         }
 
@@ -496,87 +509,87 @@
         .amenity-grid-luxury {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            margin: 10px 0 14px;
+            gap: 8px;
+            margin: 8px 0 10px;
         }
         .amenity-item-box {
             background: var(--bg-white);
-            padding: 12px 10px;
+            padding: 10px 8px;
             border-radius: 6px;
             border: 1px solid rgba(0,0,0,0.05);
             display: flex;
             align-items: center;
-            gap: 10px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+            gap: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
         }
         .amenity-item-box i {
-            font-size: 1.35rem;
+            font-size: 1.25rem;
             color: var(--accent-gold);
-            width: 28px;
+            width: 24px;
             text-align: center;
             flex-shrink: 0;
         }
         .amenity-item-box h5 {
-            font-size: 0.82rem;
+            font-size: 0.78rem;
             color: var(--text-dark);
-            margin-bottom: 2px;
+            margin-bottom: 1px;
             font-weight: 600;
         }
         .amenity-item-box span {
-            font-size: 0.68rem;
+            font-size: 0.64rem;
             color: #888;
         }
         .amenity-quote-bottom {
             background: var(--bg-white);
             border-radius: 6px;
-            padding: 14px;
+            padding: 10px 12px;
             border: 1px solid rgba(0,0,0,0.05);
             text-align: center;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
         }
 
         /* PAGE 6: PLACES TO EAT & TIỆM NƯỚNG NHÀ GẠO */
         .bbq-card-vertical {
             background: var(--bg-dark);
             color: #FFF;
-            padding: 16px 14px;
+            padding: 12px 12px;
             border-radius: 8px;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             border: 1px solid rgba(197, 160, 89, 0.35);
-            box-shadow: 0 5px 18px rgba(0,0,0,0.12);
+            box-shadow: 0 4px 14px rgba(0,0,0,0.12);
         }
         .bbq-badge {
             background: var(--accent-gold);
             color: #111;
-            font-size: 0.66rem;
+            font-size: 0.62rem;
             font-weight: 700;
-            padding: 3px 9px;
-            border-radius: 12px;
+            padding: 2px 8px;
+            border-radius: 10px;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.4px;
             display: inline-block;
         }
         .bbq-card-vertical img {
             width: 100%;
-            height: 145px;
+            height: 130px;
             object-fit: cover;
             border-radius: 5px;
-            margin: 8px 0;
+            margin: 6px 0;
             display: block;
         }
         .bbq-card-vertical p {
-            font-size: 0.76rem;
+            font-size: 0.73rem;
             color: #E2DBD0;
-            line-height: 1.45;
-            margin-bottom: 8px;
+            line-height: 1.4;
+            margin-bottom: 6px;
         }
         .bbq-footer {
             display: flex;
             justify-content: space-between;
-            font-size: 0.74rem;
+            font-size: 0.72rem;
             color: var(--accent-gold-light);
             border-top: 1px solid rgba(255,255,255,0.12);
-            padding-top: 8px;
+            padding-top: 6px;
         }
         .bbq-link {
             color: var(--accent-gold-light);
@@ -585,16 +598,13 @@
             align-items: center;
             gap: 4px;
         }
-        .bbq-link:hover {
-            color: #FFF;
-        }
 
         /* PAGE 7: 8 TRẢI NGHIỆM LOANH QUANH HOÀI NHƠN */
         .exp-grid-flip {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 8px;
-            margin: 8px 0;
+            gap: 6px;
+            margin: 6px 0;
         }
         .exp-card-flip {
             background: var(--bg-white);
@@ -602,39 +612,34 @@
             overflow: hidden;
             border: 1px solid rgba(0,0,0,0.06);
             text-align: center;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
             display: flex;
             flex-direction: column;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-        .exp-card-flip:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
         }
         .exp-card-flip img {
             width: 100%;
-            height: 76px;
+            height: 70px;
             object-fit: cover;
             display: block;
         }
         .exp-card-flip-info {
-            padding: 5px 3px 6px;
+            padding: 4px 2px 5px;
             flex: 1;
             display: flex;
             flex-direction: column;
             justify-content: center;
         }
         .exp-card-flip-info h5 {
-            font-size: 0.68rem;
+            font-size: 0.65rem;
             font-weight: 700;
             color: var(--text-dark);
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
-            margin-bottom: 2px;
+            margin-bottom: 1px;
         }
         .exp-card-flip-info p {
-            font-size: 0.58rem;
+            font-size: 0.55rem;
             color: #777;
             margin: 0;
             white-space: nowrap;
@@ -648,16 +653,16 @@
             border-radius: 8px;
             overflow: hidden;
             border: 1px solid rgba(0,0,0,0.06);
-            box-shadow: 0 5px 16px rgba(0,0,0,0.06);
+            box-shadow: 0 4px 14px rgba(0,0,0,0.06);
         }
         .daytrip-card-vertical img {
             width: 100%;
-            height: 185px;
+            height: 165px;
             object-fit: cover;
             display: block;
         }
         .daytrip-card-body {
-            padding: 14px 16px;
+            padding: 12px 14px;
         }
 
         /* PAGE 9 & 10: TIPS & CHECKLIST */
@@ -665,38 +670,38 @@
             list-style: none;
             display: flex;
             flex-direction: column;
-            gap: 11px;
-            margin: 8px 0;
+            gap: 9px;
+            margin: 6px 0;
         }
         .flip-list li {
             display: flex;
             align-items: flex-start;
-            gap: 12px;
-            font-size: 0.82rem;
-            line-height: 1.5;
+            gap: 10px;
+            font-size: 0.78rem;
+            line-height: 1.45;
             background: var(--bg-white);
-            padding: 11px 12px;
+            padding: 9px 10px;
             border-radius: 6px;
             border: 1px solid rgba(0,0,0,0.05);
-            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
         }
         .flip-list-num {
-            width: 26px;
-            height: 26px;
+            width: 24px;
+            height: 24px;
             border-radius: 50%;
             background: var(--accent-gold);
             color: white;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.78rem;
+            font-size: 0.74rem;
             font-weight: 700;
             flex-shrink: 0;
         }
         .flip-checklist-icon {
             color: var(--accent-gold);
-            font-size: 1.25rem;
-            margin-top: 2px;
+            font-size: 1.2rem;
+            margin-top: 1px;
             flex-shrink: 0;
         }
 
@@ -710,63 +715,60 @@
             height: 100%;
         }
         .qr-frame {
-            padding: 8px;
+            padding: 7px;
             background: white;
             border-radius: 8px;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+            box-shadow: 0 5px 18px rgba(0,0,0,0.08);
             border: 1px solid rgba(197, 160, 89, 0.35);
-            margin: 12px 0 8px;
+            margin: 10px 0 6px;
             display: inline-flex;
             flex-direction: column;
             align-items: center;
             text-decoration: none;
-            transition: transform 0.2s ease;
+            touch-action: manipulation;
         }
-        .qr-frame:hover {
-            transform: scale(1.03);
+        .qr-frame:active {
+            transform: scale(0.98);
         }
         .qr-frame img {
-            width: 140px;
-            height: 140px;
+            width: 130px;
+            height: 130px;
             display: block;
         }
         .qr-tap-hint {
-            font-size: 0.65rem;
+            font-size: 0.62rem;
             color: var(--accent-gold);
-            margin-top: 4px;
+            margin-top: 3px;
             font-weight: 600;
         }
         .contact-info-block {
-            font-size: 0.78rem;
-            line-height: 1.55;
+            font-size: 0.74rem;
+            line-height: 1.5;
             color: #555;
-            margin-top: 6px;
+            margin-top: 4px;
         }
         .contact-info-block a {
             color: var(--text-dark);
             text-decoration: none;
             font-weight: 600;
         }
-        .contact-info-block a:hover {
-            color: var(--accent-gold);
-        }
 
         /* BOTTOM FLOATING CONTROLS */
         .bottom-nav-bar {
             position: fixed;
-            bottom: 16px;
+            bottom: max(10px, env(safe-area-inset-bottom, 10px));
             left: 50%;
             transform: translateX(-50%);
-            background: rgba(24, 22, 20, 0.94);
+            background: rgba(22, 20, 18, 0.95);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-            padding: 7px 16px;
+            padding: 6px 14px;
             border-radius: 40px;
             display: flex;
             align-items: center;
             gap: 8px;
             border: 1px solid rgba(197, 160, 89, 0.35);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.65);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.7);
             z-index: 1000;
             max-width: calc(100vw - 16px);
         }
@@ -782,14 +784,14 @@
             align-items: center;
             justify-content: center;
             font-size: 0.95rem;
-            transition: all 0.25s ease;
+            transition: all 0.2s ease;
             flex-shrink: 0;
             text-decoration: none;
+            touch-action: manipulation;
         }
-        .nav-btn:hover {
-            background: var(--accent-gold);
-            color: #1E1B18;
-            transform: scale(1.08);
+        .nav-btn:active {
+            transform: scale(0.92);
+            background: rgba(197, 160, 89, 0.3);
         }
         .nav-btn.btn-highlight {
             background: var(--accent-gold);
@@ -801,29 +803,25 @@
             color: #181614;
             border-radius: 20px;
             width: auto;
-            padding: 0 12px;
-            font-size: 0.78rem;
+            padding: 0 11px;
+            font-size: 0.74rem;
             font-weight: 700;
-            gap: 6px;
-        }
-        .nav-btn.btn-booklet:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 15px rgba(197, 160, 89, 0.6);
+            gap: 5px;
         }
         .nav-page-indicator {
             color: var(--accent-gold-light);
             font-family: var(--font-serif);
-            font-size: 0.88rem;
+            font-size: 0.85rem;
             font-weight: 600;
-            letter-spacing: 1.5px;
-            padding: 0 6px;
-            min-width: 68px;
+            letter-spacing: 1.2px;
+            padding: 0 4px;
+            min-width: 62px;
             text-align: center;
             flex-shrink: 0;
         }
         .divider-vert {
             width: 1px;
-            height: 20px;
+            height: 18px;
             background: rgba(255,255,255,0.15);
             flex-shrink: 0;
         }
@@ -831,24 +829,25 @@
         /* THUMBNAIL DRAWER */
         .thumbnail-drawer {
             position: fixed;
-            bottom: 72px;
+            bottom: calc(66px + env(safe-area-inset-bottom, 0px));
             left: 50%;
             transform: translateX(-50%) translateY(20px);
             background: rgba(20, 18, 16, 0.96);
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
-            padding: 12px 14px;
+            padding: 10px 12px;
             border-radius: 12px;
             border: 1px solid rgba(197, 160, 89, 0.35);
             display: flex;
-            gap: 10px;
+            gap: 8px;
             overflow-x: auto;
-            max-width: 94vw;
+            max-width: 95vw;
             box-shadow: 0 15px 40px rgba(0,0,0,0.85);
             opacity: 0;
             pointer-events: none;
             transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
             z-index: 999;
+            -webkit-overflow-scrolling: touch;
         }
         .thumbnail-drawer.active {
             opacity: 1;
@@ -860,15 +859,12 @@
             flex-direction: column;
             align-items: center;
             cursor: pointer;
-            transition: transform 0.2s;
             flex-shrink: 0;
-        }
-        .thumb-item:hover {
-            transform: translateY(-4px);
+            touch-action: manipulation;
         }
         .thumb-box {
-            width: 54px;
-            height: 74px;
+            width: 50px;
+            height: 68px;
             background: var(--bg-cream);
             border-radius: 4px;
             border: 1px solid rgba(255,255,255,0.2);
@@ -876,33 +872,33 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.7rem;
+            font-size: 0.68rem;
             color: #555;
             font-weight: 700;
         }
         .thumb-item.active .thumb-box {
             border: 2px solid var(--accent-gold);
-            box-shadow: 0 0 12px rgba(197, 160, 89, 0.65);
+            box-shadow: 0 0 10px rgba(197, 160, 89, 0.65);
         }
         .thumb-label {
-            font-size: 0.62rem;
+            font-size: 0.6rem;
             color: #A39D94;
-            margin-top: 4px;
+            margin-top: 3px;
             text-align: center;
-            max-width: 58px;
+            max-width: 54px;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
         }
 
-        /* EXPORT / PRINT MODAL */
+        /* MODALS */
         .export-modal-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100vw;
             height: 100vh;
-            background: rgba(0,0,0,0.78);
+            background: rgba(0,0,0,0.8);
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
             display: flex;
@@ -910,9 +906,9 @@
             justify-content: center;
             opacity: 0;
             pointer-events: none;
-            transition: all 0.3s ease;
+            transition: all 0.25s ease;
             z-index: 3000;
-            padding: 15px;
+            padding: 12px;
         }
         .export-modal-overlay.active {
             opacity: 1;
@@ -923,7 +919,7 @@
             color: #F7F5F0;
             border: 1px solid rgba(197, 160, 89, 0.4);
             border-radius: 12px;
-            padding: 26px 22px;
+            padding: 22px 18px;
             max-width: 480px;
             width: 100%;
             box-shadow: 0 20px 50px rgba(0,0,0,0.9);
@@ -933,109 +929,99 @@
         .export-modal-box h3 {
             font-family: var(--font-display);
             color: var(--accent-gold-light);
-            font-size: 1.3rem;
-            letter-spacing: 2px;
-            margin-bottom: 6px;
+            font-size: 1.2rem;
+            letter-spacing: 1.5px;
+            margin-bottom: 4px;
         }
         .export-modal-box p {
-            font-size: 0.8rem;
+            font-size: 0.78rem;
             color: #BBB4A8;
-            margin-bottom: 16px;
-            line-height: 1.45;
+            margin-bottom: 14px;
+            line-height: 1.4;
         }
         .export-options-grid {
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 8px;
         }
         .export-opt-btn {
             background: rgba(255,255,255,0.06);
             border: 1px solid rgba(197, 160, 89, 0.25);
-            padding: 12px 14px;
+            padding: 11px 12px;
             border-radius: 8px;
             color: #FFF;
             text-decoration: none;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
             cursor: pointer;
-            transition: all 0.25s ease;
             text-align: left;
+            touch-action: manipulation;
         }
-        .export-opt-btn:hover {
+        .export-opt-btn:active {
             background: var(--accent-gold);
-            color: #1E1B18;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(197, 160, 89, 0.3);
-        }
-        .export-opt-btn:hover i {
             color: #1E1B18;
         }
         .export-opt-btn.highlight-opt {
             background: rgba(197, 160, 89, 0.15);
             border: 1px solid var(--accent-gold);
         }
-        .export-opt-btn.highlight-opt:hover {
-            background: var(--accent-gold);
-            color: #1E1B18;
-        }
         .export-opt-btn i {
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             color: var(--accent-gold);
-            width: 28px;
+            width: 24px;
             text-align: center;
             flex-shrink: 0;
         }
         .export-opt-btn strong {
             display: block;
-            font-size: 0.86rem;
+            font-size: 0.84rem;
             margin-bottom: 2px;
         }
         .export-opt-btn span {
-            font-size: 0.72rem;
+            font-size: 0.7rem;
             opacity: 0.85;
         }
         .modal-close-btn {
             position: absolute;
-            top: 12px;
-            right: 14px;
+            top: 10px;
+            right: 12px;
             background: transparent;
             border: none;
             color: #A39D94;
             font-size: 1.3rem;
             cursor: pointer;
             line-height: 1;
-        }
-        .modal-close-btn:hover {
-            color: #FFF;
+            padding: 5px;
         }
 
         /* BOOKLET PREVIEW MODAL */
         .booklet-preview-modal-box {
-            max-width: 820px;
+            max-width: 800px;
             width: 95%;
-            max-height: 90vh;
+            max-height: 88vh;
             overflow-y: auto;
-            padding: 24px;
+            padding: 20px 16px;
+            -webkit-overflow-scrolling: touch;
         }
         .booklet-sheets-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 16px;
-            margin: 16px 0;
+            gap: 12px;
+            margin: 12px 0;
             text-align: left;
         }
         .booklet-sheet-card {
             background: #141210;
             border: 1px solid rgba(197, 160, 89, 0.3);
             border-radius: 8px;
-            padding: 12px 14px;
+            padding: 10px 12px;
         }
         .booklet-sheet-header {
-            font-size: 0.78rem;
+            font-size: 0.74rem;
             font-weight: 700;
             color: var(--accent-gold-light);
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -1043,25 +1029,25 @@
         .booklet-sides-row {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 12px;
+            gap: 8px;
         }
         .booklet-side-box {
             background: rgba(255,255,255,0.04);
             border: 1px dashed rgba(197, 160, 89, 0.3);
             border-radius: 6px;
-            padding: 8px;
+            padding: 6px;
             text-align: center;
         }
         .booklet-side-title {
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             color: #AAA;
-            margin-bottom: 6px;
+            margin-bottom: 4px;
             font-weight: 600;
         }
         .booklet-page-pair {
             display: flex;
             gap: 4px;
-            height: 55px;
+            height: 48px;
         }
         .booklet-mini-page {
             flex: 1;
@@ -1072,7 +1058,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            font-size: 0.68rem;
+            font-size: 0.64rem;
             font-weight: 700;
             border: 1px solid rgba(0,0,0,0.1);
         }
@@ -1081,7 +1067,7 @@
             color: var(--accent-gold);
         }
         .booklet-mini-page span {
-            font-size: 0.58rem;
+            font-size: 0.54rem;
             font-weight: normal;
             color: #777;
         }
@@ -1092,20 +1078,20 @@
         /* Toast Message */
         .toast-msg {
             position: fixed;
-            top: 18px;
+            top: 14px;
             left: 50%;
             transform: translateX(-50%) translateY(-20px);
             background: rgba(24, 22, 20, 0.96);
             color: var(--accent-gold-light);
-            padding: 8px 18px;
+            padding: 7px 16px;
             border-radius: 20px;
-            font-size: 0.76rem;
-            letter-spacing: 0.5px;
+            font-size: 0.74rem;
+            letter-spacing: 0.4px;
             border: 1px solid rgba(197, 160, 89, 0.35);
             box-shadow: 0 6px 20px rgba(0,0,0,0.5);
             opacity: 0;
             pointer-events: none;
-            transition: all 0.3s ease;
+            transition: all 0.25s ease;
             z-index: 4000;
             max-width: 90vw;
             text-align: center;
@@ -1120,23 +1106,23 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Responsive scaling */
+        /* ================= ANDROID & MOBILE SPECIFIC QUERIES ================= */
         @media (max-width: 768px) {
-            body { padding: 8px 6px 76px; }
-            .brand-header { margin-bottom: 6px; }
-            .brand-header h1 { font-size: 1.25rem; letter-spacing: 4px; }
-            .brand-header p { font-size: 0.68rem; letter-spacing: 1.5px; }
-            .page-content { padding: 22px 18px 18px; }
-            .bottom-nav-bar { padding: 5px 8px; gap: 4px; bottom: 10px; }
-            .nav-btn { width: 30px; height: 30px; font-size: 0.8rem; }
-            .nav-btn.btn-booklet { padding: 0 9px; font-size: 0.72rem; }
-            .nav-page-indicator { font-size: 0.76rem; min-width: 56px; padding: 0 2px; }
-            .cover-title { font-size: 1.85rem; }
-            .cover-gold-badge { width: 60px; height: 60px; font-size: 1.5rem; margin-bottom: 14px; }
-            .cover-script { font-size: 1.7rem; }
-            .welcome-photo { height: 180px; }
-            .exp-grid-flip { grid-template-columns: repeat(2, 1fr); gap: 6px; }
-            .exp-card-flip img { height: 68px; }
+            body { padding: 6px 4px calc(72px + env(safe-area-inset-bottom, 0px)); }
+            .brand-header { margin-bottom: 4px; }
+            .brand-header h1 { font-size: 1.15rem; letter-spacing: 3px; }
+            .brand-header p { font-size: 0.65rem; letter-spacing: 1px; }
+            .page-content { padding: 18px 14px 14px; }
+            .bottom-nav-bar { padding: 4px 8px; gap: 4px; bottom: max(8px, env(safe-area-inset-bottom, 8px)); }
+            .nav-btn { width: 32px; height: 32px; font-size: 0.85rem; }
+            .nav-btn.btn-booklet { padding: 0 8px; font-size: 0.7rem; height: 32px; }
+            .nav-page-indicator { font-size: 0.74rem; min-width: 52px; padding: 0 2px; }
+            .cover-title { font-size: 1.7rem; }
+            .cover-gold-badge { width: 55px; height: 55px; font-size: 1.4rem; margin-bottom: 10px; }
+            .cover-script { font-size: 1.55rem; }
+            .welcome-photo { height: 165px; }
+            .exp-grid-flip { grid-template-columns: repeat(2, 1fr); gap: 5px; }
+            .exp-card-flip img { height: 60px; }
             .booklet-sides-row { grid-template-columns: 1fr; }
         }
 
@@ -1166,12 +1152,11 @@
                 display: block !important;
             }
 
-            /* HIDE STANDARD UI */
             .brand-header, .top-action-bar, .bottom-nav-bar, .thumbnail-drawer, .export-modal-overlay, .toast-msg, .book-shadow-decor, .cover-hint {
                 display: none !important;
             }
 
-            /* ================= MODE 1: BOOKLET IMPOSITION PRINT ================= */
+            /* BOOKLET IMPOSITION PRINT */
             body.print-mode-booklet .stage-container {
                 display: none !important;
             }
@@ -1221,16 +1206,13 @@
                 height: 100% !important;
                 box-shadow: none !important;
                 border: none !important;
-                padding: 28px 36px 20px !important;
+                padding: 26px 32px 18px !important;
                 display: flex !important;
                 flex-direction: column !important;
                 justify-content: space-between !important;
             }
-            body.print-mode-booklet .booklet-half .page-cover {
-                padding: 35px 25px !important;
-            }
 
-            /* ================= MODE 2: STANDARD 12 PAGES PRINT ================= */
+            /* STANDARD 12 PAGES PRINT */
             body:not(.print-mode-booklet) .stage-container,
             body:not(.print-mode-booklet) .flipbook-viewport,
             body:not(.print-mode-booklet) .flipbook-container,
@@ -1275,16 +1257,6 @@
                 border: none !important;
                 overflow: hidden !important;
             }
-            body:not(.print-mode-booklet) .page-cover {
-                background: #181614 !important;
-                color: #FFFFFF !important;
-                padding: 40px !important;
-                display: flex !important;
-                flex-direction: column !important;
-                justify-content: center !important;
-                align-items: center !important;
-                text-align: center !important;
-            }
         }
     </style>
 </head>
@@ -1302,6 +1274,7 @@
     <!-- Top Action Buttons -->
     <div class="top-action-bar">
         <button class="top-btn-pill" onclick="openBookletModal()"><i class="fa-solid fa-book-open"></i> In Booklet 2 Mặt (1-12, 2-11...)</button>
+        <button class="top-btn-pill" onclick="triggerShare()"><i class="fa-solid fa-share-nodes"></i> Chia Sẻ</button>
         <a href="https://zalo.me/0902286300" target="_blank" class="top-btn-pill"><i class="fa-solid fa-comments"></i> Đặt Phòng Zalo</a>
         <a href="tel:0902286300" class="top-btn-pill"><i class="fa-solid fa-phone"></i> 0902 286 300</a>
     </div>
@@ -1343,11 +1316,10 @@
                             "Một không gian lưu trú boutique mới xây được chăm chút tỉ mỉ từng chi tiết, tĩnh lặng và sạch không tì vết để bạn tái tạo trọn vẹn nguồn năng lượng."
                         </div>
 
-                        <p style="font-size:0.82rem; color:#555; line-height:1.6; margin:6px 0;">
+                        <p style="font-size:0.8rem; color:#555; line-height:1.55; margin:4px 0;">
                             Tọa lạc tại vùng Hoài Nhơn Đông thanh bình, homestay mang phong cách tối giản Japandi giao hòa cùng vẻ đẹp mộc mạc của xứ dừa Bình Định.
                         </p>
 
-                        <!-- Ảnh nội thất & sảnh ấm cúng thực tế -->
                         <img src="assets/gajo-interior.jpg" class="welcome-photo" alt="Nội thất GAJO's HOUSE">
                     </div>
 
@@ -1372,19 +1344,19 @@
                             <div class="schedule-card">
                                 <h4>CHECK IN</h4>
                                 <div class="time">14:00</div>
-                                <span style="font-size:0.75rem; color:#777;">Sau 2:00 PM</span>
+                                <span style="font-size:0.72rem; color:#777;">Sau 2:00 PM</span>
                             </div>
                             <div class="schedule-card">
                                 <h4>CHECK OUT</h4>
                                 <div class="time">11:00</div>
-                                <span style="font-size:0.75rem; color:#777;">Trước 11:00 AM</span>
+                                <span style="font-size:0.72rem; color:#777;">Trước 11:00 AM</span>
                             </div>
                         </div>
 
                         <div class="wifi-luxury-box">
                             <i class="fa-solid fa-wifi wifi-icon-main"></i>
-                            <h4 style="font-family:var(--font-serif); font-size:1.2rem; color:#FFF; margin-bottom:4px;">WiFi Tốc Độ Cao</h4>
-                            <p style="font-size:0.75rem; color:#BBB; margin-bottom:10px;">Phủ sóng mạnh mẽ toàn bộ khuôn viên</p>
+                            <h4 style="font-family:var(--font-serif); font-size:1.15rem; color:#FFF; margin-bottom:3px;">WiFi Tốc Độ Cao</h4>
+                            <p style="font-size:0.72rem; color:#BBB; margin-bottom:8px;">Phủ sóng mạnh mẽ toàn bộ khuôn viên</p>
 
                             <div class="wifi-row">
                                 <span>Tên Mạng:</span>
@@ -1397,8 +1369,8 @@
                                     <i class="fa-regular fa-copy" style="font-size:0.85rem; color:var(--accent-gold);"></i>
                                 </strong>
                             </div>
-                            <div style="font-size:0.68rem; color:var(--accent-gold-light); margin-top:8px; opacity:0.85;">
-                                <i class="fa-regular fa-hand-pointer"></i> Nhấn vào mật khẩu để sao chép
+                            <div style="font-size:0.66rem; color:var(--accent-gold-light); margin-top:6px; opacity:0.85;">
+                                <i class="fa-regular fa-hand-pointer"></i> Chạm vào mật khẩu để sao chép
                             </div>
                         </div>
                     </div>
@@ -1425,27 +1397,27 @@
                             <div class="room-mini-item">
                                 <img src="assets/gajo-double-bed.jpg" class="room-mini-img" alt="Phòng GA-AN">
                                 <div class="room-mini-info">
-                                    <span class="room-mini-tag">Double Room &bull; Giường Đôi Lớn</span>
+                                    <span class="room-mini-tag">Double Room &bull; Giường Đôi</span>
                                     <h4>GA-AN (An Yên)</h4>
-                                    <p>1 giường đôi lớn, cửa sổ đón nắng ấm, TV thông minh &amp; điều hòa êm ái.</p>
+                                    <p>1 giường đôi lớn, đón nắng ấm, TV thông minh &amp; điều hòa êm.</p>
                                 </div>
                             </div>
                             <!-- GA-MỘ -->
                             <div class="room-mini-item">
                                 <img src="assets/gajo-single-bed.jpg" class="room-mini-img" alt="Phòng GA-MỘ">
                                 <div class="room-mini-info">
-                                    <span class="room-mini-tag">Standard Room &bull; Tối Giản</span>
+                                    <span class="room-mini-tag">Standard Room &bull; Mộc</span>
                                     <h4>GA-MỘ (Mộc Mạc)</h4>
-                                    <p>Thiết kế tối giản Japandi mộc mạc, tiện nghi nước nóng trung tâm ấm áp.</p>
+                                    <p>Phong cách Japandi tối giản, nước nóng trung tâm ấm áp.</p>
                                 </div>
                             </div>
                             <!-- GA-ĐÌNH -->
                             <div class="room-mini-item">
                                 <img src="assets/gajo-family-room.jpg" class="room-mini-img" alt="Phòng GA-ĐÌNH">
                                 <div class="room-mini-info">
-                                    <span class="room-mini-tag">Family Suite &bull; 2 Giường King Size</span>
+                                    <span class="room-mini-tag">Family Suite &bull; 2 Giường King</span>
                                     <h4>GA-ĐÌNH (Gia Đình)</h4>
-                                    <p>2 giường lớn, tranh Matisse nghệ thuật, sàn xương cá cho nhóm 4-5 người.</p>
+                                    <p>2 giường lớn, tranh Matisse, sàn gỗ xương cá ấm cúng.</p>
                                 </div>
                             </div>
                         </div>
@@ -1472,50 +1444,50 @@
                             <div class="amenity-item-box">
                                 <i class="fa-solid fa-broom"></i>
                                 <div>
-                                    <h5>Dọn Phòng Spotless</h5>
+                                    <h5>Dọn Spotless</h5>
                                     <span>Sạch chuẩn 5 sao</span>
                                 </div>
                             </div>
                             <div class="amenity-item-box">
                                 <i class="fa-regular fa-snowflake"></i>
                                 <div>
-                                    <h5>Điều Hòa Inverter</h5>
-                                    <span>Vận hành siêu êm</span>
+                                    <h5>Điều Hòa Êm</h5>
+                                    <span>Inverter êm ái</span>
                                 </div>
                             </div>
                             <div class="amenity-item-box">
                                 <i class="fa-solid fa-shower"></i>
                                 <div>
-                                    <h5>Nước Nóng Mạnh</h5>
-                                    <span>Hệ thống trung tâm</span>
+                                    <h5>Nước Nóng</h5>
+                                    <span>Hệ trung tâm</span>
                                 </div>
                             </div>
                             <div class="amenity-item-box">
                                 <i class="fa-solid fa-motorcycle"></i>
                                 <div>
                                     <h5>Thuê Xe Máy</h5>
-                                    <span>Xe mới tiết kiệm xăng</span>
+                                    <span>Xe mới tiết kiệm</span>
                                 </div>
                             </div>
                             <div class="amenity-item-box">
                                 <i class="fa-solid fa-shirt"></i>
                                 <div>
-                                    <h5>Dịch Vụ Giặt Ủi</h5>
-                                    <span>Nhanh chóng trong ngày</span>
+                                    <h5>Giặt Ủi Nhanh</h5>
+                                    <span>Lấy trong ngày</span>
                                 </div>
                             </div>
                             <div class="amenity-item-box">
                                 <i class="fa-solid fa-shield-halved"></i>
                                 <div>
                                     <h5>Bãi Xe An Toàn</h5>
-                                    <span>Camera an ninh 24/7</span>
+                                    <span>Camera an ninh</span>
                                 </div>
                             </div>
                         </div>
 
                         <div class="amenity-quote-bottom">
-                            <span style="font-family:var(--font-script); font-size:1.5rem; color:var(--accent-gold); display:block; margin-bottom:2px;">"Feel like home"</span>
-                            <p style="font-size:0.76rem; color:#666; margin:0;">Chủ nhà luôn sẵn sàng hỗ trợ bạn 24/7 với tất cả sự tận tâm.</p>
+                            <span style="font-family:var(--font-script); font-size:1.4rem; color:var(--accent-gold); display:block;">"Feel like home"</span>
+                            <p style="font-size:0.72rem; color:#666; margin:0;">Chủ nhà luôn sẵn sàng hỗ trợ bạn 24/7 với tất cả sự tận tâm.</p>
                         </div>
                     </div>
 
@@ -1548,8 +1520,8 @@
                             </div>
                         </div>
 
-                        <div style="background:var(--bg-white); padding:10px 12px; border-radius:6px; border:1px solid rgba(0,0,0,0.06); font-size:0.75rem; line-height:1.45;">
-                            <strong>Quán lân cận:</strong> Coffee Gạo, Bonjour Cafe, GAJO Thái &amp; Quán A Mãi (~2.8km).
+                        <div style="background:var(--bg-white); padding:8px 10px; border-radius:6px; border:1px solid rgba(0,0,0,0.06); font-size:0.72rem; line-height:1.4;">
+                            <strong>Quán lân cận:</strong> Coffee Gạo, Bonjour Cafe, GAJO Thái &amp; Quán A Mãi.
                         </div>
                     </div>
 
@@ -1567,7 +1539,7 @@
                         <div class="page-header">
                             <div class="page-eyebrow">Local Experiences</div>
                             <h2 class="page-title">8 Trải Nghiệm Hoài Nhơn</h2>
-                            <p class="page-desc">Hình ảnh thực tế check-in quanh thị xã Hoài Nhơn</p>
+                            <p class="page-desc">Check-in danh lam thắng cảnh xung quanh</p>
                         </div>
 
                         <div class="exp-grid-flip">
@@ -1584,7 +1556,7 @@
                                 <img src="assets/deo-hoaihai-lodieu.jpg" alt="Đèo Hoài Hải Lộ Diêu">
                                 <div class="exp-card-flip-info">
                                     <h5>Đèo Lộ Diêu</h5>
-                                    <p>Cung đèo biển ĐT639</p>
+                                    <p>Đèo biển ĐT639</p>
                                 </div>
                             </div>
                             <!-- 3 -->
@@ -1599,7 +1571,7 @@
                             <div class="exp-card-flip">
                                 <img src="assets/exp-tamquan.jpg" alt="Xứ Dừa">
                                 <div class="exp-card-flip-info">
-                                    <h5>Xứ Dừa Tam Quan</h5>
+                                    <h5>Xứ Dừa</h5>
                                     <p>Rừng dừa bạt ngàn</p>
                                 </div>
                             </div>
@@ -1607,8 +1579,8 @@
                             <div class="exp-card-flip">
                                 <img src="assets/exp-lavuong.jpg" alt="La Vuông">
                                 <div class="exp-card-flip-info">
-                                    <h5>Cao Nguyên La Vuông</h5>
-                                    <p>Săn mây độ cao 700m</p>
+                                    <h5>La Vuông</h5>
+                                    <p>Săn mây cao 700m</p>
                                 </div>
                             </div>
                             <!-- 6 -->
@@ -1616,7 +1588,7 @@
                                 <img src="assets/exp-mybinh.jpg" alt="Hồ Mỹ Bình">
                                 <div class="exp-card-flip-info">
                                     <h5>Hồ Mỹ Bình</h5>
-                                    <p>Picnic &amp; cắm trại hồ</p>
+                                    <p>Picnic &amp; cắm trại</p>
                                 </div>
                             </div>
                             <!-- 7 -->
@@ -1624,7 +1596,7 @@
                                 <img src="assets/exp-muivirong.jpg" alt="Mũi Vi Rồng">
                                 <div class="exp-card-flip-info">
                                     <h5>Mũi Vi Rồng</h5>
-                                    <p>Kỳ quan rồng vươn biển</p>
+                                    <p>Rồng vươn biển lớn</p>
                                 </div>
                             </div>
                             <!-- 8 -->
@@ -1656,14 +1628,13 @@
                         </div>
 
                         <div class="daytrip-card-vertical">
-                            <!-- Ảnh Đèo Hoài Hải - Lộ Diêu thực tế góc nhìn trên cao cung đường biển ĐT639 -->
                             <img src="assets/deo-hoaihai-lodieu.jpg" alt="Đèo Hoài Hải Lộ Diêu ĐT639">
                             <div class="daytrip-card-body">
-                                <p style="font-size:0.8rem; color:#444; line-height:1.5; margin-bottom:8px;">
+                                <p style="font-size:0.76rem; color:#444; line-height:1.45; margin-bottom:6px;">
                                     Cung đường ven biển ĐT.639 dài 4.5km uốn lượn như dải lụa ôm trọn vách đá hùng vĩ và đại dương xanh thẳm.
                                 </p>
-                                <div style="background:var(--bg-cream); padding:9px 11px; border-radius:5px; font-size:0.74rem; color:#555; border-left:3px solid var(--accent-gold); line-height:1.45;">
-                                    <strong>05:00:</strong> Đón bình minh đỉnh đèo &bull; <strong>07:00:</strong> Khám phá Gành Lộ Diêu &amp; Mũi Vi Rồng &bull; Ăn hải sản làng chài.
+                                <div style="background:var(--bg-cream); padding:8px 10px; border-radius:5px; font-size:0.7rem; color:#555; border-left:3px solid var(--accent-gold); line-height:1.4;">
+                                    <strong>05:00:</strong> Đón bình minh đỉnh đèo &bull; <strong>07:00:</strong> Khám phá Gành Lộ Diêu &amp; Mũi Vi Rồng.
                                 </div>
                             </div>
                         </div>
@@ -1691,28 +1662,28 @@
                                 <div class="flip-list-num">1</div>
                                 <div>
                                     <strong>Giữ yên tĩnh sau 22:00</strong>
-                                    <p style="color:#777; font-size:0.73rem; margin:0;">Xin vui lòng giảm âm lượng để tất cả khách đều có giấc ngủ trọn vẹn.</p>
+                                    <p style="color:#777; font-size:0.7rem; margin:0;">Xin vui lòng giảm âm lượng để tất cả khách đều ngủ ngon.</p>
                                 </div>
                             </li>
                             <li>
                                 <div class="flip-list-num">2</div>
                                 <div>
                                     <strong>Tiết kiệm điện &amp; máy lạnh</strong>
-                                    <p style="color:#777; font-size:0.73rem; margin:0;">Tắt điều hòa và các thiết bị điện khi ra khỏi phòng.</p>
+                                    <p style="color:#777; font-size:0.7rem; margin:0;">Tắt điều hòa và thiết bị điện khi ra khỏi phòng.</p>
                                 </div>
                             </li>
                             <li>
                                 <div class="flip-list-num">3</div>
                                 <div>
                                     <strong>Không hút thuốc trong phòng</strong>
-                                    <p style="color:#777; font-size:0.73rem; margin:0;">Khu vực hút thuốc được bố trí tại sân vườn thoáng mát.</p>
+                                    <p style="color:#777; font-size:0.7rem; margin:0;">Khu vực hút thuốc tại sân vườn thoáng mát.</p>
                                 </div>
                             </li>
                             <li>
                                 <div class="flip-list-num">4</div>
                                 <div>
                                     <strong>Liên hệ lễ tân khi cần hỗ trợ</strong>
-                                    <p style="color:#777; font-size:0.73rem; margin:0;">Hotline / Zalo: <strong>0902 286 300</strong> hỗ trợ 24/7.</p>
+                                    <p style="color:#777; font-size:0.7rem; margin:0;">Hotline / Zalo: <strong>0902 286 300</strong> (24/7).</p>
                                 </div>
                             </li>
                         </ul>
@@ -1738,19 +1709,19 @@
                         <ul class="flip-list">
                             <li>
                                 <i class="fa-regular fa-circle-check flip-checklist-icon"></i>
-                                <div><strong>Kiểm tra hành lý &amp; củ sạc</strong><br><span style="font-size:0.73rem; color:#777;">Đảm bảo không bỏ quên vật dụng cá nhân</span></div>
+                                <div><strong>Kiểm tra hành lý &amp; củ sạc</strong><br><span style="font-size:0.7rem; color:#777;">Đảm bảo không bỏ quên vật dụng cá nhân</span></div>
                             </li>
                             <li>
                                 <i class="fa-regular fa-circle-check flip-checklist-icon"></i>
-                                <div><strong>Gửi lại chìa khóa phòng</strong><br><span style="font-size:0.73rem; color:#777;">Gửi lại quầy lễ tân hoặc chủ nhà</span></div>
+                                <div><strong>Gửi lại chìa khóa phòng</strong><br><span style="font-size:0.7rem; color:#777;">Gửi lại quầy lễ tân hoặc chủ nhà</span></div>
                             </li>
                             <li>
                                 <i class="fa-regular fa-circle-check flip-checklist-icon"></i>
-                                <div><strong>Kiểm tra cửa &amp; vòi nước</strong><br><span style="font-size:0.73rem; color:#777;">Đóng kín cửa sổ và tắt thiết bị điện</span></div>
+                                <div><strong>Kiểm tra cửa &amp; vòi nước</strong><br><span style="font-size:0.7rem; color:#777;">Đóng kín cửa sổ và tắt thiết bị điện</span></div>
                             </li>
                             <li>
                                 <i class="fa-regular fa-circle-check flip-checklist-icon"></i>
-                                <div><strong>Hỗ trợ đặt xe / Hóa đơn</strong><br><span style="font-size:0.73rem; color:#777;">Báo trước 30 phút nếu bạn cần hỗ trợ</span></div>
+                                <div><strong>Hỗ trợ đặt xe / Hóa đơn</strong><br><span style="font-size:0.7rem; color:#777;">Báo trước 30 phút nếu bạn cần hỗ trợ</span></div>
                             </li>
                         </ul>
                     </div>
@@ -1766,13 +1737,12 @@
             <div class="page" data-density="soft">
                 <div class="page-content">
                     <div class="page-body-center thankyou-box-flip">
-                        <div style="font-family:var(--font-script); font-size:3.2rem; color:var(--accent-gold); line-height:1; margin-bottom:2px;">Thank you</div>
-                        <h3 style="font-family:var(--font-serif); font-size:1.25rem; margin:4px 0; color:var(--text-dark);">CẢM ƠN BẠN ĐÃ GHÉ THĂM!</h3>
-                        <p style="font-size:0.78rem; color:#666; max-width:290px; margin-bottom:2px;">
+                        <div style="font-family:var(--font-script); font-size:2.8rem; color:var(--accent-gold); line-height:1; margin-bottom:2px;">Thank you</div>
+                        <h3 style="font-family:var(--font-serif); font-size:1.15rem; margin:3px 0; color:var(--text-dark);">CẢM ƠN BẠN ĐÃ GHÉ THĂM!</h3>
+                        <p style="font-size:0.74rem; color:#666; max-width:280px; margin-bottom:2px;">
                             Quét mã QR để chia sẻ đánh giá 5 sao cho GAJO's HOUSE trên Google Maps nhé!
                         </p>
 
-                        <!-- QR Code Google Maps GAJO's HOUSE -->
                         <a href="https://maps.app.goo.gl/jAWENgZvarDbmG7f6" target="_blank" class="qr-frame" title="Mở vị trí trên Google Maps">
                             <img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=https://maps.app.goo.gl/jAWENgZvarDbmG7f6" alt="QR Code 5 Star Review">
                             <span class="qr-tap-hint"><i class="fa-solid fa-up-right-from-square"></i> Mở Google Maps</span>
@@ -1798,9 +1768,9 @@
                     <div class="cover-gold-badge">
                         <i class="fa-solid fa-heart"></i>
                     </div>
-                    <div class="cover-title" style="font-size: 2.2rem;">GAJO'S HOUSE</div>
-                    <div class="cover-script" style="font-size: 2.4rem; color: var(--accent-gold);">Stay simple.</div>
-                    <div class="cover-script" style="font-size: 2.4rem; color: #FFF; margin-top:-6px;">live slow, feel home.</div>
+                    <div class="cover-title" style="font-size: 2rem;">GAJO'S HOUSE</div>
+                    <div class="cover-script" style="font-size: 2.2rem; color: var(--accent-gold);">Stay simple.</div>
+                    <div class="cover-script" style="font-size: 2.2rem; color: #FFF; margin-top:-6px;">live slow, feel home.</div>
                     <div class="cover-location">
                         HẸN GẶP LẠI BẠN TẠI BÌNH ĐỊNH
                     </div>
@@ -1869,49 +1839,47 @@
     <div class="nav-page-indicator" id="pageIndicator">01 / 12</div>
     <button class="nav-btn" id="nextBtn" title="Trang sau (Phím Mũi tên Phải)"><i class="fa-solid fa-chevron-right"></i></button>
     <div class="divider-vert"></div>
-    <!-- Nút In / Tải Booklet A4 2 Mặt -->
-    <button class="nav-btn btn-booklet" id="bookletQuickBtn" title="In / Tải Booklet A4 2 Mặt (1-12, 2-11...)"><i class="fa-solid fa-book-open"></i> In Booklet</button>
+    <button class="nav-btn btn-booklet" id="bookletQuickBtn" title="In / Tải Booklet A4 2 Mặt"><i class="fa-solid fa-book-open"></i> Booklet</button>
     <button class="nav-btn" id="thumbToggleBtn" title="Xem tất cả trang"><i class="fa-solid fa-table-cells-large"></i></button>
     <button class="nav-btn" id="soundToggleBtn" title="Bật/Tắt âm thanh lật sách"><i class="fa-solid fa-volume-high"></i></button>
     <button class="nav-btn" id="fullscreenBtn" title="Toàn màn hình"><i class="fa-solid fa-expand"></i></button>
     <div class="divider-vert"></div>
-    <!-- Nút Menu Xuất Bản & Tải Về -->
-    <button class="nav-btn btn-highlight" id="exportBtn" title="Tải về, In ấn &amp; Chia sẻ"><i class="fa-solid fa-cloud-arrow-down"></i></button>
+    <button class="nav-btn btn-highlight" id="exportBtn" title="Tải về &amp; Menu Chia sẻ"><i class="fa-solid fa-cloud-arrow-down"></i></button>
 </div>
 
 <!-- EXPORT & DOWNLOAD MAIN MODAL DIALOG -->
 <div class="export-modal-overlay" id="exportModal">
     <div class="export-modal-box">
         <button class="modal-close-btn" id="closeExportModal">&times;</button>
-        <i class="fa-solid fa-book-bookmark" style="font-size:2.2rem; color:var(--accent-gold); margin-bottom:8px; display:inline-block;"></i>
+        <i class="fa-solid fa-book-bookmark" style="font-size:2rem; color:var(--accent-gold); margin-bottom:6px; display:inline-block;"></i>
         <h3>TẢI VỀ &amp; IN ẤN CATALOGUE</h3>
-        <p>Chọn phương thức xuất bản phù hợp với nhu cầu của bạn:</p>
+        <p>Chọn phương thức xuất bản phù hợp:</p>
 
         <div class="export-options-grid">
-            <!-- Option 1: In Booklet Gấp Đôi 2 Mặt (Saddle Stitch Imposition) -->
+            <!-- Option 1: In Booklet Gấp Đôi 2 Mặt -->
             <div class="export-opt-btn highlight-opt" onclick="openBookletModal()">
                 <i class="fa-solid fa-book-open"></i>
                 <div>
                     <strong>In / Xuất Bản Booklet A4 2 Mặt (1-12, 2-11...)</strong>
-                    <span>Chuẩn 3 tờ A4 in 2 mặt &bull; Gấp đôi ở giữa thành cuốn sách A5 hoàn hảo</span>
+                    <span>3 tờ A4 in 2 mặt &bull; Gấp đôi ở giữa thành cuốn catalogue A5</span>
                 </div>
             </div>
 
-            <!-- Option 2: In Trang Đơn Liên Tục -->
+            <!-- Option 2: Chia Sẻ Nhanh (Native Android Share) -->
+            <div class="export-opt-btn" onclick="triggerShare()">
+                <i class="fa-solid fa-share-nodes"></i>
+                <div>
+                    <strong>Chia Sẻ 3D Flipbook Gửi Khách Hàng</strong>
+                    <span>Gửi qua Zalo, Messenger, Facebook, tin nhắn SMS</span>
+                </div>
+            </div>
+
+            <!-- Option 3: In Trang Đơn Liên Tục -->
             <div class="export-opt-btn" onclick="triggerPrintStandardPDF()">
                 <i class="fa-solid fa-file-pdf"></i>
                 <div>
-                    <strong>In / Xuất PDF 12 Trang Đơn Liên Tục (A4 Landscape)</strong>
-                    <span>Tự động căn chỉnh từng trang riêng biệt sắc nét cao</span>
-                </div>
-            </div>
-
-            <!-- Option 3: Sao chép link chia sẻ -->
-            <div class="export-opt-btn" onclick="copyShareLink()">
-                <i class="fa-solid fa-share-nodes"></i>
-                <div>
-                    <strong>Sao Chép Link 3D Flipbook Gửi Khách Hàng</strong>
-                    <span>Chia sẻ nhanh qua Zalo, Facebook, SMS cho khách xem online</span>
+                    <strong>In / Xuất PDF 12 Trang Đơn Liên Tục</strong>
+                    <span>Căn chỉnh từng trang đơn riêng biệt</span>
                 </div>
             </div>
 
@@ -1931,10 +1899,10 @@
 <div class="export-modal-overlay" id="bookletModal">
     <div class="export-modal-box booklet-preview-modal-box">
         <button class="modal-close-btn" id="closeBookletModal">&times;</button>
-        <i class="fa-solid fa-print" style="font-size:2.2rem; color:var(--accent-gold); margin-bottom:6px; display:inline-block;"></i>
+        <i class="fa-solid fa-print" style="font-size:2rem; color:var(--accent-gold); margin-bottom:4px; display:inline-block;"></i>
         <h3>BẢN IN BOOKLET GẤP ĐÔI (3 TỜ A4 - 2 MẶT)</h3>
-        <p style="margin-bottom:10px;">
-            Mỗi tờ A4 in 2 mặt (4 trang). Khi in chọn <strong>"In 2 mặt / Lật cạnh ngắn (Flip on short edge)"</strong> rồi xếp chồng và gấp đôi ở giữa để tạo thành cuốn catalogue A5 12 trang hoàn chỉnh:
+        <p style="margin-bottom:8px;">
+            Mỗi tờ A4 in 2 mặt (4 trang). Khi in chọn <strong>"In 2 mặt / Lật cạnh ngắn (Flip on short edge)"</strong> rồi xếp chồng và gấp đôi ở giữa để tạo thành cuốn catalogue A5:
         </p>
 
         <div class="booklet-sheets-grid">
@@ -1942,7 +1910,7 @@
             <div class="booklet-sheet-card">
                 <div class="booklet-sheet-header">
                     <span><i class="fa-regular fa-file"></i> TỜ 1 (Bìa ngoài &amp; Lời ngỏ)</span>
-                    <span style="color:var(--accent-gold); font-size:0.7rem;">Mặt 1: [12 | 1] &bull; Mặt 2: [2 | 11]</span>
+                    <span style="color:var(--accent-gold); font-size:0.68rem;">Mặt 1: [12 | 1] &bull; Mặt 2: [2 | 11]</span>
                 </div>
                 <div class="booklet-sides-row">
                     <div class="booklet-side-box">
@@ -1966,7 +1934,7 @@
             <div class="booklet-sheet-card">
                 <div class="booklet-sheet-header">
                     <span><i class="fa-regular fa-file"></i> TỜ 2 (Thông tin phòng &amp; Mẹo hay)</span>
-                    <span style="color:var(--accent-gold); font-size:0.7rem;">Mặt 1: [10 | 3] &bull; Mặt 2: [4 | 9]</span>
+                    <span style="color:var(--accent-gold); font-size:0.68rem;">Mặt 1: [10 | 3] &bull; Mặt 2: [4 | 9]</span>
                 </div>
                 <div class="booklet-sides-row">
                     <div class="booklet-side-box">
@@ -1989,14 +1957,14 @@
             <!-- SHEET 3 -->
             <div class="booklet-sheet-card">
                 <div class="booklet-sheet-header">
-                    <span><i class="fa-regular fa-file"></i> TỜ 3 (Tiện nghi &amp; Trải nghiệm giữa sách)</span>
-                    <span style="color:var(--accent-gold); font-size:0.7rem;">Mặt 1: [8 | 5] &bull; Mặt 2: [6 | 7]</span>
+                    <span><i class="fa-regular fa-file"></i> TỜ 3 (Tiện nghi &amp; Trải nghiệm giữa)</span>
+                    <span style="color:var(--accent-gold); font-size:0.68rem;">Mặt 1: [8 | 5] &bull; Mặt 2: [6 | 7]</span>
                 </div>
                 <div class="booklet-sides-row">
                     <div class="booklet-side-box">
                         <div class="booklet-side-title">MẶT TRƯỚC</div>
                         <div class="booklet-page-pair">
-                            <div class="booklet-mini-page">08<span>Daytrip Đèo</span></div>
+                            <div class="booklet-mini-page">08<span>Daytrip</span></div>
                             <div class="booklet-mini-page">05<span>Tiện Nghi</span></div>
                         </div>
                     </div>
@@ -2011,12 +1979,12 @@
             </div>
         </div>
 
-        <div style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:14px;">
-            <button class="top-btn-pill" style="background:var(--accent-gold); color:#1E1B18; font-weight:700; padding:10px 20px; font-size:0.86rem;" onclick="triggerPrintBookletPDF()">
+        <div style="display:flex; gap:8px; justify-content:center; flex-wrap:wrap; margin-top:12px;">
+            <button class="top-btn-pill" style="background:var(--accent-gold); color:#1E1B18; font-weight:700; padding:9px 18px; font-size:0.82rem;" onclick="triggerPrintBookletPDF()">
                 <i class="fa-solid fa-print"></i> In / Xuất PDF Booklet Ngay (3 Tờ A4)
             </button>
-            <button class="top-btn-pill" style="padding:10px 18px; font-size:0.86rem;" onclick="triggerPrintStandardPDF()">
-                <i class="fa-solid fa-file-pdf"></i> In Bản Trang Đơn (12 Trang)
+            <button class="top-btn-pill" style="padding:9px 16px; font-size:0.82rem;" onclick="triggerPrintStandardPDF()">
+                <i class="fa-solid fa-file-pdf"></i> In Trang Đơn (12 Trang)
             </button>
         </div>
     </div>
@@ -2030,6 +1998,15 @@
     let isSoundOn = true;
     let audioCtx = null;
 
+    // Haptic vibration feedback for Android / Mobile
+    function triggerHaptic(duration = 20) {
+        try {
+            if ('vibrate' in navigator) {
+                navigator.vibrate(duration);
+            }
+        } catch (e) {}
+    }
+
     // Synthesized Web Audio realistic paper turn sound generator
     function playPageFlipSound() {
         if (!isSoundOn) return;
@@ -2041,7 +2018,7 @@
                 audioCtx.resume();
             }
 
-            const bufferSize = audioCtx.sampleRate * 0.26;
+            const bufferSize = audioCtx.sampleRate * 0.24;
             const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
             const data = buffer.getChannelData(0);
             for (let i = 0; i < bufferSize; i++) {
@@ -2055,12 +2032,12 @@
             filter.type = 'bandpass';
             filter.frequency.setValueAtTime(850, audioCtx.currentTime);
             filter.frequency.exponentialRampToValueAtTime(3400, audioCtx.currentTime + 0.12);
-            filter.frequency.exponentialRampToValueAtTime(450, audioCtx.currentTime + 0.26);
+            filter.frequency.exponentialRampToValueAtTime(450, audioCtx.currentTime + 0.24);
             filter.Q.setValueAtTime(1.8, audioCtx.currentTime);
 
             const gain = audioCtx.createGain();
-            gain.gain.setValueAtTime(0.32, audioCtx.currentTime);
-            gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.26);
+            gain.gain.setValueAtTime(0.3, audioCtx.currentTime);
+            gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.24);
 
             noise.connect(filter);
             filter.connect(gain);
@@ -2076,10 +2053,11 @@
         const toast = document.getElementById('toast');
         toast.innerText = msg;
         toast.classList.add('show');
-        setTimeout(() => toast.classList.remove('show'), 2400);
+        setTimeout(() => toast.classList.remove('show'), 2200);
     }
 
     function copyText(text, successMsg) {
+        triggerHaptic(40);
         if (navigator.clipboard && window.isSecureContext) {
             navigator.clipboard.writeText(text).then(() => {
                 showToast(successMsg);
@@ -2108,13 +2086,31 @@
         document.body.removeChild(textArea);
     }
 
+    function triggerShare() {
+        triggerHaptic(25);
+        closeAllModals();
+        if (navigator.share) {
+            navigator.share({
+                title: "GAJO'S HOUSE - 3D Flipbook Catalogue",
+                text: "Khám phá không gian lưu trú boutique phong cách Japandi và cẩm nang du lịch Hoài Nhơn, Bình Định cùng GAJO's HOUSE.",
+                url: window.location.href
+            }).catch((err) => {
+                if (err.name !== 'AbortError') {
+                    copyShareLink();
+                }
+            });
+        } else {
+            copyShareLink();
+        }
+    }
+
     function copyShareLink() {
-        document.getElementById('exportModal').classList.remove('active');
+        closeAllModals();
         copyText(window.location.href, "Đã sao chép link Catalogue GAJO's HOUSE!");
     }
 
-    // Modal Control Functions
     function openBookletModal() {
+        triggerHaptic(20);
         document.getElementById('exportModal').classList.remove('active');
         document.getElementById('bookletModal').classList.add('active');
     }
@@ -2132,7 +2128,6 @@
         const container = document.getElementById('bookletPrintContainer');
         container.innerHTML = '';
 
-        // Pairs of [LeftPage, RightPage]
         const pairs = [
             [12, 1],  // Sheet 1 Front
             [2, 11],  // Sheet 1 Back
@@ -2146,17 +2141,14 @@
             const sheetEl = document.createElement('div');
             sheetEl.className = 'booklet-sheet';
 
-            // Left Half
             const leftHalf = document.createElement('div');
             leftHalf.className = 'booklet-half booklet-left';
             const leftClone = pages[pair[0] - 1].cloneNode(true);
             leftHalf.appendChild(leftClone);
 
-            // Fold guide line
             const foldLine = document.createElement('div');
             foldLine.className = 'booklet-fold-line';
 
-            // Right Half
             const rightHalf = document.createElement('div');
             rightHalf.className = 'booklet-half booklet-right';
             const rightClone = pages[pair[1] - 1].cloneNode(true);
@@ -2170,7 +2162,6 @@
         });
     }
 
-    // TRIGGER PRINT BOOKLET (3 SHEETS / 6 SIDES)
     function triggerPrintBookletPDF() {
         buildBookletDOM();
         document.body.classList.add('print-mode-booklet');
@@ -2185,7 +2176,6 @@
         }, 350);
     }
 
-    // TRIGGER PRINT STANDARD 12 PAGES
     function triggerPrintStandardPDF() {
         document.body.classList.remove('print-mode-booklet');
         closeAllModals();
@@ -2200,22 +2190,28 @@
         document.body.classList.remove('print-mode-booklet');
     });
 
+    // Dimension Calculator specifically optimized for Android & iOS Viewports
     function getOptimalBookDimensions() {
         const isMobile = window.innerWidth <= 768;
+        const vh = window.innerHeight;
+        const vw = window.innerWidth;
+
         if (isMobile) {
-            let width = Math.min(window.innerWidth - 20, 420);
-            let height = Math.min(window.innerHeight - 130, 600);
+            // Android Portrait calculation
+            let width = Math.min(vw - 16, 420);
+            let height = Math.min(vh - 120, 580);
             if (width * 1.4 > height) {
                 width = Math.round(height / 1.4);
             } else {
                 height = Math.round(width * 1.4);
             }
-            return { width, height };
+            return { width: Math.max(width, 280), height: Math.max(height, 390) };
         } else {
-            const availW = window.innerWidth - 60;
-            const availH = window.innerHeight - 150;
+            // Desktop / Tablet 2-page landscape
+            const availW = vw - 50;
+            const availH = vh - 140;
             let w = 460;
-            let h = 650;
+            let h = 640;
             if (w * 2 > availW || h > availH) {
                 const scaleW = (availW / 2) / w;
                 const scaleH = availH / h;
@@ -2225,7 +2221,7 @@
             }
             return {
                 width: Math.max(w, 320),
-                height: Math.max(h, 460)
+                height: Math.max(h, 450)
             };
         }
     }
@@ -2253,16 +2249,16 @@
             width: dims.width,
             height: dims.height,
             size: 'stretch',
-            minWidth: 280,
+            minWidth: 260,
             maxWidth: 600,
-            minHeight: 400,
+            minHeight: 380,
             maxHeight: 820,
             maxShadowOpacity: 0.5,
             showCover: true,
             mobileScrollSupport: false,
             usePortrait: true,
             drawShadow: true,
-            flippingTime: 750
+            flippingTime: 700
         });
 
         pageFlip.loadFromHTML(document.querySelectorAll('.page'));
@@ -2286,6 +2282,7 @@
 
         pageFlip.on('flip', (e) => {
             playPageFlipSound();
+            triggerHaptic(18);
             updateIndicator();
         });
 
@@ -2294,15 +2291,18 @@
         });
 
         prevBtn.addEventListener('click', () => {
+            triggerHaptic(15);
             pageFlip.flipPrev();
         });
 
         nextBtn.addEventListener('click', () => {
+            triggerHaptic(15);
             pageFlip.flipNext();
         });
 
         // Toggle Thumbnails Drawer
         thumbToggleBtn.addEventListener('click', (e) => {
+            triggerHaptic(15);
             e.stopPropagation();
             thumbDrawer.classList.toggle('active');
         });
@@ -2315,9 +2315,11 @@
 
         // Export & Booklet Modal Events
         exportBtn.addEventListener('click', () => {
+            triggerHaptic(20);
             exportModal.classList.add('active');
         });
         bookletQuickBtn.addEventListener('click', () => {
+            triggerHaptic(20);
             bookletModal.classList.add('active');
         });
         closeExportModal.addEventListener('click', () => {
@@ -2338,10 +2340,12 @@
             isSoundOn = !isSoundOn;
             soundToggleBtn.innerHTML = isSoundOn ? '<i class="fa-solid fa-volume-high"></i>' : '<i class="fa-solid fa-volume-xmark"></i>';
             showToast(`Âm thanh lật sách: ${isSoundOn ? 'BẬT' : 'TẮT'}`);
+            triggerHaptic(25);
         });
 
         // Fullscreen Toggle
         fullscreenBtn.addEventListener('click', () => {
+            triggerHaptic(20);
             if (!document.fullscreenElement) {
                 document.documentElement.requestFullscreen().catch(() => {});
                 fullscreenBtn.innerHTML = '<i class="fa-solid fa-compress"></i>';
@@ -2368,7 +2372,23 @@
             }
         });
 
+        // Android orientation & resize handler with debounce
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                const newDims = getOptimalBookDimensions();
+                if (pageFlip && pageFlip.getSettings) {
+                    pageFlip.update({
+                        width: newDims.width,
+                        height: newDims.height
+                    });
+                }
+            }, 250);
+        });
+
         window.goToPage = function(index) {
+            triggerHaptic(20);
             pageFlip.flip(index);
             thumbDrawer.classList.remove('active');
         };
