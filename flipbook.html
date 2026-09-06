@@ -150,24 +150,33 @@
 
         .flipbook-container {
             position: relative;
-            box-shadow: 0 25px 65px rgba(0,0,0,0.85), 0 8px 20px rgba(0,0,0,0.6);
-            border-radius: 6px;
             background: transparent;
             touch-action: pan-y;
         }
 
-        /* Spine realistic depth & shading */
-        .book-shadow-decor {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 102%;
-            height: 102%;
-            box-shadow: 0 30px 80px rgba(0,0,0,0.95);
-            pointer-events: none;
-            border-radius: 8px;
-            z-index: 0;
+        /* StPageFlip internal containers strict clipping & smooth flip */
+        .stf__parent {
+            position: relative !important;
+            display: block !important;
+            margin: 0 auto !important;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.85), 0 6px 18px rgba(0,0,0,0.5) !important;
+            border-radius: 6px !important;
+        }
+
+        .stf__wrapper {
+            position: relative !important;
+        }
+
+        .stf__block {
+            overflow: hidden !important;
+            border-radius: 4px !important;
+        }
+
+        .stf__item {
+            overflow: hidden !important;
+            border-radius: 4px !important;
+            backface-visibility: hidden !important;
+            -webkit-backface-visibility: hidden !important;
         }
 
         /* PAGE BASE STYLES */
@@ -176,12 +185,13 @@
             color: var(--text-dark);
             width: 100%;
             height: 100%;
-            overflow: hidden;
+            overflow: hidden !important;
             display: flex;
             flex-direction: column;
             position: relative;
             box-shadow: inset 0 0 30px rgba(0,0,0,0.04);
             box-sizing: border-box;
+            contain: layout paint;
         }
 
         /* Realistic Paper Spine Gradient */
@@ -548,19 +558,19 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.02);
         }
 
-        /* PAGE 6 & 7: HỆ SINH THÁI ẨM THỰC & CÀ PHÊ (STACKED CARDS 16:9) */
+        /* PAGE 6 & 7: HỆ SINH THÁI ẨM THỰC & CÀ PHÊ (GRID 2 ẢNH SIDE-BY-SIDE) */
         .dining-stack {
             display: flex;
             flex-direction: column;
-            gap: 10px;
-            margin: 6px 0 8px;
+            gap: 6px;
+            margin: 2px 0 4px;
             width: 100%;
         }
         .dining-card {
             background: var(--bg-dark);
             color: #FFF;
-            padding: 10px 12px;
-            border-radius: 10px;
+            padding: 6px 8px;
+            border-radius: 8px;
             border: 1px solid rgba(197, 160, 89, 0.35);
             box-shadow: 0 4px 14px rgba(0,0,0,0.18);
             position: relative;
@@ -571,62 +581,68 @@
         .dining-badge-gold {
             background: #FFEAA7;
             color: #2D271D;
-            font-size: 0.58rem;
+            font-size: 0.54rem;
             font-weight: 800;
-            padding: 2px 8px;
-            border-radius: 10px;
+            padding: 1px 6px;
+            border-radius: 8px;
             text-transform: uppercase;
-            letter-spacing: 0.4px;
+            letter-spacing: 0.3px;
             display: inline-block;
-            margin-bottom: 6px;
+            margin-bottom: 3px;
         }
         .dining-badge-cyan {
             background: #DDF4FF;
             color: #0A3D62;
-            font-size: 0.58rem;
+            font-size: 0.54rem;
             font-weight: 800;
-            padding: 2px 8px;
-            border-radius: 10px;
+            padding: 1px 6px;
+            border-radius: 8px;
             text-transform: uppercase;
-            letter-spacing: 0.4px;
+            letter-spacing: 0.3px;
             display: inline-block;
-            margin-bottom: 6px;
+            margin-bottom: 3px;
         }
         .dining-badge-navy {
             background: #142838;
             color: #FFFFFF;
             border: 1px solid rgba(255,255,255,0.25);
-            font-size: 0.58rem;
+            font-size: 0.54rem;
             font-weight: 800;
-            padding: 2px 8px;
-            border-radius: 10px;
+            padding: 1px 6px;
+            border-radius: 8px;
             text-transform: uppercase;
-            letter-spacing: 0.4px;
+            letter-spacing: 0.3px;
             display: inline-block;
-            margin-bottom: 6px;
+            margin-bottom: 3px;
         }
         .dining-badge-wood {
             background: #5C3D2E;
             color: #FFE6D8;
-            font-size: 0.58rem;
+            font-size: 0.54rem;
             font-weight: 800;
-            padding: 2px 8px;
-            border-radius: 10px;
+            padding: 1px 6px;
+            border-radius: 8px;
             text-transform: uppercase;
-            letter-spacing: 0.4px;
+            letter-spacing: 0.3px;
             display: inline-block;
-            margin-bottom: 6px;
+            margin-bottom: 3px;
         }
-        .dining-img-wrap {
+        .dining-grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5px;
+            margin-bottom: 3px;
+            width: 100%;
+        }
+        .dining-grid-item {
             position: relative;
             width: 100%;
-            height: 102px;
-            border-radius: 6px;
+            height: 108px;
+            border-radius: 5px;
             overflow: hidden;
-            margin-bottom: 6px;
             background: #1e1b18;
         }
-        .dining-img-wrap img {
+        .dining-grid-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -634,34 +650,34 @@
         }
         .dining-card-title {
             font-family: var(--font-serif);
-            font-size: 0.88rem;
+            font-size: 0.82rem;
             color: var(--accent-gold-light);
-            margin: 0 0 3px;
+            margin: 0 0 1px;
             font-weight: 700;
-            line-height: 1.25;
+            line-height: 1.2;
         }
         .dining-card-desc {
-            font-size: 0.67rem;
+            font-size: 0.61rem;
             color: #E6E0D6;
-            line-height: 1.48;
-            margin: 0 0 6px;
+            line-height: 1.35;
+            margin: 0 0 3px;
             font-weight: 400;
         }
         .dining-footer {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-size: 0.63rem;
+            font-size: 0.59rem;
             color: var(--accent-gold-light);
             border-top: 1px solid rgba(255,255,255,0.12);
-            padding-top: 5px;
+            padding-top: 3px;
         }
         .dining-footer a {
             color: var(--accent-gold-light);
             text-decoration: none;
             display: inline-flex;
             align-items: center;
-            gap: 4px;
+            gap: 3px;
             transition: color 0.2s ease;
         }
         .dining-footer a:hover {
@@ -669,13 +685,13 @@
         }
         .dining-perk-box {
             background: var(--bg-white);
-            padding: 8px 10px;
-            border-radius: 8px;
+            padding: 5px 7px;
+            border-radius: 6px;
             border: 1px solid rgba(0,0,0,0.06);
-            font-size: 0.64rem;
-            line-height: 1.44;
+            font-size: 0.60rem;
+            line-height: 1.35;
             color: var(--text-dark);
-            margin-top: 6px;
+            margin-top: 3px;
             width: 100%;
             box-sizing: border-box;
         }
@@ -1204,6 +1220,7 @@
             .cover-gold-badge { width: 55px; height: 55px; font-size: 1.4rem; margin-bottom: 10px; }
             .cover-script { font-size: 1.55rem; }
             .welcome-photo { height: 165px; }
+            .dining-grid-item { height: 95px; }
             .exp-grid-flip { grid-template-columns: repeat(2, 1fr); gap: 5px; }
             .exp-card-flip img { height: 60px; }
             .booklet-sides-row { grid-template-columns: 1fr; }
@@ -1235,7 +1252,7 @@
                 display: block !important;
             }
 
-            .brand-header, .top-action-bar, .bottom-nav-bar, .thumbnail-drawer, .export-modal-overlay, .toast-msg, .book-shadow-decor, .cover-hint {
+            .brand-header, .top-action-bar, .bottom-nav-bar, .thumbnail-drawer, .export-modal-overlay, .toast-msg, .cover-hint {
                 display: none !important;
             }
 
@@ -1365,7 +1382,6 @@
 
     <!-- 3D Flipbook Viewport -->
     <div class="flipbook-viewport">
-        <div class="book-shadow-decor"></div>
         <div class="flipbook-container" id="flipbook">
 
             <!-- ================= PAGE 1: FRONT COVER ================= -->
@@ -1596,8 +1612,13 @@
                             <!-- Card 1: Tiệm Nướng Nhà Gạo -->
                             <div class="dining-card">
                                 <span class="dining-badge-gold">TIỂU ĐÀ LẠT GIỮA HOÀI NHƠN</span>
-                                <div class="dining-img-wrap">
-                                    <img src="assets/dining-nhagao.jpg" alt="Tiệm Nướng Nhà Gạo" style="object-position: center 35%; filter: brightness(1.08) contrast(1.02);">
+                                <div class="dining-grid-2">
+                                    <div class="dining-grid-item">
+                                        <img src="assets/nhagao-1.jpg" alt="Tiệm Nướng Nhà Gạo View Hoàng Hôn" style="object-position: center 40%;">
+                                    </div>
+                                    <div class="dining-grid-item">
+                                        <img src="assets/nhagao-2.jpg" alt="Bò Tảng Sốt Phô Mai & BBQ" style="object-position: center 50%;">
+                                    </div>
                                 </div>
                                 <h3 class="dining-card-title">Tiệm Nướng Nhà Gạo</h3>
                                 <p class="dining-card-desc">
@@ -1612,8 +1633,13 @@
                             <!-- Card 2: GAJO Thái -->
                             <div class="dining-card">
                                 <span class="dining-badge-cyan">VIEW HOÀNG HÔN CỰC CHILL</span>
-                                <div class="dining-img-wrap">
-                                    <img src="assets/dining-gajothai.jpg" alt="GAJO Thái" style="object-position: center 45%; filter: saturate(1.1) brightness(1.02);">
+                                <div class="dining-grid-2">
+                                    <div class="dining-grid-item">
+                                        <img src="assets/dining-nhagao.jpg" alt="GAJO Thái Không Gian Bể Cá" style="object-position: center 35%;">
+                                    </div>
+                                    <div class="dining-grid-item">
+                                        <img src="assets/gajothai-food.jpg" alt="Bàn Tiệc Món Thái Chuẩn Vị" style="object-position: center 50%;">
+                                    </div>
                                 </div>
                                 <h3 class="dining-card-title">GAJO Thái</h3>
                                 <p class="dining-card-desc">
@@ -1656,8 +1682,13 @@
                             <!-- Card 1: Gạo Coffee -->
                             <div class="dining-card">
                                 <span class="dining-badge-navy">CHILL GIÓ BIỂN - NHẠC ACOUSTIC</span>
-                                <div class="dining-img-wrap">
-                                    <img src="assets/cafe-gaocoffee.jpg" alt="Gạo Coffee Seaside Acoustic" style="object-position: center 55%; filter: brightness(1.05) contrast(1.05);">
+                                <div class="dining-grid-2">
+                                    <div class="dining-grid-item">
+                                        <img src="assets/cafe-gaocoffee.jpg" alt="Gạo Coffee Seaside Acoustic" style="object-position: center 55%;">
+                                    </div>
+                                    <div class="dining-grid-item">
+                                        <img src="assets/gaocoffee-matcha.jpg" alt="Uji Matcha Latte & Chổi Chasen" style="object-position: center 50%;">
+                                    </div>
                                 </div>
                                 <h3 class="dining-card-title">Gạo Coffee (Seaside Acoustic)</h3>
                                 <p class="dining-card-desc">
@@ -1672,8 +1703,13 @@
                             <!-- Card 2: Bonjour Café -->
                             <div class="dining-card">
                                 <span class="dining-badge-wood">GÓC NHỎ VINTAGE 1996</span>
-                                <div class="dining-img-wrap">
-                                    <img src="assets/cafe-bonjour.jpg" alt="Bonjour Café Reply 1996" style="object-position: center 25%; filter: brightness(1.05) saturate(1.05);">
+                                <div class="dining-grid-2">
+                                    <div class="dining-grid-item">
+                                        <img src="assets/cafe-bonjour.jpg" alt="Bonjour Café Reply 1996" style="object-position: center top;">
+                                    </div>
+                                    <div class="dining-grid-item">
+                                        <img src="assets/bonjour-donuts.jpg" alt="Matcha Oreo & Caramel Brûlée" style="object-position: center bottom;">
+                                    </div>
                                 </div>
                                 <h3 class="dining-card-title">Bonjour Café</h3>
                                 <p class="dining-card-desc">
