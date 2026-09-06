@@ -319,7 +319,7 @@
 
         /* INNER PAGE TYPOGRAPHY & BALANCED CENTER LAYOUT */
         .page-content {
-            padding: 26px 24px 20px;
+            padding: 18px 20px 14px;
             height: 100%;
             display: flex;
             flex-direction: column;
@@ -330,73 +330,91 @@
             flex: 1;
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            margin: auto 0;
+            justify-content: space-between;
             width: 100%;
+            min-height: 0;
         }
         .page-header {
             text-align: center;
-            margin-bottom: 10px;
+            padding-top: 4px;
+            padding-bottom: 8px;
+            flex-shrink: 0;
+        }
+        .page-main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 0;
+        }
+        .page-header {
+            text-align: center;
+            padding-top: 8px;
+            padding-bottom: 12px;
+            flex-shrink: 0;
         }
         .page-eyebrow {
-            font-size: 0.68rem;
-            letter-spacing: 2.2px;
+            font-size: 0.75rem;
+            letter-spacing: 2.8px;
             text-transform: uppercase;
             color: var(--accent-gold);
-            font-weight: 600;
-            margin-bottom: 3px;
+            font-weight: 700;
+            margin-bottom: 4px;
         }
         .page-title {
             font-family: var(--font-serif);
-            font-size: clamp(1.35rem, 2.1vw, 1.85rem);
+            font-size: clamp(1.4rem, 2.3vw, 1.85rem);
             color: var(--text-dark);
             line-height: 1.25;
-            margin-bottom: 3px;
+            margin-bottom: 4px;
+            font-weight: 700;
         }
         .page-desc {
-            font-size: 0.78rem;
+            font-size: 0.82rem;
             color: var(--text-muted);
-            line-height: 1.4;
+            line-height: 1.45;
         }
         .page-footer {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-size: 0.7rem;
+            font-size: 0.74rem;
             color: #9C968D;
-            border-top: 1px solid rgba(0,0,0,0.07);
-            padding-top: 8px;
+            border-top: 1px solid rgba(0,0,0,0.08);
+            padding-top: 9px;
             margin-top: 8px;
+            flex-shrink: 0;
         }
         .page-number {
             font-family: var(--font-serif);
             font-weight: 700;
-            font-size: 0.82rem;
+            font-size: 0.86rem;
             color: var(--accent-gold);
         }
 
+
         /* PAGE 2: WELCOME */
         .welcome-quote-box {
-            background: rgba(255,255,255,0.9);
+            background: rgba(255,255,255,0.95);
             border-left: 4px solid var(--accent-gold);
-            padding: 12px 14px;
-            border-radius: 0 6px 6px 0;
-            margin: 8px 0;
+            padding: 14px 16px;
+            border-radius: 0 8px 8px 0;
+            margin: 10px 0;
             font-style: italic;
-            font-size: 0.8rem;
-            color: #4A4845;
-            line-height: 1.55;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+            font-size: 0.88rem;
+            color: #3A3835;
+            line-height: 1.65;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.04);
         }
         .welcome-photo {
             width: 100%;
-            height: 195px;
-            max-height: 28vh;
+            flex: 1;
+            min-height: 165px;
             object-fit: cover;
-            border-radius: 6px;
-            box-shadow: 0 5px 16px rgba(0,0,0,0.08);
+            border-radius: 8px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.09);
             border: 1px solid rgba(0,0,0,0.06);
-            margin-top: 8px;
+            margin-top: 10px;
             display: block;
         }
 
@@ -404,42 +422,48 @@
         .schedule-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            margin: 8px 0 12px;
+            gap: 12px;
+            margin: 8px 0 16px;
         }
         .schedule-card {
             background: var(--bg-white);
-            padding: 12px 10px;
-            border-radius: 6px;
-            border: 1px solid rgba(0,0,0,0.07);
+            padding: 14px 12px;
+            border-radius: 8px;
+            border: 1px solid rgba(197, 160, 89, 0.2);
             text-align: center;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.04);
         }
         .schedule-card h4 {
             font-family: var(--font-serif);
-            font-size: 0.92rem;
+            font-size: 0.95rem;
             color: var(--accent-gold);
-            margin-bottom: 2px;
+            margin-bottom: 4px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
         }
         .schedule-card .time {
-            font-size: 1.3rem;
-            font-weight: 700;
+            font-size: 1.5rem;
+            font-weight: 800;
             color: var(--text-dark);
-            margin-bottom: 2px;
+            margin-bottom: 3px;
         }
         .wifi-luxury-box {
             background: var(--bg-dark);
             color: #FFF;
-            padding: 16px 14px;
-            border-radius: 8px;
+            padding: 18px 16px;
+            border-radius: 10px;
             text-align: center;
             border: 1px solid rgba(197, 160, 89, 0.35);
-            box-shadow: 0 5px 18px rgba(0,0,0,0.15);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.18);
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
         .wifi-luxury-box i.wifi-icon-main {
-            font-size: 2rem;
+            font-size: 2.2rem;
             color: var(--accent-gold);
-            margin-bottom: 4px;
+            margin-bottom: 6px;
             display: inline-block;
         }
         .wifi-row {
@@ -447,10 +471,10 @@
             justify-content: space-between;
             align-items: center;
             background: rgba(255,255,255,0.08);
-            padding: 8px 12px;
-            border-radius: 5px;
-            margin-top: 6px;
-            font-size: 0.8rem;
+            padding: 10px 14px;
+            border-radius: 6px;
+            margin-top: 8px;
+            font-size: 0.86rem;
             transition: background 0.2s ease;
         }
         .wifi-row.clickable {
@@ -461,7 +485,7 @@
         }
         .wifi-row strong {
             color: var(--accent-gold-light);
-            font-size: 0.92rem;
+            font-size: 0.98rem;
             letter-spacing: 0.5px;
         }
 
@@ -469,23 +493,25 @@
         .room-mini-list {
             display: flex;
             flex-direction: column;
-            gap: 8px;
-            margin: 6px 0;
+            gap: 0;
+            margin: 0;
+            flex: 1;
+            justify-content: space-around;
         }
         .room-mini-item {
             display: flex;
-            gap: 10px;
+            gap: 12px;
             background: var(--bg-white);
-            padding: 7px 9px;
-            border-radius: 6px;
-            border: 1px solid rgba(0,0,0,0.06);
-            box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+            padding: 11px 12px;
+            border-radius: 8px;
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.04);
             align-items: center;
         }
         .room-mini-img {
-            width: 95px;
-            height: 70px;
-            border-radius: 4px;
+            width: 108px;
+            height: 82px;
+            border-radius: 6px;
             object-fit: cover;
             flex-shrink: 0;
         }
@@ -496,22 +522,23 @@
             flex: 1;
         }
         .room-mini-tag {
-            font-size: 0.62rem;
+            font-size: 0.68rem;
             color: var(--accent-gold);
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.8px;
         }
         .room-mini-info h4 {
-            font-size: 0.88rem;
+            font-size: 0.98rem;
             color: var(--text-dark);
-            margin: 1px 0;
+            margin: 2px 0;
             font-family: var(--font-serif);
+            font-weight: 700;
         }
         .room-mini-info p {
-            font-size: 0.68rem;
-            color: #666;
-            line-height: 1.3;
+            font-size: 0.78rem;
+            color: #555;
+            line-height: 1.45;
             margin: 0;
         }
 
@@ -519,43 +546,46 @@
         .amenity-grid-luxury {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 8px;
-            margin: 8px 0 10px;
+            gap: 10px;
+            margin: 10px 0 12px;
+            flex: 1;
+            align-content: start;
         }
         .amenity-item-box {
             background: var(--bg-white);
-            padding: 10px 8px;
-            border-radius: 6px;
-            border: 1px solid rgba(0,0,0,0.05);
+            padding: 13px 11px;
+            border-radius: 8px;
+            border: 1px solid rgba(197, 160, 89, 0.18);
             display: flex;
             align-items: center;
-            gap: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+            gap: 10px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.03);
         }
         .amenity-item-box i {
-            font-size: 1.25rem;
+            font-size: 1.4rem;
             color: var(--accent-gold);
-            width: 24px;
+            width: 26px;
             text-align: center;
             flex-shrink: 0;
         }
         .amenity-item-box h5 {
-            font-size: 0.78rem;
+            font-size: 0.88rem;
             color: var(--text-dark);
-            margin-bottom: 1px;
-            font-weight: 600;
+            margin-bottom: 2px;
+            font-weight: 700;
         }
         .amenity-item-box span {
-            font-size: 0.64rem;
-            color: #888;
+            font-size: 0.72rem;
+            color: #777;
         }
         .amenity-quote-bottom {
             background: var(--bg-white);
-            border-radius: 6px;
-            padding: 10px 12px;
-            border: 1px solid rgba(0,0,0,0.05);
+            border-radius: 8px;
+            padding: 12px 16px;
+            border: 1px solid rgba(197, 160, 89, 0.2);
             text-align: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+            box-shadow: 0 3px 8px rgba(0,0,0,0.03);
+            margin-top: 10px;
         }
 
         /* PAGE 6 & 7: HỆ SINH THÁI ẨM THỰC & CÀ PHÊ (GRID 2 ẢNH SIDE-BY-SIDE) */
@@ -563,7 +593,7 @@
             display: flex;
             flex-direction: column;
             gap: 6px;
-            margin: 2px 0 4px;
+            margin: 0 0 6px;
             width: 100%;
         }
         .dining-card {
@@ -581,64 +611,64 @@
         .dining-badge-gold {
             background: #FFEAA7;
             color: #2D271D;
-            font-size: 0.54rem;
+            font-size: 0.58rem;
             font-weight: 800;
-            padding: 1px 6px;
-            border-radius: 8px;
+            padding: 2px 7px;
+            border-radius: 6px;
             text-transform: uppercase;
-            letter-spacing: 0.3px;
+            letter-spacing: 0.5px;
             display: inline-block;
-            margin-bottom: 3px;
+            margin-bottom: 4px;
         }
         .dining-badge-cyan {
             background: #DDF4FF;
             color: #0A3D62;
-            font-size: 0.54rem;
+            font-size: 0.58rem;
             font-weight: 800;
-            padding: 1px 6px;
-            border-radius: 8px;
+            padding: 2px 7px;
+            border-radius: 6px;
             text-transform: uppercase;
-            letter-spacing: 0.3px;
+            letter-spacing: 0.5px;
             display: inline-block;
-            margin-bottom: 3px;
+            margin-bottom: 4px;
         }
         .dining-badge-navy {
             background: #142838;
             color: #FFFFFF;
             border: 1px solid rgba(255,255,255,0.25);
-            font-size: 0.54rem;
+            font-size: 0.58rem;
             font-weight: 800;
-            padding: 1px 6px;
-            border-radius: 8px;
+            padding: 2px 7px;
+            border-radius: 6px;
             text-transform: uppercase;
-            letter-spacing: 0.3px;
+            letter-spacing: 0.5px;
             display: inline-block;
-            margin-bottom: 3px;
+            margin-bottom: 4px;
         }
         .dining-badge-wood {
             background: #5C3D2E;
             color: #FFE6D8;
-            font-size: 0.54rem;
+            font-size: 0.58rem;
             font-weight: 800;
-            padding: 1px 6px;
-            border-radius: 8px;
+            padding: 2px 7px;
+            border-radius: 6px;
             text-transform: uppercase;
-            letter-spacing: 0.3px;
+            letter-spacing: 0.5px;
             display: inline-block;
-            margin-bottom: 3px;
+            margin-bottom: 4px;
         }
         .dining-grid-2 {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 5px;
-            margin-bottom: 3px;
+            gap: 6px;
+            margin-bottom: 4px;
             width: 100%;
         }
         .dining-grid-item {
             position: relative;
             width: 100%;
-            height: 108px;
-            border-radius: 5px;
+            height: 112px;
+            border-radius: 6px;
             overflow: hidden;
             background: #1e1b18;
         }
@@ -650,34 +680,34 @@
         }
         .dining-card-title {
             font-family: var(--font-serif);
-            font-size: 0.82rem;
+            font-size: 0.92rem;
             color: var(--accent-gold-light);
-            margin: 0 0 1px;
+            margin: 2px 0 2px;
             font-weight: 700;
-            line-height: 1.2;
+            line-height: 1.25;
         }
         .dining-card-desc {
-            font-size: 0.61rem;
+            font-size: 0.68rem;
             color: #E6E0D6;
-            line-height: 1.35;
-            margin: 0 0 3px;
+            line-height: 1.45;
+            margin: 0 0 4px;
             font-weight: 400;
         }
         .dining-footer {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-size: 0.59rem;
+            font-size: 0.65rem;
             color: var(--accent-gold-light);
-            border-top: 1px solid rgba(255,255,255,0.12);
-            padding-top: 3px;
+            border-top: 1px solid rgba(255,255,255,0.14);
+            padding-top: 4px;
         }
         .dining-footer a {
             color: var(--accent-gold-light);
             text-decoration: none;
             display: inline-flex;
             align-items: center;
-            gap: 3px;
+            gap: 4px;
             transition: color 0.2s ease;
         }
         .dining-footer a:hover {
@@ -685,61 +715,107 @@
         }
         .dining-perk-box {
             background: var(--bg-white);
-            padding: 5px 7px;
-            border-radius: 6px;
-            border: 1px solid rgba(0,0,0,0.06);
-            font-size: 0.60rem;
-            line-height: 1.35;
+            padding: 8px 10px;
+            border-radius: 8px;
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            font-size: 0.66rem;
+            line-height: 1.42;
             color: var(--text-dark);
-            margin-top: 3px;
+            margin-top: 4px;
             width: 100%;
             box-sizing: border-box;
         }
 
         /* PAGE 8: 8 ĐIỂM ĐẾN ẤN TƯỢNG (GRID 4x2) */
+        .page-header-destinations {
+            padding-top: 14px;
+            padding-bottom: 7px;
+        }
         .exp-grid-flip {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 7px 6px;
-            margin: 6px 0 7px;
+            grid-template-rows: repeat(2, 1fr);
+            gap: 9px 7px;
+            margin: 2px 0 6px;
+            flex: 1;
+            align-content: stretch;
+            min-height: 0;
         }
         .exp-card-flip {
-            background: var(--bg-white);
+            background: #FFFFFF;
             border-radius: 8px;
             overflow: hidden;
-            border: 1px solid rgba(0,0,0,0.06);
+            border: 1px solid rgba(197, 160, 89, 0.22);
             text-align: center;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.04);
             display: flex;
             flex-direction: column;
-            transition: transform 0.2s ease;
+            position: relative;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
         }
-        .exp-card-flip img {
+        .exp-card-flip:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+            border-color: var(--accent-gold);
+        }
+        .exp-card-img-wrap {
+            position: relative;
             width: 100%;
-            height: 68px;
+            flex: 1.4;
+            min-height: 82px;
+            overflow: hidden;
+            background: #201D1A;
+        }
+        .exp-card-img-wrap img {
+            width: 100%;
+            height: 100%;
             object-fit: cover;
             display: block;
+            transition: transform 0.4s ease;
+        }
+        .exp-card-flip:hover .exp-card-img-wrap img {
+            transform: scale(1.06);
+        }
+        .exp-card-badge {
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            background: rgba(22, 20, 18, 0.75);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            color: var(--accent-gold-light);
+            font-size: 0.52rem;
+            font-weight: 700;
+            padding: 1px 5px;
+            border-radius: 3px;
+            letter-spacing: 0.5px;
+            z-index: 2;
+            border: 1px solid rgba(197, 160, 89, 0.35);
+            line-height: 1.2;
         }
         .exp-card-flip-info {
-            padding: 4px 3px 5px;
-            flex: 1;
+            padding: 5px 4px 5px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
+            background: #FFFFFF;
+            border-top: 1px solid rgba(0,0,0,0.04);
+            flex-shrink: 0;
         }
         .exp-card-flip-info h5 {
-            font-size: 0.63rem;
+            font-size: 0.64rem;
             font-weight: 700;
             color: var(--text-dark);
             margin: 0 0 1px;
-            line-height: 1.25;
+            line-height: 1.2;
             white-space: normal;
+            letter-spacing: -0.1px;
         }
         .exp-card-flip-info p {
             font-size: 0.52rem;
-            color: #777;
+            color: #6B665F;
             font-weight: 400;
             margin: 0;
             line-height: 1.2;
@@ -769,39 +845,61 @@
             list-style: none;
             display: flex;
             flex-direction: column;
-            gap: 9px;
+            gap: 12px;
             margin: 6px 0;
+            flex: 1;
+            justify-content: space-evenly;
         }
         .flip-list li {
             display: flex;
-            align-items: flex-start;
-            gap: 10px;
-            font-size: 0.78rem;
-            line-height: 1.45;
+            align-items: center;
+            gap: 14px;
             background: var(--bg-white);
-            padding: 9px 10px;
-            border-radius: 6px;
-            border: 1px solid rgba(0,0,0,0.05);
-            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+            padding: 13px 16px;
+            border-radius: 10px;
+            border: 1px solid rgba(197, 160, 89, 0.22);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+            min-height: 68px;
+            box-sizing: border-box;
+            transition: transform 0.2s ease;
+        }
+        .flip-list li:hover {
+            transform: translateX(2px);
+            border-color: var(--accent-gold);
         }
         .flip-list-num {
-            width: 24px;
-            height: 24px;
+            width: 34px;
+            height: 34px;
             border-radius: 50%;
             background: var(--accent-gold);
             color: white;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.74rem;
-            font-weight: 700;
+            font-size: 0.95rem;
+            font-weight: 800;
             flex-shrink: 0;
+            box-shadow: 0 3px 8px rgba(197, 160, 89, 0.35);
         }
         .flip-checklist-icon {
             color: var(--accent-gold);
-            font-size: 1.2rem;
-            margin-top: 1px;
+            font-size: 1.55rem;
             flex-shrink: 0;
+            width: 32px;
+            text-align: center;
+        }
+        .flip-list li strong {
+            font-size: 0.94rem;
+            color: var(--text-dark);
+            font-weight: 700;
+            display: block;
+            margin-bottom: 2px;
+        }
+        .flip-list li p, .flip-list li span {
+            font-size: 0.78rem !important;
+            line-height: 1.5 !important;
+            color: #666 !important;
+            margin: 0;
         }
 
         /* PAGE 11: THANK YOU & QR */
@@ -814,42 +912,48 @@
             height: 100%;
         }
         .qr-frame {
-            padding: 7px;
+            padding: 10px;
             background: white;
-            border-radius: 8px;
-            box-shadow: 0 5px 18px rgba(0,0,0,0.08);
-            border: 1px solid rgba(197, 160, 89, 0.35);
-            margin: 10px 0 6px;
+            border-radius: 10px;
+            box-shadow: 0 6px 22px rgba(0,0,0,0.09);
+            border: 1px solid rgba(197, 160, 89, 0.4);
+            margin: 12px 0 8px;
             display: inline-flex;
             flex-direction: column;
             align-items: center;
             text-decoration: none;
             touch-action: manipulation;
+            transition: transform 0.2s ease;
         }
         .qr-frame:active {
             transform: scale(0.98);
         }
         .qr-frame img {
-            width: 130px;
-            height: 130px;
+            width: 140px;
+            height: 140px;
             display: block;
         }
         .qr-tap-hint {
-            font-size: 0.62rem;
+            font-size: 0.72rem;
             color: var(--accent-gold);
-            margin-top: 3px;
-            font-weight: 600;
+            margin-top: 5px;
+            font-weight: 700;
+            letter-spacing: 0.3px;
         }
         .contact-info-block {
-            font-size: 0.74rem;
-            line-height: 1.5;
+            font-size: 0.84rem;
+            line-height: 1.6;
             color: #555;
-            margin-top: 4px;
+            margin-top: 8px;
+        }
+        .contact-info-block strong {
+            font-size: 0.92rem;
+            letter-spacing: 0.5px;
         }
         .contact-info-block a {
             color: var(--text-dark);
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 700;
         }
 
         /* BOTTOM FLOATING CONTROLS */
@@ -1211,7 +1315,9 @@
             .brand-header { margin-bottom: 4px; }
             .brand-header h1 { font-size: 1.15rem; letter-spacing: 3px; }
             .brand-header p { font-size: 0.65rem; letter-spacing: 1px; }
-            .page-content { padding: 18px 14px 14px; }
+            .page-content { padding: 14px 13px 12px; }
+            .page-title { font-size: 1.35rem; }
+            .page-desc { font-size: 0.78rem; }
             .bottom-nav-bar { padding: 4px 8px; gap: 4px; bottom: max(8px, env(safe-area-inset-bottom, 8px)); }
             .nav-btn { width: 32px; height: 32px; font-size: 0.85rem; }
             .nav-btn.btn-booklet { padding: 0 8px; font-size: 0.7rem; height: 32px; }
@@ -1219,24 +1325,22 @@
             .cover-title { font-size: 1.7rem; }
             .cover-gold-badge { width: 55px; height: 55px; font-size: 1.4rem; margin-bottom: 10px; }
             .cover-script { font-size: 1.55rem; }
-            .welcome-photo { height: 165px; }
+            .welcome-photo { min-height: 140px; }
             .dining-grid-item { height: 95px; }
-            .exp-grid-flip { grid-template-columns: repeat(2, 1fr); gap: 5px; }
-            .exp-card-flip img { height: 60px; }
+            .exp-grid-flip { grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(4, 1fr); gap: 6px 5px; }
+            .exp-card-img-wrap { min-height: 58px; }
+            .flip-list li { min-height: 60px; padding: 10px 12px; }
             .booklet-sides-row { grid-template-columns: 1fr; }
         }
 
-        /* ================= BOOKLET PRINT CONTAINER ================= */
-        .booklet-print-container {
+        /* ================= BOOKLET & STANDARD PRINT DOM CONTAINERS ================= */
+        .booklet-print-container,
+        .standard-print-container {
             display: none;
         }
 
         /* ================= PRINT & PDF EXPORT STYLES ================= */
         @media print {
-            @page {
-                size: A4 landscape;
-                margin: 0;
-            }
             *, *::before, *::after {
                 -webkit-print-color-adjust: exact !important;
                 print-color-adjust: exact !important;
@@ -1256,10 +1360,18 @@
                 display: none !important;
             }
 
-            /* BOOKLET IMPOSITION PRINT */
-            body.print-mode-booklet .stage-container {
+            /* HIDE 3D FLIPBOOK STAGE WHEN PRINTING */
+            body.print-mode-booklet .stage-container,
+            body.print-mode-standard .stage-container {
                 display: none !important;
             }
+
+            /* --- 1. BOOKLET IMPOSITION PRINT (A4 Landscape, 3 Sheets x 2 Sides) --- */
+            @page {
+                size: A4 landscape;
+                margin: 0;
+            }
+
             body.print-mode-booklet .booklet-print-container {
                 display: block !important;
                 width: 100% !important;
@@ -1298,7 +1410,7 @@
                 bottom: 0 !important;
                 left: 50% !important;
                 width: 1px !important;
-                border-right: 1px dashed rgba(0,0,0,0.12) !important;
+                border-right: 1px dashed rgba(0,0,0,0.18) !important;
                 z-index: 10 !important;
             }
             body.print-mode-booklet .booklet-half .page {
@@ -1306,56 +1418,78 @@
                 height: 100% !important;
                 box-shadow: none !important;
                 border: none !important;
-                padding: 26px 32px 18px !important;
+                padding: 0 !important;
                 display: flex !important;
                 flex-direction: column !important;
                 justify-content: space-between !important;
+                transform: none !important;
+                position: relative !important;
+                left: 0 !important;
+                top: 0 !important;
+                visibility: visible !important;
+                opacity: 1 !important;
+            }
+            body.print-mode-booklet .booklet-half .page.page-cover {
+                background: #1E1B18 !important;
+                color: #FFFFFF !important;
+                padding: 24px 20px !important;
+            }
+            body.print-mode-booklet .booklet-half .page-content {
+                padding: 18px 22px 14px !important;
+                height: 100% !important;
+                box-sizing: border-box !important;
             }
 
-            /* STANDARD 12 PAGES PRINT */
-            body:not(.print-mode-booklet) .stage-container,
-            body:not(.print-mode-booklet) .flipbook-viewport,
-            body:not(.print-mode-booklet) .flipbook-container,
-            body:not(.print-mode-booklet) .stf__parent,
-            body:not(.print-mode-booklet) .stf__wrapper,
-            body:not(.print-mode-booklet) .stf__block,
-            body:not(.print-mode-booklet) .stf__item {
-                position: static !important;
+            /* --- 2. STANDARD 12 PAGES PRINT (12 Pages Continuous) --- */
+            body.print-mode-standard .standard-print-container {
                 display: block !important;
                 width: 100% !important;
                 height: auto !important;
-                max-width: none !important;
-                transform: none !important;
-                perspective: none !important;
-                box-shadow: none !important;
-                overflow: visible !important;
-                left: auto !important;
-                top: auto !important;
-                right: auto !important;
-                bottom: auto !important;
                 margin: 0 !important;
                 padding: 0 !important;
-                border: none !important;
             }
-            body:not(.print-mode-booklet) .page {
-                position: relative !important;
-                display: flex !important;
-                flex-direction: column !important;
-                justify-content: space-between !important;
+            body.print-mode-standard .standard-print-sheet {
                 width: 100vw !important;
                 height: 100vh !important;
                 max-height: 100vh !important;
+                display: flex !important;
+                flex-direction: column !important;
                 page-break-after: always !important;
                 break-after: page !important;
                 page-break-inside: avoid !important;
                 break-inside: avoid !important;
                 box-sizing: border-box !important;
-                padding: 35px 50px !important;
+                padding: 0 !important;
                 margin: 0 !important;
                 background-color: #F7F5F0 !important;
+                position: relative !important;
+                overflow: hidden !important;
+            }
+            body.print-mode-standard .standard-print-sheet .page {
+                width: 100% !important;
+                height: 100% !important;
                 box-shadow: none !important;
                 border: none !important;
-                overflow: hidden !important;
+                padding: 0 !important;
+                display: flex !important;
+                flex-direction: column !important;
+                justify-content: space-between !important;
+                transform: none !important;
+                position: relative !important;
+                left: 0 !important;
+                top: 0 !important;
+                visibility: visible !important;
+                opacity: 1 !important;
+            }
+            body.print-mode-standard .standard-print-sheet .page.page-cover {
+                background: #1E1B18 !important;
+                color: #FFFFFF !important;
+                padding: 32px 30px !important;
+            }
+            body.print-mode-standard .standard-print-sheet .page-content {
+                padding: 26px 32px 20px !important;
+                height: 100% !important;
+                box-sizing: border-box !important;
             }
         }
     </style>
@@ -1412,15 +1546,17 @@
                             <p class="page-desc">Chào mừng bạn ghé thăm GAJO's HOUSE</p>
                         </div>
 
-                        <div class="welcome-quote-box">
-                            "Một không gian lưu trú boutique mới xây được chăm chút tỉ mỉ từng chi tiết, tĩnh lặng và sạch không tì vết để bạn tái tạo trọn vẹn nguồn năng lượng."
+                        <div class="page-main-content">
+                            <div class="welcome-quote-box">
+                                "Một không gian lưu trú boutique mới xây được chăm chút tỉ mỉ từng chi tiết, tĩnh lặng và sạch không tì vết để bạn tái tạo trọn vẹn nguồn năng lượng."
+                            </div>
+
+                            <p style="font-size:0.86rem; color:#444; line-height:1.65; margin:8px 0;">
+                                Tọa lạc tại vùng Hoài Nhơn Đông thanh bình, homestay mang phong cách tối giản Japandi giao hòa cùng vẻ đẹp mộc mạc của xứ dừa Bình Định.
+                            </p>
+
+                            <img src="assets/gajo-interior.jpg" class="welcome-photo" alt="Nội thất GAJO's HOUSE" style="flex:1; height:auto; max-height:none; min-height:160px; object-fit:cover;">
                         </div>
-
-                        <p style="font-size:0.8rem; color:#555; line-height:1.55; margin:4px 0;">
-                            Tọa lạc tại vùng Hoài Nhơn Đông thanh bình, homestay mang phong cách tối giản Japandi giao hòa cùng vẻ đẹp mộc mạc của xứ dừa Bình Định.
-                        </p>
-
-                        <img src="assets/gajo-interior.jpg" class="welcome-photo" alt="Nội thất GAJO's HOUSE">
                     </div>
 
                     <div class="page-footer">
@@ -1440,37 +1576,39 @@
                             <p class="page-desc">Thời gian lưu trú &amp; kết nối internet tốc độ cao</p>
                         </div>
 
-                        <div class="schedule-grid">
-                            <div class="schedule-card">
-                                <h4>CHECK IN</h4>
-                                <div class="time">14:00</div>
-                                <span style="font-size:0.72rem; color:#777;">Sau 2:00 PM</span>
+                        <div class="page-main-content">
+                            <div class="schedule-grid">
+                                <div class="schedule-card">
+                                    <h4>CHECK IN</h4>
+                                    <div class="time">14:00</div>
+                                    <span style="font-size:0.72rem; color:#777;">Sau 2:00 PM</span>
+                                </div>
+                                <div class="schedule-card">
+                                    <h4>CHECK OUT</h4>
+                                    <div class="time">11:00</div>
+                                    <span style="font-size:0.72rem; color:#777;">Trước 11:00 AM</span>
+                                </div>
                             </div>
-                            <div class="schedule-card">
-                                <h4>CHECK OUT</h4>
-                                <div class="time">11:00</div>
-                                <span style="font-size:0.72rem; color:#777;">Trước 11:00 AM</span>
-                            </div>
-                        </div>
 
-                        <div class="wifi-luxury-box">
-                            <i class="fa-solid fa-wifi wifi-icon-main"></i>
-                            <h4 style="font-family:var(--font-serif); font-size:1.15rem; color:#FFF; margin-bottom:3px;">WiFi Tốc Độ Cao</h4>
-                            <p style="font-size:0.72rem; color:#BBB; margin-bottom:8px;">Phủ sóng mạnh mẽ toàn bộ khuôn viên</p>
+                            <div class="wifi-luxury-box">
+                                <i class="fa-solid fa-wifi wifi-icon-main"></i>
+                                <h4 style="font-family:var(--font-serif); font-size:1.15rem; color:#FFF; margin-bottom:3px;">WiFi Tốc Độ Cao</h4>
+                                <p style="font-size:0.72rem; color:#BBB; margin-bottom:8px;">Phủ sóng mạnh mẽ toàn bộ khuôn viên</p>
 
-                            <div class="wifi-row">
-                                <span>Tên Mạng:</span>
-                                <strong>GAJOS_HOUSE</strong>
-                            </div>
-                            <div class="wifi-row clickable" onclick="copyText('gajohouse123', 'Đã sao chép mật khẩu WiFi: gajohouse123')" title="Nhấn để sao chép mật khẩu">
-                                <span>Mật Khẩu:</span>
-                                <strong style="display:flex; align-items:center; gap:6px;">
-                                    <span>gajohouse123</span>
-                                    <i class="fa-regular fa-copy" style="font-size:0.85rem; color:var(--accent-gold);"></i>
-                                </strong>
-                            </div>
-                            <div style="font-size:0.66rem; color:var(--accent-gold-light); margin-top:6px; opacity:0.85;">
-                                <i class="fa-regular fa-hand-pointer"></i> Chạm vào mật khẩu để sao chép
+                                <div class="wifi-row">
+                                    <span>Tên Mạng:</span>
+                                    <strong>GAJOS_HOUSE</strong>
+                                </div>
+                                <div class="wifi-row clickable" onclick="copyText('gajohouse123', 'Đã sao chép mật khẩu WiFi: gajohouse123')" title="Nhấn để sao chép mật khẩu">
+                                    <span>Mật Khẩu:</span>
+                                    <strong style="display:flex; align-items:center; gap:6px;">
+                                        <span>gajohouse123</span>
+                                        <i class="fa-regular fa-copy" style="font-size:0.85rem; color:var(--accent-gold);"></i>
+                                    </strong>
+                                </div>
+                                <div style="font-size:0.66rem; color:var(--accent-gold-light); margin-top:6px; opacity:0.85;">
+                                    <i class="fa-regular fa-hand-pointer"></i> Chạm vào mật khẩu để sao chép
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1492,7 +1630,8 @@
                             <p class="page-desc">Hình ảnh thực tế 3 hạng phòng sạch tinh tươm</p>
                         </div>
 
-                        <div class="room-mini-list">
+                        <div class="page-main-content">
+                            <div class="room-mini-list">
                             <!-- GA-AN -->
                             <div class="room-mini-item">
                                 <img src="assets/gajo-double-bed.jpg" class="room-mini-img" alt="Phòng GA-AN">
@@ -1520,7 +1659,8 @@
                                     <p>2 giường lớn, tranh Matisse, sàn gỗ xương cá ấm cúng.</p>
                                 </div>
                             </div>
-                        </div>
+                            </div><!-- end room-mini-list -->
+                        </div><!-- end page-main-content -->
                     </div>
 
                     <div class="page-footer">
@@ -1540,7 +1680,8 @@
                             <p class="page-desc">Chăm sóc từng trải nghiệm nghỉ ngơi nhỏ nhất</p>
                         </div>
 
-                        <div class="amenity-grid-luxury">
+                        <div class="page-main-content">
+                            <div class="amenity-grid-luxury">
                             <div class="amenity-item-box">
                                 <i class="fa-solid fa-broom"></i>
                                 <div>
@@ -1583,12 +1724,13 @@
                                     <span>Camera an ninh</span>
                                 </div>
                             </div>
-                        </div>
+                            </div><!-- end amenity-grid-luxury -->
 
-                        <div class="amenity-quote-bottom">
-                            <span style="font-family:var(--font-script); font-size:1.4rem; color:var(--accent-gold); display:block;">"Feel like home"</span>
-                            <p style="font-size:0.72rem; color:#666; margin:0;">Chủ nhà luôn sẵn sàng hỗ trợ bạn 24/7 với tất cả sự tận tâm.</p>
-                        </div>
+                            <div class="amenity-quote-bottom">
+                                <span style="font-family:var(--font-script); font-size:1.4rem; color:var(--accent-gold); display:block;">"Feel like home"</span>
+                                <p style="font-size:0.72rem; color:#666; margin:0;">Chủ nhà luôn sẵn sàng hỗ trợ bạn 24/7 với tất cả sự tận tâm.</p>
+                            </div>
+                        </div><!-- end page-main-content -->
                     </div>
 
                     <div class="page-footer">
@@ -1608,57 +1750,59 @@
                             <p class="page-desc">Gợi ý ẩm thực đặc quyền dành riêng cho khách lưu trú</p>
                         </div>
 
-                        <div class="dining-stack">
-                            <!-- Card 1: Tiệm Nướng Nhà Gạo -->
-                            <div class="dining-card">
-                                <span class="dining-badge-gold">TIỂU ĐÀ LẠT GIỮA HOÀI NHƠN</span>
-                                <div class="dining-grid-2">
-                                    <div class="dining-grid-item">
-                                        <img src="assets/nhagao-1.jpg" alt="Tiệm Nướng Nhà Gạo View Hoàng Hôn" style="object-position: center 40%;">
+                        <div class="page-main-content">
+                            <div class="dining-stack">
+                                <!-- Card 1: Tiệm Nướng Nhà Gạo -->
+                                <div class="dining-card">
+                                    <span class="dining-badge-gold">TIỂU ĐÀ LẠT GIỮA HOÀI NHƠN</span>
+                                    <div class="dining-grid-2">
+                                        <div class="dining-grid-item">
+                                            <img src="assets/nhagao-1.jpg" alt="Tiệm Nướng Nhà Gạo View Hoàng Hôn" style="object-position: center 40%;">
+                                        </div>
+                                        <div class="dining-grid-item">
+                                            <img src="assets/nhagao-2.jpg" alt="Bò Tảng Sốt Phô Mai & BBQ" style="object-position: center 50%;">
+                                        </div>
                                     </div>
-                                    <div class="dining-grid-item">
-                                        <img src="assets/nhagao-2.jpg" alt="Bò Tảng Sốt Phô Mai & BBQ" style="object-position: center 50%;">
+                                    <h3 class="dining-card-title">Tiệm Nướng Nhà Gạo</h3>
+                                    <p class="dining-card-desc">
+                                        Không gian sân vườn Vintage ấm cúng với ánh đèn vàng lãng mạn. Nơi thưởng thức tiệc nướng BBQ đậm vị và các đêm nhạc acoustic nhẹ nhàng.
+                                    </p>
+                                    <div class="dining-footer">
+                                        <a href="https://maps.app.goo.gl/jAWENgZvarDbmG7f6" target="_blank"><i class="fa-solid fa-location-dot"></i> Đ. Trường Sa, Thạnh Xuân Đông (~2.6km)</a>
+                                        <a href="tel:0902286300"><strong><i class="fa-solid fa-phone"></i> 0902 286 300</strong></a>
                                     </div>
                                 </div>
-                                <h3 class="dining-card-title">Tiệm Nướng Nhà Gạo</h3>
-                                <p class="dining-card-desc">
-                                    Không gian sân vườn Vintage ấm cúng với ánh đèn vàng lãng mạn. Nơi thưởng thức tiệc nướng BBQ đậm vị và các đêm nhạc acoustic nhẹ nhàng.
-                                </p>
-                                <div class="dining-footer">
-                                    <a href="https://maps.app.goo.gl/jAWENgZvarDbmG7f6" target="_blank"><i class="fa-solid fa-location-dot"></i> Đ. Trường Sa, Thạnh Xuân Đông (~2.6km)</a>
-                                    <a href="tel:0902286300"><strong><i class="fa-solid fa-phone"></i> 0902 286 300</strong></a>
+
+                                <!-- Card 2: GAJO Thái -->
+                                <div class="dining-card">
+                                    <span class="dining-badge-cyan">VIEW HOÀNG HÔN CỰC CHILL</span>
+                                    <div class="dining-grid-2">
+                                        <div class="dining-grid-item">
+                                            <img src="assets/dining-nhagao.jpg" alt="GAJO Thái Không Gian Bể Cá" style="object-position: center 35%;">
+                                        </div>
+                                        <div class="dining-grid-item">
+                                            <img src="assets/gajothai-food.jpg" alt="Bàn Tiệc Món Thái Chuẩn Vị" style="object-position: center 50%;">
+                                        </div>
+                                    </div>
+                                    <h3 class="dining-card-title">GAJO Thái</h3>
+                                    <p class="dining-card-desc">
+                                        Không gian mở thoáng đãng ôm trọn vẻ đẹp sông nước lúc chạng vạng. Trải nghiệm tinh hoa ẩm thực Thái Lan chuẩn vị giữa cảnh sắc thiên nhiên tuyệt đẹp.
+                                    </p>
+                                    <div class="dining-footer">
+                                        <a href="https://maps.google.com" target="_blank"><i class="fa-solid fa-location-dot"></i> 125 Nguyễn Chí Thanh, Hoài Nhơn Bắc</a>
+                                        <a href="tel:0902286300"><strong><i class="fa-solid fa-phone"></i> 0902 286 300</strong></a>
+                                    </div>
                                 </div>
                             </div>
 
-                            <!-- Card 2: GAJO Thái -->
-                            <div class="dining-card">
-                                <span class="dining-badge-cyan">VIEW HOÀNG HÔN CỰC CHILL</span>
-                                <div class="dining-grid-2">
-                                    <div class="dining-grid-item">
-                                        <img src="assets/dining-nhagao.jpg" alt="GAJO Thái Không Gian Bể Cá" style="object-position: center 35%;">
-                                    </div>
-                                    <div class="dining-grid-item">
-                                        <img src="assets/gajothai-food.jpg" alt="Bàn Tiệc Món Thái Chuẩn Vị" style="object-position: center 50%;">
-                                    </div>
-                                </div>
-                                <h3 class="dining-card-title">GAJO Thái</h3>
-                                <p class="dining-card-desc">
-                                    Không gian mở thoáng đãng ôm trọn vẻ đẹp sông nước lúc chạng vạng. Trải nghiệm tinh hoa ẩm thực Thái Lan chuẩn vị giữa cảnh sắc thiên nhiên tuyệt đẹp.
-                                </p>
-                                <div class="dining-footer">
-                                    <a href="https://maps.google.com" target="_blank"><i class="fa-solid fa-location-dot"></i> 125 Nguyễn Chí Thanh, Hoài Nhơn Bắc</a>
-                                    <a href="tel:0902286300"><strong><i class="fa-solid fa-phone"></i> 0902 286 300</strong></a>
+                            <!-- Footer Box: Đặc quyền GAJO's HOUSE -->
+                            <div class="dining-perk-box">
+                                <strong style="color: var(--accent-gold);"><i class="fa-solid fa-star"></i> Đặc quyền GAJO's HOUSE:</strong> Vui lòng báo lễ tân/nhân viên quán bạn là khách lưu trú tại homestay để được hỗ trợ đặt bàn vị trí đẹp nhất!
+                                <div style="margin-top: 3px; color: #777;">
+                                    <strong>Quán lân cận:</strong> Coffee Gạo, Bonjour Cafe, Quán A Mãi.
                                 </div>
                             </div>
-                        </div>
-
-                        <!-- Footer Box: Đặc quyền GAJO's HOUSE -->
-                        <div class="dining-perk-box">
-                            <strong style="color: var(--accent-gold);"><i class="fa-solid fa-star"></i> Đặc quyền GAJO's HOUSE:</strong> Vui lòng báo lễ tân/nhân viên quán bạn là khách lưu trú tại homestay để được hỗ trợ đặt bàn vị trí đẹp nhất!
-                            <div style="margin-top: 3px; color: #777;">
-                                <strong>Quán lân cận:</strong> Coffee Gạo, Bonjour Cafe, Quán A Mãi.
-                            </div>
-                        </div>
+                        </div><!-- end page-main-content -->
                     </div>
 
                     <div class="page-footer">
@@ -1678,7 +1822,8 @@
                             <p class="page-desc">Những điểm đến bình yên không thể bỏ lỡ tại Hoài Nhơn</p>
                         </div>
 
-                        <div class="dining-stack">
+                        <div class="page-main-content">
+                            <div class="dining-stack">
                             <!-- Card 1: Gạo Coffee -->
                             <div class="dining-card">
                                 <span class="dining-badge-navy">CHILL GIÓ BIỂN - NHẠC ACOUSTIC</span>
@@ -1720,12 +1865,13 @@
                                     <a href="tel:0965470833"><strong><i class="fa-solid fa-phone"></i> 0965 470 833</strong></a>
                                 </div>
                             </div>
-                        </div>
+                            </div><!-- end dining-stack -->
 
-                        <!-- Footer Box: Mẹo nhỏ từ GAJO's HOUSE -->
-                        <div class="dining-perk-box">
-                            <strong style="color: var(--accent-gold);"><i class="fa-solid fa-lightbulb"></i> Mẹo nhỏ từ GAJO's HOUSE:</strong> Bonjour Café nằm ngay trên đường Phan Trọng Tuệ, rất thuận tiện để bạn đi bộ từ homestay ra thưởng thức cà phê buổi sáng!
-                        </div>
+                            <!-- Footer Box: Mẹo nhỏ từ GAJO's HOUSE -->
+                            <div class="dining-perk-box">
+                                <strong style="color: var(--accent-gold);"><i class="fa-solid fa-lightbulb"></i> Mẹo nhỏ từ GAJO's HOUSE:</strong> Bonjour Café nằm ngay trên đường Phan Trọng Tuệ, rất thuận tiện để bạn đi bộ từ homestay ra thưởng thức cà phê buổi sáng!
+                            </div>
+                        </div><!-- end page-main-content -->
                     </div>
 
                     <div class="page-footer">
@@ -1739,85 +1885,109 @@
             <div class="page" data-density="soft">
                 <div class="page-content">
                     <div class="page-body-center">
-                        <div class="page-header">
+                        <div class="page-header page-header-destinations">
                             <div class="page-eyebrow">LOCAL EXPERIENCES</div>
                             <h2 class="page-title">8 Điểm Đến Ấn Tượng Quanh GAJO's HOUSE</h2>
                             <p class="page-desc">Hành trình khám phá Hoài Nhơn, An Lão và các danh thắng lân cận</p>
                         </div>
 
-                        <div class="exp-grid-flip">
-                            <!-- HÀNG 1 -->
-                            <!-- 1: Gành Lộ Diêu -->
-                            <div class="exp-card-flip">
-                                <img src="assets/exp-lodieu.jpg" alt="Gành Lộ Diêu">
-                                <div class="exp-card-flip-info">
-                                    <h5>Gành Lộ Diêu</h5>
-                                    <p>Bãi đá trăng khuyết tuyệt đẹp</p>
+                        <div class="page-main-content">
+                            <div class="exp-grid-flip">
+                                <!-- 1: Gành Lộ Diêu -->
+                                <div class="exp-card-flip">
+                                    <div class="exp-card-img-wrap">
+                                        <span class="exp-card-badge">01</span>
+                                        <img src="assets/exp-lodieu.jpg" alt="Gành Lộ Diêu" style="object-position: center 50%;">
+                                    </div>
+                                    <div class="exp-card-flip-info">
+                                        <h5>Gành Lộ Diêu</h5>
+                                        <p>Bãi biển trăng khuyết &amp; di tích</p>
+                                    </div>
                                 </div>
-                            </div>
-                            <!-- 2: Đèo Lộ Diêu -->
-                            <div class="exp-card-flip">
-                                <img src="assets/deo-hoaihai-lodieu.jpg" alt="Đèo Lộ Diêu">
-                                <div class="exp-card-flip-info">
-                                    <h5>Đèo Lộ Diêu</h5>
-                                    <p>Cung đường biển ĐT639 ngoạn mục</p>
+                                <!-- 2: Đèo Lộ Diêu -->
+                                <div class="exp-card-flip">
+                                    <div class="exp-card-img-wrap">
+                                        <span class="exp-card-badge">02</span>
+                                        <img src="assets/deo-lodieu.jpg" alt="Đèo Lộ Diêu" style="object-position: center 60%;">
+                                    </div>
+                                    <div class="exp-card-flip-info">
+                                        <h5>Đèo Lộ Diêu</h5>
+                                        <p>Cung đường biển ĐT639 ngoạn mục</p>
+                                    </div>
                                 </div>
-                            </div>
-                            <!-- 3: Cửa Biển Tam Quan -->
-                            <div class="exp-card-flip">
-                                <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=80&w=600" alt="Cửa Biển Tam Quan" style="filter: brightness(1.05);">
-                                <div class="exp-card-flip-info">
-                                    <h5>Cửa Biển Tam Quan</h5>
-                                    <p>Đón nắng sớm &amp; nhịp sống làng chài</p>
+                                <!-- 3: Cửa Biển Tam Quan -->
+                                <div class="exp-card-flip">
+                                    <div class="exp-card-img-wrap">
+                                        <span class="exp-card-badge">03</span>
+                                        <img src="assets/cuabien-tamquan.jpg" alt="Cửa Biển Tam Quan" style="object-position: center 45%;">
+                                    </div>
+                                    <div class="exp-card-flip-info">
+                                        <h5>Cửa Biển Tam Quan</h5>
+                                        <p>Đón nắng sớm &amp; đê biển xanh ngát</p>
+                                    </div>
                                 </div>
-                            </div>
-                            <!-- 4: Hồ Đồng Mít (An Lão) -->
-                            <div class="exp-card-flip">
-                                <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=600" alt="Hồ Đồng Mít An Lão">
-                                <div class="exp-card-flip-info">
-                                    <h5>Hồ Đồng Mít (An Lão)</h5>
-                                    <p>Biển hồ bích lục giữa ngàn xanh</p>
+                                <!-- 4: Hồ Đồng Mít (An Lão) -->
+                                <div class="exp-card-flip">
+                                    <div class="exp-card-img-wrap">
+                                        <span class="exp-card-badge">04</span>
+                                        <img src="assets/ho-dongmit.jpg" alt="Hồ Đồng Mít An Lão" style="object-position: center 40%;">
+                                    </div>
+                                    <div class="exp-card-flip-info">
+                                        <h5>Hồ Đồng Mít</h5>
+                                        <p>Biển hồ bích lục giữa ngàn xanh</p>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <!-- HÀNG 2 -->
-                            <!-- 5: Cao Nguyên La Vuông -->
-                            <div class="exp-card-flip">
-                                <img src="assets/exp-lavuong.jpg" alt="Cao Nguyên La Vuông">
-                                <div class="exp-card-flip-info">
-                                    <h5>Cao Nguyên La Vuông</h5>
-                                    <p>Thiên đường săn mây độ cao 700m</p>
+                                <!-- 5: Cao Nguyên La Vuông -->
+                                <div class="exp-card-flip">
+                                    <div class="exp-card-img-wrap">
+                                        <span class="exp-card-badge">05</span>
+                                        <img src="assets/lavuong-camping.jpg" alt="Cao Nguyên La Vuông" style="object-position: center 65%;">
+                                    </div>
+                                    <div class="exp-card-flip-info">
+                                        <h5>Cao Nguyên La Vuông</h5>
+                                        <p>Săn mây &amp; cắm trại độ cao 700m</p>
+                                    </div>
                                 </div>
-                            </div>
-                            <!-- 6: Hồ Mỹ Bình -->
-                            <div class="exp-card-flip">
-                                <img src="assets/exp-mybinh.jpg" alt="Hồ Mỹ Bình">
-                                <div class="exp-card-flip-info">
-                                    <h5>Hồ Mỹ Bình</h5>
-                                    <p>Điểm dã ngoại &amp; cắm trại bình yên</p>
+                                <!-- 6: Hồ Mỹ Bình -->
+                                <div class="exp-card-flip">
+                                    <div class="exp-card-img-wrap">
+                                        <span class="exp-card-badge">06</span>
+                                        <img src="assets/exp-mybinh.jpg" alt="Hồ Mỹ Bình" style="object-position: center 50%;">
+                                    </div>
+                                    <div class="exp-card-flip-info">
+                                        <h5>Hồ Mỹ Bình</h5>
+                                        <p>Hồ nước trong veo &amp; núi non bình yên</p>
+                                    </div>
                                 </div>
-                            </div>
-                            <!-- 7: Mũi Vi Rồng -->
-                            <div class="exp-card-flip">
-                                <img src="assets/exp-muivirong.jpg" alt="Mũi Vi Rồng">
-                                <div class="exp-card-flip-info">
-                                    <h5>Mũi Vi Rồng</h5>
-                                    <p>Kiệt tác thiên nhiên vươn biển lớn</p>
+                                <!-- 7: Mũi Vi Rồng -->
+                                <div class="exp-card-flip">
+                                    <div class="exp-card-img-wrap">
+                                        <span class="exp-card-badge">07</span>
+                                        <img src="assets/exp-muivirong.jpg" alt="Mũi Vi Rồng" style="object-position: center 40%;">
+                                    </div>
+                                    <div class="exp-card-flip-info">
+                                        <h5>Mũi Vi Rồng</h5>
+                                        <p>Cổng vòm đá kỳ vĩ hướng biển lớn</p>
+                                    </div>
                                 </div>
-                            </div>
-                            <!-- 8: Hệ Sinh Thái GAJO -->
-                            <div class="exp-card-flip">
-                                <img src="assets/cafe-gaocoffee.jpg" alt="GAJO Thái &amp; Gạo Coffee" style="object-position: center 60%;">
-                                <div class="exp-card-flip-info">
-                                    <h5>GAJO Thái &amp; Gạo Coffee</h5>
-                                    <p>Ngắm hoàng hôn &amp; nhạc acoustic</p>
+                                <!-- 8: Hệ Sinh Thái GAJO -->
+                                <div class="exp-card-flip">
+                                    <div class="exp-card-img-wrap">
+                                        <span class="exp-card-badge">08</span>
+                                        <img src="assets/cafe-gaocoffee.jpg" alt="GAJO Thái &amp; Gạo Coffee" style="object-position: center 60%;">
+                                    </div>
+                                    <div class="exp-card-flip-info">
+                                        <h5>GAJO Thái &amp; Gạo Coffee</h5>
+                                        <p>Ngắm hoàng hôn &amp; nhạc acoustic</p>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
+                            </div><!-- end exp-grid-flip -->
 
-                        <div style="background:var(--bg-white); padding:5px 8px; border-radius:6px; border:1px solid rgba(0,0,0,0.05); font-size:0.6rem; color:#555; text-align:center; margin-top:2px;">
-                            <i class="fa-solid fa-compass" style="color:var(--accent-gold);"></i> <em>Lễ tân hỗ trợ tư vấn lộ trình &amp; thuê xe máy đời mới khám phá các điểm đến.</em>
-                        </div>
+                            <div style="background:var(--bg-white); padding:5px 8px; border-radius:6px; border:1px solid rgba(197, 160, 89, 0.2); font-size:0.6rem; color:#555; text-align:center; margin-top:4px; flex-shrink:0;">
+                                <i class="fa-solid fa-compass" style="color:var(--accent-gold); margin-right:3px;"></i> <em>Lễ tân hỗ trợ tư vấn lộ trình &amp; thuê xe máy đời mới khám phá các điểm đến.</em>
+                            </div>
+                        </div><!-- end page-main-content -->
                     </div>
 
                     <div class="page-footer">
@@ -1837,36 +2007,38 @@
                             <p class="page-desc">Gìn giữ không gian tĩnh lặng và an yên</p>
                         </div>
 
-                        <ul class="flip-list">
-                            <li>
-                                <div class="flip-list-num">1</div>
-                                <div>
-                                    <strong>Giữ yên tĩnh sau 22:00</strong>
-                                    <p style="color:#777; font-size:0.7rem; margin:0;">Xin vui lòng giảm âm lượng để tất cả khách đều ngủ ngon.</p>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="flip-list-num">2</div>
-                                <div>
-                                    <strong>Tiết kiệm điện &amp; máy lạnh</strong>
-                                    <p style="color:#777; font-size:0.7rem; margin:0;">Tắt điều hòa và thiết bị điện khi ra khỏi phòng.</p>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="flip-list-num">3</div>
-                                <div>
-                                    <strong>Không hút thuốc trong phòng</strong>
-                                    <p style="color:#777; font-size:0.7rem; margin:0;">Khu vực hút thuốc tại sân vườn thoáng mát.</p>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="flip-list-num">4</div>
-                                <div>
-                                    <strong>Liên hệ lễ tân khi cần hỗ trợ</strong>
-                                    <p style="color:#777; font-size:0.7rem; margin:0;">Hotline / Zalo: <strong>0902 286 300</strong> (24/7).</p>
-                                </div>
-                            </li>
-                        </ul>
+                        <div class="page-main-content">
+                            <ul class="flip-list">
+                                <li>
+                                    <div class="flip-list-num">1</div>
+                                    <div>
+                                        <strong>Giữ yên tĩnh sau 22:00</strong>
+                                        <p>Xin vui lòng giảm âm lượng để tất cả khách đều ngủ ngon và tận hưởng không gian an tĩnh.</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="flip-list-num">2</div>
+                                    <div>
+                                        <strong>Tiết kiệm điện &amp; máy lạnh</strong>
+                                        <p>Tắt điều hòa và các thiết bị điện khi ra khỏi phòng để giữ an toàn và bảo vệ môi trường.</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="flip-list-num">3</div>
+                                    <div>
+                                        <strong>Không hút thuốc trong phòng</strong>
+                                        <p>Khu vực hút thuốc riêng biệt được bố trí tại sân vườn thoáng mát ngoài trời.</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="flip-list-num">4</div>
+                                    <div>
+                                        <strong>Liên hệ lễ tân khi cần hỗ trợ</strong>
+                                        <p>Hotline / Zalo: <strong>0902 286 300</strong> — Luôn sẵn sàng phục vụ bạn 24/7.</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div><!-- end page-main-content -->
                     </div>
 
                     <div class="page-footer">
@@ -1886,24 +2058,38 @@
                             <p class="page-desc">Kiểm tra tư trang &amp; thủ tục trả phòng</p>
                         </div>
 
-                        <ul class="flip-list">
-                            <li>
-                                <i class="fa-regular fa-circle-check flip-checklist-icon"></i>
-                                <div><strong>Kiểm tra hành lý &amp; củ sạc</strong><br><span style="font-size:0.7rem; color:#777;">Đảm bảo không bỏ quên vật dụng cá nhân</span></div>
-                            </li>
-                            <li>
-                                <i class="fa-regular fa-circle-check flip-checklist-icon"></i>
-                                <div><strong>Gửi lại chìa khóa phòng</strong><br><span style="font-size:0.7rem; color:#777;">Gửi lại quầy lễ tân hoặc chủ nhà</span></div>
-                            </li>
-                            <li>
-                                <i class="fa-regular fa-circle-check flip-checklist-icon"></i>
-                                <div><strong>Kiểm tra cửa &amp; vòi nước</strong><br><span style="font-size:0.7rem; color:#777;">Đóng kín cửa sổ và tắt thiết bị điện</span></div>
-                            </li>
-                            <li>
-                                <i class="fa-regular fa-circle-check flip-checklist-icon"></i>
-                                <div><strong>Hỗ trợ đặt xe / Hóa đơn</strong><br><span style="font-size:0.7rem; color:#777;">Báo trước 30 phút nếu bạn cần hỗ trợ</span></div>
-                            </li>
-                        </ul>
+                        <div class="page-main-content">
+                            <ul class="flip-list">
+                                <li>
+                                    <i class="fa-regular fa-circle-check flip-checklist-icon"></i>
+                                    <div>
+                                        <strong>Kiểm tra hành lý &amp; củ sạc</strong>
+                                        <p>Đảm bảo không bỏ quên điện thoại, phụ kiện, ví tiền và tư trang cá nhân.</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <i class="fa-regular fa-circle-check flip-checklist-icon"></i>
+                                    <div>
+                                        <strong>Gửi lại chìa khóa phòng</strong>
+                                        <p>Vui lòng bàn giao lại chìa khóa tại quầy lễ tân hoặc thông báo cho chủ nhà.</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <i class="fa-regular fa-circle-check flip-checklist-icon"></i>
+                                    <div>
+                                        <strong>Kiểm tra cửa &amp; vòi nước</strong>
+                                        <p>Đóng kín các cửa sổ, kiểm tra vòi nước và tắt các công tắc điện trước khi rời đi.</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <i class="fa-regular fa-circle-check flip-checklist-icon"></i>
+                                    <div>
+                                        <strong>Hỗ trợ đặt xe / Hóa đơn</strong>
+                                        <p>Báo trước 30 phút nếu bạn cần hỗ trợ gọi taxi, xe máy ra bến xe/ga tàu hoặc xuất hóa đơn.</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div><!-- end page-main-content -->
                     </div>
 
                     <div class="page-footer">
@@ -1916,23 +2102,25 @@
             <!-- ================= PAGE 11: THANK YOU & QR ================= -->
             <div class="page" data-density="soft">
                 <div class="page-content">
-                    <div class="page-body-center thankyou-box-flip">
-                        <div style="font-family:var(--font-script); font-size:2.8rem; color:var(--accent-gold); line-height:1; margin-bottom:2px;">Thank you</div>
-                        <h3 style="font-family:var(--font-serif); font-size:1.15rem; margin:3px 0; color:var(--text-dark);">CẢM ƠN BẠN ĐÃ GHÉ THĂM!</h3>
-                        <p style="font-size:0.74rem; color:#666; max-width:280px; margin-bottom:2px;">
-                            Quét mã QR để chia sẻ đánh giá 5 sao cho GAJO's HOUSE trên Google Maps nhé!
-                        </p>
-
-                        <a href="https://maps.app.goo.gl/jAWENgZvarDbmG7f6" target="_blank" class="qr-frame" title="Mở vị trí trên Google Maps">
-                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=https://maps.app.goo.gl/jAWENgZvarDbmG7f6" alt="QR Code 5 Star Review">
-                            <span class="qr-tap-hint"><i class="fa-solid fa-up-right-from-square"></i> Mở Google Maps</span>
-                        </a>
-
-                        <div class="contact-info-block">
-                            <strong>GAJO'S HOUSE &bull; BOUTIQUE HOMESTAY</strong><br>
-                            <i class="fa-solid fa-location-dot" style="color:var(--accent-gold);"></i> Hẻm 23 Phan Trọng Tuệ, Hoài Nhơn<br>
-                            <i class="fa-solid fa-phone" style="color:var(--accent-gold);"></i> <a href="tel:0902286300"><strong>0902 286 300</strong></a> &bull; <a href="https://zalo.me/0902286300" target="_blank" style="color:var(--accent-gold); font-weight:700;">Zalo</a>
+                    <div class="page-body-center">
+                        <div class="page-header">
+                            <div style="font-family:var(--font-script); font-size:2.8rem; color:var(--accent-gold); line-height:1; margin-bottom:2px;">Thank you</div>
+                            <h2 class="page-title">CẢM ƠN BẠN ĐÃ GHÉ THĂM!</h2>
+                            <p class="page-desc">Quét mã QR để chia sẻ đánh giá 5 sao cho GAJO's HOUSE trên Google Maps nhé!</p>
                         </div>
+
+                        <div class="page-main-content" style="align-items:center; text-align:center; justify-content:space-evenly;">
+                            <a href="https://maps.app.goo.gl/jAWENgZvarDbmG7f6" target="_blank" class="qr-frame" title="Mở vị trí trên Google Maps">
+                                <img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=https://maps.app.goo.gl/jAWENgZvarDbmG7f6" alt="QR Code 5 Star Review">
+                                <span class="qr-tap-hint"><i class="fa-solid fa-up-right-from-square"></i> Mở Google Maps</span>
+                            </a>
+
+                            <div class="contact-info-block">
+                                <strong>GAJO'S HOUSE &bull; BOUTIQUE HOMESTAY</strong><br>
+                                <i class="fa-solid fa-location-dot" style="color:var(--accent-gold);"></i> Hẻm 23 Phan Trọng Tuệ, Hoài Nhơn<br>
+                                <i class="fa-solid fa-phone" style="color:var(--accent-gold);"></i> <a href="tel:0902286300"><strong>0902 286 300</strong></a> &bull; <a href="https://zalo.me/0902286300" target="_blank" style="color:var(--accent-gold); font-weight:700;">Zalo</a>
+                            </div>
+                        </div><!-- end page-main-content -->
                     </div>
 
                     <div class="page-footer">
@@ -2170,8 +2358,9 @@
     </div>
 </div>
 
-<!-- BOOKLET PRINT DOM CONTAINER (AUTOMATICALLY GENERATED ON PRINT) -->
+<!-- BOOKLET & STANDARD PRINT DOM CONTAINERS (AUTOMATICALLY GENERATED ON PRINT) -->
 <div class="booklet-print-container" id="bookletPrintContainer"></div>
+<div class="standard-print-container" id="standardPrintContainer"></div>
 
 <script>
     let pageFlip = null;
@@ -2300,6 +2489,24 @@
         document.getElementById('bookletModal').classList.remove('active');
     }
 
+    // Helper to sanitize cloned pages for pristine print rendering (strip StPageFlip transforms)
+    function sanitizeClonedPage(clone) {
+        clone.style.transform = 'none';
+        clone.style.webkitTransform = 'none';
+        clone.style.position = 'relative';
+        clone.style.display = 'flex';
+        clone.style.width = '100%';
+        clone.style.height = '100%';
+        clone.style.left = '0';
+        clone.style.top = '0';
+        clone.style.margin = '0';
+        clone.style.visibility = 'visible';
+        clone.style.opacity = '1';
+        clone.style.zIndex = 'auto';
+        clone.removeAttribute('data-density');
+        return clone;
+    }
+
     // BUILD BOOKLET DOM FOR PRINTING 3 SHEETS (6 SIDES: 12|1, 2|11, 10|3, 4|9, 8|5, 6|7)
     function buildBookletDOM() {
         const pages = document.querySelectorAll('#flipbook .page');
@@ -2309,12 +2516,12 @@
         container.innerHTML = '';
 
         const pairs = [
-            [12, 1],  // Sheet 1 Front
-            [2, 11],  // Sheet 1 Back
-            [10, 3],  // Sheet 2 Front
-            [4, 9],   // Sheet 2 Back
-            [8, 5],   // Sheet 3 Front
-            [6, 7]    // Sheet 3 Back
+            [12, 1],  // Sheet 1 Front (Mặt 1: Bìa Sau & Bìa Trước)
+            [2, 11],  // Sheet 1 Back  (Mặt 2: Lời Ngỏ & Cảm Ơn QR)
+            [10, 3],  // Sheet 2 Front (Mặt 3: Checklist & WiFi Stay)
+            [4, 9],   // Sheet 2 Back  (Mặt 4: Phòng Nghỉ & House Rules)
+            [8, 5],   // Sheet 3 Front (Mặt 5: 8 Điểm Đến & Tiện Nghi)
+            [6, 7]    // Sheet 3 Back  (Mặt 6: Ẩm Thực & Cà Phê Gấp Giữa)
         ];
 
         pairs.forEach((pair) => {
@@ -2323,7 +2530,7 @@
 
             const leftHalf = document.createElement('div');
             leftHalf.className = 'booklet-half booklet-left';
-            const leftClone = pages[pair[0] - 1].cloneNode(true);
+            const leftClone = sanitizeClonedPage(pages[pair[0] - 1].cloneNode(true));
             leftHalf.appendChild(leftClone);
 
             const foldLine = document.createElement('div');
@@ -2331,7 +2538,7 @@
 
             const rightHalf = document.createElement('div');
             rightHalf.className = 'booklet-half booklet-right';
-            const rightClone = pages[pair[1] - 1].cloneNode(true);
+            const rightClone = sanitizeClonedPage(pages[pair[1] - 1].cloneNode(true));
             rightHalf.appendChild(rightClone);
 
             sheetEl.appendChild(leftHalf);
@@ -2342,32 +2549,54 @@
         });
     }
 
+    // BUILD STANDARD 12 PAGES DOM (Continuous A4/A5 single pages, 1 to 12)
+    function buildStandardDOM() {
+        const pages = document.querySelectorAll('#flipbook .page');
+        if (pages.length < 12) return;
+
+        const container = document.getElementById('standardPrintContainer');
+        container.innerHTML = '';
+
+        for (let i = 0; i < pages.length; i++) {
+            const sheetEl = document.createElement('div');
+            sheetEl.className = 'standard-print-sheet';
+            const pageClone = sanitizeClonedPage(pages[i].cloneNode(true));
+            sheetEl.appendChild(pageClone);
+            container.appendChild(sheetEl);
+        }
+    }
+
     function triggerPrintBookletPDF() {
         buildBookletDOM();
+        document.body.classList.remove('print-mode-standard');
         document.body.classList.add('print-mode-booklet');
         closeAllModals();
 
         showToast("Đang chuẩn bị bản in Booklet 2 mặt (3 tờ A4)...");
         setTimeout(() => {
             window.print();
-            setTimeout(() => {
-                document.body.classList.remove('print-mode-booklet');
-            }, 1000);
         }, 350);
     }
 
     function triggerPrintStandardPDF() {
+        buildStandardDOM();
         document.body.classList.remove('print-mode-booklet');
+        document.body.classList.add('print-mode-standard');
         closeAllModals();
 
         showToast("Đang chuẩn bị bản in 12 trang đơn...");
         setTimeout(() => {
             window.print();
-        }, 300);
+        }, 350);
     }
 
     window.addEventListener('afterprint', () => {
         document.body.classList.remove('print-mode-booklet');
+        document.body.classList.remove('print-mode-standard');
+        const bCont = document.getElementById('bookletPrintContainer');
+        const sCont = document.getElementById('standardPrintContainer');
+        if (bCont) bCont.innerHTML = '';
+        if (sCont) sCont.innerHTML = '';
     });
 
     // Dimension Calculator specifically optimized for Android & iOS Viewports
@@ -2537,7 +2766,10 @@
 
         // Keyboard navigation
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+            if (e.key === 'Escape') {
+                closeAllModals();
+                thumbDrawer.classList.remove('active');
+            } else if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
                 e.preventDefault();
                 pageFlip.flipNext();
             } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {

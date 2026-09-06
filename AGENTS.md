@@ -1,77 +1,67 @@
-﻿# QUY CHUẨN THIẾT KẾ & CODE UI CHO GAJO'S HOUSE (FLIPBOOK STANDARD)
+# QUY CHUẨN THIẾT KẾ & CODE UI (TỐI ƯU KHÔNG GIAN FLIPBOOK)
 
-## 1. Mục Tiêu Layout (Lấp đầy không gian tinh tế)
-Tuyệt đối không để khoảng trắng thừa thãi ở trên cùng và dưới cùng của trang. Mọi trang Catalogue/Flipbook phải tuân thủ nguyên tắc phân bổ trục dọc (Vertical Distribution) để che phủ diện tích trang một cách cân bằng.
+## 1. NGUYÊN LÝ LẤP ĐẦY KHÔNG GIAN (VERTICAL RHYTHM & DISTRIBUTION)
+Tuyệt đối không để nội dung co cụm ở giữa trang (lỗi khoảng trắng thừa trên/dưới). Mọi trang phải tuân thủ cấu trúc phân bổ trục dọc bằng Flexbox:
 
-## 2. Công Thức Bố Cục Trang (Page Structure Formula)
-Trang thiết kế phải được bọc trong một container có tỷ lệ giấy in chuẩn (Ví dụ: tỷ lệ A4/A5) hoặc `h-screen` (nếu làm web full màn hình), sử dụng Flexbox để đẩy các thành phần ra các mép:
+* **Page Container:** Luôn sử dụng thẻ bọc ngoài cùng với class `flex flex-col justify-between h-full min-h-[900px] py-12 px-10`. Cấu trúc `justify-between` ép Tiêu đề lên trên và Footer xuống dưới.
+* **Main Content Area:** Khu vực chứa các thẻ (Cards/Lists) phải có class `flex-1 flex flex-col justify-center gap-8` (hoặc `justify-evenly` nếu có nhiều thẻ).
+* **Thẻ Danh sách (House Rules, Amenities, Checklist):** Thay vì để thẻ mỏng dính, hãy ép chiều cao tối thiểu (`min-h-[120px]`), tăng padding (`p-6` hoặc `p-8`) để thẻ trông "có thể tích". Nếu là dạng lưới (Grid), dùng `gap-6` hoặc `gap-8` để các khối giãn đều ra che phủ mặt giấy.
 
-* **Header (Tiêu đề):** Cách lề trên `8% - 10%`. Luôn canh giữa.
-* **Body (Nội dung chính):** Nằm ở giữa, chiếm `60% - 70%` không gian dọc. Thường là 2 Thẻ (Card) xếp chồng lên nhau, khoảng cách giữa 2 thẻ (gap) là `2rem` đến `3rem`.
-* **Footer (Ghi chú/Mẹo):** Ép sát xuống lề dưới (margin-bottom: `8% - 10%`).
+## 2. HỆ THỐNG TỶ LỆ CHỮ (TYPOGRAPHY HIERARCHY)
+Kích thước chữ hiện tại đang quá nhỏ so với khổ giấy. Bắt buộc áp dụng hệ số nhân sau (Tailwind CSS / Custom CSS tương đương):
 
-## 3. Cấu Trúc Thẻ Nội Dung (Card UI - Giải pháp chống vỡ ảnh)
-Để tránh việc ảnh bị cắt thành một dải hẹp ngang (Panorama cutoff), bắt buộc áp dụng cấu trúc sau cho phần hình ảnh của thẻ:
+* **Tagline/Subtitle trên cùng:** `text-sm uppercase tracking-[0.2em] font-semibold text-[#B88B4A]`.
+* **Tiêu đề chính (H1/H2):** Phải tạo sức nặng. Dùng `text-4xl` đến `text-5xl font-serif text-[#222222]`. Thêm `mb-4` hoặc `mb-6`.
+* **Tiêu đề con trong Thẻ (Card Title):** Dùng `text-xl` hoặc `text-2xl font-bold` (nếu dùng Sans-serif) hoặc `font-serif`.
+* **Nội dung chi tiết (Body Text):** Tuyệt đối không dùng chữ quá nhỏ. Cỡ chữ chuẩn là `text-base` hoặc `text-lg`. Bắt buộc thêm giãn dòng `leading-relaxed` (1.5) hoặc `leading-loose` (2.0) để khối chữ chiếm diện tích tốt hơn và dễ đọc.
 
-* **Grid 2 Ảnh (Side-by-side):** Luôn chia khu vực hình ảnh thành 2 cột (`grid grid-cols-2 gap-1` hoặc `gap-2`).
-* **Tỷ lệ khung hình (Aspect Ratio):** Cụm 2 ảnh này phải được set chiều cao tối thiểu từ `220px - 280px` (hoặc `aspect-[2/1]`) để đảm bảo ảnh có độ sâu và bao phủ đủ chiều dọc của thẻ.
-* **Hình thức:** Dùng `object-fit: cover` cho ảnh. Thêm Tagline (nhãn nổi bật) trôi nổi (absolute) ở góc trên cùng bên trái của ảnh 1.
-* **Nội dung chữ (Text Area):** Đặt padding lớn (`p-6` hoặc `p-8`). Giãn dòng `leading-relaxed` (1.5) để khối chữ trông có thể tích, lấp đầy phần nửa dưới của thẻ.
+## 3. QUY ĐỊNH KÍCH THƯỚC HÌNH ẢNH CỤ THỂ
 
-## 4. Tiêu Chuẩn Source Code (Dành cho Lập trình viên / AI)
-Khi được yêu cầu tạo code cho một trang mới, hãy sử dụng **HTML & Tailwind CSS**. Code xuất ra phải tuân thủ bộ khung sau để dễ dàng tích hợp vào Flipbook:
+* **Với trang Lưới (Ví dụ: 8 Điểm đến):** KHÔNG crop ảnh thành dải ngang hẹp. Dùng tỷ lệ vuông `aspect-square` hoặc chữ nhật đứng `aspect-[4/5]` kết hợp `object-cover`. Việc ảnh cao lên sẽ tự động đẩy bố cục giãn đều lấp đầy trang.
+* **Với trang 1 Ảnh Lớn (Ví dụ: Giới thiệu phòng):** Ảnh bọc trong thẻ phải chiếm ít nhất `50%` chiều cao trang (`h-[450px]` hoặc `aspect-video`).
+
+## 4. MẪU SOURCE CODE CHUẨN (BASE UI SKELETON)
+Khi được yêu cầu viết code HTML/Tailwind cho bất kỳ trang nào, Agent PHẢI dùng bộ khung sau để đảm bảo UI phủ kín trang:
 
 ```html
-<!-- PAGE WRAPPER: Ép tỷ lệ hiển thị chuẩn Flipbook (Vd: Tỷ lệ A4 1:1.414) hoặc Flex column -->
-<div class="relative w-full h-full min-h-[900px] flex flex-col justify-between p-10 bg-[#F9F6EE] text-[#222222]">
+<!-- WRAPPER TRANG: Phủ kín chiều cao, ép lề trên/dưới -->
+<div class="relative w-full h-full min-h-[900px] flex flex-col justify-between bg-[#F9F6EE] text-[#222222] p-12">
     
-    <!-- HEADER -->
-    <header class="text-center mt-6">
-        <h3 class="text-[#B88B4A] text-sm uppercase tracking-widest font-semibold mb-2">CATEGORY NAME</h3>
-        <h1 class="font-serif text-4xl text-[#222222]">Tiêu Đề Trang</h1>
-        <p class="text-gray-500 text-sm mt-2 font-light">Mô tả phụ ngắn gọn bên dưới tiêu đề</p>
+    <!-- 1. HEADER AREA (Đẩy sát lên trên) -->
+    <header class="text-center shrink-0">
+        <h3 class="text-[#B88B4A] text-sm uppercase tracking-[0.2em] font-semibold mb-3">Tên Phân Mục (Subheading)</h3>
+        <h1 class="font-serif text-5xl text-[#222222] mb-4">Tiêu Đề Trang Chính</h1>
+        <p class="text-gray-500 text-base md:text-lg font-light max-w-2xl mx-auto">
+            Mô tả phụ ngắn gọn, dùng font size lớn hơn để lấp đầy không gian.
+        </p>
     </header>
 
-    <!-- MAIN CARDS CONTAINER -->
-    <main class="flex-1 flex flex-col justify-center gap-8 my-8">
+    <!-- 2. MAIN CONTENT AREA (Khu vực co giãn tự động) -->
+    <!-- Dùng justify-evenly hoặc gap-y lớn để phân bổ đều không gian dọc -->
+    <main class="flex-1 flex flex-col justify-evenly my-10 w-full">
         
-        <!-- CARD TEMPLATE -->
-        <article class="bg-[#222222] rounded-xl overflow-hidden text-white flex flex-col shadow-lg">
-            <!-- Image Area: 2 Columns to maintain aspect ratio -->
-            <div class="grid grid-cols-2 gap-1 h-56 sm:h-64">
-                <div class="relative w-full h-full">
-                    <img src="ảnh-1.jpg" alt="Img 1" class="absolute inset-0 w-full h-full object-cover" />
-                    <span class="absolute top-3 left-3 bg-[#B88B4A] text-white px-3 py-1 text-xs font-bold rounded-sm uppercase">Tagline Nổi Bật</span>
-                </div>
-                <div class="relative w-full h-full">
-                    <img src="ảnh-2.jpg" alt="Img 2" class="absolute inset-0 w-full h-full object-cover" />
-                </div>
+        <!-- Ví dụ Thẻ List (Nội quy, Tiện ích...) -> Cần cao, padding lớn -->
+        <div class="bg-white rounded-xl p-8 shadow-sm border border-gray-100 flex items-center gap-6 min-h-[130px]">
+            <div class="w-12 h-12 flex-shrink-0 bg-[#F9F6EE] rounded-full flex items-center justify-center text-[#B88B4A] font-bold text-xl">1</div>
+            <div>
+                <h2 class="text-2xl font-bold text-[#222222] mb-2">Tiêu Đề Mục</h2>
+                <p class="text-gray-600 text-lg leading-relaxed">Nội dung chi tiết được giãn dòng rộng, cỡ chữ lớn giúp dễ đọc và cân đối với trang giấy lớn.</p>
             </div>
-            
-            <!-- Text Area -->
-            <div class="p-6 md:p-8">
-                <h2 class="text-2xl font-serif text-[#B88B4A] mb-3">Tên Địa Điểm / Dịch Vụ</h2>
-                <p class="text-gray-300 text-sm leading-relaxed mb-6">Mô tả chi tiết gọn gàng, giãn dòng thoáng để khối chữ có thể tích.</p>
-                <!-- Card Footer (Location & Contact) -->
-                <div class="flex justify-between items-center text-xs text-gray-400 border-t border-gray-700 pt-4">
-                    <span>📍 Địa chỉ tại đây</span>
-                    <span class="text-white font-semibold">📞 Hotline</span>
-                </div>
-            </div>
-        </article>
-        <!-- END CARD TEMPLATE -->
+        </div>
+        
+        <!-- Các khối thẻ khác nối tiếp... -->
 
     </main>
 
-    <!-- FOOTER NOTE -->
-    <footer class="mb-6 border-t border-[#d1cec5] pt-4">
-        <p class="text-[#B88B4A] text-sm text-center font-serif italic">
-            💡 <strong>Mẹo nhỏ từ GAJO's HOUSE:</strong> Thông điệp hoặc ghi chú cuối trang để lấp đầy không gian lề dưới.
+    <!-- 3. FOOTER AREA (Đẩy sát xuống dưới cùng) -->
+    <footer class="shrink-0 border-t border-[#d1cec5] pt-6 mt-auto">
+        <p class="text-[#B88B4A] text-base text-center font-serif italic">
+            💡 <strong>Mẹo nhỏ từ GAJO's HOUSE:</strong> Thông điệp cuối trang.
         </p>
     </footer>
 
 </div>
 ```
 
-## 5. Kiểm tra In Ấn (Print & Flipbook Ready)
-Tuyệt đối không dùng các class làm vỡ bố cục khi in như `h-screen` cho các thẻ bên trong. Mọi chiều cao phải tính bằng cơ chế `flex-1` (tự động điền đầy khoảng trống) hoặc `aspect-ratio` để khi cắt trang đưa vào thư viện Flipbook (như Turn.js hoặc 3D Flipbook), giao diện tự động co bóp chính xác vào khung giấy mà không bị cụt chữ.
+## 5. LƯU Ý KHI RENDER FLIPBOOK
+Tuyệt đối tránh fix cứng `height: 100vh` trong các thẻ con, chỉ dùng `flex-1` và tỷ lệ `%` hoặc `aspect-ratio`. Điều này giúp khung nội dung tự động nở ra hoặc bóp lại vừa vặn khi nạp vào các thư viện như Turn.js hoặc in ra khổ giấy A4/A5 mà không bị lẹm viền.
