@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>GAJO'S HOUSE - 3D Flipbook Catalogue</title>
-    <meta name="description" content="Khám phá không gian lưu trú boutique phong cách Japandi và cẩm nang du lịch Hoài Nhơn, Bình Định cùng GAJO's HOUSE.">
-    <meta name="theme-color" content="#181614">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta property="og:title" content="GAJO'S HOUSE - 3D Flipbook Catalogue">
-    <meta property="og:description" content="Khám phá không gian lưu trú boutique phong cách Japandi và cẩm nang du lịch Hoài Nhơn, Bình Định.">
+    <title>GAJO'S HOUSE - Japandi Boutique Homestay | Hoài Nhơn, Bình Định</title>
+    <meta name="description" content="Trải nghiệm không gian nghỉ dưỡng Japandi tinh tế và cẩm nang du lịch Hoài Nhơn, Bình Định cùng GAJO's HOUSE. Khám phá trải nghiệm cuộn điện ảnh độc đáo.">
+    <meta name="theme-color" content="#121110">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="GAJO'S HOUSE - Japandi Boutique Homestay">
+    <meta property="og:description" content="Chạm vào bình yên giữa lòng Hoài Nhơn, Bình Định. Không gian nghỉ dưỡng phong cách Japandi độc bản.">
     <meta property="og:type" content="website">
     <meta property="og:image" content="assets/gajo-interior.jpg">
 
@@ -20,29 +19,38 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Dancing+Script:wght@500;600;700&family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800&family=Dancing+Script:wght@500;600;700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- StPageFlip 3D Library -->
-    <script src="https://cdn.jsdelivr.net/npm/page-flip/dist/js/page-flip.browser.js"></script>
+    <!-- GSAP & ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    
+    <!-- Lenis Smooth Scroll -->
+    <script src="https://unpkg.com/lenis@1.1.9/dist/lenis.min.js"></script>
 
     <style>
         :root {
+            --bg-dark: #121110;
+            --bg-surface: #1B1917;
+            --bg-card: rgba(27, 25, 23, 0.75);
+            --bg-card-hover: rgba(36, 34, 32, 0.9);
             --bg-cream: #F7F5F0;
-            --bg-white: #FFFFFF;
-            --bg-dark: #242220;
-            --bg-leather: #181614;
-            --text-dark: #2C2A29;
-            --text-muted: #66635E;
             --accent-gold: #C5A059;
             --accent-gold-light: #DFC48A;
+            --accent-gold-glow: rgba(197, 160, 89, 0.35);
             --accent-sage: #5F7D70;
+            --text-light: #FFFFFF;
+            --text-cream: #F4EFE6;
+            --text-muted: #A09C96;
+            --border-gold: rgba(197, 160, 89, 0.25);
             --font-serif: 'Playfair Display', Georgia, serif;
+            --font-display: 'Cinzel', serif;
             --font-sans: 'Montserrat', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             --font-script: 'Dancing Script', cursive;
-            --font-display: 'Cinzel', serif;
+            --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         * {
@@ -50,2350 +58,1982 @@
             padding: 0;
             box-sizing: border-box;
             -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
             -webkit-tap-highlight-color: transparent;
         }
 
-        html, body {
-            width: 100%;
-            min-height: 100vh;
-            min-height: 100dvh;
-            -webkit-text-size-adjust: 100%;
-            overscroll-behavior-y: none;
+        html {
+            scroll-behavior: auto;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            font-family: var(--font-sans);
+            overflow-x: hidden;
         }
 
         body {
-            font-family: var(--font-sans);
-            color: var(--text-dark);
-            background: radial-gradient(circle at center, #262422 0%, #11100F 100%);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+            background-color: var(--bg-dark);
             overflow-x: hidden;
-            padding: 8px 6px calc(76px + env(safe-area-inset-bottom, 0px));
-            user-select: none;
-            touch-action: pan-y;
+            line-height: 1.6;
         }
 
-        /* Ambient Room Lighting and Stage */
-        .stage-container {
-            width: 100%;
-            max-width: 1240px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            position: relative;
+        /* Lenis smooth scrolling setup */
+        html.lenis, html.lenis body {
+            height: auto;
         }
-
-        /* Top Brand Header */
-        .brand-header {
-            text-align: center;
-            margin-bottom: 8px;
-            color: #E6E1DA;
-            animation: fadeIn 0.8s ease-out;
+        .lenis.lenis-smooth {
+            scroll-behavior: auto !important;
         }
-        .brand-header h1 {
-            font-family: var(--font-display);
-            font-size: clamp(1.2rem, 2.3vw, 2rem);
-            letter-spacing: 4px;
-            color: var(--accent-gold-light);
-            text-transform: uppercase;
-            margin-bottom: 2px;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.6);
+        .lenis.lenis-smooth [data-lenis-prevent] {
+            overscroll-behavior: contain;
         }
-        .brand-header p {
-            font-size: 0.72rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: #A39D94;
-        }
-
-        /* Quick Action Bar Under Header */
-        .top-action-bar {
-            display: flex;
-            gap: 6px;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-bottom: 8px;
-        }
-        .top-btn-pill {
-            background: rgba(30, 27, 24, 0.85);
-            border: 1px solid rgba(197, 160, 89, 0.4);
-            color: var(--accent-gold-light);
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.72rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-            cursor: pointer;
-            transition: all 0.25s ease;
-            text-decoration: none;
-            touch-action: manipulation;
-        }
-        .top-btn-pill:active, .top-btn-pill:hover {
-            background: var(--accent-gold);
-            color: #1E1B18;
-            transform: scale(0.98);
-        }
-
-        /* 3D Flipbook Wrapper */
-        .flipbook-viewport {
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            perspective: 2500px;
-            position: relative;
-        }
-
-        .flipbook-container {
-            position: relative;
-            box-shadow: 0 25px 65px rgba(0,0,0,0.85), 0 8px 20px rgba(0,0,0,0.6);
-            border-radius: 6px;
-            background: transparent;
-            touch-action: pan-y;
-        }
-
-        /* Spine realistic depth & shading */
-        .book-shadow-decor {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 102%;
-            height: 102%;
-            box-shadow: 0 30px 80px rgba(0,0,0,0.95);
-            pointer-events: none;
-            border-radius: 8px;
-            z-index: 0;
-        }
-
-        /* PAGE BASE STYLES */
-        .page {
-            background-color: var(--bg-cream);
-            color: var(--text-dark);
-            width: 100%;
-            height: 100%;
+        .lenis.lenis-stopped {
             overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            position: relative;
-            box-shadow: inset 0 0 30px rgba(0,0,0,0.04);
-            box-sizing: border-box;
         }
 
-        /* Realistic Paper Spine Gradient */
-        .page.--left {
-            box-shadow: inset -18px 0 28px -10px rgba(0,0,0,0.14), inset 0 0 20px rgba(0,0,0,0.03);
-            border-right: 1px solid rgba(0,0,0,0.06);
-        }
-        .page.--right {
-            box-shadow: inset 18px 0 28px -10px rgba(0,0,0,0.14), inset 0 0 20px rgba(0,0,0,0.03);
-            border-left: 1px solid rgba(0,0,0,0.06);
-        }
-
-        /* HARDCOVER STYLING */
-        .page-cover {
-            background: radial-gradient(circle at 50% 40%, #26221E 0%, #141210 100%);
-            color: #F7F5F0;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 30px 20px;
-            border: 1px solid #38342E;
-            box-sizing: border-box;
-            position: relative;
-        }
-        .page-cover::before {
-            content: '';
-            position: absolute;
-            top: 12px;
-            left: 12px;
-            right: 12px;
-            bottom: 12px;
-            border: 1px solid rgba(197, 160, 89, 0.45);
-            pointer-events: none;
-        }
-        .page-cover::after {
-            content: '';
-            position: absolute;
-            top: 16px;
-            left: 16px;
-            right: 16px;
-            bottom: 16px;
-            border: 1px dashed rgba(197, 160, 89, 0.25);
-            pointer-events: none;
-        }
-
-        .cover-inner {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            height: 100%;
-            margin: auto;
-            text-align: center;
-            z-index: 2;
-        }
-
-        .cover-gold-badge {
-            width: 68px;
-            height: 68px;
-            border: 2px solid var(--accent-gold);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 16px auto;
-            color: var(--accent-gold);
-            font-size: 1.8rem;
-            box-shadow: 0 0 25px rgba(197, 160, 89, 0.35);
-            background: rgba(30, 27, 24, 0.6);
-        }
-        .cover-title {
-            font-family: var(--font-display);
-            font-size: clamp(1.8rem, 3.2vw, 2.6rem);
-            letter-spacing: 6px;
-            color: var(--accent-gold-light);
-            margin-bottom: 8px;
-            line-height: 1.2;
-            text-align: center;
-            text-shadow: 0 2px 8px rgba(0,0,0,0.5);
-        }
-        .cover-subtitle {
-            font-size: 0.78rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: #BBB4A8;
-            margin-bottom: 14px;
-            text-align: center;
-        }
-        .cover-script {
-            font-family: var(--font-script);
-            font-size: 1.95rem;
-            color: #E2DBD0;
-            margin-top: 6px;
-            text-align: center;
-        }
-        .cover-location {
-            margin-top: 26px;
-            font-size: 0.72rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: #A39D94;
-            border-top: 1px solid rgba(197, 160, 89, 0.35);
-            padding-top: 12px;
-            width: 82%;
-            margin-left: auto;
-            margin-right: auto;
-            text-align: center;
-        }
-        .cover-hint {
-            margin-top: 12px;
-            font-size: 0.68rem;
-            letter-spacing: 1px;
-            color: var(--accent-gold);
-            opacity: 0.85;
-            animation: pulse 2s infinite ease-in-out;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 0.5; transform: scale(1); }
-            50% { opacity: 1; transform: scale(1.03); }
-        }
-
-        /* INNER PAGE TYPOGRAPHY & BALANCED CENTER LAYOUT */
-        .page-content {
-            padding: 26px 24px 20px;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            box-sizing: border-box;
-        }
-        .page-body-center {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            margin: auto 0;
-            width: 100%;
-        }
-        .page-header {
-            text-align: center;
-            margin-bottom: 10px;
-        }
-        .page-eyebrow {
-            font-size: 0.68rem;
-            letter-spacing: 2.2px;
-            text-transform: uppercase;
-            color: var(--accent-gold);
-            font-weight: 600;
-            margin-bottom: 3px;
-        }
-        .page-title {
-            font-family: var(--font-serif);
-            font-size: clamp(1.35rem, 2.1vw, 1.85rem);
-            color: var(--text-dark);
-            line-height: 1.25;
-            margin-bottom: 3px;
-        }
-        .page-desc {
-            font-size: 0.78rem;
-            color: var(--text-muted);
-            line-height: 1.4;
-        }
-        .page-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 0.7rem;
-            color: #9C968D;
-            border-top: 1px solid rgba(0,0,0,0.07);
-            padding-top: 8px;
-            margin-top: 8px;
-        }
-        .page-number {
-            font-family: var(--font-serif);
-            font-weight: 700;
-            font-size: 0.82rem;
-            color: var(--accent-gold);
-        }
-
-        /* PAGE 2: WELCOME */
-        .welcome-quote-box {
-            background: rgba(255,255,255,0.9);
-            border-left: 4px solid var(--accent-gold);
-            padding: 12px 14px;
-            border-radius: 0 6px 6px 0;
-            margin: 8px 0;
-            font-style: italic;
-            font-size: 0.8rem;
-            color: #4A4845;
-            line-height: 1.55;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
-        }
-        .welcome-photo {
-            width: 100%;
-            height: 195px;
-            max-height: 28vh;
-            object-fit: cover;
-            border-radius: 6px;
-            box-shadow: 0 5px 16px rgba(0,0,0,0.08);
-            border: 1px solid rgba(0,0,0,0.06);
-            margin-top: 8px;
-            display: block;
-        }
-
-        /* PAGE 3: CHECK IN/OUT & WIFI */
-        .schedule-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            margin: 8px 0 12px;
-        }
-        .schedule-card {
-            background: var(--bg-white);
-            padding: 12px 10px;
-            border-radius: 6px;
-            border: 1px solid rgba(0,0,0,0.07);
-            text-align: center;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
-        }
-        .schedule-card h4 {
-            font-family: var(--font-serif);
-            font-size: 0.92rem;
-            color: var(--accent-gold);
-            margin-bottom: 2px;
-        }
-        .schedule-card .time {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--text-dark);
-            margin-bottom: 2px;
-        }
-        .wifi-luxury-box {
-            background: var(--bg-dark);
-            color: #FFF;
-            padding: 16px 14px;
-            border-radius: 8px;
-            text-align: center;
-            border: 1px solid rgba(197, 160, 89, 0.35);
-            box-shadow: 0 5px 18px rgba(0,0,0,0.15);
-        }
-        .wifi-luxury-box i.wifi-icon-main {
-            font-size: 2rem;
-            color: var(--accent-gold);
-            margin-bottom: 4px;
-            display: inline-block;
-        }
-        .wifi-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: rgba(255,255,255,0.08);
-            padding: 8px 12px;
-            border-radius: 5px;
-            margin-top: 6px;
-            font-size: 0.8rem;
-            transition: background 0.2s ease;
-        }
-        .wifi-row.clickable {
-            cursor: pointer;
-        }
-        .wifi-row.clickable:active {
-            background: rgba(197, 160, 89, 0.3);
-        }
-        .wifi-row strong {
-            color: var(--accent-gold-light);
-            font-size: 0.92rem;
-            letter-spacing: 0.5px;
-        }
-
-        /* PAGE 4: OUR ROOMS */
-        .room-mini-list {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            margin: 6px 0;
-        }
-        .room-mini-item {
-            display: flex;
-            gap: 10px;
-            background: var(--bg-white);
-            padding: 7px 9px;
-            border-radius: 6px;
-            border: 1px solid rgba(0,0,0,0.06);
-            box-shadow: 0 2px 6px rgba(0,0,0,0.03);
-            align-items: center;
-        }
-        .room-mini-img {
-            width: 95px;
-            height: 70px;
-            border-radius: 4px;
-            object-fit: cover;
-            flex-shrink: 0;
-        }
-        .room-mini-info {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            flex: 1;
-        }
-        .room-mini-tag {
-            font-size: 0.62rem;
-            color: var(--accent-gold);
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        .room-mini-info h4 {
-            font-size: 0.88rem;
-            color: var(--text-dark);
-            margin: 1px 0;
-            font-family: var(--font-serif);
-        }
-        .room-mini-info p {
-            font-size: 0.68rem;
-            color: #666;
-            line-height: 1.3;
-            margin: 0;
-        }
-
-        /* PAGE 5: AMENITIES */
-        .amenity-grid-luxury {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 8px;
-            margin: 8px 0 10px;
-        }
-        .amenity-item-box {
-            background: var(--bg-white);
-            padding: 10px 8px;
-            border-radius: 6px;
-            border: 1px solid rgba(0,0,0,0.05);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
-        }
-        .amenity-item-box i {
-            font-size: 1.25rem;
-            color: var(--accent-gold);
-            width: 24px;
-            text-align: center;
-            flex-shrink: 0;
-        }
-        .amenity-item-box h5 {
-            font-size: 0.78rem;
-            color: var(--text-dark);
-            margin-bottom: 1px;
-            font-weight: 600;
-        }
-        .amenity-item-box span {
-            font-size: 0.64rem;
-            color: #888;
-        }
-        .amenity-quote-bottom {
-            background: var(--bg-white);
-            border-radius: 6px;
-            padding: 10px 12px;
-            border: 1px solid rgba(0,0,0,0.05);
-            text-align: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
-        }
-
-        /* PAGE 6: PLACES TO EAT & TIỆM NƯỚNG NHÀ GẠO */
-        .bbq-card-vertical {
-            background: var(--bg-dark);
-            color: #FFF;
-            padding: 12px 12px;
-            border-radius: 8px;
-            margin-bottom: 10px;
-            border: 1px solid rgba(197, 160, 89, 0.35);
-            box-shadow: 0 4px 14px rgba(0,0,0,0.12);
-        }
-        .bbq-badge {
-            background: var(--accent-gold);
-            color: #111;
-            font-size: 0.62rem;
-            font-weight: 700;
-            padding: 2px 8px;
-            border-radius: 10px;
-            text-transform: uppercase;
-            letter-spacing: 0.4px;
-            display: inline-block;
-        }
-        .bbq-card-vertical img {
-            width: 100%;
-            height: 130px;
-            object-fit: cover;
-            border-radius: 5px;
-            margin: 6px 0;
-            display: block;
-        }
-        .bbq-card-vertical p {
-            font-size: 0.73rem;
-            color: #E2DBD0;
-            line-height: 1.4;
-            margin-bottom: 6px;
-        }
-        .bbq-footer {
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.72rem;
-            color: var(--accent-gold-light);
-            border-top: 1px solid rgba(255,255,255,0.12);
-            padding-top: 6px;
-        }
-        .bbq-link {
-            color: var(--accent-gold-light);
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-        }
-
-        /* PAGE 7: 8 TRẢI NGHIỆM LOANH QUANH HOÀI NHƠN */
-        .exp-grid-flip {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 6px;
-            margin: 6px 0;
-        }
-        .exp-card-flip {
-            background: var(--bg-white);
-            border-radius: 5px;
-            overflow: hidden;
-            border: 1px solid rgba(0,0,0,0.06);
-            text-align: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
-            display: flex;
-            flex-direction: column;
-        }
-        .exp-card-flip img {
-            width: 100%;
-            height: 70px;
-            object-fit: cover;
-            display: block;
-        }
-        .exp-card-flip-info {
-            padding: 4px 2px 5px;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-        .exp-card-flip-info h5 {
-            font-size: 0.65rem;
-            font-weight: 700;
-            color: var(--text-dark);
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            margin-bottom: 1px;
-        }
-        .exp-card-flip-info p {
-            font-size: 0.55rem;
-            color: #777;
-            margin: 0;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        /* PAGE 8: DAY TRIP SUNRISE */
-        .daytrip-card-vertical {
-            background: var(--bg-white);
-            border-radius: 8px;
-            overflow: hidden;
-            border: 1px solid rgba(0,0,0,0.06);
-            box-shadow: 0 4px 14px rgba(0,0,0,0.06);
-        }
-        .daytrip-card-vertical img {
-            width: 100%;
-            height: 165px;
-            object-fit: cover;
-            display: block;
-        }
-        .daytrip-card-body {
-            padding: 12px 14px;
-        }
-
-        /* PAGE 9 & 10: TIPS & CHECKLIST */
-        .flip-list {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 9px;
-            margin: 6px 0;
-        }
-        .flip-list li {
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-            font-size: 0.78rem;
-            line-height: 1.45;
-            background: var(--bg-white);
-            padding: 9px 10px;
-            border-radius: 6px;
-            border: 1px solid rgba(0,0,0,0.05);
-            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
-        }
-        .flip-list-num {
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            background: var(--accent-gold);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.74rem;
-            font-weight: 700;
-            flex-shrink: 0;
-        }
-        .flip-checklist-icon {
-            color: var(--accent-gold);
-            font-size: 1.2rem;
-            margin-top: 1px;
-            flex-shrink: 0;
-        }
-
-        /* PAGE 11: THANK YOU & QR */
-        .thankyou-box-flip {
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100%;
-        }
-        .qr-frame {
-            padding: 7px;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 5px 18px rgba(0,0,0,0.08);
-            border: 1px solid rgba(197, 160, 89, 0.35);
-            margin: 10px 0 6px;
-            display: inline-flex;
-            flex-direction: column;
-            align-items: center;
-            text-decoration: none;
-            touch-action: manipulation;
-        }
-        .qr-frame:active {
-            transform: scale(0.98);
-        }
-        .qr-frame img {
-            width: 130px;
-            height: 130px;
-            display: block;
-        }
-        .qr-tap-hint {
-            font-size: 0.62rem;
-            color: var(--accent-gold);
-            margin-top: 3px;
-            font-weight: 600;
-        }
-        .contact-info-block {
-            font-size: 0.74rem;
-            line-height: 1.5;
-            color: #555;
-            margin-top: 4px;
-        }
-        .contact-info-block a {
-            color: var(--text-dark);
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        /* BOTTOM FLOATING CONTROLS */
-        .bottom-nav-bar {
+        /* Scroll Progress Bar */
+        #scroll-progress {
             position: fixed;
-            bottom: max(10px, env(safe-area-inset-bottom, 10px));
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(22, 20, 18, 0.95);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            padding: 6px 14px;
-            border-radius: 40px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            border: 1px solid rgba(197, 160, 89, 0.35);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.7);
-            z-index: 1000;
-            max-width: calc(100vw - 16px);
-        }
-        .nav-btn {
-            background: transparent;
-            border: none;
-            color: #E2DBD0;
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.95rem;
-            transition: all 0.2s ease;
-            flex-shrink: 0;
-            text-decoration: none;
-            touch-action: manipulation;
-        }
-        .nav-btn:active {
-            transform: scale(0.92);
-            background: rgba(197, 160, 89, 0.3);
-        }
-        .nav-btn.btn-highlight {
-            background: var(--accent-gold);
-            color: #1E1B18;
-            font-weight: 600;
-        }
-        .nav-btn.btn-booklet {
-            background: linear-gradient(135deg, #DFC48A 0%, #C5A059 100%);
-            color: #181614;
-            border-radius: 20px;
-            width: auto;
-            padding: 0 11px;
-            font-size: 0.74rem;
-            font-weight: 700;
-            gap: 5px;
-        }
-        .nav-page-indicator {
-            color: var(--accent-gold-light);
-            font-family: var(--font-serif);
-            font-size: 0.85rem;
-            font-weight: 600;
-            letter-spacing: 1.2px;
-            padding: 0 4px;
-            min-width: 62px;
-            text-align: center;
-            flex-shrink: 0;
-        }
-        .divider-vert {
-            width: 1px;
-            height: 18px;
-            background: rgba(255,255,255,0.15);
-            flex-shrink: 0;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-gold), var(--accent-gold-light), #FFF);
+            width: 0%;
+            z-index: 9999;
+            box-shadow: 0 0 10px var(--accent-gold-glow);
+            transition: width 0.08s linear;
         }
 
-        /* THUMBNAIL DRAWER */
-        .thumbnail-drawer {
-            position: fixed;
-            bottom: calc(66px + env(safe-area-inset-bottom, 0px));
-            left: 50%;
-            transform: translateX(-50%) translateY(20px);
-            background: rgba(20, 18, 16, 0.96);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            padding: 10px 12px;
-            border-radius: 12px;
-            border: 1px solid rgba(197, 160, 89, 0.35);
-            display: flex;
-            gap: 8px;
-            overflow-x: auto;
-            max-width: 95vw;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.85);
-            opacity: 0;
-            pointer-events: none;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            z-index: 999;
-            -webkit-overflow-scrolling: touch;
-        }
-        .thumbnail-drawer.active {
-            opacity: 1;
-            pointer-events: auto;
-            transform: translateX(-50%) translateY(0);
-        }
-        .thumb-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            cursor: pointer;
-            flex-shrink: 0;
-            touch-action: manipulation;
-        }
-        .thumb-box {
-            width: 50px;
-            height: 68px;
-            background: var(--bg-cream);
-            border-radius: 4px;
-            border: 1px solid rgba(255,255,255,0.2);
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.68rem;
-            color: #555;
-            font-weight: 700;
-        }
-        .thumb-item.active .thumb-box {
-            border: 2px solid var(--accent-gold);
-            box-shadow: 0 0 10px rgba(197, 160, 89, 0.65);
-        }
-        .thumb-label {
-            font-size: 0.6rem;
-            color: #A39D94;
-            margin-top: 3px;
-            text-align: center;
-            max-width: 54px;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        /* MODALS */
-        .export-modal-overlay {
+        /* Ambient Noise / Grain overlay for luxury feel */
+        .noise-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100vw;
             height: 100vh;
-            background: rgba(0,0,0,0.8);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
+            pointer-events: none;
+            z-index: 999;
+            opacity: 0.035;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        /* Floating Navigation */
+        .navbar {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 1200px;
+            height: 64px;
+            border-radius: 32px;
+            background: rgba(18, 17, 16, 0.75);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--border-gold);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 24px;
+            z-index: 1000;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transition: var(--transition-smooth);
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .nav-logo-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: #1e1b18;
+            border: 1.5px solid var(--accent-gold);
             display: flex;
             align-items: center;
             justify-content: center;
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--accent-gold-light);
+            box-shadow: 0 0 10px var(--accent-gold-glow);
+        }
+
+        .nav-logo-text {
+            font-family: var(--font-display);
+            font-size: 1.15rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--text-cream);
+        }
+
+        .nav-logo-sub {
+            display: block;
+            font-family: var(--font-sans);
+            font-size: 0.62rem;
+            color: var(--accent-gold);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: var(--transition-smooth);
+            position: relative;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--accent-gold-light);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background: var(--accent-gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .btn-catalogue {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 18px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, rgba(197, 160, 89, 0.2), rgba(197, 160, 89, 0.05));
+            border: 1px solid var(--accent-gold);
+            color: var(--accent-gold-light);
+            font-size: 0.82rem;
+            font-weight: 600;
+            text-decoration: none;
+            letter-spacing: 0.5px;
+            transition: var(--transition-smooth);
+            box-shadow: 0 4px 15px rgba(197, 160, 89, 0.15);
+        }
+
+        .btn-catalogue:hover {
+            background: var(--accent-gold);
+            color: #121110;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px var(--accent-gold-glow);
+        }
+
+        .btn-book {
+            padding: 8px 20px;
+            border-radius: 20px;
+            background: var(--accent-gold);
+            color: #121110;
+            font-size: 0.82rem;
+            font-weight: 700;
+            text-decoration: none;
+            letter-spacing: 0.5px;
+            transition: var(--transition-smooth);
+            box-shadow: 0 4px 15px var(--accent-gold-glow);
+        }
+
+        .btn-book:hover {
+            background: var(--accent-gold-light);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 22px rgba(223, 196, 138, 0.5);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1.3rem;
+            cursor: pointer;
+        }
+
+        /* Mobile Drawer */
+        .mobile-drawer {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            max-width: 320px;
+            height: 100vh;
+            background: #181614;
+            border-left: 1px solid var(--border-gold);
+            z-index: 10000;
+            padding: 40px 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: -10px 0 30px rgba(0, 0, 0, 0.8);
+        }
+
+        .mobile-drawer.open {
+            right: 0;
+        }
+
+        .mobile-drawer-close {
+            align-self: flex-end;
+            background: none;
+            border: none;
+            color: var(--accent-gold);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .mobile-nav-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .mobile-nav-links a {
+            color: var(--text-cream);
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-family: var(--font-serif);
+            display: block;
+        }
+
+        .drawer-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.7);
+            z-index: 9998;
             opacity: 0;
             pointer-events: none;
-            transition: all 0.25s ease;
-            z-index: 3000;
-            padding: 12px;
+            transition: opacity 0.3s ease;
         }
-        .export-modal-overlay.active {
+
+        .drawer-overlay.open {
             opacity: 1;
             pointer-events: auto;
         }
-        .export-modal-box {
-            background: #1C1916;
-            color: #F7F5F0;
-            border: 1px solid rgba(197, 160, 89, 0.4);
-            border-radius: 12px;
-            padding: 22px 18px;
-            max-width: 480px;
-            width: 100%;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.9);
-            text-align: center;
+
+        /* SECTION BASE */
+        section {
             position: relative;
+            width: 100%;
         }
-        .export-modal-box h3 {
-            font-family: var(--font-display);
+
+        /* -------------------------------------------------------------
+           HERO SECTION (Chapter 0: The First Glimpse)
+        ------------------------------------------------------------- */
+        .hero-section {
+            height: 100vh;
+            height: 100dvh;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-bg-wrapper {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .hero-bg-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transform: scale(1.08);
+            filter: brightness(0.65) contrast(1.05);
+            will-change: transform, filter;
+        }
+
+        .hero-vignette {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at center, rgba(18, 17, 16, 0.2) 0%, rgba(18, 17, 16, 0.85) 100%),
+                        linear-gradient(180deg, rgba(18,17,16,0.5) 0%, rgba(18,17,16,0.1) 40%, rgba(18,17,16,0.9) 100%);
+            z-index: 2;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            max-width: 900px;
+            padding: 0 20px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 6px 18px;
+            border-radius: 30px;
+            background: rgba(197, 160, 89, 0.12);
+            border: 1px solid var(--border-gold);
             color: var(--accent-gold-light);
-            font-size: 1.2rem;
-            letter-spacing: 1.5px;
-            margin-bottom: 4px;
-        }
-        .export-modal-box p {
             font-size: 0.78rem;
-            color: #BBB4A8;
-            margin-bottom: 14px;
-            line-height: 1.4;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 24px;
+            backdrop-filter: blur(8px);
         }
-        .export-options-grid {
+
+        .hero-title {
+            font-family: var(--font-display);
+            font-size: clamp(2.8rem, 7vw, 5.5rem);
+            font-weight: 700;
+            letter-spacing: 4px;
+            color: #FFFFFF;
+            text-shadow: 0 4px 30px rgba(0, 0, 0, 0.7);
+            margin-bottom: 16px;
+            line-height: 1.1;
+        }
+
+        .hero-subtitle {
+            font-family: var(--font-serif);
+            font-size: clamp(1.1rem, 2.5vw, 1.8rem);
+            font-style: italic;
+            color: var(--accent-gold-light);
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+
+        .hero-desc {
+            font-size: 1rem;
+            color: var(--text-cream);
+            max-width: 620px;
+            margin: 0 auto 36px;
+            line-height: 1.7;
+            font-weight: 300;
+            opacity: 0.9;
+        }
+
+        .hero-buttons {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        .btn-hero-primary {
+            padding: 14px 36px;
+            border-radius: 30px;
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-light));
+            color: #121110;
+            font-weight: 700;
+            font-size: 0.92rem;
+            letter-spacing: 1px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: var(--transition-smooth);
+            box-shadow: 0 6px 25px var(--accent-gold-glow);
+        }
+
+        .btn-hero-primary:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 10px 30px rgba(223, 196, 138, 0.6);
+        }
+
+        .btn-hero-secondary {
+            padding: 14px 32px;
+            border-radius: 30px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            color: #FFF;
+            font-weight: 600;
+            font-size: 0.92rem;
+            letter-spacing: 1px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            backdrop-filter: blur(10px);
+            transition: var(--transition-smooth);
+        }
+
+        .btn-hero-secondary:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: var(--accent-gold);
+            color: var(--accent-gold-light);
+            transform: translateY(-3px);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 3;
             display: flex;
             flex-direction: column;
+            align-items: center;
             gap: 8px;
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
-        .export-opt-btn {
-            background: rgba(255,255,255,0.06);
-            border: 1px solid rgba(197, 160, 89, 0.25);
-            padding: 11px 12px;
-            border-radius: 8px;
-            color: #FFF;
+
+        .mouse-icon {
+            width: 22px;
+            height: 36px;
+            border: 2px solid var(--accent-gold);
+            border-radius: 12px;
+            position: relative;
+        }
+
+        .mouse-wheel {
+            width: 4px;
+            height: 8px;
+            background: var(--accent-gold-light);
+            border-radius: 2px;
+            position: absolute;
+            top: 6px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: mouseScroll 1.8s infinite;
+        }
+
+        @keyframes mouseScroll {
+            0% { transform: translate(-50%, 0); opacity: 1; }
+            100% { transform: translate(-50%, 14px); opacity: 0; }
+        }
+
+        /* -------------------------------------------------------------
+           CHAPTER 1: THE SANCTUARY (Pinned Cinematic Scrollytelling)
+        ------------------------------------------------------------- */
+        .story-section {
+            position: relative;
+            height: 350vh;
+            width: 100%;
+        }
+
+        .story-sticky-container {
+            position: sticky;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            height: 100dvh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .story-bg-layer {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            will-change: transform, opacity;
+            filter: brightness(0.65);
+        }
+
+        .story-bg-1 {
+            z-index: 1;
+            opacity: 1;
+        }
+
+        .story-bg-2 {
+            z-index: 2;
+            opacity: 0;
+        }
+
+        .story-bg-3 {
+            z-index: 3;
+            opacity: 0;
+        }
+
+        .story-overlay-shade {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(18,17,16,0.7) 0%, rgba(18,17,16,0.3) 50%, rgba(18,17,16,0.85) 100%);
+            z-index: 4;
+        }
+
+        .story-cards-container {
+            position: relative;
+            z-index: 5;
+            width: 90%;
+            max-width: 960px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .story-card {
+            position: absolute;
+            width: 100%;
+            max-width: 680px;
+            padding: 40px;
+            border-radius: 24px;
+            background: rgba(22, 20, 18, 0.85);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid var(--border-gold);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+            text-align: center;
+            opacity: 0;
+            transform: translateY(60px) scale(0.95);
+            will-change: transform, opacity;
+        }
+
+        .card-tag {
+            display: inline-block;
+            font-family: var(--font-script);
+            font-size: 1.6rem;
+            color: var(--accent-gold-light);
+            margin-bottom: 8px;
+        }
+
+        .card-title {
+            font-family: var(--font-serif);
+            font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+            color: #FFFFFF;
+            margin-bottom: 16px;
+            line-height: 1.25;
+        }
+
+        .card-text {
+            font-size: 1rem;
+            color: var(--text-cream);
+            line-height: 1.8;
+            font-weight: 300;
+            margin-bottom: 24px;
+        }
+
+        .card-features {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .feature-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 16px;
+            border-radius: 20px;
+            background: rgba(197, 160, 89, 0.12);
+            border: 1px solid rgba(197, 160, 89, 0.3);
+            font-size: 0.82rem;
+            color: var(--accent-gold-light);
+        }
+
+        /* -------------------------------------------------------------
+           CHAPTER 2: SUITE COLLECTION (Horizontal Pinned Gallery)
+        ------------------------------------------------------------- */
+        .rooms-section-wrapper {
+            position: relative;
+            background-color: var(--bg-dark);
+            overflow: hidden;
+        }
+
+        .section-header-block {
+            text-align: center;
+            padding: 80px 20px 40px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .section-subtitle {
+            font-family: var(--font-script);
+            font-size: 2rem;
+            color: var(--accent-gold);
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: clamp(2.2rem, 4vw, 3.2rem);
+            color: #FFFFFF;
+            letter-spacing: 2px;
+            margin-bottom: 16px;
+        }
+
+        .section-desc {
+            font-size: 1rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        .horizontal-scroll-container {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .horizontal-track {
+            display: flex;
+            gap: 40px;
+            padding: 0 8vw;
+            will-change: transform;
+        }
+
+        .room-card {
+            width: 78vw;
+            max-width: 850px;
+            height: 68vh;
+            min-height: 480px;
+            border-radius: 28px;
+            overflow: hidden;
+            position: relative;
+            flex-shrink: 0;
+            background: var(--bg-surface);
+            border: 1px solid var(--border-gold);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            transition: transform 0.4s ease;
+        }
+
+        .room-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--accent-gold);
+        }
+
+        .room-card-bg {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+            filter: brightness(0.75);
+        }
+
+        .room-card:hover .room-card-bg {
+            transform: scale(1.05);
+            filter: brightness(0.85);
+        }
+
+        .room-card-gradient {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(18,17,16,0) 0%, rgba(18,17,16,0.3) 40%, rgba(18,17,16,0.95) 100%);
+            z-index: 2;
+        }
+
+        .room-card-info {
+            position: relative;
+            z-index: 3;
+            padding: 36px;
+        }
+
+        .room-badge {
+            display: inline-block;
+            padding: 4px 14px;
+            border-radius: 14px;
+            background: var(--accent-gold);
+            color: #121110;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .room-title {
+            font-family: var(--font-serif);
+            font-size: clamp(1.8rem, 2.5vw, 2.4rem);
+            color: #FFFFFF;
+            margin-bottom: 10px;
+        }
+
+        .room-specs {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+
+        .room-spec-item {
+            font-size: 0.85rem;
+            color: var(--accent-gold-light);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .room-desc {
+            font-size: 0.95rem;
+            color: var(--text-cream);
+            line-height: 1.6;
+            margin-bottom: 24px;
+            max-width: 600px;
+            font-weight: 300;
+        }
+
+        .room-action {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .btn-room-book {
+            padding: 10px 24px;
+            border-radius: 20px;
+            background: var(--accent-gold);
+            color: #121110;
+            font-size: 0.85rem;
+            font-weight: 700;
             text-decoration: none;
+            transition: var(--transition-smooth);
+        }
+
+        .btn-room-book:hover {
+            background: #FFF;
+            transform: translateY(-2px);
+        }
+
+        /* -------------------------------------------------------------
+           CHAPTER 3: DESTINATION PARALLAX TOUR (Hoài Nhơn, Bình Định)
+        ------------------------------------------------------------- */
+        .destination-section {
+            padding: 100px 5vw;
+            background: linear-gradient(180deg, var(--bg-dark) 0%, #171514 50%, var(--bg-dark) 100%);
+            position: relative;
+        }
+
+        .dest-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 28px;
+            max-width: 1300px;
+            margin: 60px auto 0;
+        }
+
+        .dest-card {
+            border-radius: 24px;
+            overflow: hidden;
+            position: relative;
+            background: var(--bg-surface);
+            border: 1px solid var(--border-gold);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+            transition: transform 0.4s ease, border-color 0.4s ease;
+        }
+
+        .dest-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent-gold);
+        }
+
+        .dest-card-large {
+            grid-column: span 7;
+            height: 480px;
+        }
+
+        .dest-card-medium {
+            grid-column: span 5;
+            height: 480px;
+        }
+
+        .dest-card-small {
+            grid-column: span 4;
+            height: 380px;
+        }
+
+        .dest-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+            filter: brightness(0.8);
+        }
+
+        .dest-card:hover .dest-img {
+            transform: scale(1.08);
+            filter: brightness(0.9);
+        }
+
+        .dest-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.4) 40%, rgba(18,17,16,0.95) 100%);
+            z-index: 2;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+
+        .dest-tag {
+            font-size: 0.75rem;
+            color: var(--accent-gold);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .dest-name {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            color: #FFFFFF;
+            margin-bottom: 8px;
+        }
+
+        .dest-info {
+            font-size: 0.88rem;
+            color: var(--text-cream);
+            line-height: 1.5;
+            font-weight: 300;
+            opacity: 0.9;
+        }
+
+        /* -------------------------------------------------------------
+           CHAPTER 4: HOSPITALITY & 1-TAP WIFI
+        ------------------------------------------------------------- */
+        .amenities-section {
+            padding: 100px 5vw;
+            background: var(--bg-dark);
+            position: relative;
+        }
+
+        .amenities-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .wifi-quick-box {
+            background: radial-gradient(circle at top right, rgba(197, 160, 89, 0.15), rgba(27, 25, 23, 0.95));
+            border: 1px solid var(--border-gold);
+            border-radius: 28px;
+            padding: 40px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .wifi-icon-pulse {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: rgba(197, 160, 89, 0.15);
+            border: 1px solid var(--accent-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: var(--accent-gold-light);
+            font-size: 1.8rem;
+            animation: pulseGlow 2.5s infinite;
+        }
+
+        @keyframes pulseGlow {
+            0% { box-shadow: 0 0 0 0 rgba(197, 160, 89, 0.4); }
+            70% { box-shadow: 0 0 0 20px rgba(197, 160, 89, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(197, 160, 89, 0); }
+        }
+
+        .wifi-title {
+            font-family: var(--font-serif);
+            font-size: 1.8rem;
+            color: #FFFFFF;
+            margin-bottom: 8px;
+        }
+
+        .wifi-subtitle {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+        }
+
+        .wifi-pass-card {
+            background: #121110;
+            border: 1px dashed var(--accent-gold);
+            border-radius: 16px;
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            margin-bottom: 16px;
+        }
+
+        .wifi-pass-card:hover {
+            background: #181614;
+            border-color: var(--accent-gold-light);
+            transform: scale(1.02);
+        }
+
+        .wifi-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-align: left;
+            text-transform: uppercase;
+        }
+
+        .wifi-pass-val {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--accent-gold-light);
+            letter-spacing: 1px;
+        }
+
+        .btn-copy-wifi {
+            background: var(--accent-gold);
+            border: none;
+            color: #121110;
+            padding: 8px 16px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+        }
+
+        .btn-copy-wifi:hover {
+            background: #FFF;
+        }
+
+        .amenities-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .amenity-item {
+            background: var(--bg-surface);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 18px;
+            padding: 24px;
+            transition: var(--transition-smooth);
+        }
+
+        .amenity-item:hover {
+            border-color: var(--border-gold);
+            background: #201e1b;
+            transform: translateY(-4px);
+        }
+
+        .amenity-icon {
+            font-size: 1.6rem;
+            color: var(--accent-gold);
+            margin-bottom: 14px;
+        }
+
+        .amenity-name {
+            font-family: var(--font-serif);
+            font-size: 1.15rem;
+            color: #FFFFFF;
+            margin-bottom: 6px;
+        }
+
+        .amenity-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* -------------------------------------------------------------
+           CHAPTER 5: GRAND FINALE & 3D FLIPBOOK CTA
+        ------------------------------------------------------------- */
+        .cta-section {
+            padding: 120px 5vw 80px;
+            background: radial-gradient(circle at center, #26221d 0%, #121110 80%);
+            position: relative;
+            text-align: center;
+        }
+
+        .cta-box {
+            max-width: 960px;
+            margin: 0 auto;
+            border-radius: 36px;
+            padding: 60px 40px;
+            background: rgba(27, 25, 23, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1.5px solid var(--accent-gold);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8), 0 0 40px var(--accent-gold-glow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-badge {
+            font-family: var(--font-script);
+            font-size: 2.2rem;
+            color: var(--accent-gold-light);
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .cta-title {
+            font-family: var(--font-display);
+            font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+            color: #FFFFFF;
+            margin-bottom: 18px;
+            letter-spacing: 1px;
+            line-height: 1.2;
+        }
+
+        .cta-desc {
+            font-size: 1.05rem;
+            color: var(--text-cream);
+            max-width: 680px;
+            margin: 0 auto 36px;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        .cta-buttons {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .btn-grand-catalogue {
+            padding: 16px 40px;
+            border-radius: 32px;
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-light));
+            color: #121110;
+            font-size: 1.05rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            transition: var(--transition-smooth);
+            box-shadow: 0 10px 30px var(--accent-gold-glow);
+        }
+
+        .btn-grand-catalogue:hover {
+            transform: translateY(-4px) scale(1.03);
+            box-shadow: 0 15px 40px rgba(223, 196, 138, 0.7);
+            background: #FFFFFF;
+        }
+
+        .btn-grand-contact {
+            padding: 16px 36px;
+            border-radius: 32px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            color: #FFF;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: var(--transition-smooth);
+        }
+
+        .btn-grand-contact:hover {
+            background: rgba(255, 255, 255, 0.18);
+            border-color: var(--accent-gold);
+            color: var(--accent-gold-light);
+            transform: translateY(-4px);
+        }
+
+        .contact-quick-list {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding-top: 28px;
+            flex-wrap: wrap;
+        }
+
+        .contact-quick-item {
             display: flex;
             align-items: center;
             gap: 10px;
-            cursor: pointer;
-            text-align: left;
-            touch-action: manipulation;
-        }
-        .export-opt-btn:active {
-            background: var(--accent-gold);
-            color: #1E1B18;
-        }
-        .export-opt-btn.highlight-opt {
-            background: rgba(197, 160, 89, 0.15);
-            border: 1px solid var(--accent-gold);
-        }
-        .export-opt-btn i {
-            font-size: 1.3rem;
-            color: var(--accent-gold);
-            width: 24px;
-            text-align: center;
-            flex-shrink: 0;
-        }
-        .export-opt-btn strong {
-            display: block;
-            font-size: 0.84rem;
-            margin-bottom: 2px;
-        }
-        .export-opt-btn span {
-            font-size: 0.7rem;
-            opacity: 0.85;
-        }
-        .modal-close-btn {
-            position: absolute;
-            top: 10px;
-            right: 12px;
-            background: transparent;
-            border: none;
-            color: #A39D94;
-            font-size: 1.3rem;
-            cursor: pointer;
-            line-height: 1;
-            padding: 5px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: color 0.3s;
         }
 
-        /* BOOKLET PREVIEW MODAL */
-        .booklet-preview-modal-box {
-            max-width: 800px;
-            width: 95%;
-            max-height: 88vh;
-            overflow-y: auto;
-            padding: 20px 16px;
-            -webkit-overflow-scrolling: touch;
-        }
-        .booklet-sheets-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 12px;
-            margin: 12px 0;
-            text-align: left;
-        }
-        .booklet-sheet-card {
-            background: #141210;
-            border: 1px solid rgba(197, 160, 89, 0.3);
-            border-radius: 8px;
-            padding: 10px 12px;
-        }
-        .booklet-sheet-header {
-            font-size: 0.74rem;
-            font-weight: 700;
+        .contact-quick-item:hover {
             color: var(--accent-gold-light);
-            margin-bottom: 6px;
+        }
+
+        .contact-quick-item i {
+            color: var(--accent-gold);
+        }
+
+        /* -------------------------------------------------------------
+           FOOTER
+        ------------------------------------------------------------- */
+        footer {
+            background: #0d0c0b;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            padding: 60px 5vw 30px;
+            color: var(--text-muted);
+            font-size: 0.88rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
+            gap: 24px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
-        .booklet-sides-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 8px;
-        }
-        .booklet-side-box {
-            background: rgba(255,255,255,0.04);
-            border: 1px dashed rgba(197, 160, 89, 0.3);
-            border-radius: 6px;
-            padding: 6px;
-            text-align: center;
-        }
-        .booklet-side-title {
-            font-size: 0.65rem;
-            color: #AAA;
-            margin-bottom: 4px;
-            font-weight: 600;
-        }
-        .booklet-page-pair {
-            display: flex;
-            gap: 4px;
-            height: 48px;
-        }
-        .booklet-mini-page {
-            flex: 1;
-            background: var(--bg-cream);
-            color: #222;
-            border-radius: 4px;
+
+        .footer-brand {
             display: flex;
             flex-direction: column;
+            gap: 6px;
+        }
+
+        .footer-logo {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            color: #FFFFFF;
+            letter-spacing: 2px;
+        }
+
+        .footer-rights {
+            font-size: 0.8rem;
+            color: #666;
+        }
+
+        .footer-socials {
+            display: flex;
+            gap: 16px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #181614;
+            border: 1px solid var(--border-gold);
+            display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.64rem;
-            font-weight: 700;
-            border: 1px solid rgba(0,0,0,0.1);
+            color: var(--accent-gold);
+            text-decoration: none;
+            transition: var(--transition-smooth);
         }
-        .booklet-mini-page.cover-mini {
-            background: #242220;
+
+        .social-link:hover {
+            background: var(--accent-gold);
+            color: #121110;
+            transform: translateY(-3px);
+        }
+
+        .back-to-top {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--accent-gold);
+            color: #121110;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 900;
+            opacity: 0;
+            transform: translateY(20px);
+            pointer-events: none;
+            transition: var(--transition-smooth);
+            box-shadow: 0 6px 20px var(--accent-gold-glow);
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        .back-to-top:hover {
+            background: #FFF;
+            transform: translateY(-4px);
+        }
+
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: #1e1b18;
+            border: 1px solid var(--accent-gold);
+            color: #FFF;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-size: 0.88rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+            z-index: 10001;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+
+        .toast i {
             color: var(--accent-gold);
         }
-        .booklet-mini-page span {
-            font-size: 0.54rem;
-            font-weight: normal;
-            color: #777;
-        }
-        .booklet-mini-page.cover-mini span {
-            color: #BBB;
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .nav-links, .nav-actions .btn-book {
+                display: none;
+            }
+            .mobile-menu-btn {
+                display: block;
+            }
+            .dest-card-large, .dest-card-medium, .dest-card-small {
+                grid-column: span 6;
+                height: 380px;
+            }
+            .amenities-container {
+                grid-template-columns: 1fr;
+            }
         }
 
-        /* Toast Message */
-        .toast-msg {
-            position: fixed;
-            top: 14px;
-            left: 50%;
-            transform: translateX(-50%) translateY(-20px);
-            background: rgba(24, 22, 20, 0.96);
-            color: var(--accent-gold-light);
-            padding: 7px 16px;
-            border-radius: 20px;
-            font-size: 0.74rem;
-            letter-spacing: 0.4px;
-            border: 1px solid rgba(197, 160, 89, 0.35);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.5);
-            opacity: 0;
-            pointer-events: none;
-            transition: all 0.25s ease;
-            z-index: 4000;
-            max-width: 90vw;
-            text-align: center;
-        }
-        .toast-msg.show {
-            opacity: 1;
-            transform: translateX(-50%) translateY(0);
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* ================= ANDROID & MOBILE SPECIFIC QUERIES ================= */
         @media (max-width: 768px) {
-            body { padding: 6px 4px calc(72px + env(safe-area-inset-bottom, 0px)); }
-            .brand-header { margin-bottom: 4px; }
-            .brand-header h1 { font-size: 1.15rem; letter-spacing: 3px; }
-            .brand-header p { font-size: 0.65rem; letter-spacing: 1px; }
-            .page-content { padding: 18px 14px 14px; }
-            .bottom-nav-bar { padding: 4px 8px; gap: 4px; bottom: max(8px, env(safe-area-inset-bottom, 8px)); }
-            .nav-btn { width: 32px; height: 32px; font-size: 0.85rem; }
-            .nav-btn.btn-booklet { padding: 0 8px; font-size: 0.7rem; height: 32px; }
-            .nav-page-indicator { font-size: 0.74rem; min-width: 52px; padding: 0 2px; }
-            .cover-title { font-size: 1.7rem; }
-            .cover-gold-badge { width: 55px; height: 55px; font-size: 1.4rem; margin-bottom: 10px; }
-            .cover-script { font-size: 1.55rem; }
-            .welcome-photo { height: 165px; }
-            .exp-grid-flip { grid-template-columns: repeat(2, 1fr); gap: 5px; }
-            .exp-card-flip img { height: 60px; }
-            .booklet-sides-row { grid-template-columns: 1fr; }
-        }
-
-        /* ================= BOOKLET PRINT CONTAINER ================= */
-        .booklet-print-container {
-            display: none;
-        }
-
-        /* ================= PRINT & PDF EXPORT STYLES ================= */
-        @media print {
-            @page {
-                size: A4 landscape;
-                margin: 0;
+            .navbar {
+                width: 94%;
+                padding: 0 16px;
             }
-            *, *::before, *::after {
-                -webkit-print-color-adjust: exact !important;
-                print-color-adjust: exact !important;
-                color-adjust: exact !important;
+            .room-card {
+                width: 90vw;
+                height: 72vh;
             }
-            html, body {
-                width: 100% !important;
-                height: auto !important;
-                background: #FFFFFF !important;
-                padding: 0 !important;
-                margin: 0 !important;
-                overflow: visible !important;
-                display: block !important;
+            .dest-card-large, .dest-card-medium, .dest-card-small {
+                grid-column: span 12;
+                height: 320px;
             }
-
-            .brand-header, .top-action-bar, .bottom-nav-bar, .thumbnail-drawer, .export-modal-overlay, .toast-msg, .book-shadow-decor, .cover-hint {
-                display: none !important;
+            .story-card {
+                padding: 24px;
             }
-
-            /* BOOKLET IMPOSITION PRINT */
-            body.print-mode-booklet .stage-container {
-                display: none !important;
+            .cta-box {
+                padding: 40px 20px;
             }
-            body.print-mode-booklet .booklet-print-container {
-                display: block !important;
-                width: 100% !important;
-                height: auto !important;
-                margin: 0 !important;
-                padding: 0 !important;
-            }
-            body.print-mode-booklet .booklet-sheet {
-                width: 100vw !important;
-                height: 100vh !important;
-                max-height: 100vh !important;
-                display: flex !important;
-                flex-direction: row !important;
-                page-break-after: always !important;
-                break-after: page !important;
-                page-break-inside: avoid !important;
-                break-inside: avoid !important;
-                box-sizing: border-box !important;
-                padding: 0 !important;
-                margin: 0 !important;
-                background-color: #F7F5F0 !important;
-                position: relative !important;
-            }
-            body.print-mode-booklet .booklet-half {
-                width: 50% !important;
-                height: 100% !important;
-                box-sizing: border-box !important;
-                overflow: hidden !important;
-                display: flex !important;
-                flex-direction: column !important;
-                position: relative !important;
-            }
-            body.print-mode-booklet .booklet-fold-line {
-                position: absolute !important;
-                top: 0 !important;
-                bottom: 0 !important;
-                left: 50% !important;
-                width: 1px !important;
-                border-right: 1px dashed rgba(0,0,0,0.12) !important;
-                z-index: 10 !important;
-            }
-            body.print-mode-booklet .booklet-half .page {
-                width: 100% !important;
-                height: 100% !important;
-                box-shadow: none !important;
-                border: none !important;
-                padding: 26px 32px 18px !important;
-                display: flex !important;
-                flex-direction: column !important;
-                justify-content: space-between !important;
-            }
-
-            /* STANDARD 12 PAGES PRINT */
-            body:not(.print-mode-booklet) .stage-container,
-            body:not(.print-mode-booklet) .flipbook-viewport,
-            body:not(.print-mode-booklet) .flipbook-container,
-            body:not(.print-mode-booklet) .stf__parent,
-            body:not(.print-mode-booklet) .stf__wrapper,
-            body:not(.print-mode-booklet) .stf__block,
-            body:not(.print-mode-booklet) .stf__item {
-                position: static !important;
-                display: block !important;
-                width: 100% !important;
-                height: auto !important;
-                max-width: none !important;
-                transform: none !important;
-                perspective: none !important;
-                box-shadow: none !important;
-                overflow: visible !important;
-                left: auto !important;
-                top: auto !important;
-                right: auto !important;
-                bottom: auto !important;
-                margin: 0 !important;
-                padding: 0 !important;
-                border: none !important;
-            }
-            body:not(.print-mode-booklet) .page {
-                position: relative !important;
-                display: flex !important;
-                flex-direction: column !important;
-                justify-content: space-between !important;
-                width: 100vw !important;
-                height: 100vh !important;
-                max-height: 100vh !important;
-                page-break-after: always !important;
-                break-after: page !important;
-                page-break-inside: avoid !important;
-                break-inside: avoid !important;
-                box-sizing: border-box !important;
-                padding: 35px 50px !important;
-                margin: 0 !important;
-                background-color: #F7F5F0 !important;
-                box-shadow: none !important;
-                border: none !important;
-                overflow: hidden !important;
+            .amenities-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
 
-<div class="toast-msg" id="toast">Âm thanh lật sách: BẬT</div>
+    <!-- Scroll Progress Indicator -->
+    <div id="scroll-progress"></div>
 
-<div class="stage-container">
-    <!-- Top Brand Header -->
-    <div class="brand-header">
-        <h1>GAJO'S HOUSE</h1>
-        <p>3D Interactive Catalogue &bull; Hoài Nhơn, Bình Định</p>
-    </div>
+    <!-- Noise Texture -->
+    <div class="noise-overlay"></div>
 
-    <!-- Top Action Buttons -->
-    <div class="top-action-bar">
-        <button class="top-btn-pill" onclick="openBookletModal()"><i class="fa-solid fa-book-open"></i> In Booklet 2 Mặt (1-12, 2-11...)</button>
-        <button class="top-btn-pill" onclick="triggerShare()"><i class="fa-solid fa-share-nodes"></i> Chia Sẻ</button>
-        <a href="https://zalo.me/0902286300" target="_blank" class="top-btn-pill"><i class="fa-solid fa-comments"></i> Đặt Phòng Zalo</a>
-        <a href="tel:0902286300" class="top-btn-pill"><i class="fa-solid fa-phone"></i> 0902 286 300</a>
-    </div>
-
-    <!-- 3D Flipbook Viewport -->
-    <div class="flipbook-viewport">
-        <div class="book-shadow-decor"></div>
-        <div class="flipbook-container" id="flipbook">
-
-            <!-- ================= PAGE 1: FRONT COVER ================= -->
-            <div class="page page-cover page-cover-top" data-density="hard">
-                <div class="cover-inner">
-                    <div class="cover-gold-badge">
-                        <i class="fa-solid fa-house"></i>
-                    </div>
-                    <div class="cover-title">GAJO'S<br>HOUSE</div>
-                    <div class="cover-subtitle">Boutique Homestay</div>
-                    <div class="cover-script">Stay simple, live slow.</div>
-                    <div class="cover-location">
-                        <i class="fa-solid fa-location-dot" style="color:var(--accent-gold); margin-right:4px;"></i> Hoài Nhơn Đông &bull; Bình Định
-                    </div>
-                    <div class="cover-hint">
-                        <i class="fa-solid fa-hand-point-right"></i> Nhấn vào mép hoặc vuốt để mở sách
-                    </div>
-                </div>
+    <!-- Floating Navbar -->
+    <nav class="navbar" id="navbar">
+        <a href="#hero" class="nav-logo">
+            <div class="nav-logo-icon">G</div>
+            <div>
+                <span class="nav-logo-text">GAJO'S HOUSE</span>
+                <span class="nav-logo-sub">Japandi Boutique</span>
             </div>
+        </a>
 
-            <!-- ================= PAGE 2: WELCOME ================= -->
-            <div class="page" data-density="soft">
-                <div class="page-content">
-                    <div class="page-body-center">
-                        <div class="page-header">
-                            <div class="page-eyebrow">Welcome To Sanctuary</div>
-                            <h2 class="page-title">Lời Ngỏ</h2>
-                            <p class="page-desc">Chào mừng bạn ghé thăm GAJO's HOUSE</p>
-                        </div>
+        <ul class="nav-links">
+            <li><a href="#story">Không Gian</a></li>
+            <li><a href="#rooms">Hạng Phòng</a></li>
+            <li><a href="#destination">Du Lịch</a></li>
+            <li><a href="#amenities">Tiện Ích</a></li>
+            <li><a href="#contact">Liên Hệ</a></li>
+        </ul>
 
-                        <div class="welcome-quote-box">
-                            "Một không gian lưu trú boutique mới xây được chăm chút tỉ mỉ từng chi tiết, tĩnh lặng và sạch không tì vết để bạn tái tạo trọn vẹn nguồn năng lượng."
-                        </div>
-
-                        <p style="font-size:0.8rem; color:#555; line-height:1.55; margin:4px 0;">
-                            Tọa lạc tại vùng Hoài Nhơn Đông thanh bình, homestay mang phong cách tối giản Japandi giao hòa cùng vẻ đẹp mộc mạc của xứ dừa Bình Định.
-                        </p>
-
-                        <img src="assets/gajo-interior.jpg" class="welcome-photo" alt="Nội thất GAJO's HOUSE">
-                    </div>
-
-                    <div class="page-footer">
-                        <span>GAJO's HOUSE &bull; Hoài Nhơn</span>
-                        <span class="page-number">02</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- ================= PAGE 3: CHECK IN/OUT & WIFI ================= -->
-            <div class="page" data-density="soft">
-                <div class="page-content">
-                    <div class="page-body-center">
-                        <div class="page-header">
-                            <div class="page-eyebrow">Stay Information</div>
-                            <h2 class="page-title">Nhận Phòng &amp; WiFi</h2>
-                            <p class="page-desc">Thời gian lưu trú &amp; kết nối internet tốc độ cao</p>
-                        </div>
-
-                        <div class="schedule-grid">
-                            <div class="schedule-card">
-                                <h4>CHECK IN</h4>
-                                <div class="time">14:00</div>
-                                <span style="font-size:0.72rem; color:#777;">Sau 2:00 PM</span>
-                            </div>
-                            <div class="schedule-card">
-                                <h4>CHECK OUT</h4>
-                                <div class="time">11:00</div>
-                                <span style="font-size:0.72rem; color:#777;">Trước 11:00 AM</span>
-                            </div>
-                        </div>
-
-                        <div class="wifi-luxury-box">
-                            <i class="fa-solid fa-wifi wifi-icon-main"></i>
-                            <h4 style="font-family:var(--font-serif); font-size:1.15rem; color:#FFF; margin-bottom:3px;">WiFi Tốc Độ Cao</h4>
-                            <p style="font-size:0.72rem; color:#BBB; margin-bottom:8px;">Phủ sóng mạnh mẽ toàn bộ khuôn viên</p>
-
-                            <div class="wifi-row">
-                                <span>Tên Mạng:</span>
-                                <strong>GAJOS_HOUSE</strong>
-                            </div>
-                            <div class="wifi-row clickable" onclick="copyText('gajohouse123', 'Đã sao chép mật khẩu WiFi: gajohouse123')" title="Nhấn để sao chép mật khẩu">
-                                <span>Mật Khẩu:</span>
-                                <strong style="display:flex; align-items:center; gap:6px;">
-                                    <span>gajohouse123</span>
-                                    <i class="fa-regular fa-copy" style="font-size:0.85rem; color:var(--accent-gold);"></i>
-                                </strong>
-                            </div>
-                            <div style="font-size:0.66rem; color:var(--accent-gold-light); margin-top:6px; opacity:0.85;">
-                                <i class="fa-regular fa-hand-pointer"></i> Chạm vào mật khẩu để sao chép
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="page-footer">
-                        <span>GAJO's HOUSE &bull; Hoài Nhơn</span>
-                        <span class="page-number">03</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- ================= PAGE 4: OUR ROOMS ================= -->
-            <div class="page" data-density="soft">
-                <div class="page-content">
-                    <div class="page-body-center">
-                        <div class="page-header">
-                            <div class="page-eyebrow">Boutique Accommodations</div>
-                            <h2 class="page-title">Không Gian Lưu Trú</h2>
-                            <p class="page-desc">Hình ảnh thực tế 3 hạng phòng sạch tinh tươm</p>
-                        </div>
-
-                        <div class="room-mini-list">
-                            <!-- GA-AN -->
-                            <div class="room-mini-item">
-                                <img src="assets/gajo-double-bed.jpg" class="room-mini-img" alt="Phòng GA-AN">
-                                <div class="room-mini-info">
-                                    <span class="room-mini-tag">Double Room &bull; Giường Đôi</span>
-                                    <h4>GA-AN (An Yên)</h4>
-                                    <p>1 giường đôi lớn, đón nắng ấm, TV thông minh &amp; điều hòa êm.</p>
-                                </div>
-                            </div>
-                            <!-- GA-MỘ -->
-                            <div class="room-mini-item">
-                                <img src="assets/gajo-single-bed.jpg" class="room-mini-img" alt="Phòng GA-MỘ">
-                                <div class="room-mini-info">
-                                    <span class="room-mini-tag">Standard Room &bull; Mộc</span>
-                                    <h4>GA-MỘ (Mộc Mạc)</h4>
-                                    <p>Phong cách Japandi tối giản, nước nóng trung tâm ấm áp.</p>
-                                </div>
-                            </div>
-                            <!-- GA-ĐÌNH -->
-                            <div class="room-mini-item">
-                                <img src="assets/gajo-family-room.jpg" class="room-mini-img" alt="Phòng GA-ĐÌNH">
-                                <div class="room-mini-info">
-                                    <span class="room-mini-tag">Family Suite &bull; 2 Giường King</span>
-                                    <h4>GA-ĐÌNH (Gia Đình)</h4>
-                                    <p>2 giường lớn, tranh Matisse, sàn gỗ xương cá ấm cúng.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="page-footer">
-                        <span>GAJO's HOUSE &bull; Hoài Nhơn</span>
-                        <span class="page-number">04</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- ================= PAGE 5: AMENITIES ================= -->
-            <div class="page" data-density="soft">
-                <div class="page-content">
-                    <div class="page-body-center">
-                        <div class="page-header">
-                            <div class="page-eyebrow">Thoughtful Services</div>
-                            <h2 class="page-title">Tiện Nghi Chu Đáo</h2>
-                            <p class="page-desc">Chăm sóc từng trải nghiệm nghỉ ngơi nhỏ nhất</p>
-                        </div>
-
-                        <div class="amenity-grid-luxury">
-                            <div class="amenity-item-box">
-                                <i class="fa-solid fa-broom"></i>
-                                <div>
-                                    <h5>Dọn Spotless</h5>
-                                    <span>Sạch chuẩn 5 sao</span>
-                                </div>
-                            </div>
-                            <div class="amenity-item-box">
-                                <i class="fa-regular fa-snowflake"></i>
-                                <div>
-                                    <h5>Điều Hòa Êm</h5>
-                                    <span>Inverter êm ái</span>
-                                </div>
-                            </div>
-                            <div class="amenity-item-box">
-                                <i class="fa-solid fa-shower"></i>
-                                <div>
-                                    <h5>Nước Nóng</h5>
-                                    <span>Hệ trung tâm</span>
-                                </div>
-                            </div>
-                            <div class="amenity-item-box">
-                                <i class="fa-solid fa-motorcycle"></i>
-                                <div>
-                                    <h5>Thuê Xe Máy</h5>
-                                    <span>Xe mới tiết kiệm</span>
-                                </div>
-                            </div>
-                            <div class="amenity-item-box">
-                                <i class="fa-solid fa-shirt"></i>
-                                <div>
-                                    <h5>Giặt Ủi Nhanh</h5>
-                                    <span>Lấy trong ngày</span>
-                                </div>
-                            </div>
-                            <div class="amenity-item-box">
-                                <i class="fa-solid fa-shield-halved"></i>
-                                <div>
-                                    <h5>Bãi Xe An Toàn</h5>
-                                    <span>Camera an ninh</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="amenity-quote-bottom">
-                            <span style="font-family:var(--font-script); font-size:1.4rem; color:var(--accent-gold); display:block;">"Feel like home"</span>
-                            <p style="font-size:0.72rem; color:#666; margin:0;">Chủ nhà luôn sẵn sàng hỗ trợ bạn 24/7 với tất cả sự tận tâm.</p>
-                        </div>
-                    </div>
-
-                    <div class="page-footer">
-                        <span>GAJO's HOUSE &bull; Hoài Nhơn</span>
-                        <span class="page-number">05</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- ================= PAGE 6: PLACES TO EAT ================= -->
-            <div class="page" data-density="soft">
-                <div class="page-content">
-                    <div class="page-body-center">
-                        <div class="page-header">
-                            <div class="page-eyebrow">Must-Try Dining</div>
-                            <h2 class="page-title">Tiệm Nướng Nhà Gạo</h2>
-                            <p class="page-desc">Gợi ý ẩm thực &bull; Cùng chủ GAJO's HOUSE</p>
-                        </div>
-
-                        <div class="bbq-card-vertical">
-                            <span class="bbq-badge">Tiểu Đà Lạt Giữa Hoài Nhơn</span>
-                            <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=600" alt="Tiệm Nướng Nhà Gạo">
-                            <p>
-                                Không gian sân vườn Vintage lãng mạn, tiệc nướng bò tảng sốt đậm vị và các đêm nhạc acoustic nhẹ nhàng.
-                            </p>
-                            <div class="bbq-footer">
-                                <a href="https://maps.app.goo.gl/jAWENgZvarDbmG7f6" target="_blank" class="bbq-link"><i class="fa-solid fa-location-dot"></i> Cách ~2.6km</a>
-                                <a href="tel:0902286300" class="bbq-link"><strong><i class="fa-solid fa-phone"></i> 0902 286 300</strong></a>
-                            </div>
-                        </div>
-
-                        <div style="background:var(--bg-white); padding:8px 10px; border-radius:6px; border:1px solid rgba(0,0,0,0.06); font-size:0.72rem; line-height:1.4;">
-                            <strong>Quán lân cận:</strong> Coffee Gạo, Bonjour Cafe, GAJO Thái &amp; Quán A Mãi.
-                        </div>
-                    </div>
-
-                    <div class="page-footer">
-                        <span>GAJO's HOUSE &bull; Hoài Nhơn</span>
-                        <span class="page-number">06</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- ================= PAGE 7: 8 TRẢI NGHIỆM ================= -->
-            <div class="page" data-density="soft">
-                <div class="page-content">
-                    <div class="page-body-center">
-                        <div class="page-header">
-                            <div class="page-eyebrow">Local Experiences</div>
-                            <h2 class="page-title">8 Trải Nghiệm Hoài Nhơn</h2>
-                            <p class="page-desc">Check-in danh lam thắng cảnh xung quanh</p>
-                        </div>
-
-                        <div class="exp-grid-flip">
-                            <!-- 1 -->
-                            <div class="exp-card-flip">
-                                <img src="assets/exp-lodieu.jpg" alt="Gành Lộ Diêu">
-                                <div class="exp-card-flip-info">
-                                    <h5>Gành Lộ Diêu</h5>
-                                    <p>Bãi đá trăng khuyết</p>
-                                </div>
-                            </div>
-                            <!-- 2: ĐÈO HOÀI HẢI - LỘ DIÊU -->
-                            <div class="exp-card-flip">
-                                <img src="assets/deo-hoaihai-lodieu.jpg" alt="Đèo Hoài Hải Lộ Diêu">
-                                <div class="exp-card-flip-info">
-                                    <h5>Đèo Lộ Diêu</h5>
-                                    <p>Đèo biển ĐT639</p>
-                                </div>
-                            </div>
-                            <!-- 3 -->
-                            <div class="exp-card-flip">
-                                <img src="assets/exp-muiganh.jpg" alt="Mũi Gành">
-                                <div class="exp-card-flip-info">
-                                    <h5>Bình Minh Gành</h5>
-                                    <p>Săn nắng sớm 05:30</p>
-                                </div>
-                            </div>
-                            <!-- 4 -->
-                            <div class="exp-card-flip">
-                                <img src="assets/exp-tamquan.jpg" alt="Xứ Dừa">
-                                <div class="exp-card-flip-info">
-                                    <h5>Xứ Dừa</h5>
-                                    <p>Rừng dừa bạt ngàn</p>
-                                </div>
-                            </div>
-                            <!-- 5 -->
-                            <div class="exp-card-flip">
-                                <img src="assets/exp-lavuong.jpg" alt="La Vuông">
-                                <div class="exp-card-flip-info">
-                                    <h5>La Vuông</h5>
-                                    <p>Săn mây cao 700m</p>
-                                </div>
-                            </div>
-                            <!-- 6 -->
-                            <div class="exp-card-flip">
-                                <img src="assets/exp-mybinh.jpg" alt="Hồ Mỹ Bình">
-                                <div class="exp-card-flip-info">
-                                    <h5>Hồ Mỹ Bình</h5>
-                                    <p>Picnic &amp; cắm trại</p>
-                                </div>
-                            </div>
-                            <!-- 7 -->
-                            <div class="exp-card-flip">
-                                <img src="assets/exp-muivirong.jpg" alt="Mũi Vi Rồng">
-                                <div class="exp-card-flip-info">
-                                    <h5>Mũi Vi Rồng</h5>
-                                    <p>Rồng vươn biển lớn</p>
-                                </div>
-                            </div>
-                            <!-- 8 -->
-                            <div class="exp-card-flip">
-                                <img src="assets/exp-gaocoffee.jpg" alt="Cà phê Gạo">
-                                <div class="exp-card-flip-info">
-                                    <h5>Cà Phê Gạo</h5>
-                                    <p>Vintage &amp; acoustic</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="page-footer">
-                        <span>GAJO's HOUSE &bull; Hoài Nhơn</span>
-                        <span class="page-number">07</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- ================= PAGE 8: DAY TRIP SUNRISE ================= -->
-            <div class="page" data-density="soft">
-                <div class="page-content">
-                    <div class="page-body-center">
-                        <div class="page-header">
-                            <div class="page-eyebrow">Top Daytrip Tour</div>
-                            <h2 class="page-title">Đèo Hoài Hải – Lộ Diêu</h2>
-                            <p class="page-desc">Săn bình minh &bull; Mũi Vi Rồng Bình Định</p>
-                        </div>
-
-                        <div class="daytrip-card-vertical">
-                            <img src="assets/deo-hoaihai-lodieu.jpg" alt="Đèo Hoài Hải Lộ Diêu ĐT639">
-                            <div class="daytrip-card-body">
-                                <p style="font-size:0.76rem; color:#444; line-height:1.45; margin-bottom:6px;">
-                                    Cung đường ven biển ĐT.639 dài 4.5km uốn lượn như dải lụa ôm trọn vách đá hùng vĩ và đại dương xanh thẳm.
-                                </p>
-                                <div style="background:var(--bg-cream); padding:8px 10px; border-radius:5px; font-size:0.7rem; color:#555; border-left:3px solid var(--accent-gold); line-height:1.4;">
-                                    <strong>05:00:</strong> Đón bình minh đỉnh đèo &bull; <strong>07:00:</strong> Khám phá Gành Lộ Diêu &amp; Mũi Vi Rồng.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="page-footer">
-                        <span>GAJO's HOUSE &bull; Hoài Nhơn</span>
-                        <span class="page-number">08</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- ================= PAGE 9: TIPS FOR STAY ================= -->
-            <div class="page" data-density="soft">
-                <div class="page-content">
-                    <div class="page-body-center">
-                        <div class="page-header">
-                            <div class="page-eyebrow">House Rules</div>
-                            <h2 class="page-title">Mẹo Nhỏ Cho Kỳ Nghỉ</h2>
-                            <p class="page-desc">Gìn giữ không gian tĩnh lặng và an yên</p>
-                        </div>
-
-                        <ul class="flip-list">
-                            <li>
-                                <div class="flip-list-num">1</div>
-                                <div>
-                                    <strong>Giữ yên tĩnh sau 22:00</strong>
-                                    <p style="color:#777; font-size:0.7rem; margin:0;">Xin vui lòng giảm âm lượng để tất cả khách đều ngủ ngon.</p>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="flip-list-num">2</div>
-                                <div>
-                                    <strong>Tiết kiệm điện &amp; máy lạnh</strong>
-                                    <p style="color:#777; font-size:0.7rem; margin:0;">Tắt điều hòa và thiết bị điện khi ra khỏi phòng.</p>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="flip-list-num">3</div>
-                                <div>
-                                    <strong>Không hút thuốc trong phòng</strong>
-                                    <p style="color:#777; font-size:0.7rem; margin:0;">Khu vực hút thuốc tại sân vườn thoáng mát.</p>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="flip-list-num">4</div>
-                                <div>
-                                    <strong>Liên hệ lễ tân khi cần hỗ trợ</strong>
-                                    <p style="color:#777; font-size:0.7rem; margin:0;">Hotline / Zalo: <strong>0902 286 300</strong> (24/7).</p>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="page-footer">
-                        <span>GAJO's HOUSE &bull; Hoài Nhơn</span>
-                        <span class="page-number">09</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- ================= PAGE 10: BEFORE YOU GO ================= -->
-            <div class="page" data-density="soft">
-                <div class="page-content">
-                    <div class="page-body-center">
-                        <div class="page-header">
-                            <div class="page-eyebrow">Departure Checklist</div>
-                            <h2 class="page-title">Trước Khi Rời Đi</h2>
-                            <p class="page-desc">Kiểm tra tư trang &amp; thủ tục trả phòng</p>
-                        </div>
-
-                        <ul class="flip-list">
-                            <li>
-                                <i class="fa-regular fa-circle-check flip-checklist-icon"></i>
-                                <div><strong>Kiểm tra hành lý &amp; củ sạc</strong><br><span style="font-size:0.7rem; color:#777;">Đảm bảo không bỏ quên vật dụng cá nhân</span></div>
-                            </li>
-                            <li>
-                                <i class="fa-regular fa-circle-check flip-checklist-icon"></i>
-                                <div><strong>Gửi lại chìa khóa phòng</strong><br><span style="font-size:0.7rem; color:#777;">Gửi lại quầy lễ tân hoặc chủ nhà</span></div>
-                            </li>
-                            <li>
-                                <i class="fa-regular fa-circle-check flip-checklist-icon"></i>
-                                <div><strong>Kiểm tra cửa &amp; vòi nước</strong><br><span style="font-size:0.7rem; color:#777;">Đóng kín cửa sổ và tắt thiết bị điện</span></div>
-                            </li>
-                            <li>
-                                <i class="fa-regular fa-circle-check flip-checklist-icon"></i>
-                                <div><strong>Hỗ trợ đặt xe / Hóa đơn</strong><br><span style="font-size:0.7rem; color:#777;">Báo trước 30 phút nếu bạn cần hỗ trợ</span></div>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="page-footer">
-                        <span>GAJO's HOUSE &bull; Hoài Nhơn</span>
-                        <span class="page-number">10</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- ================= PAGE 11: THANK YOU & QR ================= -->
-            <div class="page" data-density="soft">
-                <div class="page-content">
-                    <div class="page-body-center thankyou-box-flip">
-                        <div style="font-family:var(--font-script); font-size:2.8rem; color:var(--accent-gold); line-height:1; margin-bottom:2px;">Thank you</div>
-                        <h3 style="font-family:var(--font-serif); font-size:1.15rem; margin:3px 0; color:var(--text-dark);">CẢM ƠN BẠN ĐÃ GHÉ THĂM!</h3>
-                        <p style="font-size:0.74rem; color:#666; max-width:280px; margin-bottom:2px;">
-                            Quét mã QR để chia sẻ đánh giá 5 sao cho GAJO's HOUSE trên Google Maps nhé!
-                        </p>
-
-                        <a href="https://maps.app.goo.gl/jAWENgZvarDbmG7f6" target="_blank" class="qr-frame" title="Mở vị trí trên Google Maps">
-                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=https://maps.app.goo.gl/jAWENgZvarDbmG7f6" alt="QR Code 5 Star Review">
-                            <span class="qr-tap-hint"><i class="fa-solid fa-up-right-from-square"></i> Mở Google Maps</span>
-                        </a>
-
-                        <div class="contact-info-block">
-                            <strong>GAJO'S HOUSE &bull; BOUTIQUE HOMESTAY</strong><br>
-                            <i class="fa-solid fa-location-dot" style="color:var(--accent-gold);"></i> Hẻm 23 Phan Trọng Tuệ, Hoài Nhơn<br>
-                            <i class="fa-solid fa-phone" style="color:var(--accent-gold);"></i> <a href="tel:0902286300"><strong>0902 286 300</strong></a> &bull; <a href="https://zalo.me/0902286300" target="_blank" style="color:var(--accent-gold); font-weight:700;">Zalo</a>
-                        </div>
-                    </div>
-
-                    <div class="page-footer">
-                        <span>GAJO's HOUSE &bull; Hoài Nhơn</span>
-                        <span class="page-number">11</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- ================= PAGE 12: BACK COVER ================= -->
-            <div class="page page-cover page-cover-bottom" data-density="hard">
-                <div class="cover-inner">
-                    <div class="cover-gold-badge">
-                        <i class="fa-solid fa-heart"></i>
-                    </div>
-                    <div class="cover-title" style="font-size: 2rem;">GAJO'S HOUSE</div>
-                    <div class="cover-script" style="font-size: 2.2rem; color: var(--accent-gold);">Stay simple.</div>
-                    <div class="cover-script" style="font-size: 2.2rem; color: #FFF; margin-top:-6px;">live slow, feel home.</div>
-                    <div class="cover-location">
-                        HẸN GẶP LẠI BẠN TẠI BÌNH ĐỊNH
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</div>
-
-<!-- THUMBNAIL DRAWER -->
-<div class="thumbnail-drawer" id="thumbDrawer">
-    <div class="thumb-item active" onclick="goToPage(0)">
-        <div class="thumb-box" style="background:#1E1B18; color:var(--accent-gold);">01</div>
-        <div class="thumb-label">Bìa Trước</div>
-    </div>
-    <div class="thumb-item" onclick="goToPage(1)">
-        <div class="thumb-box">02</div>
-        <div class="thumb-label">Lời Ngỏ</div>
-    </div>
-    <div class="thumb-item" onclick="goToPage(2)">
-        <div class="thumb-box">03</div>
-        <div class="thumb-label">WiFi</div>
-    </div>
-    <div class="thumb-item" onclick="goToPage(3)">
-        <div class="thumb-box">04</div>
-        <div class="thumb-label">Phòng Nghỉ</div>
-    </div>
-    <div class="thumb-item" onclick="goToPage(4)">
-        <div class="thumb-box">05</div>
-        <div class="thumb-label">Tiện Nghi</div>
-    </div>
-    <div class="thumb-item" onclick="goToPage(5)">
-        <div class="thumb-box">06</div>
-        <div class="thumb-label">Nhà Gạo</div>
-    </div>
-    <div class="thumb-item" onclick="goToPage(6)">
-        <div class="thumb-box">07</div>
-        <div class="thumb-label">8 Điểm Đến</div>
-    </div>
-    <div class="thumb-item" onclick="goToPage(7)">
-        <div class="thumb-box">08</div>
-        <div class="thumb-label">Daytrip</div>
-    </div>
-    <div class="thumb-item" onclick="goToPage(8)">
-        <div class="thumb-box">09</div>
-        <div class="thumb-label">Mẹo Hay</div>
-    </div>
-    <div class="thumb-item" onclick="goToPage(9)">
-        <div class="thumb-box">10</div>
-        <div class="thumb-label">Checklist</div>
-    </div>
-    <div class="thumb-item" onclick="goToPage(10)">
-        <div class="thumb-box">11</div>
-        <div class="thumb-label">Cảm Ơn</div>
-    </div>
-    <div class="thumb-item" onclick="goToPage(11)">
-        <div class="thumb-box" style="background:#1E1B18; color:var(--accent-gold);">12</div>
-        <div class="thumb-label">Bìa Sau</div>
-    </div>
-</div>
-
-<!-- BOTTOM FLOATING CONTROLS -->
-<div class="bottom-nav-bar">
-    <button class="nav-btn" id="prevBtn" title="Trang trước (Phím Mũi tên Trái)"><i class="fa-solid fa-chevron-left"></i></button>
-    <div class="nav-page-indicator" id="pageIndicator">01 / 12</div>
-    <button class="nav-btn" id="nextBtn" title="Trang sau (Phím Mũi tên Phải)"><i class="fa-solid fa-chevron-right"></i></button>
-    <div class="divider-vert"></div>
-    <button class="nav-btn btn-booklet" id="bookletQuickBtn" title="In / Tải Booklet A4 2 Mặt"><i class="fa-solid fa-book-open"></i> Booklet</button>
-    <button class="nav-btn" id="thumbToggleBtn" title="Xem tất cả trang"><i class="fa-solid fa-table-cells-large"></i></button>
-    <button class="nav-btn" id="soundToggleBtn" title="Bật/Tắt âm thanh lật sách"><i class="fa-solid fa-volume-high"></i></button>
-    <button class="nav-btn" id="fullscreenBtn" title="Toàn màn hình"><i class="fa-solid fa-expand"></i></button>
-    <div class="divider-vert"></div>
-    <button class="nav-btn btn-highlight" id="exportBtn" title="Tải về &amp; Menu Chia sẻ"><i class="fa-solid fa-cloud-arrow-down"></i></button>
-</div>
-
-<!-- EXPORT & DOWNLOAD MAIN MODAL DIALOG -->
-<div class="export-modal-overlay" id="exportModal">
-    <div class="export-modal-box">
-        <button class="modal-close-btn" id="closeExportModal">&times;</button>
-        <i class="fa-solid fa-book-bookmark" style="font-size:2rem; color:var(--accent-gold); margin-bottom:6px; display:inline-block;"></i>
-        <h3>TẢI VỀ &amp; IN ẤN CATALOGUE</h3>
-        <p>Chọn phương thức xuất bản phù hợp:</p>
-
-        <div class="export-options-grid">
-            <!-- Option 1: In Booklet Gấp Đôi 2 Mặt -->
-            <div class="export-opt-btn highlight-opt" onclick="openBookletModal()">
-                <i class="fa-solid fa-book-open"></i>
-                <div>
-                    <strong>In / Xuất Bản Booklet A4 2 Mặt (1-12, 2-11...)</strong>
-                    <span>3 tờ A4 in 2 mặt &bull; Gấp đôi ở giữa thành cuốn catalogue A5</span>
-                </div>
-            </div>
-
-            <!-- Option 2: Chia Sẻ Nhanh (Native Android Share) -->
-            <div class="export-opt-btn" onclick="triggerShare()">
-                <i class="fa-solid fa-share-nodes"></i>
-                <div>
-                    <strong>Chia Sẻ 3D Flipbook Gửi Khách Hàng</strong>
-                    <span>Gửi qua Zalo, Messenger, Facebook, tin nhắn SMS</span>
-                </div>
-            </div>
-
-            <!-- Option 3: In Trang Đơn Liên Tục -->
-            <div class="export-opt-btn" onclick="triggerPrintStandardPDF()">
-                <i class="fa-solid fa-file-pdf"></i>
-                <div>
-                    <strong>In / Xuất PDF 12 Trang Đơn Liên Tục</strong>
-                    <span>Căn chỉnh từng trang đơn riêng biệt</span>
-                </div>
-            </div>
-
-            <!-- Option 4: Đặt phòng Zalo -->
-            <a href="https://zalo.me/0902286300" target="_blank" class="export-opt-btn">
-                <i class="fa-solid fa-comments"></i>
-                <div>
-                    <strong>Liên Hệ Zalo Đặt Phòng Nhanh (0902 286 300)</strong>
-                    <span>Tư vấn đặt phòng 24/7 &amp; hỗ trợ lưu trú chu đáo</span>
-                </div>
+        <div class="nav-actions">
+            <a href="flipbook.html" class="btn-catalogue">
+                <i class="fa-solid fa-book-open"></i> 3D Catalogue
             </a>
-        </div>
-    </div>
-</div>
-
-<!-- BOOKLET PREVIEW & PRINT MODAL DIALOG -->
-<div class="export-modal-overlay" id="bookletModal">
-    <div class="export-modal-box booklet-preview-modal-box">
-        <button class="modal-close-btn" id="closeBookletModal">&times;</button>
-        <i class="fa-solid fa-print" style="font-size:2rem; color:var(--accent-gold); margin-bottom:4px; display:inline-block;"></i>
-        <h3>BẢN IN BOOKLET GẤP ĐÔI (3 TỜ A4 - 2 MẶT)</h3>
-        <p style="margin-bottom:8px;">
-            Mỗi tờ A4 in 2 mặt (4 trang). Khi in chọn <strong>"In 2 mặt / Lật cạnh ngắn (Flip on short edge)"</strong> rồi xếp chồng và gấp đôi ở giữa để tạo thành cuốn catalogue A5:
-        </p>
-
-        <div class="booklet-sheets-grid">
-            <!-- SHEET 1 -->
-            <div class="booklet-sheet-card">
-                <div class="booklet-sheet-header">
-                    <span><i class="fa-regular fa-file"></i> TỜ 1 (Bìa ngoài &amp; Lời ngỏ)</span>
-                    <span style="color:var(--accent-gold); font-size:0.68rem;">Mặt 1: [12 | 1] &bull; Mặt 2: [2 | 11]</span>
-                </div>
-                <div class="booklet-sides-row">
-                    <div class="booklet-side-box">
-                        <div class="booklet-side-title">MẶT TRƯỚC (Mặt ngoài)</div>
-                        <div class="booklet-page-pair">
-                            <div class="booklet-mini-page cover-mini">12<span>Bìa Sau</span></div>
-                            <div class="booklet-mini-page cover-mini">01<span>Bìa Trước</span></div>
-                        </div>
-                    </div>
-                    <div class="booklet-side-box">
-                        <div class="booklet-side-title">MẶT SAU (Mặt trong)</div>
-                        <div class="booklet-page-pair">
-                            <div class="booklet-mini-page">02<span>Lời Ngỏ</span></div>
-                            <div class="booklet-mini-page">11<span>Cảm Ơn &amp; QR</span></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- SHEET 2 -->
-            <div class="booklet-sheet-card">
-                <div class="booklet-sheet-header">
-                    <span><i class="fa-regular fa-file"></i> TỜ 2 (Thông tin phòng &amp; Mẹo hay)</span>
-                    <span style="color:var(--accent-gold); font-size:0.68rem;">Mặt 1: [10 | 3] &bull; Mặt 2: [4 | 9]</span>
-                </div>
-                <div class="booklet-sides-row">
-                    <div class="booklet-side-box">
-                        <div class="booklet-side-title">MẶT TRƯỚC</div>
-                        <div class="booklet-page-pair">
-                            <div class="booklet-mini-page">10<span>Checklist</span></div>
-                            <div class="booklet-mini-page">03<span>Stay &amp; WiFi</span></div>
-                        </div>
-                    </div>
-                    <div class="booklet-side-box">
-                        <div class="booklet-side-title">MẶT SAU</div>
-                        <div class="booklet-page-pair">
-                            <div class="booklet-mini-page">04<span>Phòng Nghỉ</span></div>
-                            <div class="booklet-mini-page">09<span>Mẹo Hay</span></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- SHEET 3 -->
-            <div class="booklet-sheet-card">
-                <div class="booklet-sheet-header">
-                    <span><i class="fa-regular fa-file"></i> TỜ 3 (Tiện nghi &amp; Trải nghiệm giữa)</span>
-                    <span style="color:var(--accent-gold); font-size:0.68rem;">Mặt 1: [8 | 5] &bull; Mặt 2: [6 | 7]</span>
-                </div>
-                <div class="booklet-sides-row">
-                    <div class="booklet-side-box">
-                        <div class="booklet-side-title">MẶT TRƯỚC</div>
-                        <div class="booklet-page-pair">
-                            <div class="booklet-mini-page">08<span>Daytrip</span></div>
-                            <div class="booklet-mini-page">05<span>Tiện Nghi</span></div>
-                        </div>
-                    </div>
-                    <div class="booklet-side-box">
-                        <div class="booklet-side-title">MẶT SAU (Gấp giữa)</div>
-                        <div class="booklet-page-pair">
-                            <div class="booklet-mini-page">06<span>Nhà Gạo</span></div>
-                            <div class="booklet-mini-page">07<span>8 Điểm Đến</span></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div style="display:flex; gap:8px; justify-content:center; flex-wrap:wrap; margin-top:12px;">
-            <button class="top-btn-pill" style="background:var(--accent-gold); color:#1E1B18; font-weight:700; padding:9px 18px; font-size:0.82rem;" onclick="triggerPrintBookletPDF()">
-                <i class="fa-solid fa-print"></i> In / Xuất PDF Booklet Ngay (3 Tờ A4)
-            </button>
-            <button class="top-btn-pill" style="padding:9px 16px; font-size:0.82rem;" onclick="triggerPrintStandardPDF()">
-                <i class="fa-solid fa-file-pdf"></i> In Trang Đơn (12 Trang)
+            <a href="#contact" class="btn-book">Đặt Phòng</a>
+            <button class="mobile-menu-btn" id="mobileMenuOpen" aria-label="Open Menu">
+                <i class="fa-solid fa-bars"></i>
             </button>
         </div>
+    </nav>
+
+    <!-- Mobile Drawer -->
+    <div class="drawer-overlay" id="drawerOverlay"></div>
+    <div class="mobile-drawer" id="mobileDrawer">
+        <button class="mobile-drawer-close" id="mobileMenuClose">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="nav-logo">
+            <div class="nav-logo-icon">G</div>
+            <div>
+                <span class="nav-logo-text">GAJO'S HOUSE</span>
+                <span class="nav-logo-sub">Hoài Nhơn &bull; Bình Định</span>
+            </div>
+        </div>
+        <ul class="mobile-nav-links">
+            <li><a href="#hero" class="mobile-link">Trang Chủ</a></li>
+            <li><a href="#story" class="mobile-link">Không Gian Nghỉ Dưỡng</a></li>
+            <li><a href="#rooms" class="mobile-link">Bộ Sưu Tập Phòng</a></li>
+            <li><a href="#destination" class="mobile-link">Cẩm Nang Du Lịch</a></li>
+            <li><a href="#amenities" class="mobile-link">Tiện Nghi & WiFi</a></li>
+            <li><a href="#contact" class="mobile-link">Thông Tin Đặt Phòng</a></li>
+        </ul>
+        <a href="flipbook.html" class="btn-catalogue" style="justify-content: center; padding: 14px;">
+            <i class="fa-solid fa-book-open"></i> Mở 3D Flipbook Catalogue
+        </a>
     </div>
-</div>
 
-<!-- BOOKLET PRINT DOM CONTAINER (AUTOMATICALLY GENERATED ON PRINT) -->
-<div class="booklet-print-container" id="bookletPrintContainer"></div>
+    <!-- -------------------------------------------------------------
+         HERO SECTION (Chapter 0: The First Glimpse)
+    -------------------------------------------------------------- -->
+    <section class="hero-section" id="hero">
+        <div class="hero-bg-wrapper">
+            <img src="assets/gajo-interior.jpg" class="hero-bg-img" id="heroBg" alt="GAJO'S HOUSE Interior">
+            <div class="hero-vignette"></div>
+        </div>
 
-<script>
-    let pageFlip = null;
-    let isSoundOn = true;
-    let audioCtx = null;
+        <div class="hero-content" id="heroContent">
+            <div class="hero-badge">✦ BOUTIQUE JAPANDI HOMESTAY ✦</div>
+            <h1 class="hero-title">GAJO'S HOUSE</h1>
+            <p class="hero-subtitle">Chạm vào an yên giữa miền duyên hải Hoài Nhơn</p>
+            <p class="hero-desc">
+                Nơi hội tụ giữa vẻ đẹp mộc mạc của kiến trúc Nhật Bản và sự nồng hậu của đất biển Bình Định. Một chốn dừng chân tĩnh lặng để tái tạo năng lượng và gắn kết yêu thương.
+            </p>
+            <div class="hero-buttons">
+                <a href="#story" class="btn-hero-primary">
+                    Khám Phá Không Gian <i class="fa-solid fa-arrow-down"></i>
+                </a>
+                <a href="flipbook.html" class="btn-hero-secondary">
+                    <i class="fa-solid fa-book-open"></i> Xem 3D Catalogue
+                </a>
+            </div>
+        </div>
 
-    // Haptic vibration feedback for Android / Mobile
-    function triggerHaptic(duration = 20) {
-        try {
-            if ('vibrate' in navigator) {
-                navigator.vibrate(duration);
-            }
-        } catch (e) {}
-    }
+        <div class="scroll-indicator">
+            <div class="mouse-icon">
+                <div class="mouse-wheel"></div>
+            </div>
+            <span>Cuộn để trải nghiệm</span>
+        </div>
+    </section>
 
-    // Synthesized Web Audio realistic paper turn sound generator
-    function playPageFlipSound() {
-        if (!isSoundOn) return;
-        try {
-            if (!audioCtx) {
-                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-            }
-            if (audioCtx.state === 'suspended') {
-                audioCtx.resume();
-            }
+    <!-- -------------------------------------------------------------
+         CHAPTER 1: THE SANCTUARY (Pinned Cinematic Scrollytelling)
+    -------------------------------------------------------------- -->
+    <section class="story-section" id="story">
+        <div class="story-sticky-container" id="storySticky">
+            <img src="assets/gajo-interior.jpg" class="story-bg-layer story-bg-1" id="storyBg1" alt="Sanctuary 1">
+            <img src="assets/gajo-family-room.jpg" class="story-bg-layer story-bg-2" id="storyBg2" alt="Sanctuary 2">
+            <img src="assets/gajo-double-bed.jpg" class="story-bg-layer story-bg-3" id="storyBg3" alt="Sanctuary 3">
+            <div class="story-overlay-shade"></div>
 
-            const bufferSize = audioCtx.sampleRate * 0.24;
-            const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
-            const data = buffer.getChannelData(0);
-            for (let i = 0; i < bufferSize; i++) {
-                data[i] = (Math.random() * 2 - 1) * Math.exp(-i / (audioCtx.sampleRate * 0.08));
-            }
+            <div class="story-cards-container">
+                <!-- Card 1 -->
+                <div class="story-card card-1" id="storyCard1">
+                    <span class="card-tag">01 / Triết Lý Thiết Kế</span>
+                    <h2 class="card-title">Tối Giản Trong Từng Nhịp Thở</h2>
+                    <p class="card-text">
+                        GAJO's HOUSE chọn lọc ngôn ngữ thiết kế Japandi: Tận dụng tối đa ánh sáng tự nhiên, sắc gỗ sồi trầm ấm và những đường nét mộc mạc để trả lại cho bạn một không gian hoàn toàn tĩnh lặng.
+                    </p>
+                    <div class="card-features">
+                        <span class="feature-pill"><i class="fa-solid fa-sun"></i> Ánh Sáng Tự Nhiên</span>
+                        <span class="feature-pill"><i class="fa-solid fa-tree"></i> Nội Thất Gỗ Mộc</span>
+                        <span class="feature-pill"><i class="fa-solid fa-wind"></i> Thông Gió Thoáng Đãng</span>
+                    </div>
+                </div>
 
-            const noise = audioCtx.createBufferSource();
-            noise.buffer = buffer;
+                <!-- Card 2 -->
+                <div class="story-card card-2" id="storyCard2">
+                    <span class="card-tag">02 / Không Gian Gia Đình</span>
+                    <h2 class="card-title">Ấm Áp & Gắn Kết Yêu Thương</h2>
+                    <p class="card-text">
+                        Phòng sinh hoạt chung và khu Family Suite rộng rãi được thiết kế để cả gia đình cùng quây quần bên tách trà ấm, chia sẻ những câu chuyện dung dị sau một ngày dài khám phá biển đảo.
+                    </p>
+                    <div class="card-features">
+                        <span class="feature-pill"><i class="fa-solid fa-users"></i> Sức Chứa 4-6 Người</span>
+                        <span class="feature-pill"><i class="fa-solid fa-mug-hot"></i> Trà Thảo Mộc Bản Địa</span>
+                        <span class="feature-pill"><i class="fa-solid fa-heart"></i> Không Khí Gia Đình</span>
+                    </div>
+                </div>
 
-            const filter = audioCtx.createBiquadFilter();
-            filter.type = 'bandpass';
-            filter.frequency.setValueAtTime(850, audioCtx.currentTime);
-            filter.frequency.exponentialRampToValueAtTime(3400, audioCtx.currentTime + 0.12);
-            filter.frequency.exponentialRampToValueAtTime(450, audioCtx.currentTime + 0.24);
-            filter.Q.setValueAtTime(1.8, audioCtx.currentTime);
+                <!-- Card 3 -->
+                <div class="story-card card-3" id="storyCard3">
+                    <span class="card-tag">03 / Giấc Ngủ Trọn Vẹn</span>
+                    <h2 class="card-title">Nâng Niu Từng Giấc Mộng Đẹp</h2>
+                    <p class="card-text">
+                        Đệm cao cấp tiêu chuẩn khách sạn, ga trải cotton lụa thoáng mát cùng hệ thống cách âm chỉn chu sẽ mang lại cho bạn những giấc ngủ sâu và sảng khoái nhất.
+                    </p>
+                    <div class="card-features">
+                        <span class="feature-pill"><i class="fa-solid fa-bed"></i> Nệm King / Queen Êm Ái</span>
+                        <span class="feature-pill"><i class="fa-solid fa-volume-xmark"></i> Yên Tĩnh Tuyệt Đối</span>
+                        <span class="feature-pill"><i class="fa-solid fa-snowflake"></i> Điều Hòa Inverter</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            const gain = audioCtx.createGain();
-            gain.gain.setValueAtTime(0.3, audioCtx.currentTime);
-            gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.24);
+    <!-- -------------------------------------------------------------
+         CHAPTER 2: SUITE COLLECTION (Horizontal Pinned Gallery)
+    -------------------------------------------------------------- -->
+    <section class="rooms-section-wrapper" id="rooms">
+        <div class="section-header-block">
+            <span class="section-subtitle">Bộ Sưu Tập Phòng Nghỉ</span>
+            <h2 class="section-title">CHỌN KHÔNG GIAN DÀNH CHO BẠN</h2>
+            <p class="section-desc">Mỗi căn phòng tại GAJO'S HOUSE mang một sắc thái riêng nhưng đều giữ trọn tinh thần thư thái, sạch sẽ và tiện nghi vượt trội.</p>
+        </div>
 
-            noise.connect(filter);
-            filter.connect(gain);
-            gain.connect(audioCtx.destination);
+        <div class="horizontal-scroll-container" id="horizontalContainer">
+            <div class="horizontal-track" id="horizontalTrack">
+                <!-- Room 1: Family Suite -->
+                <div class="room-card">
+                    <img src="assets/gajo-family-room.jpg" class="room-card-bg" alt="Family Suite">
+                    <div class="room-card-gradient"></div>
+                    <div class="room-card-info">
+                        <span class="room-badge">Dành Cho Gia Đình & Nhóm</span>
+                        <h3 class="room-title">Grand Family Suite</h3>
+                        <div class="room-specs">
+                            <span class="room-spec-item"><i class="fa-solid fa-user-group"></i> 4 - 6 Khách</span>
+                            <span class="room-spec-item"><i class="fa-solid fa-vector-square"></i> 45 m²</span>
+                            <span class="room-spec-item"><i class="fa-solid fa-bed"></i> 2 Giường Lớn</span>
+                            <span class="room-spec-item"><i class="fa-solid fa-tv"></i> Smart TV 55"</span>
+                        </div>
+                        <p class="room-desc">
+                            Không gian rộng rãi, thoáng mát với cửa sổ lớn đón trọn gió biển và ánh ban mai. Phù hợp tuyệt đối cho gia đình nhỏ hoặc hội bạn thân cùng tận hưởng kì nghỉ.
+                        </p>
+                        <div class="room-action">
+                            <a href="#contact" class="btn-room-book">Liên Hệ Đặt Phòng</a>
+                            <a href="flipbook.html" class="btn-catalogue" style="border-radius: 20px;">Xem Catalogue 3D</a>
+                        </div>
+                    </div>
+                </div>
 
-            noise.start();
-        } catch (e) {
-            // Audio context fallback
-        }
-    }
+                <!-- Room 2: Double Luxury -->
+                <div class="room-card">
+                    <img src="assets/gajo-double-bed.jpg" class="room-card-bg" alt="Deluxe Double Room">
+                    <div class="room-card-gradient"></div>
+                    <div class="room-card-info">
+                        <span class="room-badge">Cặp Đôi & Trăng Mật</span>
+                        <h3 class="room-title">Deluxe Double Room</h3>
+                        <div class="room-specs">
+                            <span class="room-spec-item"><i class="fa-solid fa-heart"></i> 2 Khách</span>
+                            <span class="room-spec-item"><i class="fa-solid fa-vector-square"></i> 28 m²</span>
+                            <span class="room-spec-item"><i class="fa-solid fa-bed"></i> 1 Giường King</span>
+                            <span class="room-spec-item"><i class="fa-solid fa-book-open-reader"></i> Góc Đọc Sách</span>
+                        </div>
+                        <p class="room-desc">
+                            Sự riêng tư và lãng mạn hòa quyện cùng ánh đèn vàng ấm áp. Nơi bạn có thể ngồi thưởng trà, lắng nghe giai điệu biển cả và tận hưởng phút giây dịu dàng.
+                        </p>
+                        <div class="room-action">
+                            <a href="#contact" class="btn-room-book">Liên Hệ Đặt Phòng</a>
+                            <a href="flipbook.html" class="btn-catalogue" style="border-radius: 20px;">Xem Catalogue 3D</a>
+                        </div>
+                    </div>
+                </div>
 
-    function showToast(msg) {
-        const toast = document.getElementById('toast');
-        toast.innerText = msg;
-        toast.classList.add('show');
-        setTimeout(() => toast.classList.remove('show'), 2200);
-    }
+                <!-- Room 3: Single Cozy -->
+                <div class="room-card">
+                    <img src="assets/gajo-single-bed.jpg" class="room-card-bg" alt="Cozy Single Room">
+                    <div class="room-card-gradient"></div>
+                    <div class="room-card-info">
+                        <span class="room-badge">Du Lịch Độc Hành / Công Tác</span>
+                        <h3 class="room-title">Cozy Single Studio</h3>
+                        <div class="room-specs">
+                            <span class="room-spec-item"><i class="fa-solid fa-user"></i> 1 - 2 Khách</span>
+                            <span class="room-spec-item"><i class="fa-solid fa-vector-square"></i> 20 m²</span>
+                            <span class="room-spec-item"><i class="fa-solid fa-laptop"></i> Bàn Làm Việc</span>
+                            <span class="room-spec-item"><i class="fa-solid fa-wifi"></i> WiFi Tốc Độ Cao</span>
+                        </div>
+                        <p class="room-desc">
+                            Lựa chọn tinh giản, thông minh và cực kỳ yên tĩnh dành cho người tìm kiếm sự tập trung hoặc muốn có một chốn trú ẩn riêng để chữa lành tâm hồn.
+                        </p>
+                        <div class="room-action">
+                            <a href="#contact" class="btn-room-book">Liên Hệ Đặt Phòng</a>
+                            <a href="flipbook.html" class="btn-catalogue" style="border-radius: 20px;">Xem Catalogue 3D</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    function copyText(text, successMsg) {
-        triggerHaptic(40);
-        if (navigator.clipboard && window.isSecureContext) {
-            navigator.clipboard.writeText(text).then(() => {
-                showToast(successMsg);
-            }).catch(() => {
-                fallbackCopy(text, successMsg);
+    <!-- -------------------------------------------------------------
+         CHAPTER 3: DESTINATION PARALLAX TOUR (Hoài Nhơn, Bình Định)
+    -------------------------------------------------------------- -->
+    <section class="destination-section" id="destination">
+        <div class="section-header-block">
+            <span class="section-subtitle">Hành Trình Khám Phá</span>
+            <h2 class="section-title">THIÊN NHIÊN HOÀI NHƠN KÌ VĨ</h2>
+            <p class="section-desc">Từ những cung đèo uốn lượn ôm trọn biển xanh đến những rạn đá trầm tích ngàn năm, Hoài Nhơn luôn sẵn sàng làm bạn say lòng.</p>
+        </div>
+
+        <div class="dest-grid">
+            <!-- Dest 1 (Large) -->
+            <div class="dest-card dest-card-large">
+                <img src="assets/exp-deolodieu.jpg" class="dest-img" alt="Đèo Lộ Diêu">
+                <div class="dest-overlay">
+                    <span class="dest-tag"><i class="fa-solid fa-location-dot"></i> Hoài Mỹ, Hoài Nhơn</span>
+                    <h3 class="dest-name">Đèo & Bãi Biển Lộ Diêu</h3>
+                    <p class="dest-info">Cung đường ven biển đẹp ngoạn mục với bãi cát vàng hoang sơ hình cánh cung, ôm trọn làn nước xanh như ngọc bích.</p>
+                </div>
+            </div>
+
+            <!-- Dest 2 (Medium) -->
+            <div class="dest-card dest-card-medium">
+                <img src="assets/exp-muivirong.jpg" class="dest-img" alt="Mũi Vi Rồng">
+                <div class="dest-overlay">
+                    <span class="dest-tag"><i class="fa-solid fa-location-dot"></i> Tân Phụng, Phù Mỹ</span>
+                    <h3 class="dest-name">Mũi Vi Rồng Kì Vĩ</h3>
+                    <p class="dest-info">Mỏm đá vươn mình ra biển lớn như một chú rồng khổng lồ, điểm ngắm sóng vỗ trắng xóa và bình minh rực rỡ.</p>
+                </div>
+            </div>
+
+            <!-- Dest 3 (Small) -->
+            <div class="dest-card dest-card-small">
+                <img src="assets/exp-tamquan.jpg" class="dest-img" alt="Rừng Dừa Tam Quan">
+                <div class="dest-overlay">
+                    <span class="dest-tag"><i class="fa-solid fa-location-dot"></i> Tam Quan Bắc</span>
+                    <h3 class="dest-name">Rừng Dừa Tam Quan</h3>
+                    <p class="dest-info">Thủ phủ xứ dừa bạt ngàn bóng mát, nơi lưu giữ tinh hoa ẩm thực bánh tráng nước dừa thơm lừng.</p>
+                </div>
+            </div>
+
+            <!-- Dest 4 (Small) -->
+            <div class="dest-card dest-card-small">
+                <img src="assets/exp-lavuong.jpg" class="dest-img" alt="Cao Nguyên La Vuông">
+                <div class="dest-overlay">
+                    <span class="dest-tag"><i class="fa-solid fa-location-dot"></i> Hoài Sơn</span>
+                    <h3 class="dest-name">Cao Nguyên La Vuông</h3>
+                    <p class="dest-info">Khí hậu trong lành mát mẻ quanh năm trên độ cao hơn 700m, tọa độ cắm trại săn mây lý tưởng.</p>
+                </div>
+            </div>
+
+            <!-- Dest 5 (Small) -->
+            <div class="dest-card dest-card-small">
+                <img src="assets/dining-gajothai.jpg" class="dest-img" alt="Ẩm Thực GAJO" style="object-position: center 50%;">
+                <div class="dest-overlay">
+                    <span class="dest-tag"><i class="fa-solid fa-utensils"></i> Hệ Thống GAJO</span>
+                    <h3 class="dest-name">Ẩm Thực GAJO & Nhà Gạo</h3>
+                    <p class="dest-info">Tiệc BBQ Tiệm Nướng Nhà Gạo & GAJO Thái view sông hoàng hôn cực chill.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- -------------------------------------------------------------
+         CHAPTER 4: HOSPITALITY & 1-TAP WIFI
+    -------------------------------------------------------------- -->
+    <section class="amenities-section" id="amenities">
+        <div class="amenities-container">
+            <!-- Left: 1-Tap WiFi Box -->
+            <div class="wifi-quick-box">
+                <div class="wifi-icon-pulse">
+                    <i class="fa-solid fa-wifi"></i>
+                </div>
+                <h3 class="wifi-title">Kết Nối 1-Chạm</h3>
+                <p class="wifi-subtitle">Bấm trực tiếp vào khung dưới đây để sao chép mật khẩu WiFi tốc độ cao miễn phí tại homestay.</p>
+
+                <div class="wifi-pass-card" id="wifiCopyCard" title="Bấm để sao chép mật khẩu">
+                    <div style="text-align: left;">
+                        <div class="wifi-label">Mạng WiFi: GAJO_HOUSE_5G</div>
+                        <div class="wifi-pass-val" id="wifiPass">gajohouse2026</div>
+                    </div>
+                    <button class="btn-copy-wifi" id="btnCopyWifi">
+                        <i class="fa-regular fa-copy"></i> Sao chép
+                    </button>
+                </div>
+                <div style="font-size: 0.78rem; color: var(--accent-gold);">
+                    <i class="fa-solid fa-shield-halved"></i> Băng thông cáp quang 500Mbps không giới hạn
+                </div>
+            </div>
+
+            <!-- Right: Amenities Grid -->
+            <div class="amenities-grid">
+                <div class="amenity-item">
+                    <div class="amenity-icon"><i class="fa-solid fa-mug-hot"></i></div>
+                    <h4 class="amenity-name">Trà & Cà Phê Chào Mừng</h4>
+                    <p class="amenity-desc">Thưởng thức trà thảo mộc organic và cà phê rang xay thơm ngon miễn phí mỗi sáng.</p>
+                </div>
+
+                <div class="amenity-item">
+                    <div class="amenity-icon"><i class="fa-solid fa-motorcycle"></i></div>
+                    <h4 class="amenity-name">Thuê Xe Máy Phượt Biển</h4>
+                    <p class="amenity-desc">Hỗ trợ thuê xe máy đời mới kèm mũ bảo hiểm để bạn tự do khám phá các cung đèo.</p>
+                </div>
+
+                <div class="amenity-item">
+                    <div class="amenity-icon"><i class="fa-solid fa-fire-burner"></i></div>
+                    <h4 class="amenity-name">Bếp BBQ Sân Vườn</h4>
+                    <p class="amenity-desc">Không gian bếp mở đầy đủ gia vị và lò nướng BBQ để tổ chức tiệc hải sản tươi ngon.</p>
+                </div>
+
+                <div class="amenity-item">
+                    <div class="amenity-icon"><i class="fa-solid fa-key"></i></div>
+                    <h4 class="amenity-name">Tự Do Check-in 24/7</h4>
+                    <p class="amenity-desc">Khóa thông minh Smart Lock giúp bạn check-in linh hoạt mọi thời điểm trong ngày.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- -------------------------------------------------------------
+         CHAPTER 5: GRAND FINALE & 3D FLIPBOOK CTA
+    -------------------------------------------------------------- -->
+    <section class="cta-section" id="contact">
+        <div class="cta-box">
+            <span class="cta-badge">Trải Nghiệm Toàn Diện</span>
+            <h2 class="cta-title">KHÁM PHÁ CATALOGUE 3D FLIPBOOK</h2>
+            <p class="cta-desc">
+                Lật giở từng trang cẩm nang du lịch sống động với âm thanh lật giấy chân thực, chi tiết từng góc phòng và danh mục quà tặng lưu niệm đặc sắc của GAJO's HOUSE.
+            </p>
+
+            <div class="cta-buttons">
+                <a href="flipbook.html" class="btn-grand-catalogue">
+                    <i class="fa-solid fa-book-open"></i> Mở 3D Flipbook Catalogue
+                </a>
+                <a href="https://zalo.me/0902286300" target="_blank" class="btn-grand-contact" style="background: rgba(197, 160, 89, 0.2); border-color: var(--accent-gold);">
+                    <i class="fa-solid fa-comments"></i> Đặt Phòng Zalo
+                </a>
+                <a href="tel:0902286300" class="btn-grand-contact">
+                    <i class="fa-solid fa-phone"></i> 0902 286 300
+                </a>
+            </div>
+
+            <div class="contact-quick-list">
+                <a href="https://zalo.me/0902286300" target="_blank" class="contact-quick-item">
+                    <i class="fa-solid fa-comments"></i> Zalo: 0902 286 300
+                </a>
+                <a href="tel:0902286300" class="contact-quick-item">
+                    <i class="fa-solid fa-phone"></i> Hotline: 0902 286 300
+                </a>
+                <a href="https://maps.google.com" target="_blank" class="contact-quick-item">
+                    <i class="fa-solid fa-location-dot"></i> Hoài Nhơn Đông, Bình Định
+                </a>
+                <span class="contact-quick-item">
+                    <i class="fa-solid fa-star" style="color: #FFD700;"></i> 5.0 / 5.0 Đánh giá xuất sắc
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <!-- -------------------------------------------------------------
+         FOOTER
+    -------------------------------------------------------------- -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <span class="footer-logo">GAJO'S HOUSE</span>
+                <span class="footer-rights">© 2026 GAJO'S HOUSE. All rights reserved. &bull; Hoài Nhơn, Bình Định</span>
+            </div>
+
+            <div class="footer-socials">
+                <a href="flipbook.html" class="social-link" title="Xem 3D Catalogue"><i class="fa-solid fa-book"></i></a>
+                <a href="https://zalo.me/0902286300" target="_blank" class="social-link" title="Nhắn tin Zalo"><i class="fa-solid fa-comments"></i></a>
+                <a href="tel:0902286300" class="social-link" title="Gọi điện thoại"><i class="fa-solid fa-phone"></i></a>
+                <a href="https://maps.google.com" target="_blank" class="social-link" title="Chỉ đường Google Maps"><i class="fa-solid fa-map-location-dot"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to Top">
+        <i class="fa-solid fa-chevron-up"></i>
+    </button>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <i class="fa-solid fa-circle-check"></i>
+        <span id="toastMsg">Đã sao chép mật khẩu WiFi!</span>
+    </div>
+
+    <!-- -------------------------------------------------------------
+         GSAP ANIMATIONS & INTERACTIVE SCRIPTS
+    -------------------------------------------------------------- -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. Initialize Lenis Smooth Scrolling
+            const lenis = new Lenis({
+                duration: 1.2,
+                easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+                orientation: 'vertical',
+                gestureOrientation: 'vertical',
+                smoothWheel: true,
+                touchMultiplier: 2,
             });
-        } else {
-            fallbackCopy(text, successMsg);
-        }
-    }
 
-    function fallbackCopy(text, successMsg) {
-        const textArea = document.createElement("textarea");
-        textArea.value = text;
-        textArea.style.position = "fixed";
-        textArea.style.opacity = "0";
-        document.body.appendChild(textArea);
-        textArea.focus();
-        textArea.select();
-        try {
-            document.execCommand('copy');
-            showToast(successMsg);
-        } catch (err) {
-            showToast("Mật khẩu: " + text);
-        }
-        document.body.removeChild(textArea);
-    }
+            function raf(time) {
+                lenis.raf(time);
+                requestAnimationFrame(raf);
+            }
+            requestAnimationFrame(raf);
 
-    function triggerShare() {
-        triggerHaptic(25);
-        closeAllModals();
-        if (navigator.share) {
-            navigator.share({
-                title: "GAJO'S HOUSE - 3D Flipbook Catalogue",
-                text: "Khám phá không gian lưu trú boutique phong cách Japandi và cẩm nang du lịch Hoài Nhơn, Bình Định cùng GAJO's HOUSE.",
-                url: window.location.href
-            }).catch((err) => {
-                if (err.name !== 'AbortError') {
-                    copyShareLink();
-                }
+            // Connect Lenis to ScrollTrigger
+            lenis.on('scroll', ScrollTrigger.update);
+            gsap.ticker.add((time) => {
+                lenis.raf(time * 1000);
             });
-        } else {
-            copyShareLink();
-        }
-    }
+            gsap.ticker.lagSmoothing(0);
 
-    function copyShareLink() {
-        closeAllModals();
-        copyText(window.location.href, "Đã sao chép link Catalogue GAJO's HOUSE!");
-    }
+            // Register GSAP Plugins
+            gsap.registerPlugin(ScrollTrigger);
 
-    function openBookletModal() {
-        triggerHaptic(20);
-        document.getElementById('exportModal').classList.remove('active');
-        document.getElementById('bookletModal').classList.add('active');
-    }
+            // 2. Scroll Progress Bar
+            window.addEventListener('scroll', () => {
+                const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrolled = (winScroll / height) * 100;
+                document.getElementById('scroll-progress').style.width = scrolled + '%';
 
-    function closeAllModals() {
-        document.getElementById('exportModal').classList.remove('active');
-        document.getElementById('bookletModal').classList.remove('active');
-    }
-
-    // BUILD BOOKLET DOM FOR PRINTING 3 SHEETS (6 SIDES: 12|1, 2|11, 10|3, 4|9, 8|5, 6|7)
-    function buildBookletDOM() {
-        const pages = document.querySelectorAll('#flipbook .page');
-        if (pages.length < 12) return;
-
-        const container = document.getElementById('bookletPrintContainer');
-        container.innerHTML = '';
-
-        const pairs = [
-            [12, 1],  // Sheet 1 Front
-            [2, 11],  // Sheet 1 Back
-            [10, 3],  // Sheet 2 Front
-            [4, 9],   // Sheet 2 Back
-            [8, 5],   // Sheet 3 Front
-            [6, 7]    // Sheet 3 Back
-        ];
-
-        pairs.forEach((pair) => {
-            const sheetEl = document.createElement('div');
-            sheetEl.className = 'booklet-sheet';
-
-            const leftHalf = document.createElement('div');
-            leftHalf.className = 'booklet-half booklet-left';
-            const leftClone = pages[pair[0] - 1].cloneNode(true);
-            leftHalf.appendChild(leftClone);
-
-            const foldLine = document.createElement('div');
-            foldLine.className = 'booklet-fold-line';
-
-            const rightHalf = document.createElement('div');
-            rightHalf.className = 'booklet-half booklet-right';
-            const rightClone = pages[pair[1] - 1].cloneNode(true);
-            rightHalf.appendChild(rightClone);
-
-            sheetEl.appendChild(leftHalf);
-            sheetEl.appendChild(foldLine);
-            sheetEl.appendChild(rightHalf);
-
-            container.appendChild(sheetEl);
-        });
-    }
-
-    function triggerPrintBookletPDF() {
-        buildBookletDOM();
-        document.body.classList.add('print-mode-booklet');
-        closeAllModals();
-
-        showToast("Đang chuẩn bị bản in Booklet 2 mặt (3 tờ A4)...");
-        setTimeout(() => {
-            window.print();
-            setTimeout(() => {
-                document.body.classList.remove('print-mode-booklet');
-            }, 1000);
-        }, 350);
-    }
-
-    function triggerPrintStandardPDF() {
-        document.body.classList.remove('print-mode-booklet');
-        closeAllModals();
-
-        showToast("Đang chuẩn bị bản in 12 trang đơn...");
-        setTimeout(() => {
-            window.print();
-        }, 300);
-    }
-
-    window.addEventListener('afterprint', () => {
-        document.body.classList.remove('print-mode-booklet');
-    });
-
-    // Dimension Calculator specifically optimized for Android & iOS Viewports
-    function getOptimalBookDimensions() {
-        const isMobile = window.innerWidth <= 768;
-        const vh = window.innerHeight;
-        const vw = window.innerWidth;
-
-        if (isMobile) {
-            // Android Portrait calculation
-            let width = Math.min(vw - 16, 420);
-            let height = Math.min(vh - 120, 580);
-            if (width * 1.4 > height) {
-                width = Math.round(height / 1.4);
-            } else {
-                height = Math.round(width * 1.4);
-            }
-            return { width: Math.max(width, 280), height: Math.max(height, 390) };
-        } else {
-            // Desktop / Tablet 2-page landscape
-            const availW = vw - 50;
-            const availH = vh - 140;
-            let w = 460;
-            let h = 640;
-            if (w * 2 > availW || h > availH) {
-                const scaleW = (availW / 2) / w;
-                const scaleH = availH / h;
-                const scale = Math.min(scaleW, scaleH, 1);
-                w = Math.round(w * scale);
-                h = Math.round(h * scale);
-            }
-            return {
-                width: Math.max(w, 320),
-                height: Math.max(h, 450)
-            };
-        }
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-        const flipbookEl = document.getElementById('flipbook');
-        const pageIndicator = document.getElementById('pageIndicator');
-        const prevBtn = document.getElementById('prevBtn');
-        const nextBtn = document.getElementById('nextBtn');
-        const thumbToggleBtn = document.getElementById('thumbToggleBtn');
-        const thumbDrawer = document.getElementById('thumbDrawer');
-        const soundToggleBtn = document.getElementById('soundToggleBtn');
-        const fullscreenBtn = document.getElementById('fullscreenBtn');
-        const exportBtn = document.getElementById('exportBtn');
-        const bookletQuickBtn = document.getElementById('bookletQuickBtn');
-        const exportModal = document.getElementById('exportModal');
-        const bookletModal = document.getElementById('bookletModal');
-        const closeExportModal = document.getElementById('closeExportModal');
-        const closeBookletModal = document.getElementById('closeBookletModal');
-        const thumbItems = document.querySelectorAll('.thumb-item');
-
-        const dims = getOptimalBookDimensions();
-
-        pageFlip = new St.PageFlip(flipbookEl, {
-            width: dims.width,
-            height: dims.height,
-            size: 'stretch',
-            minWidth: 260,
-            maxWidth: 600,
-            minHeight: 380,
-            maxHeight: 820,
-            maxShadowOpacity: 0.5,
-            showCover: true,
-            mobileScrollSupport: false,
-            usePortrait: true,
-            drawShadow: true,
-            flippingTime: 700
-        });
-
-        pageFlip.loadFromHTML(document.querySelectorAll('.page'));
-
-        function updateIndicator() {
-            const pageIndex = pageFlip.getCurrentPageIndex();
-            const total = pageFlip.getPageCount();
-            const currentStr = (pageIndex + 1).toString().padStart(2, '0');
-            const totalStr = total.toString().padStart(2, '0');
-            pageIndicator.innerText = `${currentStr} / ${totalStr}`;
-
-            thumbItems.forEach((item, idx) => {
-                if (idx === pageIndex) {
-                    item.classList.add('active');
-                    item.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+                // Back to top button visibility
+                const backBtn = document.getElementById('backToTop');
+                if (winScroll > 400) {
+                    backBtn.classList.add('visible');
                 } else {
-                    item.classList.remove('active');
+                    backBtn.classList.remove('visible');
                 }
             });
-        }
 
-        pageFlip.on('flip', (e) => {
-            playPageFlipSound();
-            triggerHaptic(18);
-            updateIndicator();
-        });
+            // Back to top click
+            document.getElementById('backToTop').addEventListener('click', () => {
+                lenis.scrollTo(0, { duration: 1.5 });
+            });
 
-        pageFlip.on('init', () => {
-            updateIndicator();
-        });
+            // 3. Hero Section Entrance Animation
+            const heroTl = gsap.timeline({ defaults: { ease: "power3.out" } });
+            heroTl.from(".hero-badge", { y: -30, opacity: 0, duration: 1, delay: 0.2 })
+                  .from(".hero-title", { y: 40, opacity: 0, duration: 1.2 }, "-=0.6")
+                  .from(".hero-subtitle", { y: 30, opacity: 0, duration: 1 }, "-=0.8")
+                  .from(".hero-desc", { y: 30, opacity: 0, duration: 1 }, "-=0.8")
+                  .from(".hero-buttons", { y: 30, opacity: 0, duration: 1 }, "-=0.8")
+                  .from(".scroll-indicator", { opacity: 0, duration: 1 }, "-=0.5");
 
-        prevBtn.addEventListener('click', () => {
-            triggerHaptic(15);
-            pageFlip.flipPrev();
-        });
-
-        nextBtn.addEventListener('click', () => {
-            triggerHaptic(15);
-            pageFlip.flipNext();
-        });
-
-        // Toggle Thumbnails Drawer
-        thumbToggleBtn.addEventListener('click', (e) => {
-            triggerHaptic(15);
-            e.stopPropagation();
-            thumbDrawer.classList.toggle('active');
-        });
-
-        document.addEventListener('click', (e) => {
-            if (!thumbDrawer.contains(e.target) && e.target !== thumbToggleBtn) {
-                thumbDrawer.classList.remove('active');
-            }
-        });
-
-        // Export & Booklet Modal Events
-        exportBtn.addEventListener('click', () => {
-            triggerHaptic(20);
-            exportModal.classList.add('active');
-        });
-        bookletQuickBtn.addEventListener('click', () => {
-            triggerHaptic(20);
-            bookletModal.classList.add('active');
-        });
-        closeExportModal.addEventListener('click', () => {
-            exportModal.classList.remove('active');
-        });
-        closeBookletModal.addEventListener('click', () => {
-            bookletModal.classList.remove('active');
-        });
-        exportModal.addEventListener('click', (e) => {
-            if (e.target === exportModal) exportModal.classList.remove('active');
-        });
-        bookletModal.addEventListener('click', (e) => {
-            if (e.target === bookletModal) bookletModal.classList.remove('active');
-        });
-
-        // Toggle Sound
-        soundToggleBtn.addEventListener('click', () => {
-            isSoundOn = !isSoundOn;
-            soundToggleBtn.innerHTML = isSoundOn ? '<i class="fa-solid fa-volume-high"></i>' : '<i class="fa-solid fa-volume-xmark"></i>';
-            showToast(`Âm thanh lật sách: ${isSoundOn ? 'BẬT' : 'TẮT'}`);
-            triggerHaptic(25);
-        });
-
-        // Fullscreen Toggle
-        fullscreenBtn.addEventListener('click', () => {
-            triggerHaptic(20);
-            if (!document.fullscreenElement) {
-                document.documentElement.requestFullscreen().catch(() => {});
-                fullscreenBtn.innerHTML = '<i class="fa-solid fa-compress"></i>';
-            } else {
-                if (document.exitFullscreen) document.exitFullscreen();
-                fullscreenBtn.innerHTML = '<i class="fa-solid fa-expand"></i>';
-            }
-        });
-
-        // Keyboard navigation
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
-                e.preventDefault();
-                pageFlip.flipNext();
-            } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
-                e.preventDefault();
-                pageFlip.flipPrev();
-            } else if (e.key === 'Home') {
-                e.preventDefault();
-                pageFlip.flip(0);
-            } else if (e.key === 'End') {
-                e.preventDefault();
-                pageFlip.flip(pageFlip.getPageCount() - 1);
-            }
-        });
-
-        // Android orientation & resize handler with debounce
-        let resizeTimeout;
-        window.addEventListener('resize', () => {
-            clearTimeout(resizeTimeout);
-            resizeTimeout = setTimeout(() => {
-                const newDims = getOptimalBookDimensions();
-                if (pageFlip && pageFlip.getSettings) {
-                    pageFlip.update({
-                        width: newDims.width,
-                        height: newDims.height
-                    });
+            // Hero Scroll Parallax
+            gsap.to("#heroBg", {
+                scale: 1.25,
+                yPercent: 15,
+                ease: "none",
+                scrollTrigger: {
+                    trigger: "#hero",
+                    start: "top top",
+                    end: "bottom top",
+                    scrub: true
                 }
-            }, 250);
+            });
+
+            gsap.to("#heroContent", {
+                yPercent: 30,
+                opacity: 0,
+                ease: "none",
+                scrollTrigger: {
+                    trigger: "#hero",
+                    start: "top top",
+                    end: "60% top",
+                    scrub: true
+                }
+            });
+
+            // 4. Chapter 1: Pinned Storytelling Cross-fade & Depth Scrub
+            const storyTl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: "#story",
+                    start: "top top",
+                    end: "bottom bottom",
+                    scrub: 1,
+                    pin: "#storySticky",
+                    anticipatePin: 1
+                }
+            });
+
+            // Story Sequence
+            storyTl
+                // Step 1: Reveal Card 1
+                .to("#storyCard1", { opacity: 1, y: 0, scale: 1, duration: 1.5 })
+                .to("#storyBg1", { scale: 1.15, duration: 2 }, "<")
+                // Pause slightly
+                .to({}, { duration: 1 })
+                // Fade out Card 1 & Crossfade to Bg 2
+                .to("#storyCard1", { opacity: 0, y: -40, scale: 0.95, duration: 1.2 })
+                .to("#storyBg2", { opacity: 1, scale: 1.1, duration: 2 }, "<")
+                // Reveal Card 2
+                .to("#storyCard2", { opacity: 1, y: 0, scale: 1, duration: 1.5 }, "-=0.5")
+                // Pause slightly
+                .to({}, { duration: 1 })
+                // Fade out Card 2 & Crossfade to Bg 3
+                .to("#storyCard2", { opacity: 0, y: -40, scale: 0.95, duration: 1.2 })
+                .to("#storyBg3", { opacity: 1, scale: 1.1, duration: 2 }, "<")
+                // Reveal Card 3
+                .to("#storyCard3", { opacity: 1, y: 0, scale: 1, duration: 1.5 }, "-=0.5")
+                .to({}, { duration: 1 });
+
+            // 5. Chapter 2: Horizontal Room Showcase Scrub
+            const horizontalTrack = document.getElementById("horizontalTrack");
+            function getScrollAmount() {
+                let trackWidth = horizontalTrack.scrollWidth;
+                return -(trackWidth - window.innerWidth + (window.innerWidth * 0.16));
+            }
+
+            const horizTween = gsap.to(horizontalTrack, {
+                x: getScrollAmount,
+                ease: "none",
+                scrollTrigger: {
+                    trigger: "#horizontalContainer",
+                    start: "top top",
+                    end: () => `+=${horizontalTrack.scrollWidth}`,
+                    pin: true,
+                    scrub: 1,
+                    invalidateOnRefresh: true
+                }
+            });
+
+            // 6. Chapter 3: Destination Parallax Stagger
+            gsap.utils.toArray(".dest-card").forEach((card, index) => {
+                gsap.from(card, {
+                    y: 60,
+                    opacity: 0,
+                    duration: 1,
+                    ease: "power3.out",
+                    scrollTrigger: {
+                        trigger: card,
+                        start: "top 85%",
+                        toggleActions: "play none none reverse"
+                    }
+                });
+            });
+
+            // 7. Amenities & WiFi Copy
+            const wifiCard = document.getElementById('wifiCopyCard');
+            const toast = document.getElementById('toast');
+            let toastTimer;
+
+            function showToast(message) {
+                document.getElementById('toastMsg').innerText = message;
+                toast.classList.add('show');
+                clearTimeout(toastTimer);
+                toastTimer = setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 3000);
+            }
+
+            wifiCard.addEventListener('click', () => {
+                const pass = document.getElementById('wifiPass').innerText;
+                navigator.clipboard.writeText(pass).then(() => {
+                    showToast('Đã sao chép mật khẩu WiFi: ' + pass);
+                }).catch(() => {
+                    showToast('Mật khẩu WiFi: ' + pass);
+                });
+            });
+
+            // 8. Mobile Drawer Menu Logic
+            const mobileMenuOpen = document.getElementById('mobileMenuOpen');
+            const mobileMenuClose = document.getElementById('mobileMenuClose');
+            const mobileDrawer = document.getElementById('mobileDrawer');
+            const drawerOverlay = document.getElementById('drawerOverlay');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+
+            function openDrawer() {
+                mobileDrawer.classList.add('open');
+                drawerOverlay.classList.add('open');
+                lenis.stop();
+            }
+
+            function closeDrawer() {
+                mobileDrawer.classList.remove('open');
+                drawerOverlay.classList.remove('open');
+                lenis.start();
+            }
+
+            mobileMenuOpen.addEventListener('click', openDrawer);
+            mobileMenuClose.addEventListener('click', closeDrawer);
+            drawerOverlay.addEventListener('click', closeDrawer);
+
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    closeDrawer();
+                    const targetId = link.getAttribute('href');
+                    if (targetId.startsWith('#')) {
+                        e.preventDefault();
+                        const targetEl = document.querySelector(targetId);
+                        if (targetEl) {
+                            lenis.scrollTo(targetEl, { offset: -60, duration: 1.2 });
+                        }
+                    }
+                });
+            });
+
+            // Smooth internal anchor scroll with Lenis
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const targetId = this.getAttribute('href');
+                    if (targetId !== '#' && targetId.length > 1) {
+                        const targetEl = document.querySelector(targetId);
+                        if (targetEl) {
+                            e.preventDefault();
+                            lenis.scrollTo(targetEl, { offset: -40, duration: 1.2 });
+                        }
+                    }
+                });
+            });
         });
-
-        window.goToPage = function(index) {
-            triggerHaptic(20);
-            pageFlip.flip(index);
-            thumbDrawer.classList.remove('active');
-        };
-    });
-</script>
-
+    </script>
 </body>
 </html>

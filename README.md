@@ -1,23 +1,40 @@
-# GAJO'S HOUSE - 3D Interactive Catalogue
+# GAJO'S HOUSE - Cinematic Scrollytelling & 3D Interactive Catalogue
 
-Catalogue 3D lật trang tương tác (3D Flipbook) giới thiệu không gian lưu trú boutique homestay **GAJO's HOUSE** và cẩm nang du lịch trải nghiệm tại thị xã Hoài Nhơn, Bình Định.
+Trang web trải nghiệm số cao cấp giới thiệu không gian lưu trú boutique homestay phong cách Japandi **GAJO's HOUSE** và cẩm nang du lịch trải nghiệm tại thị xã Hoài Nhơn, Bình Định.
 
-## ✨ Tính Năng Nổi Bật
+---
 
-- 📖 **Hiệu ứng lật sách 3D chân thực**: Trải nghiệm mô phỏng sách bìa cứng & trang giấy tự nhiên với thư viện `StPageFlip`.
-- 🔊 **Âm thanh lật trang sinh động**: Tích hợp Web Audio API mô phỏng tiếng sột soạt lật giấy không cần tải file âm thanh ngoài.
-- 📱 **Responsive đa nền tảng**: Tự động tối ưu tỉ lệ khung hình cho Mobile, Tablet, Laptop và TV hiển thị quầy lễ tân.
-- 📋 **Sao chép WiFi 1 chạm**: Bấm trực tiếp vào mật khẩu WiFi để sao chép vào bộ nhớ tạm kèm thông báo Toast.
-- 🗺️ **Tích hợp Google Maps & QR Code**: Đánh giá 5 sao và chỉ đường trực tiếp tới homestay.
-- 🖨️ **Xuất bản PDF & In ấn chuẩn A4**: Hỗ trợ in ấn hoặc lưu file PDF catalogue 12 trang sắc nét.
-- ⚡ **Sẵn sàng Deploy Vercel / GitHub Pages**: Hoàn toàn tĩnh (Static HTML/CSS/JS), tải trang tức thì.
+## 🌟 Cấu Trúc Trải Nghiệm (Dual Experience)
 
-## 🚀 Hướng Dẫn Deploy Lên Vercel
+1. **`index.html` — Cinematic Scrollytelling Landing Page (GSAP + ScrollTrigger + Lenis)**
+   - 🎬 **Hero Pinned Zoom & Reveal**: Trải nghiệm cuộn thị giác điện ảnh với hình ảnh nội thất homestay độ phân giải cao.
+   - 🏛️ **Chapter The Sanctuary**: Hiệu ứng chuyển cảnh 3D Depth Cross-fade và ghim màn hình (pinned storytelling).
+   - 🛏️ **Chapter Suite Collection**: Khám phá 3 hạng phòng chính (*Grand Family Suite, Deluxe Double Room, Cozy Single Studio*) bằng thanh trượt ngang tương tác (Horizontal Pinned Scroll).
+   - 🌊 **Chapter Hoài Nhơn Journey**: Parallax cẩm nang du lịch (Đèo Lộ Diêu, Mũi Vi Rồng, Rừng dừa Tam Quan, Cao nguyên La Vuông,...).
+   - 📶 **1-Tap WiFi Quick Copy**: Tiện ích sao chép mật khẩu WiFi 1-chạm kèm hiệu ứng Toast phản hồi.
+   - 📖 **Nút kết nối trực tiếp đến Catalogue 3D Flipbook**.
 
-1. **Import repository** `flipbook` từ GitHub vào [Vercel](https://vercel.com).
-2. Framework Preset: chọn **Other** (hoặc để mặc định).
-3. Root Directory: `./`
-4. Bấm **Deploy** – Vercel sẽ tự động build và cấp domain `https://flipbook-...vercel.app`.
+2. **`flipbook.html` — 3D Interactive Flipbook Catalogue (`StPageFlip`)**
+   - 📖 **Hiệu ứng lật sách 3D chân thực**: Mô phỏng sách bìa cứng và trang giấy tự nhiên.
+   - 🔊 **Âm thanh sột soạt lật trang**: Web Audio API tích hợp sẵn.
+   - 🖨️ **In ấn Booklet 2 mặt & Xuất bản chuẩn A4**.
+
+---
+
+## 🚀 Công Nghệ Sử Dụng
+
+- **GSAP 3.12.5 & ScrollTrigger**: Hoạt ảnh cuộn mượt mà chuẩn 60fps trên GPU.
+- **Lenis 1.1.9**: Smooth scrolling quán tính tự nhiên.
+- **StPageFlip 3D**: Thư viện lật sách 3D tương tác.
+- **Vanilla HTML5 / CSS3 / JavaScript Modern**: Tải trang tức thì, không cần build tool.
+
+---
+
+## 🌐 Hướng Dẫn Deploy Lên Vercel
+
+1. Đẩy code lên repository GitHub.
+2. Import repo vào [Vercel](https://vercel.com) & bấm **Deploy**.
+3. Trang web sẽ trực tiếp chạy `index.html` làm trang chủ, và `flipbook.html` cho chế độ lật sách.
 
 ---
 

@@ -548,103 +548,186 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.02);
         }
 
-        /* PAGE 6: PLACES TO EAT & TIỆM NƯỚNG NHÀ GẠO */
-        .bbq-card-vertical {
+        /* PAGE 6 & 7: HỆ SINH THÁI ẨM THỰC & CÀ PHÊ (STACKED CARDS 16:9) */
+        .dining-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin: 6px 0 8px;
+            width: 100%;
+        }
+        .dining-card {
             background: var(--bg-dark);
             color: #FFF;
-            padding: 12px 12px;
-            border-radius: 8px;
-            margin-bottom: 10px;
+            padding: 10px 12px;
+            border-radius: 10px;
             border: 1px solid rgba(197, 160, 89, 0.35);
-            box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+            box-shadow: 0 4px 14px rgba(0,0,0,0.18);
+            position: relative;
+            box-sizing: border-box;
+            width: 100%;
+            text-align: left;
         }
-        .bbq-badge {
-            background: var(--accent-gold);
-            color: #111;
-            font-size: 0.62rem;
-            font-weight: 700;
+        .dining-badge-gold {
+            background: #FFEAA7;
+            color: #2D271D;
+            font-size: 0.58rem;
+            font-weight: 800;
             padding: 2px 8px;
             border-radius: 10px;
             text-transform: uppercase;
             letter-spacing: 0.4px;
             display: inline-block;
-        }
-        .bbq-card-vertical img {
-            width: 100%;
-            height: 130px;
-            object-fit: cover;
-            border-radius: 5px;
-            margin: 6px 0;
-            display: block;
-        }
-        .bbq-card-vertical p {
-            font-size: 0.73rem;
-            color: #E2DBD0;
-            line-height: 1.4;
             margin-bottom: 6px;
         }
-        .bbq-footer {
+        .dining-badge-cyan {
+            background: #DDF4FF;
+            color: #0A3D62;
+            font-size: 0.58rem;
+            font-weight: 800;
+            padding: 2px 8px;
+            border-radius: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+            display: inline-block;
+            margin-bottom: 6px;
+        }
+        .dining-badge-navy {
+            background: #142838;
+            color: #FFFFFF;
+            border: 1px solid rgba(255,255,255,0.25);
+            font-size: 0.58rem;
+            font-weight: 800;
+            padding: 2px 8px;
+            border-radius: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+            display: inline-block;
+            margin-bottom: 6px;
+        }
+        .dining-badge-wood {
+            background: #5C3D2E;
+            color: #FFE6D8;
+            font-size: 0.58rem;
+            font-weight: 800;
+            padding: 2px 8px;
+            border-radius: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+            display: inline-block;
+            margin-bottom: 6px;
+        }
+        .dining-img-wrap {
+            position: relative;
+            width: 100%;
+            height: 102px;
+            border-radius: 6px;
+            overflow: hidden;
+            margin-bottom: 6px;
+            background: #1e1b18;
+        }
+        .dining-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .dining-card-title {
+            font-family: var(--font-serif);
+            font-size: 0.88rem;
+            color: var(--accent-gold-light);
+            margin: 0 0 3px;
+            font-weight: 700;
+            line-height: 1.25;
+        }
+        .dining-card-desc {
+            font-size: 0.67rem;
+            color: #E6E0D6;
+            line-height: 1.48;
+            margin: 0 0 6px;
+            font-weight: 400;
+        }
+        .dining-footer {
             display: flex;
             justify-content: space-between;
-            font-size: 0.72rem;
+            align-items: center;
+            font-size: 0.63rem;
             color: var(--accent-gold-light);
             border-top: 1px solid rgba(255,255,255,0.12);
-            padding-top: 6px;
+            padding-top: 5px;
         }
-        .bbq-link {
+        .dining-footer a {
             color: var(--accent-gold-light);
             text-decoration: none;
             display: inline-flex;
             align-items: center;
             gap: 4px;
+            transition: color 0.2s ease;
+        }
+        .dining-footer a:hover {
+            color: #FFF;
+        }
+        .dining-perk-box {
+            background: var(--bg-white);
+            padding: 8px 10px;
+            border-radius: 8px;
+            border: 1px solid rgba(0,0,0,0.06);
+            font-size: 0.64rem;
+            line-height: 1.44;
+            color: var(--text-dark);
+            margin-top: 6px;
+            width: 100%;
+            box-sizing: border-box;
         }
 
-        /* PAGE 7: 8 TRẢI NGHIỆM LOANH QUANH HOÀI NHƠN */
+        /* PAGE 8: 8 ĐIỂM ĐẾN ẤN TƯỢNG (GRID 4x2) */
         .exp-grid-flip {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 6px;
-            margin: 6px 0;
+            gap: 7px 6px;
+            margin: 6px 0 7px;
         }
         .exp-card-flip {
             background: var(--bg-white);
-            border-radius: 5px;
+            border-radius: 8px;
             overflow: hidden;
             border: 1px solid rgba(0,0,0,0.06);
             text-align: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.04);
             display: flex;
             flex-direction: column;
+            transition: transform 0.2s ease;
         }
         .exp-card-flip img {
             width: 100%;
-            height: 70px;
+            height: 68px;
             object-fit: cover;
             display: block;
         }
         .exp-card-flip-info {
-            padding: 4px 2px 5px;
+            padding: 4px 3px 5px;
             flex: 1;
             display: flex;
             flex-direction: column;
             justify-content: center;
+            align-items: center;
+            text-align: center;
         }
         .exp-card-flip-info h5 {
-            font-size: 0.65rem;
+            font-size: 0.63rem;
             font-weight: 700;
             color: var(--text-dark);
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            margin-bottom: 1px;
+            margin: 0 0 1px;
+            line-height: 1.25;
+            white-space: normal;
         }
         .exp-card-flip-info p {
-            font-size: 0.55rem;
+            font-size: 0.52rem;
             color: #777;
+            font-weight: 400;
             margin: 0;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
+            line-height: 1.2;
+            white-space: normal;
         }
 
         /* PAGE 8: DAY TRIP SUNRISE */
@@ -1273,6 +1356,7 @@
 
     <!-- Top Action Buttons -->
     <div class="top-action-bar">
+        <a href="index.html" class="top-btn-pill" style="border-color: var(--accent-gold); color: #fff; background: rgba(197, 160, 89, 0.25);"><i class="fa-solid fa-arrow-left"></i> Về Trang Chủ</a>
         <button class="top-btn-pill" onclick="openBookletModal()"><i class="fa-solid fa-book-open"></i> In Booklet 2 Mặt (1-12, 2-11...)</button>
         <button class="top-btn-pill" onclick="triggerShare()"><i class="fa-solid fa-share-nodes"></i> Chia Sẻ</button>
         <a href="https://zalo.me/0902286300" target="_blank" class="top-btn-pill"><i class="fa-solid fa-comments"></i> Đặt Phòng Zalo</a>
@@ -1498,30 +1582,56 @@
                 </div>
             </div>
 
-            <!-- ================= PAGE 6: PLACES TO EAT ================= -->
+            <!-- ================= PAGE 6: HỆ SINH THÁI ẨM THỰC GAJO ================= -->
             <div class="page" data-density="soft">
                 <div class="page-content">
                     <div class="page-body-center">
                         <div class="page-header">
-                            <div class="page-eyebrow">Must-Try Dining</div>
-                            <h2 class="page-title">Tiệm Nướng Nhà Gạo</h2>
-                            <p class="page-desc">Gợi ý ẩm thực &bull; Cùng chủ GAJO's HOUSE</p>
+                            <div class="page-eyebrow">MUST-TRY DINING</div>
+                            <h2 class="page-title">Hệ Sinh Thái Ẩm Thực GAJO</h2>
+                            <p class="page-desc">Gợi ý ẩm thực đặc quyền dành riêng cho khách lưu trú</p>
                         </div>
 
-                        <div class="bbq-card-vertical">
-                            <span class="bbq-badge">Tiểu Đà Lạt Giữa Hoài Nhơn</span>
-                            <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=600" alt="Tiệm Nướng Nhà Gạo">
-                            <p>
-                                Không gian sân vườn Vintage lãng mạn, tiệc nướng bò tảng sốt đậm vị và các đêm nhạc acoustic nhẹ nhàng.
-                            </p>
-                            <div class="bbq-footer">
-                                <a href="https://maps.app.goo.gl/jAWENgZvarDbmG7f6" target="_blank" class="bbq-link"><i class="fa-solid fa-location-dot"></i> Cách ~2.6km</a>
-                                <a href="tel:0902286300" class="bbq-link"><strong><i class="fa-solid fa-phone"></i> 0902 286 300</strong></a>
+                        <div class="dining-stack">
+                            <!-- Card 1: Tiệm Nướng Nhà Gạo -->
+                            <div class="dining-card">
+                                <span class="dining-badge-gold">TIỂU ĐÀ LẠT GIỮA HOÀI NHƠN</span>
+                                <div class="dining-img-wrap">
+                                    <img src="assets/dining-nhagao.jpg" alt="Tiệm Nướng Nhà Gạo" style="object-position: center 35%; filter: brightness(1.08) contrast(1.02);">
+                                </div>
+                                <h3 class="dining-card-title">Tiệm Nướng Nhà Gạo</h3>
+                                <p class="dining-card-desc">
+                                    Không gian sân vườn Vintage ấm cúng với ánh đèn vàng lãng mạn. Nơi thưởng thức tiệc nướng BBQ đậm vị và các đêm nhạc acoustic nhẹ nhàng.
+                                </p>
+                                <div class="dining-footer">
+                                    <a href="https://maps.app.goo.gl/jAWENgZvarDbmG7f6" target="_blank"><i class="fa-solid fa-location-dot"></i> Đ. Trường Sa, Thạnh Xuân Đông (~2.6km)</a>
+                                    <a href="tel:0902286300"><strong><i class="fa-solid fa-phone"></i> 0902 286 300</strong></a>
+                                </div>
+                            </div>
+
+                            <!-- Card 2: GAJO Thái -->
+                            <div class="dining-card">
+                                <span class="dining-badge-cyan">VIEW HOÀNG HÔN CỰC CHILL</span>
+                                <div class="dining-img-wrap">
+                                    <img src="assets/dining-gajothai.jpg" alt="GAJO Thái" style="object-position: center 45%; filter: saturate(1.1) brightness(1.02);">
+                                </div>
+                                <h3 class="dining-card-title">GAJO Thái</h3>
+                                <p class="dining-card-desc">
+                                    Không gian mở thoáng đãng ôm trọn vẻ đẹp sông nước lúc chạng vạng. Trải nghiệm tinh hoa ẩm thực Thái Lan chuẩn vị giữa cảnh sắc thiên nhiên tuyệt đẹp.
+                                </p>
+                                <div class="dining-footer">
+                                    <a href="https://maps.google.com" target="_blank"><i class="fa-solid fa-location-dot"></i> 125 Nguyễn Chí Thanh, Hoài Nhơn Bắc</a>
+                                    <a href="tel:0902286300"><strong><i class="fa-solid fa-phone"></i> 0902 286 300</strong></a>
+                                </div>
                             </div>
                         </div>
 
-                        <div style="background:var(--bg-white); padding:8px 10px; border-radius:6px; border:1px solid rgba(0,0,0,0.06); font-size:0.72rem; line-height:1.4;">
-                            <strong>Quán lân cận:</strong> Coffee Gạo, Bonjour Cafe, GAJO Thái &amp; Quán A Mãi.
+                        <!-- Footer Box: Đặc quyền GAJO's HOUSE -->
+                        <div class="dining-perk-box">
+                            <strong style="color: var(--accent-gold);"><i class="fa-solid fa-star"></i> Đặc quyền GAJO's HOUSE:</strong> Vui lòng báo lễ tân/nhân viên quán bạn là khách lưu trú tại homestay để được hỗ trợ đặt bàn vị trí đẹp nhất!
+                            <div style="margin-top: 3px; color: #777;">
+                                <strong>Quán lân cận:</strong> Coffee Gạo, Bonjour Cafe, Quán A Mãi.
+                            </div>
                         </div>
                     </div>
 
@@ -1532,81 +1642,53 @@
                 </div>
             </div>
 
-            <!-- ================= PAGE 7: 8 TRẢI NGHIỆM ================= -->
+            <!-- ================= PAGE 7: COFFEE & CHILL ================= -->
             <div class="page" data-density="soft">
                 <div class="page-content">
                     <div class="page-body-center">
                         <div class="page-header">
-                            <div class="page-eyebrow">Local Experiences</div>
-                            <h2 class="page-title">8 Trải Nghiệm Hoài Nhơn</h2>
-                            <p class="page-desc">Check-in danh lam thắng cảnh xung quanh</p>
+                            <div class="page-eyebrow">COFFEE &amp; CHILL</div>
+                            <h2 class="page-title">Góc Cà Phê &amp; Thư Giãn</h2>
+                            <p class="page-desc">Những điểm đến bình yên không thể bỏ lỡ tại Hoài Nhơn</p>
                         </div>
 
-                        <div class="exp-grid-flip">
-                            <!-- 1 -->
-                            <div class="exp-card-flip">
-                                <img src="assets/exp-lodieu.jpg" alt="Gành Lộ Diêu">
-                                <div class="exp-card-flip-info">
-                                    <h5>Gành Lộ Diêu</h5>
-                                    <p>Bãi đá trăng khuyết</p>
+                        <div class="dining-stack">
+                            <!-- Card 1: Gạo Coffee -->
+                            <div class="dining-card">
+                                <span class="dining-badge-navy">CHILL GIÓ BIỂN - NHẠC ACOUSTIC</span>
+                                <div class="dining-img-wrap">
+                                    <img src="assets/cafe-gaocoffee.jpg" alt="Gạo Coffee Seaside Acoustic" style="object-position: center 55%; filter: brightness(1.05) contrast(1.05);">
+                                </div>
+                                <h3 class="dining-card-title">Gạo Coffee (Seaside Acoustic)</h3>
+                                <p class="dining-card-desc">
+                                    Không gian mở tuyệt đẹp ngay sát bờ biển. Nơi hoàn hảo để ngắm hoàng hôn buông, tận hưởng làn gió mát rượi và chìm đắm trong những đêm nhạc acoustic mộc mạc trên bãi cát.
+                                </p>
+                                <div class="dining-footer">
+                                    <a href="https://maps.google.com" target="_blank"><i class="fa-solid fa-location-dot"></i> Đ. Trường Sa, Thạnh Xuân Đông</a>
+                                    <a href="tel:0902286300"><strong><i class="fa-solid fa-phone"></i> 0902 286 300</strong></a>
                                 </div>
                             </div>
-                            <!-- 2: ĐÈO HOÀI HẢI - LỘ DIÊU -->
-                            <div class="exp-card-flip">
-                                <img src="assets/deo-hoaihai-lodieu.jpg" alt="Đèo Hoài Hải Lộ Diêu">
-                                <div class="exp-card-flip-info">
-                                    <h5>Đèo Lộ Diêu</h5>
-                                    <p>Đèo biển ĐT639</p>
+
+                            <!-- Card 2: Bonjour Café -->
+                            <div class="dining-card">
+                                <span class="dining-badge-wood">GÓC NHỎ VINTAGE 1996</span>
+                                <div class="dining-img-wrap">
+                                    <img src="assets/cafe-bonjour.jpg" alt="Bonjour Café Reply 1996" style="object-position: center 25%; filter: brightness(1.05) saturate(1.05);">
+                                </div>
+                                <h3 class="dining-card-title">Bonjour Café</h3>
+                                <p class="dining-card-desc">
+                                    Nằm ngay trên trục đường của homestay, quán mang đậm âm hưởng hoài cổ với thiết kế gỗ mộc mạc. Một chốn dừng chân yên tĩnh, lý tưởng để nhâm nhi ly cà phê sáng và bắt đầu ngày mới.
+                                </p>
+                                <div class="dining-footer">
+                                    <a href="https://maps.google.com" target="_blank"><i class="fa-solid fa-location-dot"></i> 54-56 Phan Trọng Tuệ, Hoài Nhơn Đông</a>
+                                    <a href="tel:0965470833"><strong><i class="fa-solid fa-phone"></i> 0965 470 833</strong></a>
                                 </div>
                             </div>
-                            <!-- 3 -->
-                            <div class="exp-card-flip">
-                                <img src="assets/exp-muiganh.jpg" alt="Mũi Gành">
-                                <div class="exp-card-flip-info">
-                                    <h5>Bình Minh Gành</h5>
-                                    <p>Săn nắng sớm 05:30</p>
-                                </div>
-                            </div>
-                            <!-- 4 -->
-                            <div class="exp-card-flip">
-                                <img src="assets/exp-tamquan.jpg" alt="Xứ Dừa">
-                                <div class="exp-card-flip-info">
-                                    <h5>Xứ Dừa</h5>
-                                    <p>Rừng dừa bạt ngàn</p>
-                                </div>
-                            </div>
-                            <!-- 5 -->
-                            <div class="exp-card-flip">
-                                <img src="assets/exp-lavuong.jpg" alt="La Vuông">
-                                <div class="exp-card-flip-info">
-                                    <h5>La Vuông</h5>
-                                    <p>Săn mây cao 700m</p>
-                                </div>
-                            </div>
-                            <!-- 6 -->
-                            <div class="exp-card-flip">
-                                <img src="assets/exp-mybinh.jpg" alt="Hồ Mỹ Bình">
-                                <div class="exp-card-flip-info">
-                                    <h5>Hồ Mỹ Bình</h5>
-                                    <p>Picnic &amp; cắm trại</p>
-                                </div>
-                            </div>
-                            <!-- 7 -->
-                            <div class="exp-card-flip">
-                                <img src="assets/exp-muivirong.jpg" alt="Mũi Vi Rồng">
-                                <div class="exp-card-flip-info">
-                                    <h5>Mũi Vi Rồng</h5>
-                                    <p>Rồng vươn biển lớn</p>
-                                </div>
-                            </div>
-                            <!-- 8 -->
-                            <div class="exp-card-flip">
-                                <img src="assets/exp-gaocoffee.jpg" alt="Cà phê Gạo">
-                                <div class="exp-card-flip-info">
-                                    <h5>Cà Phê Gạo</h5>
-                                    <p>Vintage &amp; acoustic</p>
-                                </div>
-                            </div>
+                        </div>
+
+                        <!-- Footer Box: Mẹo nhỏ từ GAJO's HOUSE -->
+                        <div class="dining-perk-box">
+                            <strong style="color: var(--accent-gold);"><i class="fa-solid fa-lightbulb"></i> Mẹo nhỏ từ GAJO's HOUSE:</strong> Bonjour Café nằm ngay trên đường Phan Trọng Tuệ, rất thuận tiện để bạn đi bộ từ homestay ra thưởng thức cà phê buổi sáng!
                         </div>
                     </div>
 
@@ -1617,26 +1699,88 @@
                 </div>
             </div>
 
-            <!-- ================= PAGE 8: DAY TRIP SUNRISE ================= -->
+            <!-- ================= PAGE 8: 8 ĐIỂM ĐẾN ẤN TƯỢNG ================= -->
             <div class="page" data-density="soft">
                 <div class="page-content">
                     <div class="page-body-center">
                         <div class="page-header">
-                            <div class="page-eyebrow">Top Daytrip Tour</div>
-                            <h2 class="page-title">Đèo Hoài Hải – Lộ Diêu</h2>
-                            <p class="page-desc">Săn bình minh &bull; Mũi Vi Rồng Bình Định</p>
+                            <div class="page-eyebrow">LOCAL EXPERIENCES</div>
+                            <h2 class="page-title">8 Điểm Đến Ấn Tượng Quanh GAJO's HOUSE</h2>
+                            <p class="page-desc">Hành trình khám phá Hoài Nhơn, An Lão và các danh thắng lân cận</p>
                         </div>
 
-                        <div class="daytrip-card-vertical">
-                            <img src="assets/deo-hoaihai-lodieu.jpg" alt="Đèo Hoài Hải Lộ Diêu ĐT639">
-                            <div class="daytrip-card-body">
-                                <p style="font-size:0.76rem; color:#444; line-height:1.45; margin-bottom:6px;">
-                                    Cung đường ven biển ĐT.639 dài 4.5km uốn lượn như dải lụa ôm trọn vách đá hùng vĩ và đại dương xanh thẳm.
-                                </p>
-                                <div style="background:var(--bg-cream); padding:8px 10px; border-radius:5px; font-size:0.7rem; color:#555; border-left:3px solid var(--accent-gold); line-height:1.4;">
-                                    <strong>05:00:</strong> Đón bình minh đỉnh đèo &bull; <strong>07:00:</strong> Khám phá Gành Lộ Diêu &amp; Mũi Vi Rồng.
+                        <div class="exp-grid-flip">
+                            <!-- HÀNG 1 -->
+                            <!-- 1: Gành Lộ Diêu -->
+                            <div class="exp-card-flip">
+                                <img src="assets/exp-lodieu.jpg" alt="Gành Lộ Diêu">
+                                <div class="exp-card-flip-info">
+                                    <h5>Gành Lộ Diêu</h5>
+                                    <p>Bãi đá trăng khuyết tuyệt đẹp</p>
                                 </div>
                             </div>
+                            <!-- 2: Đèo Lộ Diêu -->
+                            <div class="exp-card-flip">
+                                <img src="assets/deo-hoaihai-lodieu.jpg" alt="Đèo Lộ Diêu">
+                                <div class="exp-card-flip-info">
+                                    <h5>Đèo Lộ Diêu</h5>
+                                    <p>Cung đường biển ĐT639 ngoạn mục</p>
+                                </div>
+                            </div>
+                            <!-- 3: Cửa Biển Tam Quan -->
+                            <div class="exp-card-flip">
+                                <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=80&w=600" alt="Cửa Biển Tam Quan" style="filter: brightness(1.05);">
+                                <div class="exp-card-flip-info">
+                                    <h5>Cửa Biển Tam Quan</h5>
+                                    <p>Đón nắng sớm &amp; nhịp sống làng chài</p>
+                                </div>
+                            </div>
+                            <!-- 4: Hồ Đồng Mít (An Lão) -->
+                            <div class="exp-card-flip">
+                                <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=600" alt="Hồ Đồng Mít An Lão">
+                                <div class="exp-card-flip-info">
+                                    <h5>Hồ Đồng Mít (An Lão)</h5>
+                                    <p>Biển hồ bích lục giữa ngàn xanh</p>
+                                </div>
+                            </div>
+
+                            <!-- HÀNG 2 -->
+                            <!-- 5: Cao Nguyên La Vuông -->
+                            <div class="exp-card-flip">
+                                <img src="assets/exp-lavuong.jpg" alt="Cao Nguyên La Vuông">
+                                <div class="exp-card-flip-info">
+                                    <h5>Cao Nguyên La Vuông</h5>
+                                    <p>Thiên đường săn mây độ cao 700m</p>
+                                </div>
+                            </div>
+                            <!-- 6: Hồ Mỹ Bình -->
+                            <div class="exp-card-flip">
+                                <img src="assets/exp-mybinh.jpg" alt="Hồ Mỹ Bình">
+                                <div class="exp-card-flip-info">
+                                    <h5>Hồ Mỹ Bình</h5>
+                                    <p>Điểm dã ngoại &amp; cắm trại bình yên</p>
+                                </div>
+                            </div>
+                            <!-- 7: Mũi Vi Rồng -->
+                            <div class="exp-card-flip">
+                                <img src="assets/exp-muivirong.jpg" alt="Mũi Vi Rồng">
+                                <div class="exp-card-flip-info">
+                                    <h5>Mũi Vi Rồng</h5>
+                                    <p>Kiệt tác thiên nhiên vươn biển lớn</p>
+                                </div>
+                            </div>
+                            <!-- 8: Hệ Sinh Thái GAJO -->
+                            <div class="exp-card-flip">
+                                <img src="assets/cafe-gaocoffee.jpg" alt="GAJO Thái &amp; Gạo Coffee" style="object-position: center 60%;">
+                                <div class="exp-card-flip-info">
+                                    <h5>GAJO Thái &amp; Gạo Coffee</h5>
+                                    <p>Ngắm hoàng hôn &amp; nhạc acoustic</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="background:var(--bg-white); padding:5px 8px; border-radius:6px; border:1px solid rgba(0,0,0,0.05); font-size:0.6rem; color:#555; text-align:center; margin-top:2px;">
+                            <i class="fa-solid fa-compass" style="color:var(--accent-gold);"></i> <em>Lễ tân hỗ trợ tư vấn lộ trình &amp; thuê xe máy đời mới khám phá các điểm đến.</em>
                         </div>
                     </div>
 
@@ -1805,15 +1949,15 @@
     </div>
     <div class="thumb-item" onclick="goToPage(5)">
         <div class="thumb-box">06</div>
-        <div class="thumb-label">Nhà Gạo</div>
+        <div class="thumb-label">Ẩm Thực</div>
     </div>
     <div class="thumb-item" onclick="goToPage(6)">
         <div class="thumb-box">07</div>
-        <div class="thumb-label">8 Điểm Đến</div>
+        <div class="thumb-label">Cà Phê & Chill</div>
     </div>
     <div class="thumb-item" onclick="goToPage(7)">
         <div class="thumb-box">08</div>
-        <div class="thumb-label">Daytrip</div>
+        <div class="thumb-label">8 Điểm Đến</div>
     </div>
     <div class="thumb-item" onclick="goToPage(8)">
         <div class="thumb-box">09</div>
