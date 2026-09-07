@@ -3,15 +3,21 @@
    ========================================================================== */
 
 :root {
-    --bg-cream: #F7F5F0;
+    /* 🎨 BỘ MÀU "HƯƠNG MẠ NON" (Thư giãn, Tươi sáng & Mộc mạc) */
+    --bg-sage: #D6E0D3;               /* Nền chính: Xanh Xô Thơm Nhạt / Soft Sage */
+    --bg-rice: #F7F6F0;               /* Nền phụ: Trắng Hạt Gạo / Off-White */
+    --bg-cream: #D6E0D3;              /* Alias cho page background */
     --bg-white: #FFFFFF;
-    --bg-dark: #242220;
-    --bg-leather: #181614;
-    --text-dark: #2C2A29;
-    --text-muted: #66635E;
-    --accent-gold: #C5A059;
-    --accent-gold-light: #DFC48A;
-    --accent-sage: #5F7D70;
+    --bg-dark: #1F2720;               /* Nền tối bìa & ambient: Deep Forest / Dark Moss */
+    --bg-leather: #151C16;
+    --text-heading: #3C4A3E;          /* Tiêu đề chính: Xanh Rêu Đậm / Deep Moss */
+    --text-dark: #3C4A3E;             /* Alias text đậm */
+    --text-body: #5C6656;             /* Văn bản / Đoạn văn: Xanh Xám Trầm */
+    --text-muted: #5C6656;            /* Alias text phụ */
+    --accent-gold: #D4A373;           /* Điểm nhấn / Nút bấm: Vàng Gỗ / Lúa Chín */
+    --accent-gold-light: #E8CAAB;     /* Vàng lúa non sáng */
+    --accent-gold-dark: #B8834F;      /* Vàng gỗ ấm đậm */
+    --border-divider: rgba(212, 163, 115, 0.35); /* Gạch ngang Vàng Gỗ */
     --font-serif: 'Playfair Display', Georgia, serif;
     --font-sans: 'Montserrat', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     --font-script: 'Dancing Script', cursive;
@@ -37,7 +43,7 @@ html, body {
 body {
     font-family: var(--font-sans);
     color: var(--text-dark);
-    background: radial-gradient(circle at center, #262422 0%, #11100F 100%);
+    background: radial-gradient(circle at center, #222C24 0%, #111812 100%);
     display: flex;
     flex-direction: column;
     align-items: center;
