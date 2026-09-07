@@ -11,9 +11,9 @@ export function renderPage06Coffee() {
     const bodyHTML = `
     ${headerHTML}
     <div class="page-main-content">
-        <div class="dining-stack">
+        <div class="dining-editorial-stack">
             <!-- Card 1: Gạo Coffee -->
-            <div class="dining-card">
+            <div class="dining-editorial-card">
                 <span class="dining-badge-navy">CHILL GIÓ BIỂN - NHẠC ACOUSTIC</span>
                 <div class="dining-grid-2">
                     <div class="dining-grid-item">
@@ -23,10 +23,10 @@ export function renderPage06Coffee() {
                         <img src="assets/gaocoffee-matcha.jpg" alt="Uji Matcha Latte & Chổi Chasen" style="object-position: center 50%;">
                     </div>
                 </div>
-                <h3 class="dining-card-title">Gạo Coffee (Seaside Acoustic)</h3>
-                <p class="dining-card-desc">
+                <div class="dining-card-title">Gạo Coffee (Seaside Acoustic)</div>
+                <div class="dining-card-desc">
                     Không gian mở sát biển lãng mạn, đón hoàng hôn buông và gió mát. Thưởng thức những đêm nhạc acoustic mộc mạc trên bãi cát.
-                </p>
+                </div>
                 <div class="dining-footer">
                     <a href="https://maps.google.com" target="_blank"><i class="fa-solid fa-location-dot"></i> Đ. Trường Sa, Thạnh Xuân Đông</a>
                     <a href="tel:0902286300"><strong><i class="fa-solid fa-phone"></i> 0902 286 300</strong></a>
@@ -34,7 +34,7 @@ export function renderPage06Coffee() {
             </div>
 
             <!-- Card 2: Bonjour Café -->
-            <div class="dining-card">
+            <div class="dining-editorial-card">
                 <span class="dining-badge-wood">GÓC NHỎ VINTAGE 1996</span>
                 <div class="dining-grid-2">
                     <div class="dining-grid-item">
@@ -44,10 +44,10 @@ export function renderPage06Coffee() {
                         <img src="assets/bonjour-donuts.jpg" alt="Matcha Oreo & Caramel Brûlée" style="object-position: center bottom;">
                     </div>
                 </div>
-                <h3 class="dining-card-title">Bonjour Café (Vintage 1996)</h3>
-                <p class="dining-card-desc">
+                <div class="dining-card-title">Bonjour Café (Vintage 1996)</div>
+                <div class="dining-card-desc">
                     Mang đậm âm hưởng hoài cổ với thiết kế gỗ mộc mạc. Chốn dừng chân yên tĩnh lý tưởng để nhâm nhi ly cà phê sáng gần homestay.
-                </p>
+                </div>
                 <div class="dining-footer">
                     <a href="https://maps.google.com" target="_blank"><i class="fa-solid fa-location-dot"></i> 54-56 Phan Trọng Tuệ</a>
                     <a href="tel:0965470833"><strong><i class="fa-solid fa-phone"></i> 0965 470 833</strong></a>
@@ -55,11 +55,8 @@ export function renderPage06Coffee() {
             </div>
         </div>
 
-        <div class="dining-perk-box">
-            <strong style="color: var(--accent-gold);"><i class="fa-solid fa-lightbulb"></i> Mẹo nhỏ từ GAJO's HOUSE:</strong> Bonjour Café nằm ngay trên đường Phan Trọng Tuệ, rất thuận tiện để đi bộ từ homestay ra thưởng thức cà phê sáng!
-            <div style="margin-top: 2px; color: #777;">
-                <strong>Gợi ý:</strong> Thử món trà Matcha Uji tại Gạo Coffee vào buổi chiều hoàng hôn.
-            </div>
+        <div class="dining-editorial-perk">
+            <strong style="color: var(--accent-gold);"><i class="fa-solid fa-lightbulb"></i> Mẹo nhỏ từ GAJO's HOUSE:</strong> Bonjour Café nằm ngay trên trục đường Phan Trọng Tuệ, rất thuận tiện để đi bộ từ homestay ra thưởng thức cà phê sáng!
         </div>
     </div>`;
 

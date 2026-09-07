@@ -1,16 +1,16 @@
 /**
- * Component InfoCard - List items & card helpers with borderless luxury design
+ * Component InfoCard - Editorial List with Horizontal Dividers
  */
 export function InfoCardList({ items = [] }) {
     return `
-    <ul class="flip-list">
+    <ul class="editorial-list">
         ${items.map(item => `
-            <li>
-                ${item.num ? `<div class="flip-list-num">${item.num}</div>` : ''}
-                ${item.icon ? `<div class="flip-checklist-wrap"><i class="${item.icon}"></i></div>` : ''}
-                <div>
-                    <strong>${item.title}</strong>
-                    <p>${item.desc}</p>
+            <li class="editorial-list-item">
+                ${item.num ? `<div class="editorial-num-badge">${String(item.num).padStart(2, '0')}</div>` : ''}
+                ${item.icon ? `<div class="editorial-check-badge"><i class="${item.icon}"></i></div>` : ''}
+                <div class="editorial-item-content">
+                    <div class="editorial-item-title">${item.title}</div>
+                    <div class="editorial-item-desc">${item.desc}</div>
                 </div>
             </li>
         `).join('')}

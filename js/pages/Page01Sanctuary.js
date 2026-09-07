@@ -11,7 +11,7 @@ export function renderPage01Sanctuary() {
     const bodyHTML = `
     ${headerHTML}
     <div class="page-main-content">
-        <div class="welcome-quote-box">
+        <div class="welcome-editorial-quote">
             "Một không gian lưu trú boutique mới xây được chăm chút tỉ mỉ từng chi tiết, tĩnh lặng và sạch không tì vết để bạn tái tạo trọn vẹn nguồn năng lượng."
         </div>
 

@@ -11,64 +11,52 @@ export function renderPage04Services() {
     const bodyHTML = `
     ${headerHTML}
     <div class="page-main-content">
-        <div class="amenity-grid-luxury">
-            <div class="amenity-item-box">
-                <div class="amenity-icon-wrap">
-                    <i class="fa-solid fa-broom"></i>
-                </div>
+        <div class="amenity-editorial-grid">
+            <div class="amenity-editorial-item">
+                <i class="fa-solid fa-broom amenity-editorial-icon"></i>
                 <div>
-                    <h5>Dọn Spotless</h5>
-                    <span>Sạch chuẩn 5 sao</span>
+                    <div class="amenity-editorial-title">Dọn Spotless</div>
+                    <div class="amenity-editorial-sub">Sạch chuẩn 5 sao</div>
                 </div>
             </div>
-            <div class="amenity-item-box">
-                <div class="amenity-icon-wrap">
-                    <i class="fa-regular fa-snowflake"></i>
-                </div>
+            <div class="amenity-editorial-item">
+                <i class="fa-regular fa-snowflake amenity-editorial-icon"></i>
                 <div>
-                    <h5>Điều Hòa Êm</h5>
-                    <span>Inverter êm ái</span>
+                    <div class="amenity-editorial-title">Điều Hòa Êm</div>
+                    <div class="amenity-editorial-sub">Inverter êm ái</div>
                 </div>
             </div>
-            <div class="amenity-item-box">
-                <div class="amenity-icon-wrap">
-                    <i class="fa-solid fa-shower"></i>
-                </div>
+            <div class="amenity-editorial-item">
+                <i class="fa-solid fa-shower amenity-editorial-icon"></i>
                 <div>
-                    <h5>Nước Nóng</h5>
-                    <span>Hệ trung tâm</span>
+                    <div class="amenity-editorial-title">Nước Nóng</div>
+                    <div class="amenity-editorial-sub">Hệ trung tâm</div>
                 </div>
             </div>
-            <div class="amenity-item-box">
-                <div class="amenity-icon-wrap">
-                    <i class="fa-solid fa-motorcycle"></i>
-                </div>
+            <div class="amenity-editorial-item">
+                <i class="fa-solid fa-motorcycle amenity-editorial-icon"></i>
                 <div>
-                    <h5>Thuê Xe Máy</h5>
-                    <span>Xe mới tiết kiệm</span>
+                    <div class="amenity-editorial-title">Thuê Xe Máy</div>
+                    <div class="amenity-editorial-sub">Xe mới tiết kiệm</div>
                 </div>
             </div>
-            <div class="amenity-item-box">
-                <div class="amenity-icon-wrap">
-                    <i class="fa-solid fa-shirt"></i>
-                </div>
+            <div class="amenity-editorial-item">
+                <i class="fa-solid fa-shirt amenity-editorial-icon"></i>
                 <div>
-                    <h5>Giặt Ủi Nhanh</h5>
-                    <span>Lấy trong ngày</span>
+                    <div class="amenity-editorial-title">Giặt Ủi Nhanh</div>
+                    <div class="amenity-editorial-sub">Lấy trong ngày</div>
                 </div>
             </div>
-            <div class="amenity-item-box">
-                <div class="amenity-icon-wrap">
-                    <i class="fa-solid fa-shield-halved"></i>
-                </div>
+            <div class="amenity-editorial-item">
+                <i class="fa-solid fa-shield-halved amenity-editorial-icon"></i>
                 <div>
-                    <h5>Bãi Xe An Toàn</h5>
-                    <span>Camera an ninh</span>
+                    <div class="amenity-editorial-title">Bãi Xe An Toàn</div>
+                    <div class="amenity-editorial-sub">Camera an ninh</div>
                 </div>
             </div>
         </div>
 
-        <div class="amenity-quote-bottom">
+        <div class="amenity-editorial-quote">
             <span class="quote-script">"Feel like home"</span>
             <p>Chủ nhà luôn sẵn sàng hỗ trợ bạn 24/7 với tất cả sự tận tâm.</p>
         </div>

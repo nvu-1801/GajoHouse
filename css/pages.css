@@ -1,5 +1,5 @@
 /* ==========================================================================
-   4. PAGES (Flipbook Individual Pages & Japandi Minimalist Luxury Layouts)
+   4. PAGES (Flipbook Individual Pages & Editorial Japandi Lookbook Design)
    ========================================================================== */
 
 /* PAGE BASE STYLES */
@@ -149,9 +149,11 @@
     animation: pulse 2s infinite ease-in-out;
 }
 
-/* INNER PAGE TYPOGRAPHY & BALANCED CENTER LAYOUT */
+/* ==========================================================================
+   EDITORIAL TYPOGRAPHY & BALANCED VERTICAL DISTRIBUTION
+   ========================================================================== */
 .page-content {
-    padding: 22px 24px 16px;
+    padding: 24px 28px 18px;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -169,8 +171,10 @@
 .page-header {
     text-align: center;
     padding-top: 2px;
-    padding-bottom: 10px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(184, 139, 74, 0.25);
     flex-shrink: 0;
+    margin-bottom: 4px;
 }
 .page-main-content {
     flex: 1;
@@ -181,22 +185,22 @@
 }
 .page-eyebrow {
     font-size: 0.75rem;
-    letter-spacing: 3px;
+    letter-spacing: 3.2px;
     text-transform: uppercase;
     color: var(--accent-gold);
     font-weight: 700;
-    margin-bottom: 4px;
+    margin-bottom: 3px;
 }
 .page-title {
     font-family: var(--font-serif);
-    font-size: clamp(1.45rem, 2.4vw, 1.95rem);
+    font-size: clamp(1.5rem, 2.5vw, 2.05rem);
     color: var(--text-dark);
     line-height: 1.25;
-    margin-bottom: 4px;
+    margin-bottom: 3px;
     font-weight: 700;
 }
 .page-desc {
-    font-size: 0.82rem;
+    font-size: 0.84rem;
     color: var(--text-muted);
     line-height: 1.45;
 }
@@ -206,158 +210,138 @@
     align-items: center;
     font-size: 0.74rem;
     color: #9C968D;
-    border-top: 1px solid rgba(0,0,0,0.06);
+    border-top: 1px solid rgba(184, 139, 74, 0.2);
     padding-top: 10px;
-    margin-top: 8px;
+    margin-top: 10px;
     flex-shrink: 0;
 }
 .page-number {
     font-family: var(--font-serif);
     font-weight: 700;
-    font-size: 0.88rem;
+    font-size: 0.92rem;
     color: var(--accent-gold);
 }
 
 /* ==========================================================================
    PAGE 2: WELCOME (LỜI NGỎ)
    ========================================================================== */
-.welcome-quote-box {
-    background: #FFFFFF;
-    border-left: 4px solid var(--accent-gold);
-    padding: 16px 18px;
-    border-radius: 0 12px 12px 0;
-    margin: 8px 0;
+.welcome-editorial-quote {
+    padding: 10px 0;
     font-style: italic;
-    font-size: 0.9rem;
+    font-size: 0.94rem;
     color: #3A3835;
-    line-height: 1.65;
-    box-shadow: 0 4px 18px rgba(44, 38, 30, 0.04);
+    line-height: 1.7;
+    position: relative;
+    border-left: 3px solid var(--accent-gold);
+    padding-left: 16px;
+    margin: 6px 0;
 }
 .welcome-photo {
     width: 100%;
     flex: 1;
-    min-height: 165px;
+    min-height: 175px;
     object-fit: cover;
-    border-radius: 12px;
-    box-shadow: 0 6px 20px rgba(44, 38, 30, 0.06);
-    margin-top: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(44, 38, 30, 0.08);
+    margin-top: 8px;
     display: block;
 }
 
 /* ==========================================================================
-   PAGE 3: CHECK IN/OUT & WIFI (BORDERLESS LIGHT LUXURY)
+   PAGE 3: CHECK IN/OUT & WIFI (EDITORIAL DIVIDER LAYOUT)
    ========================================================================== */
-.schedule-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-    margin: 4px 0 12px;
-}
-.schedule-card {
-    background: #FFFFFF;
-    padding: 16px 14px;
-    border-radius: 14px;
-    border: none;
-    text-align: center;
-    box-shadow: 0 4px 18px rgba(44, 38, 30, 0.04);
-    transition: transform 0.25s ease;
-}
-.schedule-card:hover {
-    transform: translateY(-2px);
-}
-.schedule-icon-badge {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    background: #FAF7F0;
-    color: var(--accent-gold);
+.stay-editorial-schedule {
     display: flex;
+    justify-content: space-around;
     align-items: center;
-    justify-content: center;
-    font-size: 1rem;
-    margin: 0 auto 6px;
+    padding: 12px 0 14px;
+    border-bottom: 1px solid rgba(184, 139, 74, 0.2);
+    flex-shrink: 0;
 }
-.schedule-card h4 {
-    font-family: var(--font-serif);
-    font-size: 0.86rem;
+.stay-sched-col {
+    text-align: center;
+    flex: 1;
+}
+.stay-sched-col:first-child {
+    border-right: 1px solid rgba(184, 139, 74, 0.2);
+}
+.stay-sched-badge {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
     color: var(--accent-gold);
     margin-bottom: 2px;
-    font-weight: 700;
-    letter-spacing: 0.8px;
-    text-transform: uppercase;
 }
-.schedule-card .time {
-    font-size: 1.6rem;
+.stay-sched-time {
+    font-family: var(--font-serif);
+    font-size: 1.85rem;
     font-weight: 800;
     color: var(--text-dark);
+    line-height: 1.1;
     margin-bottom: 2px;
-    font-family: var(--font-serif);
 }
-.schedule-card span {
+.stay-sched-sub {
     font-size: 0.74rem;
     color: var(--text-muted);
 }
 
-.wifi-luxury-card {
-    background: #FFFFFF;
-    color: var(--text-dark);
-    padding: 20px 18px;
-    border-radius: 16px;
-    border: none;
-    text-align: center;
-    box-shadow: 0 6px 24px rgba(184, 139, 74, 0.08), 0 2px 8px rgba(44, 38, 30, 0.03);
-    flex: 1;
+.wifi-editorial-section {
+    padding: 14px 0 6px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
+    flex: 1;
 }
-.wifi-luxury-card .wifi-icon-badge {
-    width: 52px;
-    height: 52px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #FBF8F1 0%, #F5EFE0 100%);
+.wifi-editorial-header {
+    text-align: center;
+    margin-bottom: 8px;
+}
+.wifi-editorial-icon {
+    font-size: 1.8rem;
     color: var(--accent-gold);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.55rem;
-    margin: 0 auto 10px;
-    box-shadow: 0 4px 14px rgba(184, 139, 74, 0.15);
+    margin-bottom: 4px;
+    display: inline-block;
 }
-.wifi-luxury-card h4 {
+.wifi-editorial-title {
     font-family: var(--font-serif);
-    font-size: 1.25rem;
+    font-size: 1.2rem;
     font-weight: 700;
     color: var(--text-dark);
-    margin-bottom: 3px;
+    margin-bottom: 2px;
 }
-.wifi-luxury-card p {
+.wifi-editorial-sub {
     font-size: 0.76rem;
     color: var(--text-muted);
-    margin-bottom: 14px;
 }
-.wifi-pill-row {
+.wifi-editorial-rows {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin: 8px 0;
+}
+.wifi-editorial-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: #F8F6F1;
-    padding: 12px 16px;
-    border-radius: 12px;
-    margin-bottom: 10px;
+    padding: 12px 4px;
+    border-bottom: 1px solid rgba(184, 139, 74, 0.18);
     font-size: 0.88rem;
     color: var(--text-muted);
-    transition: all 0.2s ease;
 }
-.wifi-pill-row.clickable {
+.wifi-editorial-row:first-child {
+    border-top: 1px solid rgba(184, 139, 74, 0.18);
+}
+.wifi-editorial-row.clickable {
     cursor: pointer;
+    transition: background 0.15s ease;
 }
-.wifi-pill-row.clickable:hover {
-    background: #F3EFE7;
-    transform: translateY(-1px);
+.wifi-editorial-row.clickable:hover {
+    background: rgba(184, 139, 74, 0.05);
 }
-.wifi-pill-row strong {
+.wifi-editorial-row strong {
     color: var(--text-dark);
-    font-size: 1rem;
+    font-size: 1.05rem;
     font-weight: 700;
     letter-spacing: 0.5px;
 }
@@ -365,7 +349,7 @@
     background: linear-gradient(135deg, #DFC48A 0%, #B88B4A 100%);
     color: #FFF;
     border: none;
-    padding: 5px 12px;
+    padding: 5px 14px;
     border-radius: 20px;
     font-size: 0.76rem;
     font-weight: 700;
@@ -384,239 +368,199 @@
 }
 
 /* ==========================================================================
-   PAGE 4: OUR ROOMS (BORDERLESS LUXURY SUITES)
+   PAGE 4: OUR ROOMS (EDITORIAL HORIZONTAL DIVIDERS)
    ========================================================================== */
-.room-mini-list {
+.room-editorial-list {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    margin: 0;
-    flex: 1;
     justify-content: space-between;
+    flex: 1;
+    width: 100%;
 }
-.room-mini-item {
+.room-editorial-item {
     display: flex;
-    gap: 14px;
-    background: #FFFFFF;
-    padding: 12px 14px;
-    border-radius: 14px;
-    border: none;
-    box-shadow: 0 4px 18px rgba(44, 38, 30, 0.04);
+    gap: 16px;
     align-items: center;
-    transition: all 0.25s ease;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(184, 139, 74, 0.2);
+    transition: transform 0.2s ease;
 }
-.room-mini-item:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(184, 139, 74, 0.1);
+.room-editorial-item:last-child {
+    border-bottom: none;
 }
-.room-mini-img {
-    width: 120px;
-    height: 86px;
-    border-radius: 10px;
+.room-editorial-item:hover {
+    transform: translateX(3px);
+}
+.room-editorial-img {
+    width: 135px;
+    height: 92px;
+    border-radius: 8px;
     object-fit: cover;
     flex-shrink: 0;
+    box-shadow: 0 4px 14px rgba(44, 38, 30, 0.08);
 }
-.room-mini-info {
+.room-editorial-info {
+    flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    flex: 1;
 }
-.room-mini-tag {
+.room-editorial-tag {
     font-size: 0.65rem;
-    color: var(--accent-gold);
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.8px;
-    background: rgba(184, 139, 74, 0.1);
-    padding: 2px 8px;
-    border-radius: 6px;
-    display: inline-block;
-    align-self: flex-start;
-    margin-bottom: 4px;
+    letter-spacing: 1.2px;
+    color: var(--accent-gold);
+    margin-bottom: 2px;
 }
-.room-mini-info h4 {
-    font-size: 1.02rem;
-    color: var(--text-dark);
-    margin: 1px 0 3px;
+.room-editorial-title {
     font-family: var(--font-serif);
+    font-size: 1.12rem;
     font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 3px;
 }
-.room-mini-info p {
-    font-size: 0.78rem;
-    color: var(--text-muted);
-    line-height: 1.45;
+.room-editorial-desc {
+    font-size: 0.8rem;
+    color: #555;
+    line-height: 1.48;
     margin: 0;
 }
 
 /* ==========================================================================
-   PAGE 5: AMENITIES (BORDERLESS ICON CARDS)
+   PAGE 5: AMENITIES (EDITORIAL 2-COL DIVIDER GRID)
    ========================================================================== */
-.amenity-grid-luxury {
+.amenity-editorial-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 12px;
-    margin: 4px 0 10px;
+    gap: 0 20px;
     flex: 1;
-    align-content: start;
+    align-content: space-evenly;
 }
-.amenity-item-box {
-    background: #FFFFFF;
-    padding: 14px 14px;
-    border-radius: 14px;
-    border: none;
+.amenity-editorial-item {
     display: flex;
     align-items: center;
-    gap: 12px;
-    box-shadow: 0 4px 16px rgba(44, 38, 30, 0.035);
-    transition: all 0.25s ease;
+    gap: 14px;
+    padding: 14px 4px;
+    border-bottom: 1px solid rgba(184, 139, 74, 0.18);
+    transition: transform 0.2s ease;
 }
-.amenity-item-box:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 22px rgba(184, 139, 74, 0.09);
+.amenity-editorial-item:hover {
+    transform: translateX(2px);
 }
-.amenity-icon-wrap {
-    width: 44px;
-    height: 44px;
-    border-radius: 12px;
-    background: #F8F5EE;
+.amenity-editorial-icon {
+    font-size: 1.45rem;
     color: var(--accent-gold);
-    font-size: 1.3rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 32px;
+    text-align: center;
     flex-shrink: 0;
 }
-.amenity-item-box h5 {
-    font-size: 0.92rem;
+.amenity-editorial-title {
+    font-size: 0.95rem;
+    font-weight: 700;
     color: var(--text-dark);
     margin-bottom: 2px;
-    font-weight: 700;
 }
-.amenity-item-box span {
-    font-size: 0.75rem;
-    color: var(--text-muted);
+.amenity-editorial-sub {
+    font-size: 0.76rem;
+    color: #6B665F;
 }
-.amenity-quote-bottom {
-    background: #FFFFFF;
-    border-radius: 14px;
-    border: none;
-    padding: 14px 18px;
+.amenity-editorial-quote {
+    padding-top: 14px;
     text-align: center;
-    box-shadow: 0 4px 18px rgba(44, 38, 30, 0.04);
-    margin-top: 6px;
+    border-top: 1px solid rgba(184, 139, 74, 0.25);
+    margin-top: auto;
 }
-.amenity-quote-bottom .quote-script {
+.amenity-editorial-quote .quote-script {
     font-family: var(--font-script);
-    font-size: 1.8rem;
+    font-size: 1.95rem;
     color: var(--accent-gold);
     display: block;
     line-height: 1.1;
     margin-bottom: 2px;
 }
+.amenity-editorial-quote p {
+    font-size: 0.78rem;
+    color: #555;
+    margin: 0;
+}
 
 /* ==========================================================================
-   PAGE 6 & 7: DINING & COFFEE (CLEAN LIGHT CARDS - NO BLACK BG)
+   PAGE 6 & 7: DINING & COFFEE (EDITORIAL DIVIDER SECTIONS)
    ========================================================================== */
-.dining-stack {
+.dining-editorial-stack {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap: 8px;
-    margin: 0 0 6px;
-    width: 100%;
     flex: 1;
+    width: 100%;
     min-height: 0;
 }
-.dining-card {
-    background: #FFFFFF;
-    color: var(--text-dark);
-    padding: 10px 12px;
-    border-radius: 14px;
-    border: none;
-    box-shadow: 0 4px 18px rgba(44, 38, 30, 0.04);
-    position: relative;
-    box-sizing: border-box;
-    width: 100%;
-    text-align: left;
+.dining-editorial-card {
+    padding: 10px 0 14px;
+    border-bottom: 1px solid rgba(184, 139, 74, 0.2);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     flex: 1;
     min-height: 0;
-    transition: all 0.25s ease;
 }
-.dining-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(184, 139, 74, 0.09);
+.dining-editorial-card:last-child {
+    border-bottom: none;
+    padding-bottom: 4px;
 }
 .dining-badge-gold {
-    background: #FAF4E6;
-    color: #976B28;
-    font-size: 0.6rem;
+    font-size: 0.62rem;
     font-weight: 800;
-    padding: 3px 8px;
-    border-radius: 6px;
+    color: var(--accent-gold);
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 1px;
     display: inline-block;
     margin-bottom: 4px;
-    align-self: flex-start;
 }
 .dining-badge-cyan {
-    background: #EDF7FC;
-    color: #1A628A;
-    font-size: 0.6rem;
+    font-size: 0.62rem;
     font-weight: 800;
-    padding: 3px 8px;
-    border-radius: 6px;
+    color: #1A628A;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 1px;
     display: inline-block;
     margin-bottom: 4px;
-    align-self: flex-start;
 }
 .dining-badge-navy {
-    background: #EEF2F6;
-    color: #274563;
-    font-size: 0.6rem;
+    font-size: 0.62rem;
     font-weight: 800;
-    padding: 3px 8px;
-    border-radius: 6px;
+    color: #274563;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 1px;
     display: inline-block;
     margin-bottom: 4px;
-    align-self: flex-start;
 }
 .dining-badge-wood {
-    background: #F8EFEA;
-    color: #8A4626;
-    font-size: 0.6rem;
+    font-size: 0.62rem;
     font-weight: 800;
-    padding: 3px 8px;
-    border-radius: 6px;
+    color: #8A4626;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 1px;
     display: inline-block;
     margin-bottom: 4px;
-    align-self: flex-start;
 }
 .dining-grid-2 {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 6px;
-    margin-bottom: 4px;
+    gap: 8px;
+    margin-bottom: 6px;
     width: 100%;
 }
 .dining-grid-item {
     position: relative;
     width: 100%;
     height: 114px;
-    border-radius: 8px;
+    border-radius: 6px;
     overflow: hidden;
     background: #EDEAE4;
     flex-shrink: 0;
+    box-shadow: 0 3px 10px rgba(44, 38, 30, 0.06);
 }
 .dining-grid-item img {
     width: 100%;
@@ -625,40 +569,35 @@
     display: block;
     transition: transform 0.3s ease;
 }
-.dining-card:hover .dining-grid-item img {
+.dining-editorial-card:hover .dining-grid-item img {
     transform: scale(1.03);
 }
 .dining-card-title {
     font-family: var(--font-serif);
-    font-size: 0.98rem;
+    font-size: 1.05rem;
     color: var(--text-dark);
-    margin: 3px 0 2px;
+    margin: 2px 0 2px;
     font-weight: 700;
     line-height: 1.25;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
 .dining-card-desc {
-    font-size: 0.72rem;
-    color: var(--text-muted);
-    line-height: 1.45;
+    font-size: 0.74rem;
+    color: #555;
+    line-height: 1.48;
     margin: 0 0 4px;
-    font-weight: 400;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
-    height: 32px;
+    height: 34px;
 }
 .dining-footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 0.7rem;
+    font-size: 0.72rem;
     color: var(--accent-gold);
-    border-top: 1px solid #F2EEE5;
-    padding-top: 5px;
+    padding-top: 3px;
 }
 .dining-footer a {
     color: var(--accent-gold);
@@ -667,51 +606,40 @@
     display: inline-flex;
     align-items: center;
     gap: 4px;
-    transition: color 0.2s ease;
 }
-.dining-footer a:hover {
-    color: #8C6527;
-}
-.dining-perk-box {
-    background: #FFFFFF;
-    padding: 8px 12px;
-    border-radius: 12px;
-    border: none;
-    box-shadow: 0 4px 18px rgba(44, 38, 30, 0.04);
-    font-size: 0.72rem;
-    line-height: 1.4;
+.dining-editorial-perk {
+    padding-top: 10px;
+    border-top: 1px solid rgba(184, 139, 74, 0.25);
+    font-size: 0.74rem;
+    line-height: 1.45;
     color: var(--text-dark);
-    margin-top: 4px;
-    width: 100%;
-    box-sizing: border-box;
-    flex-shrink: 0;
-    min-height: 48px;
+    margin-top: auto;
 }
 
 /* ==========================================================================
-   PAGE 8: 8 ĐIỂM ĐẾN ẤN TƯỢNG (GRID 4x2)
+   PAGE 8: 8 ĐIỂM ĐẾN (4x2 GRID)
    ========================================================================== */
 .page-header-destinations {
-    padding-top: 10px;
-    padding-bottom: 6px;
+    padding-top: 6px;
+    padding-bottom: 8px;
 }
 .exp-grid-flip {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(2, 1fr);
-    gap: 9px 7px;
-    margin: 2px 0 6px;
+    gap: 10px 8px;
+    margin: 4px 0 8px;
     flex: 1;
     align-content: stretch;
     min-height: 0;
 }
 .exp-card-flip {
     background: #FFFFFF;
-    border-radius: 10px;
+    border-radius: 8px;
     overflow: hidden;
-    border: none;
+    border: 1px solid rgba(184, 139, 74, 0.15);
     text-align: center;
-    box-shadow: 0 4px 14px rgba(44, 38, 30, 0.04);
+    box-shadow: 0 3px 10px rgba(44, 38, 30, 0.04);
     display: flex;
     flex-direction: column;
     position: relative;
@@ -719,7 +647,7 @@
 }
 .exp-card-flip:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(184, 139, 74, 0.12);
+    box-shadow: 0 6px 16px rgba(184, 139, 74, 0.12);
 }
 .exp-card-img-wrap {
     position: relative;
@@ -786,72 +714,65 @@
 }
 
 /* ==========================================================================
-   PAGE 9 & 10: TIPS & CHECKLIST (BORDERLESS LUXURY CARDS)
+   PAGE 9 & 10: HOUSE RULES & CHECKLIST (EDITORIAL DIVIDER LISTS)
    ========================================================================== */
-.flip-list {
+.editorial-list {
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    margin: 4px 0;
-    flex: 1;
     justify-content: space-between;
+    flex: 1;
+    width: 100%;
 }
-.flip-list li {
+.editorial-list-item {
     display: flex;
     align-items: center;
-    gap: 16px;
-    background: #FFFFFF;
-    padding: 14px 18px;
-    border-radius: 14px;
-    border: none;
-    box-shadow: 0 4px 18px rgba(44, 38, 30, 0.04);
-    min-height: 70px;
-    box-sizing: border-box;
-    transition: all 0.25s ease;
+    gap: 18px;
+    padding: 15px 4px;
+    border-bottom: 1px solid rgba(184, 139, 74, 0.2);
+    transition: transform 0.2s ease;
 }
-.flip-list li:hover {
+.editorial-list-item:last-child {
+    border-bottom: none;
+}
+.editorial-list-item:hover {
     transform: translateX(3px);
-    box-shadow: 0 8px 24px rgba(184, 139, 74, 0.1);
 }
-.flip-list-num {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #DFC48A 0%, #B88B4A 100%);
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.05rem;
-    font-weight: 800;
-    flex-shrink: 0;
-    box-shadow: 0 4px 12px rgba(184, 139, 74, 0.25);
-}
-.flip-checklist-wrap {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: #F8F5EE;
-    color: var(--accent-gold);
-    font-size: 1.35rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-}
-.flip-list li strong {
-    font-size: 0.98rem;
-    color: var(--text-dark);
+.editorial-num-badge {
+    font-family: var(--font-serif);
+    font-size: 1.55rem;
     font-weight: 700;
-    display: block;
-    margin-bottom: 2px;
+    color: var(--accent-gold);
+    width: 36px;
+    text-align: center;
+    flex-shrink: 0;
+    line-height: 1;
 }
-.flip-list li p, .flip-list li span {
-    font-size: 0.82rem !important;
-    line-height: 1.5 !important;
-    color: var(--text-muted) !important;
-    margin: 0;
+.editorial-check-badge {
+    width: 34px;
+    height: 34px;
+    border: 1.5px solid var(--accent-gold);
+    border-radius: 50%;
+    color: var(--accent-gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+.editorial-item-content {
+    flex: 1;
+}
+.editorial-item-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 3px;
+}
+.editorial-item-desc {
+    font-size: 0.84rem;
+    color: #555;
+    line-height: 1.55;
 }
 
 /* ==========================================================================
@@ -860,9 +781,9 @@
 .qr-frame {
     padding: 12px;
     background: #FFFFFF;
-    border-radius: 14px;
-    box-shadow: 0 6px 24px rgba(44, 38, 30, 0.06);
-    border: none;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(44, 38, 30, 0.08);
+    border: 1px solid rgba(184, 139, 74, 0.25);
     margin: 10px 0 6px;
     display: inline-flex;
     flex-direction: column;
@@ -891,23 +812,20 @@
     letter-spacing: 0.3px;
 }
 .thankyou-contact-card {
-    background: #FFFFFF;
-    padding: 14px 20px;
-    border-radius: 14px;
-    border: none;
-    box-shadow: 0 4px 18px rgba(44, 38, 30, 0.04);
+    padding-top: 12px;
+    border-top: 1px solid rgba(184, 139, 74, 0.25);
     margin-top: 8px;
-    width: 90%;
+    width: 95%;
     margin-left: auto;
     margin-right: auto;
 }
 .contact-info-block {
-    font-size: 0.84rem;
-    line-height: 1.6;
+    font-size: 0.86rem;
+    line-height: 1.65;
     color: #555;
 }
 .contact-info-block strong {
-    font-size: 0.94rem;
+    font-size: 0.96rem;
     letter-spacing: 0.5px;
     color: var(--text-dark);
 }
@@ -923,7 +841,7 @@
     .brand-header { margin-bottom: 4px; }
     .brand-header h1 { font-size: 1.15rem; letter-spacing: 3px; }
     .brand-header p { font-size: 0.65rem; letter-spacing: 1px; }
-    .page-content { padding: 14px 14px 12px; }
+    .page-content { padding: 16px 16px 12px; }
     .page-title { font-size: 1.35rem; }
     .page-desc { font-size: 0.78rem; }
     .bottom-nav-bar { padding: 4px 8px; gap: 4px; bottom: max(8px, env(safe-area-inset-bottom, 8px)); }
@@ -934,11 +852,22 @@
     .cover-gold-badge { width: 55px; height: 55px; font-size: 1.4rem; margin-bottom: 10px; }
     .cover-script { font-size: 1.55rem; }
     .welcome-photo { min-height: 140px; }
-    .room-mini-img { width: 95px; height: 72px; }
+    .room-editorial-img { width: 100px; height: 75px; }
+    .room-editorial-title { font-size: 1rem; }
+    .room-editorial-desc { font-size: 0.74rem; }
+    .amenity-editorial-grid { gap: 0 10px; }
+    .amenity-editorial-item { padding: 10px 0; gap: 10px; }
+    .amenity-editorial-icon { font-size: 1.2rem; width: 24px; }
+    .amenity-editorial-title { font-size: 0.86rem; }
+    .amenity-editorial-sub { font-size: 0.7rem; }
     .dining-grid-item { height: 95px; }
     .exp-grid-flip { grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(4, 1fr); gap: 6px 5px; }
     .exp-card-img-wrap { min-height: 58px; }
-    .flip-list li { min-height: 60px; padding: 10px 12px; gap: 10px; }
-    .flip-list-num, .flip-checklist-wrap { width: 34px; height: 34px; font-size: 0.9rem; }
+    .editorial-list-item { padding: 10px 0; gap: 12px; }
+    .editorial-num-badge { font-size: 1.25rem; width: 28px; }
+    .editorial-check-badge { width: 28px; height: 28px; font-size: 0.85rem; }
+    .editorial-item-title { font-size: 0.95rem; }
+    .editorial-item-desc { font-size: 0.76rem; }
+    .stay-sched-time { font-size: 1.5rem; }
     .booklet-sides-row { grid-template-columns: 1fr; }
 }
