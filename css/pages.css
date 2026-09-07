@@ -657,10 +657,10 @@
 }
 
 /* ==========================================================================
-   PAGE 8: 8 ĐIỂM ĐẾN (4x2 GRID)
+   PAGE 8: 8 ĐIỂM ĐẾN (4x2 GRID - EQUAL IMAGE HEIGHT & LUXURY RESORT UI)
    ========================================================================== */
 .page-header-destinations {
-    padding-top: 6px;
+    padding-top: 4px;
     padding-bottom: 8px;
 }
 .exp-grid-flip {
@@ -677,23 +677,24 @@
     background: #FFFFFF;
     border-radius: 8px;
     overflow: hidden;
-    border: 1px solid rgba(184, 139, 74, 0.15);
+    border: 1px solid rgba(184, 139, 74, 0.18);
     text-align: center;
     box-shadow: 0 4px 14px rgba(44, 38, 30, 0.05);
     display: flex;
     flex-direction: column;
     position: relative;
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 .exp-card-flip:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(184, 139, 74, 0.15);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 22px rgba(184, 139, 74, 0.18);
+    border-color: rgba(184, 139, 74, 0.35);
 }
 .exp-card-img-wrap {
     position: relative;
     width: 100%;
-    flex: 1.4;
-    min-height: 82px;
+    flex: 1;
+    min-height: 0;
     overflow: hidden;
     background: #EDEAE4;
 }
@@ -702,55 +703,71 @@
     height: 100%;
     object-fit: cover;
     display: block;
-    transition: transform 0.4s ease;
+    transition: transform 0.45s cubic-bezier(0.2, 0, 0.2, 1);
 }
 .exp-card-flip:hover .exp-card-img-wrap img {
-    transform: scale(1.06);
+    transform: scale(1.08);
 }
 .exp-card-badge {
     position: absolute;
-    top: 4px;
-    left: 4px;
-    background: rgba(22, 20, 18, 0.75);
+    top: 5px;
+    left: 5px;
+    background: rgba(22, 20, 18, 0.78);
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
     color: var(--accent-gold-light);
-    font-size: 0.52rem;
+    font-family: var(--font-serif);
+    font-size: 0.58rem;
     font-weight: 700;
-    padding: 1px 5px;
-    border-radius: 3px;
-    letter-spacing: 0.5px;
+    padding: 1.5px 5.5px;
+    border-radius: 4px;
+    letter-spacing: 0.8px;
     z-index: 2;
-    border: 1px solid rgba(197, 160, 89, 0.35);
+    border: 1px solid rgba(197, 160, 89, 0.4);
     line-height: 1.2;
 }
 .exp-card-flip-info {
-    padding: 5px 4px 5px;
+    height: 52px;
+    min-height: 52px;
+    max-height: 52px;
+    padding: 4px 6px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
     background: #FFFFFF;
-    border-top: 1px solid rgba(0,0,0,0.03);
+    border-top: 1px solid rgba(184, 139, 74, 0.12);
     flex-shrink: 0;
+    box-sizing: border-box;
 }
 .exp-card-flip-info h5 {
-    font-size: 0.66rem;
+    font-family: var(--font-serif);
+    font-size: 0.69rem;
     font-weight: 700;
-    color: var(--text-dark);
-    margin: 0 0 1px;
+    color: #1A1816;
+    margin: 0;
     line-height: 1.2;
-    white-space: normal;
     letter-spacing: -0.1px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
 }
 .exp-card-flip-info p {
     font-size: 0.54rem;
-    color: var(--text-muted);
+    color: #6E685F;
     font-weight: 400;
-    margin: 0;
+    margin: 1px 0 0;
     line-height: 1.2;
-    white-space: normal;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
 }
 
 /* ==========================================================================
@@ -905,8 +922,10 @@
     .amenity-editorial-sub { font-size: 0.7rem; }
     .dining-grid-item { height: 95px; }
     .exp-grid-flip { grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(4, 1fr); gap: 6px 5px; }
-    .exp-card-img-wrap { min-height: 58px; }
-    .editorial-list-item { padding: 10px 0; gap: 12px; }
+    .exp-card-img-wrap { min-height: 0; }
+    .exp-card-flip-info { height: 46px; min-height: 46px; max-height: 46px; padding: 2px 4px; }
+    .exp-card-flip-info h5 { font-size: 0.65rem; height: 22px; }
+    .exp-card-flip-info p { font-size: 0.52rem; height: 18px; }
     .editorial-num-badge { font-size: 1.25rem; width: 28px; }
     .editorial-check-badge { width: 28px; height: 28px; font-size: 0.85rem; }
     .editorial-item-title { font-size: 0.95rem; }
