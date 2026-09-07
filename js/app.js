@@ -71,12 +71,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // WiFi Copy Binding
-    const wifiCopyRow = document.getElementById('wifiCopyRow');
-    if (wifiCopyRow) {
-        wifiCopyRow.addEventListener('click', () => {
-            copyText(SITE_CONFIG.wifi.pass, `Đã sao chép mật khẩu WiFi: ${SITE_CONFIG.wifi.pass}`);
-        });
-    }
+    document.addEventListener('click', (e) => {
+        const wifiRow = e.target.closest('#wifiCopyRow') || e.target.closest('.wifi-pill-row.clickable');
+        if (wifiRow) {
+            triggerHaptic(20);
+            window.copyText(SITE_CONFIG.wifi.pass, `Đã sao chép mật khẩu WiFi: ${SITE_CONFIG.wifi.pass}`);
+        }
+    });
 
     // Event Listeners for Toolbar Controls
     if (prevBtn) {

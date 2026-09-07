@@ -4,7 +4,7 @@ import { ROOMS_DATA } from '../config/rooms-data.js';
 
 export function renderPage03Accommodations() {
     const headerHTML = PageHeader({
-        eyebrow: "Boutique Accommodations",
+        eyebrow: "BOUTIQUE ACCOMMODATIONS",
         title: "Không Gian Lưu Trú",
         desc: "Hình ảnh thực tế 3 hạng phòng sạch tinh tươm"
     });

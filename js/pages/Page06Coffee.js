@@ -49,7 +49,7 @@ export function renderPage06Coffee() {
                     Mang đậm âm hưởng hoài cổ với thiết kế gỗ mộc mạc. Chốn dừng chân yên tĩnh lý tưởng để nhâm nhi ly cà phê sáng gần homestay.
                 </p>
                 <div class="dining-footer">
-                    <a href="https://maps.google.com" target="_blank"><i class="fa-solid fa-location-dot"></i> 54-56 Phan Trọng Tuệ, Hoài Nhơn Đông</a>
+                    <a href="https://maps.google.com" target="_blank"><i class="fa-solid fa-location-dot"></i> 54-56 Phan Trọng Tuệ</a>
                     <a href="tel:0965470833"><strong><i class="fa-solid fa-phone"></i> 0965 470 833</strong></a>
                 </div>
             </div>

@@ -3,7 +3,7 @@ import { PageHeader } from '../components/PageHeader.js';
 
 export function renderPage01Sanctuary() {
     const headerHTML = PageHeader({
-        eyebrow: "Welcome To Sanctuary",
+        eyebrow: "WELCOME TO SANCTUARY",
         title: "Lời Ngỏ",
         desc: "Chào mừng bạn ghé thăm GAJO's HOUSE"
     });
@@ -15,11 +15,11 @@ export function renderPage01Sanctuary() {
             "Một không gian lưu trú boutique mới xây được chăm chút tỉ mỉ từng chi tiết, tĩnh lặng và sạch không tì vết để bạn tái tạo trọn vẹn nguồn năng lượng."
         </div>
 
-        <p style="font-size:0.86rem; color:#444; line-height:1.65; margin:8px 0;">
-            Tọa lạc tại vùng Hoài Nhơn Đông thanh bình, homestay mang phong cách tối giản Japandi giao hòa cùng vẻ đẹp mộc mạc của Gia Lai.
+        <p style="font-size:0.86rem; color:#555; line-height:1.65; margin:6px 0 8px;">
+            Tọa lạc tại vùng Hoài Nhơn Đông thanh bình, homestay mang phong cách tối giản Japandi giao hòa cùng vẻ đẹp mộc mạc và sự hiếu khách ấm áp.
         </p>
 
-        <img src="assets/gajo-interior.jpg" class="welcome-photo" alt="Nội thất GAJO's HOUSE" style="flex:1; height:auto; max-height:none; min-height:160px; object-fit:cover;">
+        <img src="assets/gajo-interior.jpg" class="welcome-photo" alt="Nội thất GAJO's HOUSE">
     </div>`;
 
     return PageContainer({

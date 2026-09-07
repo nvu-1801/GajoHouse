@@ -1,5 +1,5 @@
 /**
- * Component InfoCard - List items & card helpers
+ * Component InfoCard - List items & card helpers with borderless luxury design
  */
 export function InfoCardList({ items = [] }) {
     return `
@@ -7,7 +7,7 @@ export function InfoCardList({ items = [] }) {
         ${items.map(item => `
             <li>
                 ${item.num ? `<div class="flip-list-num">${item.num}</div>` : ''}
-                ${item.icon ? `<i class="${item.icon} flip-checklist-icon"></i>` : ''}
+                ${item.icon ? `<div class="flip-checklist-wrap"><i class="${item.icon}"></i></div>` : ''}
                 <div>
                     <strong>${item.title}</strong>
                     <p>${item.desc}</p>

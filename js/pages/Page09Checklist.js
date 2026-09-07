@@ -4,9 +4,9 @@ import { InfoCardList } from '../components/InfoCard.js';
 
 export function renderPage09Checklist() {
     const headerHTML = PageHeader({
-        eyebrow: "Departure Checklist",
+        eyebrow: "DEPARTURE CHECKLIST",
         title: "Trước Khi Rời Đi",
-        desc: "Kiểm tra tư trang & thủ tục trả phòng"
+        desc: "Kiểm tra tư trang & thủ tục trả phòng chu đáo"
     });
 
     const checklistItems = [

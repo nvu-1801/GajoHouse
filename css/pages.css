@@ -1,5 +1,5 @@
 /* ==========================================================================
-   4. PAGES (Flipbook Individual Pages & Rule-Compliant Layouts)
+   4. PAGES (Flipbook Individual Pages & Japandi Minimalist Luxury Layouts)
    ========================================================================== */
 
 /* PAGE BASE STYLES */
@@ -12,19 +12,19 @@
     display: flex;
     flex-direction: column;
     position: relative;
-    box-shadow: inset 0 0 30px rgba(0,0,0,0.04);
+    box-shadow: inset 0 0 30px rgba(44, 38, 30, 0.03);
     box-sizing: border-box;
     contain: layout paint;
 }
 
 /* Realistic Paper Spine Gradient */
 .page.--left {
-    box-shadow: inset -18px 0 28px -10px rgba(0,0,0,0.14), inset 0 0 20px rgba(0,0,0,0.03);
-    border-right: 1px solid rgba(0,0,0,0.06);
+    box-shadow: inset -18px 0 28px -10px rgba(0,0,0,0.12), inset 0 0 20px rgba(0,0,0,0.02);
+    border-right: 1px solid rgba(0,0,0,0.04);
 }
 .page.--right {
-    box-shadow: inset 18px 0 28px -10px rgba(0,0,0,0.14), inset 0 0 20px rgba(0,0,0,0.03);
-    border-left: 1px solid rgba(0,0,0,0.06);
+    box-shadow: inset 18px 0 28px -10px rgba(0,0,0,0.12), inset 0 0 20px rgba(0,0,0,0.02);
+    border-left: 1px solid rgba(0,0,0,0.04);
 }
 
 /* HARDCOVER STYLING */
@@ -151,7 +151,7 @@
 
 /* INNER PAGE TYPOGRAPHY & BALANCED CENTER LAYOUT */
 .page-content {
-    padding: 18px 20px 14px;
+    padding: 22px 24px 16px;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -168,8 +168,8 @@
 }
 .page-header {
     text-align: center;
-    padding-top: 4px;
-    padding-bottom: 8px;
+    padding-top: 2px;
+    padding-bottom: 10px;
     flex-shrink: 0;
 }
 .page-main-content {
@@ -181,7 +181,7 @@
 }
 .page-eyebrow {
     font-size: 0.75rem;
-    letter-spacing: 2.8px;
+    letter-spacing: 3px;
     text-transform: uppercase;
     color: var(--accent-gold);
     font-weight: 700;
@@ -189,7 +189,7 @@
 }
 .page-title {
     font-family: var(--font-serif);
-    font-size: clamp(1.4rem, 2.3vw, 1.85rem);
+    font-size: clamp(1.45rem, 2.4vw, 1.95rem);
     color: var(--text-dark);
     line-height: 1.25;
     margin-bottom: 4px;
@@ -206,137 +206,213 @@
     align-items: center;
     font-size: 0.74rem;
     color: #9C968D;
-    border-top: 1px solid rgba(0,0,0,0.08);
-    padding-top: 9px;
+    border-top: 1px solid rgba(0,0,0,0.06);
+    padding-top: 10px;
     margin-top: 8px;
     flex-shrink: 0;
 }
 .page-number {
     font-family: var(--font-serif);
     font-weight: 700;
-    font-size: 0.86rem;
+    font-size: 0.88rem;
     color: var(--accent-gold);
 }
 
-/* PAGE 2: WELCOME */
+/* ==========================================================================
+   PAGE 2: WELCOME (LỜI NGỎ)
+   ========================================================================== */
 .welcome-quote-box {
-    background: rgba(255,255,255,0.95);
+    background: #FFFFFF;
     border-left: 4px solid var(--accent-gold);
-    padding: 14px 16px;
-    border-radius: 0 8px 8px 0;
-    margin: 10px 0;
+    padding: 16px 18px;
+    border-radius: 0 12px 12px 0;
+    margin: 8px 0;
     font-style: italic;
-    font-size: 0.88rem;
+    font-size: 0.9rem;
     color: #3A3835;
     line-height: 1.65;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.04);
+    box-shadow: 0 4px 18px rgba(44, 38, 30, 0.04);
 }
 .welcome-photo {
     width: 100%;
     flex: 1;
     min-height: 165px;
     object-fit: cover;
-    border-radius: 8px;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.09);
-    border: 1px solid rgba(0,0,0,0.06);
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(44, 38, 30, 0.06);
     margin-top: 10px;
     display: block;
 }
 
-/* PAGE 3: CHECK IN/OUT & WIFI */
+/* ==========================================================================
+   PAGE 3: CHECK IN/OUT & WIFI (BORDERLESS LIGHT LUXURY)
+   ========================================================================== */
 .schedule-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 12px;
-    margin: 8px 0 16px;
+    margin: 4px 0 12px;
 }
 .schedule-card {
-    background: var(--bg-white);
-    padding: 14px 12px;
-    border-radius: 8px;
-    border: 1px solid rgba(197, 160, 89, 0.2);
+    background: #FFFFFF;
+    padding: 16px 14px;
+    border-radius: 14px;
+    border: none;
     text-align: center;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.04);
+    box-shadow: 0 4px 18px rgba(44, 38, 30, 0.04);
+    transition: transform 0.25s ease;
+}
+.schedule-card:hover {
+    transform: translateY(-2px);
+}
+.schedule-icon-badge {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #FAF7F0;
+    color: var(--accent-gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    margin: 0 auto 6px;
 }
 .schedule-card h4 {
     font-family: var(--font-serif);
-    font-size: 0.95rem;
+    font-size: 0.86rem;
     color: var(--accent-gold);
-    margin-bottom: 4px;
+    margin-bottom: 2px;
     font-weight: 700;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
 }
 .schedule-card .time {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     font-weight: 800;
     color: var(--text-dark);
-    margin-bottom: 3px;
+    margin-bottom: 2px;
+    font-family: var(--font-serif);
 }
-.wifi-luxury-box {
-    background: var(--bg-dark);
-    color: #FFF;
-    padding: 18px 16px;
-    border-radius: 10px;
+.schedule-card span {
+    font-size: 0.74rem;
+    color: var(--text-muted);
+}
+
+.wifi-luxury-card {
+    background: #FFFFFF;
+    color: var(--text-dark);
+    padding: 20px 18px;
+    border-radius: 16px;
+    border: none;
     text-align: center;
-    border: 1px solid rgba(197, 160, 89, 0.35);
-    box-shadow: 0 6px 20px rgba(0,0,0,0.18);
+    box-shadow: 0 6px 24px rgba(184, 139, 74, 0.08), 0 2px 8px rgba(44, 38, 30, 0.03);
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
-.wifi-luxury-box i.wifi-icon-main {
-    font-size: 2.2rem;
+.wifi-luxury-card .wifi-icon-badge {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #FBF8F1 0%, #F5EFE0 100%);
     color: var(--accent-gold);
-    margin-bottom: 6px;
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.55rem;
+    margin: 0 auto 10px;
+    box-shadow: 0 4px 14px rgba(184, 139, 74, 0.15);
 }
-.wifi-row {
+.wifi-luxury-card h4 {
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 3px;
+}
+.wifi-luxury-card p {
+    font-size: 0.76rem;
+    color: var(--text-muted);
+    margin-bottom: 14px;
+}
+.wifi-pill-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: rgba(255,255,255,0.08);
-    padding: 10px 14px;
-    border-radius: 6px;
-    margin-top: 8px;
-    font-size: 0.86rem;
-    transition: background 0.2s ease;
+    background: #F8F6F1;
+    padding: 12px 16px;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    transition: all 0.2s ease;
 }
-.wifi-row.clickable {
+.wifi-pill-row.clickable {
     cursor: pointer;
 }
-.wifi-row.clickable:active {
-    background: rgba(197, 160, 89, 0.3);
+.wifi-pill-row.clickable:hover {
+    background: #F3EFE7;
+    transform: translateY(-1px);
 }
-.wifi-row strong {
-    color: var(--accent-gold-light);
-    font-size: 0.98rem;
+.wifi-pill-row strong {
+    color: var(--text-dark);
+    font-size: 1rem;
+    font-weight: 700;
     letter-spacing: 0.5px;
 }
+.wifi-copy-btn {
+    background: linear-gradient(135deg, #DFC48A 0%, #B88B4A 100%);
+    color: #FFF;
+    border: none;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.76rem;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(184, 139, 74, 0.25);
+}
+.wifi-copy-hint {
+    font-size: 0.72rem;
+    color: var(--accent-gold);
+    font-weight: 600;
+    margin-top: 6px;
+    text-align: center;
+}
 
-/* PAGE 4: OUR ROOMS */
+/* ==========================================================================
+   PAGE 4: OUR ROOMS (BORDERLESS LUXURY SUITES)
+   ========================================================================== */
 .room-mini-list {
     display: flex;
     flex-direction: column;
-    gap: 0;
+    gap: 10px;
     margin: 0;
     flex: 1;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 .room-mini-item {
     display: flex;
-    gap: 12px;
-    background: var(--bg-white);
-    padding: 11px 12px;
-    border-radius: 8px;
-    border: 1px solid rgba(197, 160, 89, 0.2);
-    box-shadow: 0 3px 10px rgba(0,0,0,0.04);
+    gap: 14px;
+    background: #FFFFFF;
+    padding: 12px 14px;
+    border-radius: 14px;
+    border: none;
+    box-shadow: 0 4px 18px rgba(44, 38, 30, 0.04);
     align-items: center;
+    transition: all 0.25s ease;
+}
+.room-mini-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(184, 139, 74, 0.1);
 }
 .room-mini-img {
-    width: 108px;
-    height: 82px;
-    border-radius: 6px;
+    width: 120px;
+    height: 86px;
+    border-radius: 10px;
     object-fit: cover;
     flex-shrink: 0;
 }
@@ -347,73 +423,101 @@
     flex: 1;
 }
 .room-mini-tag {
-    font-size: 0.68rem;
+    font-size: 0.65rem;
     color: var(--accent-gold);
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.8px;
+    background: rgba(184, 139, 74, 0.1);
+    padding: 2px 8px;
+    border-radius: 6px;
+    display: inline-block;
+    align-self: flex-start;
+    margin-bottom: 4px;
 }
 .room-mini-info h4 {
-    font-size: 0.98rem;
+    font-size: 1.02rem;
     color: var(--text-dark);
-    margin: 2px 0;
+    margin: 1px 0 3px;
     font-family: var(--font-serif);
     font-weight: 700;
 }
 .room-mini-info p {
     font-size: 0.78rem;
-    color: #555;
+    color: var(--text-muted);
     line-height: 1.45;
     margin: 0;
 }
 
-/* PAGE 5: AMENITIES */
+/* ==========================================================================
+   PAGE 5: AMENITIES (BORDERLESS ICON CARDS)
+   ========================================================================== */
 .amenity-grid-luxury {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    margin: 10px 0 12px;
+    gap: 12px;
+    margin: 4px 0 10px;
     flex: 1;
     align-content: start;
 }
 .amenity-item-box {
-    background: var(--bg-white);
-    padding: 13px 11px;
-    border-radius: 8px;
-    border: 1px solid rgba(197, 160, 89, 0.18);
+    background: #FFFFFF;
+    padding: 14px 14px;
+    border-radius: 14px;
+    border: none;
     display: flex;
     align-items: center;
-    gap: 10px;
-    box-shadow: 0 3px 8px rgba(0,0,0,0.03);
+    gap: 12px;
+    box-shadow: 0 4px 16px rgba(44, 38, 30, 0.035);
+    transition: all 0.25s ease;
 }
-.amenity-item-box i {
-    font-size: 1.4rem;
+.amenity-item-box:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 22px rgba(184, 139, 74, 0.09);
+}
+.amenity-icon-wrap {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: #F8F5EE;
     color: var(--accent-gold);
-    width: 26px;
-    text-align: center;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     flex-shrink: 0;
 }
 .amenity-item-box h5 {
-    font-size: 0.88rem;
+    font-size: 0.92rem;
     color: var(--text-dark);
     margin-bottom: 2px;
     font-weight: 700;
 }
 .amenity-item-box span {
-    font-size: 0.72rem;
-    color: #777;
+    font-size: 0.75rem;
+    color: var(--text-muted);
 }
 .amenity-quote-bottom {
-    background: var(--bg-white);
-    border-radius: 8px;
-    padding: 12px 16px;
-    border: 1px solid rgba(197, 160, 89, 0.2);
+    background: #FFFFFF;
+    border-radius: 14px;
+    border: none;
+    padding: 14px 18px;
     text-align: center;
-    box-shadow: 0 3px 8px rgba(0,0,0,0.03);
-    margin-top: 10px;
+    box-shadow: 0 4px 18px rgba(44, 38, 30, 0.04);
+    margin-top: 6px;
+}
+.amenity-quote-bottom .quote-script {
+    font-family: var(--font-script);
+    font-size: 1.8rem;
+    color: var(--accent-gold);
+    display: block;
+    line-height: 1.1;
+    margin-bottom: 2px;
 }
 
-/* PAGE 6 & 7: DINING & COFFEE */
+/* ==========================================================================
+   PAGE 6 & 7: DINING & COFFEE (CLEAN LIGHT CARDS - NO BLACK BG)
+   ========================================================================== */
 .dining-stack {
     display: flex;
     flex-direction: column;
@@ -425,12 +529,12 @@
     min-height: 0;
 }
 .dining-card {
-    background: var(--bg-dark);
-    color: #FFF;
-    padding: 7px 9px;
-    border-radius: 8px;
-    border: 1px solid rgba(197, 160, 89, 0.35);
-    box-shadow: 0 4px 14px rgba(0,0,0,0.18);
+    background: #FFFFFF;
+    color: var(--text-dark);
+    padding: 10px 12px;
+    border-radius: 14px;
+    border: none;
+    box-shadow: 0 4px 18px rgba(44, 38, 30, 0.04);
     position: relative;
     box-sizing: border-box;
     width: 100%;
@@ -440,13 +544,18 @@
     justify-content: space-between;
     flex: 1;
     min-height: 0;
+    transition: all 0.25s ease;
+}
+.dining-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(184, 139, 74, 0.09);
 }
 .dining-badge-gold {
-    background: #FFEAA7;
-    color: #2D271D;
-    font-size: 0.58rem;
+    background: #FAF4E6;
+    color: #976B28;
+    font-size: 0.6rem;
     font-weight: 800;
-    padding: 2px 7px;
+    padding: 3px 8px;
     border-radius: 6px;
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -455,11 +564,11 @@
     align-self: flex-start;
 }
 .dining-badge-cyan {
-    background: #DDF4FF;
-    color: #0A3D62;
-    font-size: 0.58rem;
+    background: #EDF7FC;
+    color: #1A628A;
+    font-size: 0.6rem;
     font-weight: 800;
-    padding: 2px 7px;
+    padding: 3px 8px;
     border-radius: 6px;
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -468,12 +577,11 @@
     align-self: flex-start;
 }
 .dining-badge-navy {
-    background: #142838;
-    color: #FFFFFF;
-    border: 1px solid rgba(255,255,255,0.25);
-    font-size: 0.58rem;
+    background: #EEF2F6;
+    color: #274563;
+    font-size: 0.6rem;
     font-weight: 800;
-    padding: 2px 7px;
+    padding: 3px 8px;
     border-radius: 6px;
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -482,11 +590,11 @@
     align-self: flex-start;
 }
 .dining-badge-wood {
-    background: #5C3D2E;
-    color: #FFE6D8;
-    font-size: 0.58rem;
+    background: #F8EFEA;
+    color: #8A4626;
+    font-size: 0.6rem;
     font-weight: 800;
-    padding: 2px 7px;
+    padding: 3px 8px;
     border-radius: 6px;
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -505,9 +613,9 @@
     position: relative;
     width: 100%;
     height: 114px;
-    border-radius: 6px;
+    border-radius: 8px;
     overflow: hidden;
-    background: #1e1b18;
+    background: #EDEAE4;
     flex-shrink: 0;
 }
 .dining-grid-item img {
@@ -515,12 +623,16 @@
     height: 100%;
     object-fit: cover;
     display: block;
+    transition: transform 0.3s ease;
+}
+.dining-card:hover .dining-grid-item img {
+    transform: scale(1.03);
 }
 .dining-card-title {
     font-family: var(--font-serif);
-    font-size: 0.92rem;
-    color: var(--accent-gold-light);
-    margin: 2px 0 2px;
+    font-size: 0.98rem;
+    color: var(--text-dark);
+    margin: 3px 0 2px;
     font-weight: 700;
     line-height: 1.25;
     white-space: nowrap;
@@ -528,9 +640,9 @@
     text-overflow: ellipsis;
 }
 .dining-card-desc {
-    font-size: 0.68rem;
-    color: #E6E0D6;
-    line-height: 1.4;
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    line-height: 1.45;
     margin: 0 0 4px;
     font-weight: 400;
     display: -webkit-box;
@@ -543,13 +655,14 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 0.65rem;
-    color: var(--accent-gold-light);
-    border-top: 1px solid rgba(255,255,255,0.14);
-    padding-top: 4px;
+    font-size: 0.7rem;
+    color: var(--accent-gold);
+    border-top: 1px solid #F2EEE5;
+    padding-top: 5px;
 }
 .dining-footer a {
-    color: var(--accent-gold-light);
+    color: var(--accent-gold);
+    font-weight: 600;
     text-decoration: none;
     display: inline-flex;
     align-items: center;
@@ -557,14 +670,15 @@
     transition: color 0.2s ease;
 }
 .dining-footer a:hover {
-    color: #FFF;
+    color: #8C6527;
 }
 .dining-perk-box {
-    background: var(--bg-white);
-    padding: 7px 10px;
-    border-radius: 8px;
-    border: 1px solid rgba(197, 160, 89, 0.2);
-    font-size: 0.66rem;
+    background: #FFFFFF;
+    padding: 8px 12px;
+    border-radius: 12px;
+    border: none;
+    box-shadow: 0 4px 18px rgba(44, 38, 30, 0.04);
+    font-size: 0.72rem;
     line-height: 1.4;
     color: var(--text-dark);
     margin-top: 4px;
@@ -574,10 +688,12 @@
     min-height: 48px;
 }
 
-/* PAGE 8: 8 ĐIỂM ĐẾN ẤN TƯỢNG (GRID 4x2) */
+/* ==========================================================================
+   PAGE 8: 8 ĐIỂM ĐẾN ẤN TƯỢNG (GRID 4x2)
+   ========================================================================== */
 .page-header-destinations {
-    padding-top: 14px;
-    padding-bottom: 7px;
+    padding-top: 10px;
+    padding-bottom: 6px;
 }
 .exp-grid-flip {
     display: grid;
@@ -591,11 +707,11 @@
 }
 .exp-card-flip {
     background: #FFFFFF;
-    border-radius: 8px;
+    border-radius: 10px;
     overflow: hidden;
-    border: 1px solid rgba(197, 160, 89, 0.22);
+    border: none;
     text-align: center;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.04);
+    box-shadow: 0 4px 14px rgba(44, 38, 30, 0.04);
     display: flex;
     flex-direction: column;
     position: relative;
@@ -603,8 +719,7 @@
 }
 .exp-card-flip:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 14px rgba(0,0,0,0.08);
-    border-color: var(--accent-gold);
+    box-shadow: 0 8px 20px rgba(184, 139, 74, 0.12);
 }
 .exp-card-img-wrap {
     position: relative;
@@ -612,7 +727,7 @@
     flex: 1.4;
     min-height: 82px;
     overflow: hidden;
-    background: #201D1A;
+    background: #EDEAE4;
 }
 .exp-card-img-wrap img {
     width: 100%;
@@ -649,11 +764,11 @@
     align-items: center;
     text-align: center;
     background: #FFFFFF;
-    border-top: 1px solid rgba(0,0,0,0.04);
+    border-top: 1px solid rgba(0,0,0,0.03);
     flex-shrink: 0;
 }
 .exp-card-flip-info h5 {
-    font-size: 0.64rem;
+    font-size: 0.66rem;
     font-weight: 700;
     color: var(--text-dark);
     margin: 0 0 1px;
@@ -662,90 +777,102 @@
     letter-spacing: -0.1px;
 }
 .exp-card-flip-info p {
-    font-size: 0.52rem;
-    color: #6B665F;
+    font-size: 0.54rem;
+    color: var(--text-muted);
     font-weight: 400;
     margin: 0;
     line-height: 1.2;
     white-space: normal;
 }
 
-/* PAGE 9 & 10: TIPS & CHECKLIST */
+/* ==========================================================================
+   PAGE 9 & 10: TIPS & CHECKLIST (BORDERLESS LUXURY CARDS)
+   ========================================================================== */
 .flip-list {
     list-style: none;
     display: flex;
     flex-direction: column;
     gap: 12px;
-    margin: 6px 0;
+    margin: 4px 0;
     flex: 1;
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
 .flip-list li {
     display: flex;
     align-items: center;
-    gap: 14px;
-    background: var(--bg-white);
-    padding: 13px 16px;
-    border-radius: 10px;
-    border: 1px solid rgba(197, 160, 89, 0.22);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
-    min-height: 68px;
+    gap: 16px;
+    background: #FFFFFF;
+    padding: 14px 18px;
+    border-radius: 14px;
+    border: none;
+    box-shadow: 0 4px 18px rgba(44, 38, 30, 0.04);
+    min-height: 70px;
     box-sizing: border-box;
-    transition: transform 0.2s ease;
+    transition: all 0.25s ease;
 }
 .flip-list li:hover {
-    transform: translateX(2px);
-    border-color: var(--accent-gold);
+    transform: translateX(3px);
+    box-shadow: 0 8px 24px rgba(184, 139, 74, 0.1);
 }
 .flip-list-num {
-    width: 34px;
-    height: 34px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
-    background: var(--accent-gold);
+    background: linear-gradient(135deg, #DFC48A 0%, #B88B4A 100%);
     color: white;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 0.95rem;
+    font-size: 1.05rem;
     font-weight: 800;
     flex-shrink: 0;
-    box-shadow: 0 3px 8px rgba(197, 160, 89, 0.35);
+    box-shadow: 0 4px 12px rgba(184, 139, 74, 0.25);
 }
-.flip-checklist-icon {
+.flip-checklist-wrap {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #F8F5EE;
     color: var(--accent-gold);
-    font-size: 1.55rem;
+    font-size: 1.35rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     flex-shrink: 0;
-    width: 32px;
-    text-align: center;
 }
 .flip-list li strong {
-    font-size: 0.94rem;
+    font-size: 0.98rem;
     color: var(--text-dark);
     font-weight: 700;
     display: block;
     margin-bottom: 2px;
 }
 .flip-list li p, .flip-list li span {
-    font-size: 0.78rem !important;
+    font-size: 0.82rem !important;
     line-height: 1.5 !important;
-    color: #666 !important;
+    color: var(--text-muted) !important;
     margin: 0;
 }
 
-/* PAGE 11: THANK YOU & QR */
+/* ==========================================================================
+   PAGE 11: THANK YOU & QR
+   ========================================================================== */
 .qr-frame {
-    padding: 10px;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 6px 22px rgba(0,0,0,0.09);
-    border: 1px solid rgba(197, 160, 89, 0.4);
-    margin: 12px 0 8px;
+    padding: 12px;
+    background: #FFFFFF;
+    border-radius: 14px;
+    box-shadow: 0 6px 24px rgba(44, 38, 30, 0.06);
+    border: none;
+    margin: 10px 0 6px;
     display: inline-flex;
     flex-direction: column;
     align-items: center;
     text-decoration: none;
     touch-action: manipulation;
     transition: transform 0.2s ease;
+}
+.qr-frame:hover {
+    transform: translateY(-2px);
 }
 .qr-frame:active {
     transform: scale(0.98);
@@ -757,18 +884,18 @@
     object-fit: contain;
 }
 .qr-tap-hint {
-    font-size: 0.72rem;
+    font-size: 0.74rem;
     color: var(--accent-gold);
-    margin-top: 5px;
+    margin-top: 6px;
     font-weight: 700;
     letter-spacing: 0.3px;
 }
 .thankyou-contact-card {
-    background: var(--bg-white);
-    padding: 12px 18px;
-    border-radius: 10px;
-    border: 1px solid rgba(197, 160, 89, 0.25);
-    box-shadow: 0 4px 14px rgba(0,0,0,0.04);
+    background: #FFFFFF;
+    padding: 14px 20px;
+    border-radius: 14px;
+    border: none;
+    box-shadow: 0 4px 18px rgba(44, 38, 30, 0.04);
     margin-top: 8px;
     width: 90%;
     margin-left: auto;
@@ -780,11 +907,12 @@
     color: #555;
 }
 .contact-info-block strong {
-    font-size: 0.92rem;
+    font-size: 0.94rem;
     letter-spacing: 0.5px;
+    color: var(--text-dark);
 }
 .contact-info-block a {
-    color: var(--text-dark);
+    color: var(--accent-gold);
     text-decoration: none;
     font-weight: 700;
 }
@@ -795,7 +923,7 @@
     .brand-header { margin-bottom: 4px; }
     .brand-header h1 { font-size: 1.15rem; letter-spacing: 3px; }
     .brand-header p { font-size: 0.65rem; letter-spacing: 1px; }
-    .page-content { padding: 14px 13px 12px; }
+    .page-content { padding: 14px 14px 12px; }
     .page-title { font-size: 1.35rem; }
     .page-desc { font-size: 0.78rem; }
     .bottom-nav-bar { padding: 4px 8px; gap: 4px; bottom: max(8px, env(safe-area-inset-bottom, 8px)); }
@@ -806,9 +934,11 @@
     .cover-gold-badge { width: 55px; height: 55px; font-size: 1.4rem; margin-bottom: 10px; }
     .cover-script { font-size: 1.55rem; }
     .welcome-photo { min-height: 140px; }
+    .room-mini-img { width: 95px; height: 72px; }
     .dining-grid-item { height: 95px; }
     .exp-grid-flip { grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(4, 1fr); gap: 6px 5px; }
     .exp-card-img-wrap { min-height: 58px; }
-    .flip-list li { min-height: 60px; padding: 10px 12px; }
+    .flip-list li { min-height: 60px; padding: 10px 12px; gap: 10px; }
+    .flip-list-num, .flip-checklist-wrap { width: 34px; height: 34px; font-size: 0.9rem; }
     .booklet-sides-row { grid-template-columns: 1fr; }
 }

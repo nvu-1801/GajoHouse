@@ -4,7 +4,7 @@ import { InfoCardList } from '../components/InfoCard.js';
 
 export function renderPage08HouseRules() {
     const headerHTML = PageHeader({
-        eyebrow: "House Rules",
+        eyebrow: "HOUSE RULES",
         title: "Mẹo Nhỏ Cho Kỳ Nghỉ",
         desc: "Gìn giữ không gian tĩnh lặng và an yên"
     });
