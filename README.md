@@ -1,6 +1,6 @@
 # GAJO'S HOUSE - Cinematic Scrollytelling & 3D Interactive Catalogue
 
-Trang web trải nghiệm số cao cấp giới thiệu không gian lưu trú boutique homestay phong cách Japandi **GAJO's HOUSE** và cẩm nang du lịch trải nghiệm tại thị xã Hoài Nhơn, Bình Định.
+Trang web trải nghiệm số cao cấp giới thiệu không gian lưu trú boutique homestay phong cách Japandi **GAJO's HOUSE** và cẩm nang du lịch trải nghiệm tại Hoài Nhơn Đông, Gia Lai.
 
 ---
 
@@ -38,4 +38,4 @@ Trang web trải nghiệm số cao cấp giới thiệu không gian lưu trú bo
 
 ---
 
-© 2026 GAJO's HOUSE &bull; Hoài Nhơn Đông, Bình Định
+© 2026 GAJO's HOUSE &bull; Hoài Nhơn Đông, Gia Lai

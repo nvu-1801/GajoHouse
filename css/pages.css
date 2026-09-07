@@ -1,0 +1,791 @@
+/* ==========================================================================
+   4. PAGES (Flipbook Individual Pages & Rule-Compliant Layouts)
+   ========================================================================== */
+
+/* PAGE BASE STYLES */
+.page {
+    background-color: var(--bg-cream);
+    color: var(--text-dark);
+    width: 100%;
+    height: 100%;
+    overflow: hidden !important;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    box-shadow: inset 0 0 30px rgba(0,0,0,0.04);
+    box-sizing: border-box;
+    contain: layout paint;
+}
+
+/* Realistic Paper Spine Gradient */
+.page.--left {
+    box-shadow: inset -18px 0 28px -10px rgba(0,0,0,0.14), inset 0 0 20px rgba(0,0,0,0.03);
+    border-right: 1px solid rgba(0,0,0,0.06);
+}
+.page.--right {
+    box-shadow: inset 18px 0 28px -10px rgba(0,0,0,0.14), inset 0 0 20px rgba(0,0,0,0.03);
+    border-left: 1px solid rgba(0,0,0,0.06);
+}
+
+/* HARDCOVER STYLING */
+.page-cover {
+    background: radial-gradient(circle at 50% 40%, #26221E 0%, #141210 100%);
+    color: #F7F5F0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 30px 20px;
+    border: 1px solid #38342E;
+    box-sizing: border-box;
+    position: relative;
+}
+.page-cover::before {
+    content: '';
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    border: 1px solid rgba(197, 160, 89, 0.45);
+    pointer-events: none;
+}
+.page-cover::after {
+    content: '';
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+    border: 1px dashed rgba(197, 160, 89, 0.25);
+    pointer-events: none;
+}
+
+.cover-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    text-align: center;
+    z-index: 2;
+}
+
+.cover-main-logo {
+    max-width: 220px;
+    width: 70%;
+    height: auto;
+    object-fit: contain;
+    margin: 0 auto 16px auto;
+    filter: drop-shadow(0 4px 15px rgba(197, 160, 89, 0.4));
+}
+.cover-gold-badge {
+    width: 68px;
+    height: 68px;
+    border: 2px solid var(--accent-gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px auto;
+    color: var(--accent-gold);
+    font-size: 1.8rem;
+    box-shadow: 0 0 25px rgba(197, 160, 89, 0.35);
+    background: rgba(30, 27, 24, 0.6);
+}
+.cover-badge-logo {
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 6px rgba(0,0,0,0.4));
+}
+.cover-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+    letter-spacing: 6px;
+    color: var(--accent-gold-light);
+    margin-bottom: 8px;
+    line-height: 1.2;
+    text-align: center;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+}
+.cover-subtitle {
+    font-size: 0.78rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #BBB4A8;
+    margin-bottom: 14px;
+    text-align: center;
+}
+.cover-script {
+    font-family: var(--font-script);
+    font-size: 1.95rem;
+    color: #E2DBD0;
+    margin-top: 6px;
+    text-align: center;
+}
+.cover-location {
+    margin-top: 26px;
+    font-size: 0.72rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #A39D94;
+    border-top: 1px solid rgba(197, 160, 89, 0.35);
+    padding-top: 12px;
+    width: 82%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+.cover-hint {
+    margin-top: 12px;
+    font-size: 0.68rem;
+    letter-spacing: 1px;
+    color: var(--accent-gold);
+    opacity: 0.85;
+    animation: pulse 2s infinite ease-in-out;
+}
+
+/* INNER PAGE TYPOGRAPHY & BALANCED CENTER LAYOUT */
+.page-content {
+    padding: 18px 20px 14px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+.page-body-center {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    min-height: 0;
+}
+.page-header {
+    text-align: center;
+    padding-top: 4px;
+    padding-bottom: 8px;
+    flex-shrink: 0;
+}
+.page-main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 0;
+}
+.page-eyebrow {
+    font-size: 0.75rem;
+    letter-spacing: 2.8px;
+    text-transform: uppercase;
+    color: var(--accent-gold);
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+.page-title {
+    font-family: var(--font-serif);
+    font-size: clamp(1.4rem, 2.3vw, 1.85rem);
+    color: var(--text-dark);
+    line-height: 1.25;
+    margin-bottom: 4px;
+    font-weight: 700;
+}
+.page-desc {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    line-height: 1.45;
+}
+.page-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.74rem;
+    color: #9C968D;
+    border-top: 1px solid rgba(0,0,0,0.08);
+    padding-top: 9px;
+    margin-top: 8px;
+    flex-shrink: 0;
+}
+.page-number {
+    font-family: var(--font-serif);
+    font-weight: 700;
+    font-size: 0.86rem;
+    color: var(--accent-gold);
+}
+
+/* PAGE 2: WELCOME */
+.welcome-quote-box {
+    background: rgba(255,255,255,0.95);
+    border-left: 4px solid var(--accent-gold);
+    padding: 14px 16px;
+    border-radius: 0 8px 8px 0;
+    margin: 10px 0;
+    font-style: italic;
+    font-size: 0.88rem;
+    color: #3A3835;
+    line-height: 1.65;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.04);
+}
+.welcome-photo {
+    width: 100%;
+    flex: 1;
+    min-height: 165px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.09);
+    border: 1px solid rgba(0,0,0,0.06);
+    margin-top: 10px;
+    display: block;
+}
+
+/* PAGE 3: CHECK IN/OUT & WIFI */
+.schedule-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 8px 0 16px;
+}
+.schedule-card {
+    background: var(--bg-white);
+    padding: 14px 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(197, 160, 89, 0.2);
+    text-align: center;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.04);
+}
+.schedule-card h4 {
+    font-family: var(--font-serif);
+    font-size: 0.95rem;
+    color: var(--accent-gold);
+    margin-bottom: 4px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+.schedule-card .time {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--text-dark);
+    margin-bottom: 3px;
+}
+.wifi-luxury-box {
+    background: var(--bg-dark);
+    color: #FFF;
+    padding: 18px 16px;
+    border-radius: 10px;
+    text-align: center;
+    border: 1px solid rgba(197, 160, 89, 0.35);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.18);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.wifi-luxury-box i.wifi-icon-main {
+    font-size: 2.2rem;
+    color: var(--accent-gold);
+    margin-bottom: 6px;
+    display: inline-block;
+}
+.wifi-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255,255,255,0.08);
+    padding: 10px 14px;
+    border-radius: 6px;
+    margin-top: 8px;
+    font-size: 0.86rem;
+    transition: background 0.2s ease;
+}
+.wifi-row.clickable {
+    cursor: pointer;
+}
+.wifi-row.clickable:active {
+    background: rgba(197, 160, 89, 0.3);
+}
+.wifi-row strong {
+    color: var(--accent-gold-light);
+    font-size: 0.98rem;
+    letter-spacing: 0.5px;
+}
+
+/* PAGE 4: OUR ROOMS */
+.room-mini-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin: 0;
+    flex: 1;
+    justify-content: space-around;
+}
+.room-mini-item {
+    display: flex;
+    gap: 12px;
+    background: var(--bg-white);
+    padding: 11px 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(197, 160, 89, 0.2);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.04);
+    align-items: center;
+}
+.room-mini-img {
+    width: 108px;
+    height: 82px;
+    border-radius: 6px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+.room-mini-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+}
+.room-mini-tag {
+    font-size: 0.68rem;
+    color: var(--accent-gold);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+}
+.room-mini-info h4 {
+    font-size: 0.98rem;
+    color: var(--text-dark);
+    margin: 2px 0;
+    font-family: var(--font-serif);
+    font-weight: 700;
+}
+.room-mini-info p {
+    font-size: 0.78rem;
+    color: #555;
+    line-height: 1.45;
+    margin: 0;
+}
+
+/* PAGE 5: AMENITIES */
+.amenity-grid-luxury {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin: 10px 0 12px;
+    flex: 1;
+    align-content: start;
+}
+.amenity-item-box {
+    background: var(--bg-white);
+    padding: 13px 11px;
+    border-radius: 8px;
+    border: 1px solid rgba(197, 160, 89, 0.18);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.03);
+}
+.amenity-item-box i {
+    font-size: 1.4rem;
+    color: var(--accent-gold);
+    width: 26px;
+    text-align: center;
+    flex-shrink: 0;
+}
+.amenity-item-box h5 {
+    font-size: 0.88rem;
+    color: var(--text-dark);
+    margin-bottom: 2px;
+    font-weight: 700;
+}
+.amenity-item-box span {
+    font-size: 0.72rem;
+    color: #777;
+}
+.amenity-quote-bottom {
+    background: var(--bg-white);
+    border-radius: 8px;
+    padding: 12px 16px;
+    border: 1px solid rgba(197, 160, 89, 0.2);
+    text-align: center;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.03);
+    margin-top: 10px;
+}
+
+/* PAGE 6 & 7: DINING & COFFEE */
+.dining-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin: 0 0 6px;
+    width: 100%;
+}
+.dining-card {
+    background: var(--bg-dark);
+    color: #FFF;
+    padding: 6px 8px;
+    border-radius: 8px;
+    border: 1px solid rgba(197, 160, 89, 0.35);
+    box-shadow: 0 4px 14px rgba(0,0,0,0.18);
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    text-align: left;
+}
+.dining-badge-gold {
+    background: #FFEAA7;
+    color: #2D271D;
+    font-size: 0.58rem;
+    font-weight: 800;
+    padding: 2px 7px;
+    border-radius: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: inline-block;
+    margin-bottom: 4px;
+}
+.dining-badge-cyan {
+    background: #DDF4FF;
+    color: #0A3D62;
+    font-size: 0.58rem;
+    font-weight: 800;
+    padding: 2px 7px;
+    border-radius: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: inline-block;
+    margin-bottom: 4px;
+}
+.dining-badge-navy {
+    background: #142838;
+    color: #FFFFFF;
+    border: 1px solid rgba(255,255,255,0.25);
+    font-size: 0.58rem;
+    font-weight: 800;
+    padding: 2px 7px;
+    border-radius: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: inline-block;
+    margin-bottom: 4px;
+}
+.dining-badge-wood {
+    background: #5C3D2E;
+    color: #FFE6D8;
+    font-size: 0.58rem;
+    font-weight: 800;
+    padding: 2px 7px;
+    border-radius: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: inline-block;
+    margin-bottom: 4px;
+}
+.dining-grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+    margin-bottom: 4px;
+    width: 100%;
+}
+.dining-grid-item {
+    position: relative;
+    width: 100%;
+    height: 112px;
+    border-radius: 6px;
+    overflow: hidden;
+    background: #1e1b18;
+}
+.dining-grid-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+.dining-card-title {
+    font-family: var(--font-serif);
+    font-size: 0.92rem;
+    color: var(--accent-gold-light);
+    margin: 2px 0 2px;
+    font-weight: 700;
+    line-height: 1.25;
+}
+.dining-card-desc {
+    font-size: 0.68rem;
+    color: #E6E0D6;
+    line-height: 1.45;
+    margin: 0 0 4px;
+    font-weight: 400;
+}
+.dining-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.65rem;
+    color: var(--accent-gold-light);
+    border-top: 1px solid rgba(255,255,255,0.14);
+    padding-top: 4px;
+}
+.dining-footer a {
+    color: var(--accent-gold-light);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    transition: color 0.2s ease;
+}
+.dining-footer a:hover {
+    color: #FFF;
+}
+.dining-perk-box {
+    background: var(--bg-white);
+    padding: 8px 10px;
+    border-radius: 8px;
+    border: 1px solid rgba(197, 160, 89, 0.2);
+    font-size: 0.66rem;
+    line-height: 1.42;
+    color: var(--text-dark);
+    margin-top: 4px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* PAGE 8: 8 ĐIỂM ĐẾN ẤN TƯỢNG (GRID 4x2) */
+.page-header-destinations {
+    padding-top: 14px;
+    padding-bottom: 7px;
+}
+.exp-grid-flip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 9px 7px;
+    margin: 2px 0 6px;
+    flex: 1;
+    align-content: stretch;
+    min-height: 0;
+}
+.exp-card-flip {
+    background: #FFFFFF;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(197, 160, 89, 0.22);
+    text-align: center;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.04);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.exp-card-flip:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+    border-color: var(--accent-gold);
+}
+.exp-card-img-wrap {
+    position: relative;
+    width: 100%;
+    flex: 1.4;
+    min-height: 82px;
+    overflow: hidden;
+    background: #201D1A;
+}
+.exp-card-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+.exp-card-flip:hover .exp-card-img-wrap img {
+    transform: scale(1.06);
+}
+.exp-card-badge {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    background: rgba(22, 20, 18, 0.75);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    color: var(--accent-gold-light);
+    font-size: 0.52rem;
+    font-weight: 700;
+    padding: 1px 5px;
+    border-radius: 3px;
+    letter-spacing: 0.5px;
+    z-index: 2;
+    border: 1px solid rgba(197, 160, 89, 0.35);
+    line-height: 1.2;
+}
+.exp-card-flip-info {
+    padding: 5px 4px 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: #FFFFFF;
+    border-top: 1px solid rgba(0,0,0,0.04);
+    flex-shrink: 0;
+}
+.exp-card-flip-info h5 {
+    font-size: 0.64rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin: 0 0 1px;
+    line-height: 1.2;
+    white-space: normal;
+    letter-spacing: -0.1px;
+}
+.exp-card-flip-info p {
+    font-size: 0.52rem;
+    color: #6B665F;
+    font-weight: 400;
+    margin: 0;
+    line-height: 1.2;
+    white-space: normal;
+}
+
+/* PAGE 9 & 10: TIPS & CHECKLIST */
+.flip-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 6px 0;
+    flex: 1;
+    justify-content: space-evenly;
+}
+.flip-list li {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: var(--bg-white);
+    padding: 13px 16px;
+    border-radius: 10px;
+    border: 1px solid rgba(197, 160, 89, 0.22);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+    min-height: 68px;
+    box-sizing: border-box;
+    transition: transform 0.2s ease;
+}
+.flip-list li:hover {
+    transform: translateX(2px);
+    border-color: var(--accent-gold);
+}
+.flip-list-num {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: var(--accent-gold);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.95rem;
+    font-weight: 800;
+    flex-shrink: 0;
+    box-shadow: 0 3px 8px rgba(197, 160, 89, 0.35);
+}
+.flip-checklist-icon {
+    color: var(--accent-gold);
+    font-size: 1.55rem;
+    flex-shrink: 0;
+    width: 32px;
+    text-align: center;
+}
+.flip-list li strong {
+    font-size: 0.94rem;
+    color: var(--text-dark);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 2px;
+}
+.flip-list li p, .flip-list li span {
+    font-size: 0.78rem !important;
+    line-height: 1.5 !important;
+    color: #666 !important;
+    margin: 0;
+}
+
+/* PAGE 11: THANK YOU & QR */
+.qr-frame {
+    padding: 10px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 6px 22px rgba(0,0,0,0.09);
+    border: 1px solid rgba(197, 160, 89, 0.4);
+    margin: 12px 0 8px;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    touch-action: manipulation;
+    transition: transform 0.2s ease;
+}
+.qr-frame:active {
+    transform: scale(0.98);
+}
+.qr-frame img {
+    width: 140px;
+    height: 140px;
+    display: block;
+    object-fit: contain;
+}
+.qr-tap-hint {
+    font-size: 0.72rem;
+    color: var(--accent-gold);
+    margin-top: 5px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+}
+.thankyou-contact-card {
+    background: var(--bg-white);
+    padding: 12px 18px;
+    border-radius: 10px;
+    border: 1px solid rgba(197, 160, 89, 0.25);
+    box-shadow: 0 4px 14px rgba(0,0,0,0.04);
+    margin-top: 8px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.contact-info-block {
+    font-size: 0.84rem;
+    line-height: 1.6;
+    color: #555;
+}
+.contact-info-block strong {
+    font-size: 0.92rem;
+    letter-spacing: 0.5px;
+}
+.contact-info-block a {
+    color: var(--text-dark);
+    text-decoration: none;
+    font-weight: 700;
+}
+
+/* ================= ANDROID & MOBILE SPECIFIC QUERIES ================= */
+@media (max-width: 768px) {
+    body { padding: 6px 4px calc(72px + env(safe-area-inset-bottom, 0px)); }
+    .brand-header { margin-bottom: 4px; }
+    .brand-header h1 { font-size: 1.15rem; letter-spacing: 3px; }
+    .brand-header p { font-size: 0.65rem; letter-spacing: 1px; }
+    .page-content { padding: 14px 13px 12px; }
+    .page-title { font-size: 1.35rem; }
+    .page-desc { font-size: 0.78rem; }
+    .bottom-nav-bar { padding: 4px 8px; gap: 4px; bottom: max(8px, env(safe-area-inset-bottom, 8px)); }
+    .nav-btn { width: 32px; height: 32px; font-size: 0.85rem; }
+    .nav-btn.btn-booklet { padding: 0 8px; font-size: 0.7rem; height: 32px; }
+    .nav-page-indicator { font-size: 0.74rem; min-width: 52px; padding: 0 2px; }
+    .cover-title { font-size: 1.7rem; }
+    .cover-gold-badge { width: 55px; height: 55px; font-size: 1.4rem; margin-bottom: 10px; }
+    .cover-script { font-size: 1.55rem; }
+    .welcome-photo { min-height: 140px; }
+    .dining-grid-item { height: 95px; }
+    .exp-grid-flip { grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(4, 1fr); gap: 6px 5px; }
+    .exp-card-img-wrap { min-height: 58px; }
+    .flip-list li { min-height: 60px; padding: 10px 12px; }
+    .booklet-sides-row { grid-template-columns: 1fr; }
+}

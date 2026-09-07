@@ -1,0 +1,59 @@
+/* ==========================================================================
+   1. BASE & TOKENS (GAJO'S HOUSE Japandi Luxury Palette & Typography Reset)
+   ========================================================================== */
+
+:root {
+    --bg-cream: #F7F5F0;
+    --bg-white: #FFFFFF;
+    --bg-dark: #242220;
+    --bg-leather: #181614;
+    --text-dark: #2C2A29;
+    --text-muted: #66635E;
+    --accent-gold: #C5A059;
+    --accent-gold-light: #DFC48A;
+    --accent-sage: #5F7D70;
+    --font-serif: 'Playfair Display', Georgia, serif;
+    --font-sans: 'Montserrat', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --font-script: 'Dancing Script', cursive;
+    --font-display: 'Cinzel', serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
+    -webkit-text-size-adjust: 100%;
+    overscroll-behavior-y: none;
+}
+
+body {
+    font-family: var(--font-sans);
+    color: var(--text-dark);
+    background: radial-gradient(circle at center, #262422 0%, #11100F 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow-x: hidden;
+    padding: 8px 6px calc(76px + env(safe-area-inset-bottom, 0px));
+    user-select: none;
+    touch-action: pan-y;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.5; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.03); }
+}
