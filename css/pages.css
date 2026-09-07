@@ -417,14 +417,17 @@
 .dining-stack {
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    justify-content: space-between;
+    gap: 8px;
     margin: 0 0 6px;
     width: 100%;
+    flex: 1;
+    min-height: 0;
 }
 .dining-card {
     background: var(--bg-dark);
     color: #FFF;
-    padding: 6px 8px;
+    padding: 7px 9px;
     border-radius: 8px;
     border: 1px solid rgba(197, 160, 89, 0.35);
     box-shadow: 0 4px 14px rgba(0,0,0,0.18);
@@ -432,6 +435,11 @@
     box-sizing: border-box;
     width: 100%;
     text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+    min-height: 0;
 }
 .dining-badge-gold {
     background: #FFEAA7;
@@ -444,6 +452,7 @@
     letter-spacing: 0.5px;
     display: inline-block;
     margin-bottom: 4px;
+    align-self: flex-start;
 }
 .dining-badge-cyan {
     background: #DDF4FF;
@@ -456,6 +465,7 @@
     letter-spacing: 0.5px;
     display: inline-block;
     margin-bottom: 4px;
+    align-self: flex-start;
 }
 .dining-badge-navy {
     background: #142838;
@@ -469,6 +479,7 @@
     letter-spacing: 0.5px;
     display: inline-block;
     margin-bottom: 4px;
+    align-self: flex-start;
 }
 .dining-badge-wood {
     background: #5C3D2E;
@@ -481,6 +492,7 @@
     letter-spacing: 0.5px;
     display: inline-block;
     margin-bottom: 4px;
+    align-self: flex-start;
 }
 .dining-grid-2 {
     display: grid;
@@ -492,10 +504,11 @@
 .dining-grid-item {
     position: relative;
     width: 100%;
-    height: 112px;
+    height: 114px;
     border-radius: 6px;
     overflow: hidden;
     background: #1e1b18;
+    flex-shrink: 0;
 }
 .dining-grid-item img {
     width: 100%;
@@ -510,13 +523,21 @@
     margin: 2px 0 2px;
     font-weight: 700;
     line-height: 1.25;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .dining-card-desc {
     font-size: 0.68rem;
     color: #E6E0D6;
-    line-height: 1.45;
+    line-height: 1.4;
     margin: 0 0 4px;
     font-weight: 400;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    height: 32px;
 }
 .dining-footer {
     display: flex;
@@ -540,15 +561,17 @@
 }
 .dining-perk-box {
     background: var(--bg-white);
-    padding: 8px 10px;
+    padding: 7px 10px;
     border-radius: 8px;
     border: 1px solid rgba(197, 160, 89, 0.2);
     font-size: 0.66rem;
-    line-height: 1.42;
+    line-height: 1.4;
     color: var(--text-dark);
     margin-top: 4px;
     width: 100%;
     box-sizing: border-box;
+    flex-shrink: 0;
+    min-height: 48px;
 }
 
 /* PAGE 8: 8 ĐIỂM ĐẾN ẤN TƯỢNG (GRID 4x2) */

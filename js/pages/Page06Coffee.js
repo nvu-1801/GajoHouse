@@ -25,7 +25,7 @@ export function renderPage06Coffee() {
                 </div>
                 <h3 class="dining-card-title">Gạo Coffee (Seaside Acoustic)</h3>
                 <p class="dining-card-desc">
-                    Không gian mở tuyệt đẹp ngay sát bờ biển. Nơi hoàn hảo để ngắm hoàng hôn buông, tận hưởng làn gió mát rượi và chìm đắm trong những đêm nhạc acoustic mộc mạc trên bãi cát.
+                    Không gian mở sát biển lãng mạn, đón hoàng hôn buông và gió mát. Thưởng thức những đêm nhạc acoustic mộc mạc trên bãi cát.
                 </p>
                 <div class="dining-footer">
                     <a href="https://maps.google.com" target="_blank"><i class="fa-solid fa-location-dot"></i> Đ. Trường Sa, Thạnh Xuân Đông</a>
@@ -44,9 +44,9 @@ export function renderPage06Coffee() {
                         <img src="assets/bonjour-donuts.jpg" alt="Matcha Oreo & Caramel Brûlée" style="object-position: center bottom;">
                     </div>
                 </div>
-                <h3 class="dining-card-title">Bonjour Café</h3>
+                <h3 class="dining-card-title">Bonjour Café (Vintage 1996)</h3>
                 <p class="dining-card-desc">
-                    Nằm ngay trên trục đường của homestay, quán mang đậm âm hưởng hoài cổ với thiết kế gỗ mộc mạc. Một chốn dừng chân yên tĩnh, lý tưởng để nhâm nhi ly cà phê sáng và bắt đầu ngày mới.
+                    Mang đậm âm hưởng hoài cổ với thiết kế gỗ mộc mạc. Chốn dừng chân yên tĩnh lý tưởng để nhâm nhi ly cà phê sáng gần homestay.
                 </p>
                 <div class="dining-footer">
                     <a href="https://maps.google.com" target="_blank"><i class="fa-solid fa-location-dot"></i> 54-56 Phan Trọng Tuệ, Hoài Nhơn Đông</a>
@@ -56,7 +56,10 @@ export function renderPage06Coffee() {
         </div>
 
         <div class="dining-perk-box">
-            <strong style="color: var(--accent-gold);"><i class="fa-solid fa-lightbulb"></i> Mẹo nhỏ từ GAJO's HOUSE:</strong> Bonjour Café nằm ngay trên đường Phan Trọng Tuệ, rất thuận tiện để bạn đi bộ từ homestay ra thưởng thức cà phê buổi sáng!
+            <strong style="color: var(--accent-gold);"><i class="fa-solid fa-lightbulb"></i> Mẹo nhỏ từ GAJO's HOUSE:</strong> Bonjour Café nằm ngay trên đường Phan Trọng Tuệ, rất thuận tiện để đi bộ từ homestay ra thưởng thức cà phê sáng!
+            <div style="margin-top: 2px; color: #777;">
+                <strong>Gợi ý:</strong> Thử món trà Matcha Uji tại Gạo Coffee vào buổi chiều hoàng hôn.
+            </div>
         </div>
     </div>`;
 

@@ -25,7 +25,7 @@ export function renderPage05Dining() {
                 </div>
                 <h3 class="dining-card-title">Tiệm Nướng Nhà Gạo</h3>
                 <p class="dining-card-desc">
-                    Không gian sân vườn Vintage ấm cúng với ánh đèn vàng lãng mạn. Nơi thưởng thức tiệc nướng BBQ đậm vị và các đêm nhạc acoustic nhẹ nhàng.
+                    Không gian sân vườn Vintage ấm cúng với ánh đèn vàng lãng mạn. Thưởng thức tiệc nướng BBQ đậm vị và các đêm nhạc acoustic nhẹ nhàng.
                 </p>
                 <div class="dining-footer">
                     <a href="https://maps.app.goo.gl/jAWENgZvarDbmG7f6" target="_blank"><i class="fa-solid fa-location-dot"></i> Đ. Trường Sa, Thạnh Xuân Đông (~2.6km)</a>
@@ -44,9 +44,9 @@ export function renderPage05Dining() {
                         <img src="assets/gajothai-food.jpg" alt="Bàn Tiệc Món Thái Chuẩn Vị" style="object-position: center 50%;">
                     </div>
                 </div>
-                <h3 class="dining-card-title">GAJO Thái</h3>
+                <h3 class="dining-card-title">GAJO Thái (Ẩm Thực Chùa Vàng)</h3>
                 <p class="dining-card-desc">
-                    Không gian mở thoáng đãng ôm trọn vẻ đẹp sông nước lúc chạng vạng. Trải nghiệm tinh hoa ẩm thực Thái Lan chuẩn vị giữa cảnh sắc thiên nhiên tuyệt đẹp.
+                    Không gian mở thoáng đãng ôm trọn vẻ đẹp sông nước lúc chạng vạng. Trải nghiệm tinh hoa ẩm thực Thái Lan chuẩn vị tươi ngon.
                 </p>
                 <div class="dining-footer">
                     <a href="https://maps.google.com" target="_blank"><i class="fa-solid fa-location-dot"></i> 125 Nguyễn Chí Thanh, Hoài Nhơn Bắc</a>
@@ -56,8 +56,8 @@ export function renderPage05Dining() {
         </div>
 
         <div class="dining-perk-box">
-            <strong style="color: var(--accent-gold);"><i class="fa-solid fa-star"></i> Đặc quyền GAJO's HOUSE:</strong> Vui lòng báo lễ tân/nhân viên quán bạn là khách lưu trú tại homestay để được hỗ trợ đặt bàn vị trí đẹp nhất!
-            <div style="margin-top: 3px; color: #777;">
+            <strong style="color: var(--accent-gold);"><i class="fa-solid fa-star"></i> Đặc quyền GAJO's HOUSE:</strong> Báo với nhân viên bạn là khách lưu trú homestay để được ưu tiên sắp xếp vị trí bàn đẹp nhất!
+            <div style="margin-top: 2px; color: #777;">
                 <strong>Quán lân cận:</strong> Coffee Gạo, Bonjour Cafe, Quán A Mãi.
             </div>
         </div>
