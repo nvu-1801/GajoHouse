@@ -18,8 +18,8 @@ export function renderPage07Destinations() {
             ${DESTINATIONS_DATA.map(item => DestinationCard(item)).join('')}
         </div>
 
-        <div style="background:var(--bg-white); padding:5px 8px; border-radius:6px; border:1px solid rgba(197, 160, 89, 0.2); font-size:0.6rem; color:#555; text-align:center; margin-top:4px; flex-shrink:0;">
-            <i class="fa-solid fa-compass" style="color:var(--accent-gold); margin-right:3px;"></i> <em>Lễ tân hỗ trợ tư vấn lộ trình &amp; thuê xe máy đời mới khám phá các điểm đến.</em>
+        <div style="padding-top:6px; border-top:1px solid rgba(184, 139, 74, 0.2); font-size:0.65rem; color:#68645E; text-align:center; margin-top:auto; flex-shrink:0; font-style:italic; font-family:var(--font-serif);">
+            <i class="fa-solid fa-compass" style="color:var(--accent-gold); margin-right:4px;"></i> Lễ tân hỗ trợ tư vấn lộ trình &amp; thuê xe máy đời mới khám phá các điểm đến.
         </div>
     </div>`;
 

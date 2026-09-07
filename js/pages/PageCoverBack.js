@@ -8,7 +8,7 @@ export function renderPageCoverBack() {
         <div class="cover-script" style="font-size: 2.1rem; color: var(--accent-gold); margin-top: 12px;">Stay simple.</div>
         <div class="cover-script" style="font-size: 2.1rem; color: #FFF; margin-top:-6px;">live slow, feel home.</div>
         <div class="cover-location" style="margin-top: 30px;">
-            HẸN GẶP LẠI BẠN TẠI GIA LAI
+            HẸN GẶP LẠI BẠN TẠI HOÀI NHƠN • BÌNH ĐỊNH
         </div>
     </div>`;
 

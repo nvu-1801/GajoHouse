@@ -3,7 +3,7 @@ export const SITE_CONFIG = {
     subTitle: "Boutique Homestay",
     tagline: "Stay simple, live slow.",
     taglineFull: "Stay simple. live slow, feel home.",
-    locationName: "Hoài Nhơn Đông • Gia Lai",
+    locationName: "Hoài Nhơn • Bình Định",
     address: "Hẻm 23 Phan Trọng Tuệ, Hoài Nhơn",
     hotline: "0902 286 300",
     hotlineFormatted: "0902 286 300",

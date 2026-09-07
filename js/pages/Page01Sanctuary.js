@@ -16,7 +16,7 @@ export function renderPage01Sanctuary() {
         </div>
 
         <p style="font-size:0.86rem; color:#555; line-height:1.65; margin:6px 0 8px;">
-            Tọa lạc tại vùng Hoài Nhơn Đông thanh bình, homestay mang phong cách tối giản Japandi giao hòa cùng vẻ đẹp mộc mạc và sự hiếu khách ấm áp.
+            Tọa lạc tại Hoài Nhơn, Bình Định thanh bình, homestay mang phong cách tối giản Japandi giao hòa cùng vẻ đẹp mộc mạc và sự hiếu khách ấm áp.
         </p>
 
         <img src="assets/gajo-interior.jpg" class="welcome-photo" alt="Nội thất GAJO's HOUSE">
