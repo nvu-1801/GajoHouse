@@ -7,6 +7,17 @@
     display: none;
 }
 
+/* Ensure interactive-only UI is hidden in print templates */
+.booklet-print-container .wifi-copy-btn,
+.booklet-print-container .wifi-copy-hint,
+.booklet-print-container .qr-tap-hint,
+.standard-print-container .wifi-copy-btn,
+.standard-print-container .wifi-copy-hint,
+.standard-print-container .qr-tap-hint {
+    display: none !important;
+    visibility: hidden !important;
+}
+
 @media print {
     *, *::before, *::after {
         -webkit-print-color-adjust: exact !important;
@@ -23,8 +34,18 @@
         display: block !important;
     }
 
-    .brand-header, .top-action-bar, .bottom-nav-bar, .thumbnail-drawer, .export-modal-overlay, .toast-msg, .cover-hint, .wifi-copy-btn, .wifi-copy-hint {
+    .brand-header, 
+    .top-action-bar, 
+    .bottom-nav-bar, 
+    .thumbnail-drawer, 
+    .export-modal-overlay, 
+    .toast-msg, 
+    .cover-hint, 
+    .wifi-copy-btn, 
+    .wifi-copy-hint,
+    .qr-tap-hint {
         display: none !important;
+        visibility: hidden !important;
     }
 
     /* HIDE 3D FLIPBOOK STAGE WHEN PRINTING */
