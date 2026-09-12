@@ -903,13 +903,14 @@
 
 /* ================= ANDROID & MOBILE SPECIFIC QUERIES ================= */
 @media (max-width: 768px) {
-    body { padding: 6px 4px calc(72px + env(safe-area-inset-bottom, 0px)); }
+    body { padding: 4px 2px calc(66px + env(safe-area-inset-bottom, 0px)); }
     .brand-header { margin-bottom: 4px; }
     .brand-header h1 { font-size: 1.15rem; letter-spacing: 3px; }
     .brand-header p { font-size: 0.65rem; letter-spacing: 1px; }
-    .page-content { padding: 16px 16px 12px; }
-    .page-title { font-size: 1.35rem; }
-    .page-desc { font-size: 0.78rem; }
+    .page-content { padding: 12px 14px 8px; }
+    .page-header { padding-bottom: 6px; margin-bottom: 4px; }
+    .page-title { font-size: 1.22rem; }
+    .page-desc { font-size: 0.74rem; }
     .bottom-nav-bar { padding: 4px 8px; gap: 4px; bottom: max(8px, env(safe-area-inset-bottom, 8px)); }
     .nav-btn { width: 32px; height: 32px; font-size: 0.85rem; }
     .nav-btn.btn-booklet { padding: 0 8px; font-size: 0.7rem; height: 32px; }
@@ -917,25 +918,45 @@
     .cover-title { font-size: 1.7rem; }
     .cover-gold-badge { width: 55px; height: 55px; font-size: 1.4rem; margin-bottom: 10px; }
     .cover-script { font-size: 1.55rem; }
-    .welcome-photo { min-height: 140px; }
-    .room-editorial-img { width: 100px; height: 75px; }
-    .room-editorial-title { font-size: 1rem; }
-    .room-editorial-desc { font-size: 0.74rem; }
+    .welcome-photo { min-height: 130px; }
+    .room-editorial-img { width: 95px; height: 70px; }
+    .room-editorial-title { font-size: 0.96rem; }
+    .room-editorial-desc { font-size: 0.72rem; }
     .amenity-editorial-grid { gap: 0 10px; }
-    .amenity-editorial-item { padding: 10px 0; gap: 10px; }
-    .amenity-editorial-icon { font-size: 1.2rem; width: 24px; }
-    .amenity-editorial-title { font-size: 0.86rem; }
-    .amenity-editorial-sub { font-size: 0.7rem; }
-    .dining-grid-item { height: 95px; }
-    .exp-grid-flip { grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(4, 1fr); gap: 6px 5px; }
+    .amenity-editorial-item { padding: 8px 0; gap: 8px; }
+    .amenity-editorial-icon { font-size: 1.15rem; width: 22px; }
+    .amenity-editorial-title { font-size: 0.84rem; }
+    .amenity-editorial-sub { font-size: 0.68rem; }
+    
+    /* Dining & Coffee Pages (Fix Overlap) */
+    .dining-editorial-stack { justify-content: flex-start; gap: 4px; }
+    .dining-editorial-card { padding: 4px 0 6px; flex: 0 0 auto; min-height: auto; justify-content: flex-start; }
+    .dining-badge-gold, .dining-badge-cyan, .dining-badge-navy, .dining-badge-wood { margin-bottom: 3px; font-size: 0.6rem; }
+    .dining-grid-2 { gap: 6px; margin-bottom: 4px; }
+    .dining-grid-item { height: 76px; }
+    .dining-card-title { font-size: 0.9rem; margin: 1px 0; line-height: 1.2; }
+    .dining-card-desc { font-size: 0.68rem; line-height: 1.35; margin: 0 0 2px; height: auto; max-height: 30px; }
+    .dining-footer { font-size: 0.66rem; padding-top: 2px; margin-top: 2px; }
+    .dining-editorial-perk { padding-top: 6px; margin-top: 4px; font-size: 0.68rem; line-height: 1.35; }
+    
+    /* 8 Destinations Grid */
+    .exp-grid-flip { grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(4, 1fr); gap: 5px 5px; margin: 2px 0 4px; }
     .exp-card-img-wrap { min-height: 0; }
-    .exp-card-flip-info { height: 46px; min-height: 46px; max-height: 46px; padding: 2px 4px; }
-    .exp-card-flip-info h5 { font-size: 0.65rem; height: 22px; }
-    .exp-card-flip-info p { font-size: 0.52rem; height: 18px; }
+    .exp-card-flip-info { height: 42px; min-height: 42px; max-height: 42px; padding: 2px 3px; }
+    .exp-card-flip-info h5 { font-size: 0.62rem; height: 20px; line-height: 1.15; }
+    .exp-card-flip-info p { font-size: 0.5rem; height: 16px; line-height: 1.15; }
+    
+    /* Etiquette & Departure Checklist */
     .editorial-num-badge { font-size: 1.25rem; width: 28px; }
-    .editorial-check-badge { width: 28px; height: 28px; font-size: 0.85rem; }
-    .editorial-item-title { font-size: 0.95rem; }
-    .editorial-item-desc { font-size: 0.76rem; }
-    .stay-sched-time { font-size: 1.5rem; }
+    .editorial-check-badge { width: 26px; height: 26px; font-size: 0.8rem; }
+    .editorial-item-title { font-size: 0.92rem; }
+    .editorial-item-desc { font-size: 0.74rem; }
+    .stay-sched-time { font-size: 1.4rem; }
     .booklet-sides-row { grid-template-columns: 1fr; }
+
+    /* Thank You & QR Page */
+    .qr-frame { padding: 8px; margin: 4px 0 4px; }
+    .qr-frame img { width: 110px; height: 110px; }
+    .qr-tap-hint { font-size: 0.68rem; margin-top: 3px; }
+    .thankyou-contact-card { padding-top: 8px; margin-top: 4px; font-size: 0.78rem; line-height: 1.45; }
 }

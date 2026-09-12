@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>GAJO'S HOUSE — Boutique Homestay | Editorial Showcase 9 Hạng Phòng</title>
+    <meta name="description" content="Một trạm dừng cho những người đang đi. Trốn một chút, rồi lạc vào bình yên. Khám phá 9 hạng phòng Kinfolk tại GAJO's HOUSE.">
+    <meta name="theme-color" content="#F9F6EE">
+
+    <!-- Open Graph Metadata -->
+    <meta property="og:title" content="GAJO'S HOUSE — Trạm Dừng Bình Yên">
+    <meta property="og:description" content="Một trạm dừng cho những người đang đi. Trốn một chút, rồi lạc vào bình yên.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="images/general/gajo-interior.jpg">
+
+    <!-- Favicon SVG -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2246%22 fill=%22%23F9F6EE%22 stroke=%22%23B88B4A%22 stroke-width=%223%22/><text y=%2258%22 x=%2250%22 text-anchor=%22middle%22 font-family=%22serif%22 font-size=%2242%22 fill=%22%23B88B4A%22 font-weight=%22bold%22>G</text></svg>">
+
+    <!-- Google Fonts (Playfair Display & Montserrat) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- GSAP 3.12 & ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <!-- Lenis Smooth Scroll -->
+    <script src="https://unpkg.com/lenis@1.1.9/dist/lenis.min.js"></script>
+
+    <!-- StPageFlip 3D Catalogue Library -->
+    <script src="https://cdn.jsdelivr.net/npm/page-flip/dist/js/page-flip.browser.js"></script>
+
+    <!-- ==========================================================================
+         STYLESHEET (CSS3) — EDITORIAL KINFOLK SPLIT-SCREEN DESIGN SYSTEM
+         ========================================================================== -->
+    <style>
+        :root {
+            /* Palette Kinfolk & Monocle */
+            --bg-cream: #F9F6EE;
+            --bg-paper: #FAF8F3;
+            --bg-card: #FFFFFF;
+            --bg-dark: #1A1816;
+            
+            --text-charcoal: #222222;
+            --text-muted: #66635E;
+            --text-light: #F9F6EE;
+            
+            /* Accents */
+            --accent-warm-oak: #B88B4A;
+            --accent-oak-light: #DFC48A;
+            --accent-muted-sage: #7A9A8C;
+            --accent-sage-light: #D4E2DC;
+            
+            --border-oak: rgba(184, 139, 74, 0.25);
+            --border-light: rgba(34, 34, 34, 0.08);
+
+            /* Typography */
+            --font-heading: 'Playfair Display', 'Lora', Georgia, serif;
+            --font-body: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-accent: 'Lora', serif;
+
+            --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html, body {
+            width: 100%;
+            background-color: var(--bg-cream);
+            font-family: var(--font-body);
+            color: var(--text-charcoal);
+            overflow-x: hidden;
+        }
+
+        /* Tối ưu GPU hardware acceleration */
+        .split-visual-col img, .room-overlay-typography, .split-info-col {
+            will-change: transform, opacity;
+            transform: translate3d(0, 0, 0);
+            backface-visibility: hidden;
+        }
+
+        /* Fixed Navigation Header */
+        .brand-nav-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 70px;
+            padding: 0 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 200;
+            background: rgba(249, 246, 238, 0.9);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-light);
+            transition: var(--transition-smooth);
+        }
+
+        .brand-logo-group {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--text-charcoal);
+        }
+        .brand-logo-text {
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--accent-warm-oak);
+            font-weight: 600;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .btn-view-mode {
+            background: transparent;
+            border: 1px solid var(--accent-warm-oak);
+            color: var(--accent-warm-oak);
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-family: var(--font-body);
+            font-weight: 600;
+            letter-spacing: 1px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition-smooth);
+        }
+        .btn-view-mode:hover, .btn-view-mode.active {
+            background: var(--accent-warm-oak);
+            color: #FFFFFF;
+        }
+
+        /* ----------------------------------------------------------------------
+           1. HERO SECTION (EDITORIAL CONCEPT "TRẠM DỪNG CHÂN")
+           ---------------------------------------------------------------------- */
+        .hero-editorial-section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 120px 24px 60px 24px;
+            background: radial-gradient(circle at center, #FAF8F3 0%, #F9F6EE 100%);
+            position: relative;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .hero-badge-tag {
+            font-family: var(--font-body);
+            font-size: 0.75rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--accent-warm-oak);
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .hero-main-heading {
+            font-family: var(--font-heading);
+            font-size: clamp(2.2rem, 5vw, 4rem);
+            font-weight: 400;
+            line-height: 1.2;
+            color: var(--text-charcoal);
+            max-width: 900px;
+            margin-bottom: 24px;
+            letter-spacing: 1px;
+        }
+
+        .hero-poetic-tagline {
+            font-family: var(--font-accent);
+            font-size: clamp(1.1rem, 2.2vw, 1.5rem);
+            font-style: italic;
+            color: var(--accent-muted-sage);
+            max-width: 720px;
+            line-height: 1.5;
+            margin-bottom: 40px;
+        }
+
+        .hero-divider-line {
+            width: 80px;
+            height: 2px;
+            background-color: var(--accent-warm-oak);
+            margin-bottom: 40px;
+        }
+
+        .hero-scroll-prompt {
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            animation: bounceDown 2s infinite;
+        }
+
+        @keyframes bounceDown {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(8px); }
+            60% { transform: translateY(4px); }
+        }
+
+        /* ----------------------------------------------------------------------
+           2. SPLIT LAYOUT 50/50 EDITORIAL SECTION (CHO 9 HẠNG PHÒNG)
+           ---------------------------------------------------------------------- */
+        .split-room-section {
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            width: 100%;
+            position: relative;
+            border-bottom: 1px solid var(--border-light);
+            background-color: var(--bg-cream);
+        }
+
+        /* Nửa bên trái (Visual Column 50%) */
+        .split-visual-col {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            overflow: hidden;
+            top: 0;
+            left: 0;
+        }
+
+        .split-visual-col img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            filter: brightness(0.9) contrast(1.02);
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* Translucent Gradient Overlay giúp chữ luôn đọc rõ */
+        .split-visual-col .dark-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.4) 60%, rgba(0, 0, 0, 0.82) 100%);
+            z-index: 1;
+        }
+
+        /* OVERLAY HUGE TYPOGRAPHY TRỰC TIẾP TRÊN ẢNH */
+        .room-overlay-typography {
+            position: absolute;
+            bottom: 48px;
+            left: 48px;
+            right: 48px;
+            z-index: 2;
+            color: #FFFFFF;
+        }
+
+        .room-number-tag {
+            font-family: var(--font-body);
+            font-size: 0.8rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--accent-oak-light);
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .room-huge-title {
+            font-family: var(--font-heading);
+            font-size: clamp(3rem, 6vw, 4.8rem);
+            font-weight: 400;
+            line-height: 1.05;
+            letter-spacing: 2px;
+            color: #FFFFFF;
+            margin-bottom: 8px;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        .room-poetic-meaning {
+            font-family: var(--font-accent);
+            font-size: clamp(1.1rem, 2vw, 1.4rem);
+            font-style: italic;
+            color: var(--accent-sage-light);
+            margin-bottom: 16px;
+        }
+
+        .room-price-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(184, 139, 74, 0.85);
+            backdrop-filter: blur(8px);
+            color: #FFFFFF;
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Nửa bên phải (Information Column 50%) */
+        .split-info-col {
+            padding: 100px 60px 60px 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background-color: var(--bg-cream);
+        }
+
+        .info-header-sub {
+            font-family: var(--font-body);
+            font-size: 0.75rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--accent-warm-oak);
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .info-room-headline {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            font-weight: 400;
+            color: var(--text-charcoal);
+            margin-bottom: 16px;
+            line-height: 1.3;
+        }
+
+        .info-room-desc {
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: var(--text-muted);
+            margin-bottom: 32px;
+        }
+
+        /* Đặc tả thông số phòng */
+        .room-specs-table {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            padding: 20px;
+            background: var(--bg-paper);
+            border: 1px solid var(--border-light);
+            border-radius: 4px;
+            margin-bottom: 32px;
+        }
+        .spec-item {
+            font-size: 0.82rem;
+            color: var(--text-charcoal);
+        }
+        .spec-item label {
+            display: block;
+            font-size: 0.7rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--accent-warm-oak);
+            margin-bottom: 4px;
+            font-weight: 600;
+        }
+
+        /* Behance Style Thin Line-Art Amenities Grid */
+        .amenities-section-title {
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            color: var(--text-charcoal);
+            margin-bottom: 16px;
+            border-bottom: 1px solid var(--border-light);
+            padding-bottom: 8px;
+        }
+
+        .amenities-behance-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+            gap: 14px;
+            margin-bottom: 36px;
+        }
+
+        .amenity-behance-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            padding: 12px 10px;
+            border-radius: 4px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: var(--transition-smooth);
+        }
+        .amenity-behance-card:hover {
+            border-color: var(--accent-warm-oak);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(184, 139, 74, 0.1);
+        }
+        .amenity-behance-card i {
+            font-size: 1.2rem;
+            color: var(--accent-warm-oak);
+        }
+        .amenity-behance-card span {
+            font-size: 0.75rem;
+            color: var(--text-charcoal);
+            line-height: 1.3;
+        }
+
+        .btn-book-room {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: var(--accent-warm-oak);
+            color: #FFFFFF;
+            text-decoration: none;
+            padding: 14px 32px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            box-shadow: 0 4px 15px rgba(184, 139, 74, 0.3);
+            transition: var(--transition-smooth);
+            align-self: flex-start;
+        }
+        .btn-book-room:hover {
+            background: #9E743A;
+            transform: translateY(-2px);
+        }
+
+        /* ----------------------------------------------------------------------
+           3. TỔNG HỢP HỆ THỐNG TIỆN ÍCH TOÀN CỤC (BEHANCE AMENITIES GRID)
+           ---------------------------------------------------------------------- */
+        .global-amenities-section {
+            padding: 100px 40px;
+            background-color: var(--bg-paper);
+            border-bottom: 1px solid var(--border-light);
+            text-align: center;
+        }
+
+        .global-amenities-category {
+            margin-bottom: 48px;
+        }
+        .category-title {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            color: var(--accent-warm-oak);
+            margin-bottom: 24px;
+        }
+
+        .behance-icons-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* ----------------------------------------------------------------------
+           4. MODAL FLIPBOOK 3D LẬT SÁCH INTERACTIVE
+           ---------------------------------------------------------------------- */
+        .flipbook-view-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(18, 16, 14, 0.95);
+            backdrop-filter: blur(12px);
+            z-index: 500;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+        }
+        .flipbook-view-modal.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .btn-close-modal {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.2);
+            color: #FFF;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            z-index: 510;
+        }
+
+        /* Responsive Layout Breakpoints */
+        @media (max-width: 900px) {
+            .split-room-section {
+                grid-template-columns: 1fr;
+                min-height: auto;
+            }
+            .split-visual-col {
+                height: 50vh;
+            }
+            .room-huge-title {
+                font-size: 2.8rem;
+            }
+            .split-info-col {
+                padding: 40px 24px;
+            }
+            .brand-nav-header {
+                padding: 0 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="brand-nav-header">
+        <a href="#" class="brand-logo-group">
+            <span class="brand-logo-text">GAJO'S HOUSE</span>
+        </a>
+        <div class="nav-actions">
+            <button class="btn-view-mode active" id="btnScrollMode">
+                <i class="fa-solid fa-scroll"></i> <span>Editorial View</span>
+            </button>
+            <button class="btn-view-mode" id="btn3DMode">
+                <i class="fa-solid fa-book-open"></i> <span>Catalogue 3D</span>
+            </button>
+        </div>
+    </header>
+
+    <main id="smoothScrollWrapper">
+        <!-- ==================================================================
+             HERO EDITORIAL COVER (CONCEPT "TRẠM DỪNG CHÂN")
+             ================================================================== -->
+        <section class="hero-editorial-section">
+            <span class="hero-badge-tag">Boutique Homestay • Gia Lai</span>
+            <h1 class="hero-main-heading">GAJO'S HOUSE</h1>
+            <p class="hero-poetic-tagline">
+                "Một trạm dừng cho những người đang đi.<br>Trốn một chút, rồi lạc vào bình yên."
+            </p>
+            <div class="hero-divider-line"></div>
+            <div class="hero-scroll-prompt">
+                <span>Cuộn chuột khám phá 9 hạng phòng</span>
+                <i class="fa-solid fa-arrow-down"></i>
+            </div>
+        </section>
+
+        <!-- ==================================================================
+             HẠNG PHÒNG 1: GA-AN (400.000 VNĐ)
+             ================================================================== -->
+        <section class="split-room-section" id="room-ga-an">
+            <div class="split-visual-col">
+                <img src="images/ga-an/Phòng GA-AN 1.png" alt="Phòng GA-AN">
+                <div class="dark-overlay"></div>
+                <div class="room-overlay-typography">
+                    <span class="room-number-tag">ROOM 01 • SINGLE ROOM</span>
+                    <h2 class="room-huge-title">GA-AN</h2>
+                    <p class="room-poetic-meaning">An Yên — Dừng lại để tìm sự bình yên</p>
+                    <span class="room-price-badge">400.000 VNĐ / đêm</span>
+                </div>
+            </div>
+            <div class="split-info-col">
+                <span class="info-header-sub">Không Gian Tĩnh Thức</span>
+                <h3 class="info-room-headline">Trở Về Với Sự Bình Yên Trong Tâm Hồn</h3>
+                <p class="info-room-desc">
+                    GA-AN là căn phòng nhỏ nhắn được thiết kế tối giản chuẩn Japandi. Nơi dành riêng cho những du khách độc hành muốn dừng chân, thư giãn và phục hồi năng lượng sau những hành trình dài.
+                </p>
+
+                <div class="room-specs-table">
+                    <div class="spec-item"><label>Diện tích</label>22 m²</div>
+                    <div class="spec-item"><label>Loại giường</label>01 Giường đơn (1m6 x 2m)</div>
+                    <div class="spec-item"><label>Sức chứa</label>01 Người lớn</div>
+                    <div class="spec-item"><label>Tiêu chuẩn</label>Spotless Clean 100%</div>
+                </div>
+
+                <h4 class="amenities-section-title">Tiện Ích Nổi Bật</h4>
+                <div class="amenities-behance-grid">
+                    <div class="amenity-behance-card"><i class="fa-thin fa-wifi"></i><span>Wi-Fi 6</span></div>
+                    <div class="amenity-behance-card"><i class="fa-thin fa-snowflake"></i><span>Máy lạnh</span></div>
+                    <div class="amenity-behance-card"><i class="fa-thin fa-tv"></i><span>Smart TV</span></div>
+                    <div class="amenity-behance-card"><i class="fa-thin fa-shower"></i><span>Nước nóng</span></div>
+                    <div class="amenity-behance-card"><i class="fa-thin fa-mug-hot"></i><span>Trà & Cà phê</span></div>
+                    <div class="amenity-behance-card"><i class="fa-thin fa-wind"></i><span>Máy sấy tóc</span></div>
+                </div>
+
+                <a href="https://zalo.me" target="_blank" class="btn-book-room">
+                    <i class="fa-solid fa-calendar-check"></i> Đặt Phòng GA-AN
+                </a>
+            </div>
+        </section>
+
+        <!-- ==================================================================
+             HẠNG PHÒNG 2: GA-MO (400.000 VNĐ)
+             ================================================================== -->
+        <section class="split-room-section" id="room-ga-mo">
+            <div class="split-visual-col">
+                <img src="images/ga-mo/Phòng GA-MO 1.png" alt="Phòng GA-MO">
+                <div class="dark-overlay"></div>
+                <div class="room-overlay-typography">
+                    <span class="room-number-tag">ROOM 02 • MODERN SINGLE</span>
+                    <h2 class="room-huge-title">GA-MO</h2>
+                    <p class="room-poetic-meaning">Modern — Điểm dừng hiện đại, trẻ trung</p>
+                    <span class="room-price-badge">400.000 VNĐ / đêm</span>
+                </div>
+            </div>
+            <div class="split-info-col">
+                <span class="info-header-sub">Góc Nhỏ Mộng Mơ</span>
+                <h3 class="info-room-headline">Khơi Nguồn Cảm Hứng Sáng Tạo</h3>
+                <p class="info-room-desc">
+                    Trẻ trung, hiện đại và ngập tràn ánh sáng tự nhiên. GA-MO sở hữu bàn làm việc gỗ mộc bên cửa sổ hướng ra góc xanh rêu dịu mát, rất thích hợp cho người làm sáng tạo.
+                </p>
+
+                <div class="room-specs-table">
+                    <div class="spec-item"><label>Diện tích</label>25 m²</div>
+                    <div class="spec-item"><label>Loại giường</label>01 Giường đơn (1m6 x 2m)</div>
+                    <div class="spec-item"><label>Sức chứa</label>01 - 02 Người</div>
+                    <div class="spec-item"><label>Tiện nghi đặc biệt</label>Bồn tắm thư giãn</div>
+                </div>
+
+                <h4 class="amenities-section-title">Tiện Ích Nổi Bật</h4>
+                <div class="amenities-behance-grid">
+                    <div class="amenity-behance-card"><i class="fa-thin fa-desktop"></i><span>Bàn làm việc</span></div>
+                    <div class="amenity-behance-card"><i class="fa-thin fa-bath"></i><span>Bồn tắm</span></div>
+                    <div class="amenity-behance-card"><i class="fa-thin fa-wifi"></i><span>Wi-Fi tốc độ cao</span></div>
+                    <div class="amenity-behance-card"><i class="fa-thin fa-box"></i><span>Tủ lạnh Mini</span></div>
+                    <div class="amenity-behance-card"><i class="fa-thin fa-sun"></i><span>Rèm 2 lớp</span></div>
+                    <div class="amenity-behance-card"><i class="fa-thin fa-soap"></i><span>Khăn tắm mộc</span></div>
+                </div>
+
+                <a href="https://zalo.me" target="_blank" class="btn-book-room">
+                    <i class="fa-solid fa-calendar-check"></i> Đặt Phòng GA-MO
+                </a>
+            </div>
+        </section>
+
+        <!-- ==================================================================
+             HẠNG PHÒNG 3: GA-GIO (500.000 VNĐ)
+             ================================================================== -->
+        <section class="split-room-section" id="room-ga-gio">
+            <div class="split-visual-col">
+                <img src="images/general/exp-tamquan.jpg" alt="Phòng GA-GIO">
+                <div class="dark-overlay"></div>
+                <div class="room-overlay-typography">
+                    <span class="room-number-tag">ROOM 03 • OCEAN BREEZE</span>
+                    <h2 class="room-huge-title">GA-GIO</h2>
+                    <p class="room-poetic-meaning">Gió — Đón gió biển, cảm nhận sự tự do</p>
+                    <span class="room-price-badge">500.000 VNĐ / đêm</span>
+                </div>
+            </div>
+            <div class="split-info-col">
+                <span class="info-header-sub">Không Gian Tự Do</span>
+                <h3 class="info-room-headline">Hít Thở Làn Gió Mát Lành</h3>
+                <p class="info-room-desc">
+                    GA-GIO mang lại cảm giác khoáng đạt với hệ thống cửa thông gió thông minh. Khuấy động mọi giác quan bằng làn gió thoáng đãng và không khí trong lành của Gia Lai.
+                </p>
+
+                <div class="room-specs-table">
+                    <div class="spec-item"><label>Diện tích</label>28 m²</div>
+                    <div class="spec-item"><label>Loại giường</label>01 Giường đôi lớn (1m8 x 2m)</div>
+                    <div class="spec-item"><label>Sức chứa</label>02 Người lớn</div>
+                    <div class="spec-item"><label>View</label>Cửa sổ lớn đón gió</div>
+                </div>
+
+                <h4 class="amenities-section-title">Tiện Ích Nổi Bật</h4>
+                <div class="amenities-behance-grid">
+                    <div class="amenity-behance-card"><i class="fa-thin fa-fan"></i><span>Quạt gió dịu</span></div>
+                    <div class="amenity-behance-card"><i class="fa-thin fa-snowflake"></i><span>Điều hòa Inverter</span></div>
+                    <div class="amenity-behance-card"><i class="fa-thin fa-tv"></i><span>Smart TV</span></div>
+                    <div class="amenity-behance-card"><i class="fa-thin fa-shower"></i><span>Nước nóng</span></div>
+                    <div class="amenity-behance-card"><i class="fa-thin fa-chair"></i><span>Bàn ghế thư giãn</span></div>
+                </div>
+
+                <a href="https://zalo.me" target="_blank" class="btn-book-room">
+                    <i class="fa-solid fa-calendar-check"></i> Đặt Phòng GA-GIO
+                </a>
+            </div>
+        </section>
+
+        <!-- ==================================================================
+             HẠNG PHÒNG 4: GA-MAY (500.000 VNĐ)
+             ================================================================== -->
+        <section class="split-room-section" id="room-ga-may">
+            <div class="split-visual-col">
+                <img src="images/general/gajo-single-bed.jpg" alt="Phòng GA-MAY">
+                <div class="dark-overlay"></div>
+                <div class="room-overlay-typography">
+                    <span class="room-number-tag">ROOM 04 • CLOUD RETREAT</span>
+                    <h2 class="room-huge-title">GA-MAY</h2>
+                    <p class="room-poetic-meaning">Mây — Nhẹ nhàng, chậm rãi, thư thái</p>
+                    <span class="room-price-badge">500.000 VNĐ / đêm</span>
+                </div>
+            </div>
+            <div class="split-info-col">
+                <span class="info-header-sub">Bình Yên Nhẹ Nhàng</span>
+                <h3 class="info-room-headline">Thả Trôi Mọi Ưu Tư Theo Làn Mây</h3>
+                <p class="info-room-desc">
+                    Tông màu kem đệm bông êm ái tựa mây ngàn. GA-MAY là trạm dừng hoàn hảo cho những ai muốn sống chậm, nằm lười đọc sách và thưởng trà trong sự tĩnh lặng.
+                </p>
+
+                <div class="room-specs-table">
+                    <div class="spec-item"><label>Diện tích</label>28 m²</div>
+                    <div class="spec-item"><label>Loại giường</label>01 Giường đôi Queen</div>
+                    <div class="spec-item"><label>Sức chứa</label>02 Người lớn</div>
+                    <div class="spec-item"><label>Đệm</label>Lò xo bọc cotton organic</div>
+                </div>
+
+                <h4 class="amenities-section-title">Tiện Ích Nổi Bật</h4>
+                <div class="amenities-behance-grid">
+                    <div class="amenity-behance-card"><i class="fa-thin fa-cloud"></i><span>Đệm êm ái</span></div>
+                    <div class="amenity-behance-card"><i class="fa-thin fa-mug-hot"></i><span>Bộ pha trà gỗ</span></div>
+                    <div class="amenity-behance-card"><i class="fa-thin fa-snowflake"></i><span>Điều hòa</span></div>
+                    <div class="amenity-behance-card"><i class="fa-thin fa-tooth"></i><span>Đồ dùng cá nhân</span></div>
+                </div>
+
+                <a href="https://zalo.me" target="_blank" class="btn-book-room">
+                    <i class="fa-solid fa-calendar-check"></i> Đặt Phòng GA-MAY
+                </a>
+            </div>
+        </section>
+
+        <!-- ==================================================================
+             HẠNG PHÒNG 5: GA-NANG (500.000 VNĐ)
+             ================================================================== -->
+        <section class="split-room-section" id="room-ga-nang">
+            <div class="split-visual-col">
+                <img src="images/general/exp-gaocoffee.jpg" alt="Phòng GA-NANG">
+                <div class="dark-overlay"></div>
+                <div class="room-overlay-typography">
+                    <span class="room-number-tag">ROOM 05 • SUNSHINE SUITE</span>
+                    <h2 class="room-huge-title">GA-NANG</h2>
+                    <p class="room-poetic-meaning">Nắng — Ấm áp, đầy năng lượng</p>
+                    <span class="room-price-badge">500.000 VNĐ / đêm</span>
+                </div>
+            </div>
+            <div class="split-info-col">
+                <span class="info-header-sub">Ngập Tràn Ánh Sáng</span>
+                <h3 class="info-room-headline">Đón Năng Lượng Ấm Áp Ngày Mới</h3>
+                <p class="info-room-desc">
+                    Hướng đông đón ánh nắng mai rực rỡ. GA-NANG mang lại sinh khí tươi mới, nguồn năng lượng tích cực giúp bạn bắt đầu một ngày khám phá tràn đầy hứng khởi.
+                </p>
+
+                <div class="room-specs-table">
+                    <div class="spec-item"><label>Diện tích</label>30 m²</div>
+                    <div class="spec-item"><label>Loại giường</label>01 Giường King-size</div>
+                    <div class="spec-item"><label>Sức chứa</label>02 Người lớn</div>
+                    <div class="spec-item"><label>Đặc trưng</label>Đón nắng sớm tự nhiên</div>
+                </div>
+
+                <h4 class="amenities-section-title">Tiện Ích Nổi Bật</h4>
+                <div class="amenities-behance-grid">
+                    <div class="amenity-behance-card"><i class="fa-thin fa-sun"></i><span>Nắng sớm</span></div>
+                    <div class="amenity-behance-card"><i class="fa-thin fa-tv"></i><span>Smart TV</span></div>
+                    <div class="amenity-behance-card"><i class="fa-thin fa-box"></i><span>Tủ lạnh</span></div>
+                    <div class="amenity-behance-card"><i class="fa-thin fa-shower"></i><span>Nước nóng</span></div>
+                </div>
+
+                <a href="https://zalo.me" target="_blank" class="btn-book-room">
+                    <i class="fa-solid fa-calendar-check"></i> Đặt Phòng GA-NANG
+                </a>
+            </div>
+        </section>
+
+        <!-- ==================================================================
+             HẠNG PHÒNG 6: GA-MOC (1.000.000 VNĐ - VIP SIGNATURE)
+             ================================================================== -->
+        <section class="split-room-section" id="room-ga-moc">
+            <div class="split-visual-col">
+                <img src="images/general/gajo-interior.jpg" alt="Phòng GA-MOC VIP">
+                <div class="dark-overlay"></div>
+                <div class="room-overlay-typography">
+                    <span class="room-number-tag">ROOM 06 • VIP SIGNATURE SUITE</span>
+                    <h2 class="room-huge-title">GA-MOC</h2>
+                    <p class="room-poetic-meaning">Mộc — Gần gũi thiên nhiên, giản dị</p>
+                    <span class="room-price-badge" style="background: var(--accent-warm-oak);">1.000.000 VNĐ / đêm</span>
+                </div>
+            </div>
+            <div class="split-info-col">
+                <span class="info-header-sub" style="color: var(--accent-warm-oak);">★ Hạng Phòng VIP Độc Bản</span>
+                <h3 class="info-room-headline">Tuyệt Thác Tự Nhiên & Tiện Nghi Thượng Uyển</h3>
+                <p class="info-room-desc">
+                    Căn phòng cao cấp nhất tại GAJO's HOUSE với thiết kế giếng trời ngắm sao, bồn tắm ngâm thảo mộc, máy chiếu phim rạp và sofa bed êm ái cho trải nghiệm nghỉ dưỡng thượng hạng.
+                </p>
+
+                <div class="room-specs-table" style="border-color: var(--accent-warm-oak);">
+                    <div class="spec-item"><label>Diện tích</label>45 m² VIP</div>
+                    <div class="spec-item"><label>Đặc quyền</label>Sofa Bed + Giếng trời</div>
+                    <div class="spec-item"><label>Giải trí</label>Máy chiếu phim HD</div>
+                    <div class="spec-item"><label>Thư giãn</label>Bồn tắm thảo mộc</div>
+                </div>
+
+                <h4 class="amenities-section-title">Trang Thiết Bị VIP Độc Quyền</h4>
+                <div class="amenities-behance-grid">
+                    <div class="amenity-behance-card"><i class="fa-thin fa-couch"></i><span>Sofa Bed</span></div>
+                    <div class="amenity-behance-card"><i class="fa-thin fa-bath"></i><span>Bồn tắm lớn</span></div>
+                    <div class="amenity-behance-card"><i class="fa-thin fa-video"></i><span>Máy chiếu HD</span></div>
+                    <div class="amenity-behance-card"><i class="fa-thin fa-sun"></i><span>Giếng trời</span></div>
+                    <div class="amenity-behance-card"><i class="fa-thin fa-mug-hot"></i><span>Set trà hoa</span></div>
+                    <div class="amenity-behance-card"><i class="fa-thin fa-wine-glass"></i><span>Tủ lạnh lớn</span></div>
+                </div>
+
+                <a href="https://zalo.me" target="_blank" class="btn-book-room" style="background: var(--accent-warm-oak);">
+                    <i class="fa-solid fa-crown"></i> Đặt Phòng VIP GA-MOC
+                </a>
+            </div>
+        </section>
+
+        <!-- ==================================================================
+             HẠNG PHÒNG 7: GA-TRON (450.000 VNĐ)
+             ================================================================== -->
+        <section class="split-room-section" id="room-ga-tron">
+            <div class="split-visual-col">
+                <img src="images/ga-an/Phòng GA-AN 2.png" alt="Phòng GA-TRON">
+                <div class="dark-overlay"></div>
+                <div class="room-overlay-typography">
+                    <span class="room-number-tag">ROOM 07 • HIDEAWAY</span>
+                    <h2 class="room-huge-title">GA-TRON</h2>
+                    <p class="room-poetic-meaning">Trốn — Trốn khỏi những bộn bề áp lực</p>
+                    <span class="room-price-badge">450.000 VNĐ / đêm</span>
+                </div>
+            </div>
+            <div class="split-info-col">
+                <span class="info-header-sub">Góc Trốn Riêng Tư</span>
+                <h3 class="info-room-headline">Tạm Quên Đi Những Lo Toan Phố Thị</h3>
+                <p class="info-room-desc">
+                    Tắt thông báo điện thoại, "trốn" vào một không gian được bao bọc bởi sự yên tĩnh tuyệt đối. GA-TRON giúp bạn chữa lành tâm hồn sau những áp lực công việc hàng ngày.
+                </p>
+
+                <div class="room-specs-table">
+                    <div class="spec-item"><label>Diện tích</label>24 m²</div>
+                    <div class="spec-item"><label>Loại giường</label>01 Giường đôi</div>
+                    <div class="spec-item"><label>Đặc trưng</label>Cách âm tĩnh lặng</div>
+                    <div class="spec-item"><label>Sức chứa</label>01 - 02 Khách</div>
+                </div>
+
+                <h4 class="amenities-section-title">Tiện Ích Nổi Bật</h4>
+                <div class="amenities-behance-grid">
+                    <div class="amenity-behance-card"><i class="fa-thin fa-volume-xmark"></i><span>Tiêu âm tốt</span></div>
+                    <div class="amenity-behance-card"><i class="fa-thin fa-snowflake"></i><span>Máy lạnh</span></div>
+                    <div class="amenity-behance-card"><i class="fa-thin fa-shower"></i><span>Nước nóng</span></div>
+                    <div class="amenity-behance-card"><i class="fa-thin fa-wifi"></i><span>Wi-Fi 6</span></div>
+                </div>
+
+                <a href="https://zalo.me" target="_blank" class="btn-book-room">
+                    <i class="fa-solid fa-calendar-check"></i> Đặt Phòng GA-TRON
+                </a>
+            </div>
+        </section>
+
+        <!-- ==================================================================
+             HẠNG PHÒNG 8: GA-LAC (450.000 VNĐ)
+             ================================================================== -->
+        <section class="split-room-section" id="room-ga-lac">
+            <div class="split-visual-col">
+                <img src="images/ga-mo/Phòng GA-MO 2.png" alt="Phòng GA-LAC">
+                <div class="dark-overlay"></div>
+                <div class="room-overlay-typography">
+                    <span class="room-number-tag">ROOM 08 • WANDERLUST</span>
+                    <h2 class="room-huge-title">GA-LAC</h2>
+                    <p class="room-poetic-meaning">Lạc — Lạc vào một nơi không muốn rời đi</p>
+                    <span class="room-price-badge">450.000 VNĐ / đêm</span>
+                </div>
+            </div>
+            <div class="split-info-col">
+                <span class="info-header-sub">Chốn Dừng Chân Thơ Mộng</span>
+                <h3 class="info-room-headline">Lạc Giữa Mảng Xanh & Ánh Đèn Ấm</h3>
+                <p class="info-room-desc">
+                    Từng góc nhỏ đều mang tính nghệ thuật cao. GA-LAC khiến bạn lưu luyến ngay từ bước chân đầu tiên, một chốn đi về ấm áp mà ai cũng mong ước được lưu lại lâu hơn.
+                </p>
+
+                <div class="room-specs-table">
+                    <div class="spec-item"><label>Diện tích</label>26 m²</div>
+                    <div class="spec-item"><label>Loại giường</label>01 Giường đôi Queen</div>
+                    <div class="spec-item"><label>Sức chứa</label>02 Người lớn</div>
+                    <div class="spec-item"><label>Decor</label>Nội thất mộc thủ công</div>
+                </div>
+
+                <h4 class="amenities-section-title">Tiện Ích Nổi Bật</h4>
+                <div class="amenities-behance-grid">
+                    <div class="amenity-behance-card"><i class="fa-thin fa-tv"></i><span>Smart TV</span></div>
+                    <div class="amenity-behance-card"><i class="fa-thin fa-mug-hot"></i><span>Trà & Cafe</span></div>
+                    <div class="amenity-behance-card"><i class="fa-thin fa-shower"></i><span>Nước nóng</span></div>
+                    <div class="amenity-behance-card"><i class="fa-thin fa-wind"></i><span>Máy sấy tóc</span></div>
+                </div>
+
+                <a href="https://zalo.me" target="_blank" class="btn-book-room">
+                    <i class="fa-solid fa-calendar-check"></i> Đặt Phòng GA-LAC
+                </a>
+            </div>
+        </section>
+
+        <!-- ==================================================================
+             HẠNG PHÒNG 9: GA-DINH (500.000 VNĐ)
+             ================================================================== -->
+        <section class="split-room-section" id="room-ga-dinh">
+            <div class="split-visual-col">
+                <img src="images/ga-dinh/Phòng GA-DINH 1.png" alt="Phòng GA-DINH">
+                <div class="dark-overlay"></div>
+                <div class="room-overlay-typography">
+                    <span class="room-number-tag">ROOM 09 • FAMILY NEST</span>
+                    <h2 class="room-huge-title">GA-DINH</h2>
+                    <p class="room-poetic-meaning">Gia đình — Tổ ấm gắn kết yêu thương</p>
+                    <span class="room-price-badge">500.000 VNĐ / đêm</span>
+                </div>
+            </div>
+            <div class="split-info-col">
+                <span class="info-header-sub">Tổ Ấm Ấm Cúng</span>
+                <h3 class="info-room-headline">Rộng Mở Cho Cả Gia Đình & Nhóm Bạn</h3>
+                <p class="info-room-desc">
+                    Không gian sinh hoạt chung rộng rãi với giường King-size và góc sofa thư giãn. GA-DINH là nơi lưu giữ những khoảnh khắc gắn kết tình thân ấm áp của gia đình.
+                </p>
+
+                <div class="room-specs-table">
+                    <div class="spec-item"><label>Diện tích</label>35 m²</div>
+                    <div class="spec-item"><label>Loại giường</label>Giường King (1m8 x 2m)</div>
+                    <div class="spec-item"><label>Sức chứa</label>02 - 04 Khách</div>
+                    <div class="spec-item"><label>Tiện ích</label>Lounge Sofa gia đình</div>
+                </div>
+
+                <h4 class="amenities-section-title">Tiện Ích Nổi Bật</h4>
+                <div class="amenities-behance-grid">
+                    <div class="amenity-behance-card"><i class="fa-thin fa-couch"></i><span>Lounge Sofa</span></div>
+                    <div class="amenity-behance-card"><i class="fa-thin fa-tv"></i><span>Smart TV 55"</span></div>
+                    <div class="amenity-behance-card"><i class="fa-thin fa-car"></i><span>Đậu xe riêng</span></div>
+                    <div class="amenity-behance-card"><i class="fa-thin fa-snowflake"></i><span>Điều hòa lớn</span></div>
+                </div>
+
+                <a href="https://zalo.me" target="_blank" class="btn-book-room">
+                    <i class="fa-solid fa-calendar-check"></i> Đặt Phòng GA-DINH
+                </a>
+            </div>
+        </section>
+
+        <!-- ==================================================================
+             5. TỔNG HỢP HỆ THỐNG TIỆN ÍCH BEHANCE GRID (BEHANCE STYLE)
+             ================================================================== -->
+        <section class="global-amenities-section">
+            <h2 class="hero-main-heading" style="font-size: 2.2rem; margin-bottom: 12px;">Hệ Thống Tiện Ích Kinfolk</h2>
+            <p class="hero-poetic-tagline" style="font-size: 1.1rem; margin-bottom: 60px;">Chăm chút tỉ mỉ từ những điều nhỏ nhất để mang lại sự tiện nghi trọn vẹn</p>
+
+            <div class="global-amenities-category">
+                <h3 class="category-title">1. Tiện Ích Trong Phòng (In-Room)</h3>
+                <div class="behance-icons-row">
+                    <div class="amenity-behance-card" style="width: 140px;"><i class="fa-thin fa-wifi"></i><span>Wi-Fi Tốc Độ Cao</span></div>
+                    <div class="amenity-behance-card" style="width: 140px;"><i class="fa-thin fa-snowflake"></i><span>Máy Lạnh Inverter</span></div>
+                    <div class="amenity-behance-card" style="width: 140px;"><i class="fa-thin fa-fan"></i><span>Quạt Dịu Mát</span></div>
+                    <div class="amenity-behance-card" style="width: 140px;"><i class="fa-thin fa-tv"></i><span>Smart TV 4K</span></div>
+                    <div class="amenity-behance-card" style="width: 140px;"><i class="fa-thin fa-box"></i><span>Tủ Lạnh Mini</span></div>
+                    <div class="amenity-behance-card" style="width: 140px;"><i class="fa-thin fa-bottle-water"></i><span>Nước Uống Miễn Phí</span></div>
+                    <div class="amenity-behance-card" style="width: 140px;"><i class="fa-thin fa-mug-hot"></i><span>Trà & Cà Phê</span></div>
+                    <div class="amenity-behance-card" style="width: 140px;"><i class="fa-thin fa-sun"></i><span>Rèm 2 Lớp</span></div>
+                </div>
+            </div>
+
+            <div class="global-amenities-category">
+                <h3 class="category-title">2. Tiện Ích Phòng Tắm (Bathroom)</h3>
+                <div class="behance-icons-row">
+                    <div class="amenity-behance-card" style="width: 140px;"><i class="fa-thin fa-shower"></i><span>Nước Nóng 24/7</span></div>
+                    <div class="amenity-behance-card" style="width: 140px;"><i class="fa-thin fa-soap"></i><span>Khăn Tắm Organic</span></div>
+                    <div class="amenity-behance-card" style="width: 140px;"><i class="fa-thin fa-pump-soap"></i><span>Dầu Gội & Sữa Tắm</span></div>
+                    <div class="amenity-behance-card" style="width: 140px;"><i class="fa-thin fa-tooth"></i><span>Bàn Chải & Kem</span></div>
+                    <div class="amenity-behance-card" style="width: 140px;"><i class="fa-thin fa-wind"></i><span>Máy Sấy Tóc</span></div>
+                </div>
+            </div>
+
+            <div class="global-amenities-category">
+                <h3 class="category-title">3. Dịch Vụ & Tiện Ích Chung (Services & Facilities)</h3>
+                <div class="behance-icons-row">
+                    <div class="amenity-behance-card" style="width: 140px;"><i class="fa-thin fa-broom"></i><span>Dọn Phòng Hằng Ngày</span></div>
+                    <div class="amenity-behance-card" style="width: 140px;"><i class="fa-thin fa-shirt"></i><span>Giặt Sấy Lấy Nhanh</span></div>
+                    <div class="amenity-behance-card" style="width: 140px;"><i class="fa-thin fa-motorcycle"></i><span>Thuê Xe Máy</span></div>
+                    <div class="amenity-behance-card" style="width: 140px;"><i class="fa-thin fa-square-parking"></i><span>Bãi Đậu Xe Riêng</span></div>
+                    <div class="amenity-behance-card" style="width: 140px;"><i class="fa-thin fa-tree"></i><span>Sân Vườn & BBQ</span></div>
+                    <div class="amenity-behance-card" style="width: 140px;"><i class="fa-thin fa-video"></i><span>Camera An Ninh</span></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal Xem Catalogue 3D Interactive Flipbook -->
+    <div class="flipbook-view-modal" id="flipbookModal">
+        <button class="btn-close-modal" id="btnCloseFlipbook"><i class="fa-solid fa-xmark"></i></button>
+        <div id="modalFlipbookStage" class="flipbook-container"></div>
+    </div>
+
+    <!-- ==========================================================================
+         SCRIPT SCROLLING ANIMATION (LENIS & GSAP 3.12 SCROLLTRIGGER)
+         ========================================================================== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. Tích hợp Lenis Smooth Scroll mượt mà
+            const lenis = new Lenis({
+                duration: 1.2,
+                easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+                smoothWheel: true,
+                touchMultiplier: 2
+            });
+
+            lenis.on('scroll', ScrollTrigger.update);
+            gsap.ticker.add((time) => lenis.raf(time * 1000));
+            gsap.ticker.lagSmoothing(0);
+
+            // 2. Hiệu ứng GSAP Parallax & Fade Up cho các phòng
+            gsap.registerPlugin(ScrollTrigger);
+
+            const splitSections = document.querySelectorAll('.split-room-section');
+            splitSections.forEach((section) => {
+                const img = section.querySelector('.split-visual-col img');
+                const overlayText = section.querySelector('.room-overlay-typography');
+                const infoElements = section.querySelectorAll('.split-info-col > *');
+
+                // Parallax Zoom trên ảnh bên trái
+                gsap.fromTo(img, 
+                    { scale: 1.15 },
+                    { 
+                        scale: 1.0,
+                        ease: "none",
+                        scrollTrigger: {
+                            trigger: section,
+                            start: "top bottom",
+                            end: "bottom top",
+                            scrub: true
+                        }
+                    }
+                );
+
+                // Fade up mượt mà cho nội dung thông tin bên phải
+                gsap.from(infoElements, {
+                    y: 35,
+                    opacity: 0,
+                    duration: 0.9,
+                    stagger: 0.12,
+                    ease: "power2.out",
+                    scrollTrigger: {
+                        trigger: section,
+                        start: "top 70%",
+                        toggleActions: "play none none reverse"
+                    }
+                });
+            });
+
+            // Toggle Modal Flipbook 3D
+            const flipbookModal = document.getElementById('flipbookModal');
+            const btn3DMode = document.getElementById('btn3DMode');
+            const btnCloseFlipbook = document.getElementById('btnCloseFlipbook');
+
+            btn3DMode.addEventListener('click', () => {
+                flipbookModal.classList.add('active');
+            });
+            btnCloseFlipbook.addEventListener('click', () => {
+                flipbookModal.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
